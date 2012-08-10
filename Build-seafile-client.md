@@ -39,4 +39,14 @@ Before build package, you need to compile 'libsearpc' and 'ccnet' libraries beca
 
 > make install
 
-1. Build debian package
+2. Build debian package
+
+> wget https://github.com/haiwen/seafile/zipball/master
+
+> cd seafile
+
+> ./autogen.sh
+
+> ./configure --prefix=/usr
+
+> dpkg-buildpackage -nc
