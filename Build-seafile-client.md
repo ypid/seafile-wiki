@@ -1,0 +1,1 @@
+# HOWTO build a debian package for seafile client
