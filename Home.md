@@ -1,3 +1,4 @@
 Welcome to the seafile wiki!
 
-* [[build seafile client]]
+* [[Build seafile client/server on linux]]
+* [[Build seafile client on windows]]
