@@ -1,4 +1,3 @@
-
 ## Build seafile
 
 * [[Build seafile client and server on linux]]
