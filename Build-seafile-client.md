@@ -1,6 +1,6 @@
 ## HOWTO build a debian package for seafile client
 
-1. Prepare
+#. Prepare
 
 Before build package, you need to compile 'libsearpc' and 'ccnet' libraries because seafile depends on them.
 
@@ -40,7 +40,7 @@ Before build package, you need to compile 'libsearpc' and 'ccnet' libraries beca
 
 > make install
 
-2. Build debian package
+#. Build debian package
 
 > wget https://github.com/haiwen/seafile/zipball/master
 
