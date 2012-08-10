@@ -1,6 +1,7 @@
 ## HOWTO build a debian package for seafile client
 
 1. Prepare
+
 Before build package, you need to compile 'libsearpc' and 'ccnet' libraries because seafile depends on them.
 
 * Build libsearpc
