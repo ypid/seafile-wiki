@@ -32,3 +32,10 @@ The following list is what you need to install on your development machine. Once
 * libmysqlclient-dev
 * libzdb
 * libevhtp
+
+### Building ###
+* download tarball and untar this file
+* cd seafile-${VERSION}
+* ./configure
+* make
+* make install
