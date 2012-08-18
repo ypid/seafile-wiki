@@ -21,6 +21,7 @@ The following list is what you need to install on your development machine. Once
 * libsqlite3-dev
 * valac
 * python2.7-dev 
+* python-webpy
 
 ### Required by client
 * libnotify-dev
