@@ -33,9 +33,16 @@ The following list is what you need to install on your development machine. Once
 * libzdb
 * libevhtp
 
-### Building ###
+### Building Client ###
 * download tarball and untar this file
 * cd seafile-${VERSION}
 * ./configure
+* make
+* make install
+
+### Building Server ###
+* download tarball and untar this file
+* cd seafile-${VERSION}
+* ./configure --enable-server --enable-httpserver
 * make
 * make install
