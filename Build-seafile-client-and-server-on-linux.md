@@ -26,7 +26,6 @@ The following list is what you need to install on your development machine. Once
 ### Required by client
 * libnotify-dev
 * libappindicator-dev
-* libnautilus-extension-dev
 
 ### Required by server
 * libmysqlclient-dev
