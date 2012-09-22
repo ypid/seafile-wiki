@@ -2,7 +2,7 @@
 
 To build Seafile, you need first build and install:
 
-* [libsearpc](https://www.github.com/lins05/libsearpc) 
+* [libsearpc](https://github.com/haiwen/libsearpc) 
 * [ccnet](https://www.github.com/haiwen/ccnet)
 
 The following list is what you need to install on your development machine. Once you have them installed, you can build all of libsearpc/ccnet/seafile.
