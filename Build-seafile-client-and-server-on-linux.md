@@ -29,7 +29,7 @@ The following list is what you need to install on your development machine. Once
 
 ### Required by server
 * libmysqlclient-dev
-* libzdb
+* libzdb (http://www.tildeslash.com/libzdb/dist/libzdb-2.10.5.tar.gz)
 * libevhtp
 
 ### Building Client ###
