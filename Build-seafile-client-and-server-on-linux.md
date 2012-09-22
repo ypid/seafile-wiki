@@ -30,7 +30,9 @@ The following list is what you need to install on your development machine. Once
 ### Required by server
 * libmysqlclient-dev
 * libzdb (http://www.tildeslash.com/libzdb/dist/libzdb-2.10.5.tar.gz)
-* libevhtp
+* libevhtp (https://github.com/downloads/ellzey/libevhtp/libevhtp-0.3.0.tar.gz)
+
+libevhtp needs to be built by `cmake'
 
 ### Building Client ###
 * download tarball and untar this file
