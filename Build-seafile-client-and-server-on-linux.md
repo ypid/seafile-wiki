@@ -1,6 +1,6 @@
 ## Prerequiste
 
-To build Seafile, you need first download, build and install the latest version of **ccnet/libsearpc**.
+To build Seafile, you need first download, build and install the latest version of **libsearpc** and **ccnet**.
 
 Download links:
 
