@@ -1,9 +1,12 @@
 ## Prerequiste
 
-To build Seafile, you need first build and install:
+To build Seafile, you need first download, build and install the latest version of **ccnet/libsearpc**.
 
-* [libsearpc](https://github.com/haiwen/libsearpc) 
-* [ccnet](https://www.github.com/haiwen/ccnet)
+Download links:
+
+* [libsearpc](https://github.com/haiwen/libsearpc/downloads) 
+* [ccnet](https://www.github.com/haiwen/ccnet/downloads)
+* [seafile](https://www.github.com/haiwen/seafile/downloads)
 
 The following list is what you need to install on your development machine. __You should install all of them before you try to compile any of libsearpc/ccnet/seafile__.
 
@@ -17,7 +20,6 @@ The following list is what you need to install on your development machine. __Yo
 * uuid-dev
 * intltool 
 * libsqlite3-dev
-* valac
 * python2.7-dev 
 
 ### Required by client
