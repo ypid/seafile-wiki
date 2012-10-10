@@ -50,6 +50,14 @@ libevhtp needs to be built by `cmake`
 * make
 * make install
 
+### Run Seafile client ###
+
+After building Seafile client, you can start it by invoke the seafile-applet command.
+
+```sh
+    $ seafile-applet
+```
+
 ### Problems Report
 
 If you encounter any problem when building Seafile, please leave us a message or open an issue.
