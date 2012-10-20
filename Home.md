@@ -5,5 +5,5 @@
 
 ## Use Seafile
 
-* [[Use Seafile on Windows/Linux/Mac]]
+* [[Use Seafile client]]
 * [[Deploy Seafile server on Linux]]
