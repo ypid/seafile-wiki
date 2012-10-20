@@ -9,4 +9,5 @@ After you build and install Seafile client on Linux, you can start it by the `se
 
 ### Windows
 
-* After download the installer(a .msi file), click the msi file and follow the installer to finish the installation. The program will start automatically after installation.
+* After download the installer(a .msi file), click the msi file and follow the installer to finish the installation.
+* The program will start automatically after installation.
