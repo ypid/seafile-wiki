@@ -159,11 +159,26 @@ export CCNET_CONF_DIR=${CCNET_CONF_DIR}
 python manage.py syncdb
 ```
 
+Here `CCNET_CONF_DIR` is the ccnet config directory you use above when create ccnet configuration. By default it's `~/.ccnet`
+
 ### Start all the componenets ###
 
 #### start ccnet-server ####
+
+```sh
+ccnet-server -c ${CCNET_CONF_DIR}
+```
 #### start seaf-server ####
+
+```sh
+seaf-server -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR}
+seaf-mon -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR}
+```
+
+`SEAFILE_DATA_DIR` is the seafile data dir you choose when creating seafile configuration.
+
 #### start httpserver ####
+
 #### start seahub ####
 
 ## Problems Report ##
