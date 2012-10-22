@@ -1,4 +1,4 @@
-## Build ##
+## Build Seafile Server ##
 
 ### Preparation ###
 
@@ -51,7 +51,7 @@ To build Seafile Server, you need first build the latest version of **libsearpc*
 * make
 * make install
 
-## Deploy ##
+## Deploy Seafile Server ##
 
 To deploy Seafile server, we need first know about its components.
 
