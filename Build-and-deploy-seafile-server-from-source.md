@@ -179,7 +179,21 @@ seaf-mon -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR}
 
 #### start httpserver ####
 
+```sh
+httpserver -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR} -r ${SEAFILE_SOURCE_DIR}/httpserver/htmls
+```
+
+`SEAFILE_SOURCE_DIR` is the top level directory of the uncompressed seafile-${VERSION}.tar.gz tarball. For example, "/data/dev/seafile-1.1.0/".
+
 #### start seahub ####
+
+```sh
+cd seahub
+python manage.py runserver
+```
+### Done ###
+
+Now open your browser and open `http://YourServerIp:8000`, you can see the seahub website running.
 
 ## Problems Report ##
 
