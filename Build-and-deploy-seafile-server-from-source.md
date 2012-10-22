@@ -189,8 +189,12 @@ httpserver -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR} -r ${SEAFILE_SOURCE_DIR}/
 
 ```sh
 cd seahub
+export CCNET_CONF_DIR=${CCNET_CONF_DIR}
 python manage.py runserver
 ```
+
+Here again, `CCNET_CONF_DIR` is the directory you specified when creating ccnet configuration.
+
 ### Done ###
 
 Now open your browser and open `http://YourServerIp:8000`, you can see the seahub website running.
