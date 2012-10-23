@@ -4,11 +4,11 @@
 
 The following list is what you need to install on your development machine. __You should install all of them before you build seafile__.
 
-Package names are according to Ubuntu 11.10. For other Linux distros, please find their corresponding names yourself.
+Package names are according to Ubuntu 12.04. For other Linux distros, please find their corresponding names yourself.
 
 * libevent-dev ( 2.0 or later )
 * libcurl4-openssl-dev  (1.0.0 or later)
-* libglib-2.0 ( 2.28 or later)
+* libglib2.0-dev ( 2.28 or later)
 * uuid-dev
 * intltool ( 0.40 or later)
 * libsqlite3-dev (3.7 or later)
