@@ -18,8 +18,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * python-mako
 * python-webpy
 * python-simplejson
-
-For Ubuntu, `libappindicator-dev` is also needed.
+* libappindicator-dev (needed for Ubuntu Unity Desktop, not requied otherwise)
 
 #### Building ####
 
