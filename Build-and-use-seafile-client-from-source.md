@@ -28,7 +28,7 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 * [download](https://www.github.com/haiwen/libsearpc/downloads) the latest version tarball , and untar it
 * cd libsearpc-${VERSION}
-* ./configure
+* ./configure --prefix=/usr
 * make
 * make install
 
@@ -36,7 +36,7 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 * [download](https://www.github.com/haiwen/ccnet/downloads) the latest version tarball , and untar it
 * cd ccnet-${VERSION}
-* ./configure
+* ./configure --prefix=/usr
 * make
 * make install
 
@@ -44,7 +44,7 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 * [download](https://www.github.com/haiwen/seafile/downloads) the latest version tarball , and untar it
 * cd seafile-${VERSION}
-* ./configure
+* ./configure --prefix=/usr
 * make
 * make install
 
