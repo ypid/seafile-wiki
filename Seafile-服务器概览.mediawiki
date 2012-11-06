@@ -1,0 +1,8 @@
+= Seafile 服务器的组成 =
+
+* Ccnet：网络服务
+* Seafile server：负责数据访问
+* Monitor server：监控服务状态，统计信息
+* Seahub：网站界面，供用户管理自己在服务器上的数据和账户信息
+
+从概念上说，Seafile 服务器包含以上4个主要的部件。
