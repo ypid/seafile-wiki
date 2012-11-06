@@ -1,4 +1,4 @@
-This manual explains how to change various config options for Seafile server. We assume that you've [[server-setup-en|setup Seafile server]]. 
+This manual explains how to change various config options for Seafile server. We assume that you've [[Download-and-setup-seafile-server|setup Seafile server]]. 
 
 == Seafile Network Configurations ==
 
