@@ -5,7 +5,6 @@
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
 * [[Seafile Server Management]]
-* [[Upgrading Seafile Server ]]
 
 [[Seafile 服务器手册中文版]]
 
