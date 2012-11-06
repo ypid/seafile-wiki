@@ -1,0 +1,81 @@
+This manual explains how to change various config options for Seafile server. We assume that you've [[server-setup-en|setup Seafile server]]. 
+
+== Seafile Network Configurations ==
+
+You may change Seafile's network options by modifying ccnet/ccnet.conf file. Let's walk through the options by an example.
+
+<pre>
+[General]
+
+# This option is not used by Seafile server
+USER_NAME=example
+
+# Please don't change this ID.
+ID=eb812fd276432eff33bcdde7506f896eb4769da0
+
+# This is the name of this Seafile server. It'll be displayed on Seafile client program.
+NAME=example
+
+# This is the URL for seahub website
+SERVICE_URL=http://www.example.com:8000
+
+
+[Network]
+
+# Ccnet waits for client connections on this port. If it's used by other services, please change it.
+PORT=10001
+
+[Client]
+# Ccnet listens to this port on localhost for local clients' request (e.g. seahub website).
+# If it's been used by other services, ccnet and seafile would not be able to run.
+PORT=13419
+
+</pre>
+
+You should restart seafile so that your changes take effect.
+
+<pre>
+cd seafile-server
+./seafile.sh restart
+</pre>
+
+== Seahub Configurations ==
+
+=== Sending Email Notifications on Seahub ===
+
+A few features work better if it can send email notifications, such as notifying users about new messages.
+If you want to setup email notifications, please add the following lines to seahub_settings.py (and set your email server).
+
+<pre>
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.163.com'        # smpt server
+EMAIL_HOST_USER = 'username@163.com'    # username
+EMAIL_HOST_PASSWORD = 'password'    # password
+EMAIL_PORT = '25'
+DEFAULT_FROM_EMAIL ="username@163.com"    # username
+</pre>
+
+=== Seahub Settings ===
+
+You may change seahub website's settings in seahub_settings.py.
+
+<pre>
+
+# You should change 'localhost' to your server's IP address, but keep the port 8082.
+# Otherwise you won't be able to download or preview files on seahub website.
+HTTP_SERVER_ROOT = "http://localhost:8082"
+
+# Set this to seahub website's URL. This URL is contained in email notifications.
+SITE_BASE = 'http://gonggeng.org/'
+
+# Set this to your website's name. This is contained in email notifications.
+SITE_NAME = 'gonggeng'
+
+# Set seahub website's title
+SEAHUB_TITLE = 'SeaCloud'
+
+# If you don't want to run seahub website on your site's root path, set this option to your preferred path.
+# e.g. setting it to '/seahub/' would run seahub on http://example.com/seahub/.
+SITE_ROOT = '/'
+
+</pre>
