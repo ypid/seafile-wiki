@@ -7,6 +7,8 @@
 * [[Seafile Server Management]]
 * [[Upgrading Seafile Server ]]
 
+[[Seafile 服务器手册中文版]]
+
 ## Building and Using Seafile from Source
 
 * [[Build and Deploy Seafile Server from source]]
