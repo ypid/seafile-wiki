@@ -1,7 +1,12 @@
 ## Seafile Server Manuals
 
+**Basic**
+
 * [[Seafile Server Components Overview]]
 * [[Download and Setup Seafile Server ]]
+
+**Advance**
+
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
 * [[Seafile Server Management]]
