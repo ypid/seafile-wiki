@@ -1,0 +1,79 @@
+这篇帮助文档介绍了服务器的管理员如何更改 Seafile 服务器的配置。这里假设你已经完成了[[server-setup|对服务器的第一次配置]]。
+
+== Seafile 的网络配置 ==
+
+你可以通过修改 ccnet/ccnet.conf 文件中的选项来控制 Seafile 的网络参数。下面我们通过一个示例配置来介绍可配置的选项。
+
+<pre>
+[General]
+
+# 这个在服务器上没有用
+USER_NAME=example
+
+# 请不要更改这个 ID
+ID=eb812fd276432eff33bcdde7506f896eb4769da0
+# NAME 会被同步到客户端上，做为服务器的名字
+NAME=example
+
+# SERVICE_URL 应该设置为 Seahub 网站的 URL
+SERVICE_URL=http://www.example.com:8000
+
+
+[Network]
+
+# 这个端口用于 Seafile 客户端的连接。如果这个端口号已经有其他进程使用，请更改
+PORT=10001
+
+[Client]
+# Ccnet 会在 localhost 上监听这个端口，以响应本地客户端的服务调用请求（比如 Seahub 网站）。
+# 如果该端口号已经有其他进程使用，会导致 Ccnet 和 Seafile 无法启动，此时请更改这个设置
+PORT=13419
+
+</pre>
+
+在更改了 ccnet.conf 之后，你需要重启 Seafile 以使得设置生效。
+
+<pre>
+cd seafile-server
+./seafile.sh restart
+</pre>
+
+== Seahub 配置 ==
+
+=== Seahub 邮件发送 ===
+
+重置密码，目录共享，消息通知等几个服务需要邮件发送。163,qq等邮箱可以正常发送邮件，gmail目前无法发送。
+在seahub_settings.py 中写入以下配置： 
+
+<pre>
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.163.com'        # smpt server
+EMAIL_HOST_USER = 'username@163.com'    # username
+EMAIL_HOST_PASSWORD = 'password'    # password
+EMAIL_PORT = '25'
+DEFAULT_FROM_EMAIL ="username@163.com"    # username
+</pre>
+
+=== Seahub 参数配置 ===
+
+Seahub 的配置可以在 seahub_settings.py 里覆盖。以下是几个可配置的参数。
+
+<pre>
+
+# 必须把这里的 localhost 改为你的IP地址，端口8082不要修改，否则无法在 Seahub 网站上下载和查看文件
+HTTP_SERVER_ROOT = "http://localhost:8082"
+
+# 必须改成你的网址，该参数用在邮件发送服务里用户可点击的网址
+SITE_BASE = 'http://gonggeng.org/'
+
+# 必须改成你的网站名称，该参数用在邮件发送服务里的署名
+SITE_NAME = 'gonggeng'
+
+# 修改 Seahub 网站的标题，可选参数
+SEAHUB_TITLE = 'SeaCloud'
+
+# 如果不是部署在根路径下，需要将该参数修改成相应的路径，可选参数
+# 例如：将seahub部署到http://example.com/seahub/下，则需要将该参数修改成 '/seahub/'
+SITE_ROOT = '/'
+
+</pre>
