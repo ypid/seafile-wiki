@@ -55,7 +55,7 @@ Change into haiwen/seafile-server-1.2.0 directory, and run setup-seafile.sh scri
 $ ./setup-seafile.sh
 </pre>
 
-[[Image:server-setup.png|You'll see these outputs when you run the setup script]]
+[[images/server-setup.png|You'll see these outputs when you run the setup script]]
 
 The script will guide you through the settings of various configuration options.
 
@@ -96,7 +96,7 @@ The script will guide you through the settings of various configuration options.
 
 If the setup is successful, you'll see the following output
 
-[[Image:server-setup-successfully.png]]
+[[images/server-setup-successfully.png]]
 
 Now you should have the following directory layout
 
