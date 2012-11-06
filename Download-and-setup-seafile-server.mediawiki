@@ -123,7 +123,7 @@ Under seafile-server-1.2.0 directory, run the following commands
 
 After starting the services, you may open a web browser to check if you can visit seahub website.
 
-Now you may read about [[how to manage the server]].
+Now you may read about [[Seafile-server-management|how to manage the server]].
 
 == Stopping and Restarting Seafile and Seahub ==
 
