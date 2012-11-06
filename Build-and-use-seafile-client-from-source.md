@@ -44,9 +44,11 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 * [download](https://www.github.com/haiwen/seafile/downloads) the latest version tarball , and untar it
 * cd seafile-${VERSION}
-* ./configure --prefix=/usr
+* ./configure --prefix=/usr --enable-appindicator
 * make
 * make install
+
+Appindicator is needed for Unity desktop environment.
 
 ### Windows ###
 
