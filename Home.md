@@ -4,12 +4,12 @@
 
 * [[Seafile Server Components Overview]]
 * [[Download and Setup Seafile Server ]]
+* [[Seafile Server Management]]
 
 **Advance**
 
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
-* [[Seafile Server Management]]
 
 [[Seafile 服务器手册中文版]]
 
