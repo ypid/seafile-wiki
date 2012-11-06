@@ -120,7 +120,7 @@ $ ./setup-seafile.sh
 
 服务启动之后，你可以打开浏览器，访问你的 Seahub 站点，检查是否工作正常。
 
-接下来你可以看看[[server-management|如何管理服务器]]了。
+接下来你可以看看[[Seafile 服务器管理|如何管理服务器]]了。
 
 == 附录：停止及重启 Seafile，Seahub ==
 
