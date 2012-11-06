@@ -1,0 +1,9 @@
+= Components of Seafile Server =
+
+Seafile server comprises of the following servicess
+
+* Ccnet：networking service daemon
+* Seafile server：data service daemon
+* Monitor server：statistics daemon
+* Seahub：the website
+* Controller: monitors ccnet and seafile daemons
