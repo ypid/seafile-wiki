@@ -1,0 +1,11 @@
+This manual explains how seahub administrator manages file libraries and users in Seafile server.
+
+== User and File Libraries Management ==
+
+When you setup seahub website, you should have setup a admin account. After you logged in a admin, you may add/delete users and file libraries.
+
+== Forgot Admin Account or Password? ==
+
+You may run create-seahub-admin.sh script under seafile-server directory. This script would help you reset admin account and password.
+
+[[images/create-seahub-admin.png]]
