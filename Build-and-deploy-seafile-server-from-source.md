@@ -167,7 +167,7 @@ Here `CCNET_CONF_DIR` is the ccnet config directory you use above when create cc
 #### start ccnet-server ####
 
 ```sh
-ccnet-server -c ${CCNET_CONF_DIR}
+ccnet-server -c ${CCNET_CONF_DIR} -d
 ```
 #### start seaf-server ####
 
@@ -191,6 +191,7 @@ httpserver -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR} -r ${SEAFILE_SOURCE_DIR}/
 ```sh
 cd seahub
 export CCNET_CONF_DIR=${CCNET_CONF_DIR}
+export PYTHONPATH=thirdpart
 python manage.py runserver
 ```
 
