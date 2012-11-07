@@ -39,6 +39,16 @@ cd seafile-server
 ./seafile.sh restart
 </pre>
 
+== Storage Quota Setting ==
+
+You may set a default quota (e.g. 2GB) for all users. To do this, just add the following lines to seafile-data/seafile.conf file
+
+<pre>
+[quota]
+# default user quota in GB
+default = 2
+</pre>
+
 == Seahub Configurations ==
 
 === Sending Email Notifications on Seahub ===
