@@ -38,6 +38,18 @@ cd seafile-server
 ./seafile.sh restart
 </pre>
 
+== 存储容量限制 ==
+
+你可以为所有用户设定一个默认的容量上限。这只需要在 seafile-data/seafile.conf 文件中加入以下几行：
+
+<pre>
+[quota]
+# 以 GB 为单位的容量上限，只接受整数
+default = 2
+</pre>
+
+如果你想给某个特定用户设置容量上限，你可以用管理员身份登录 seahub 网站，然后在“系统管理”页面中设置。
+
 == Seahub 配置 ==
 
 === Seahub 邮件发送 ===
