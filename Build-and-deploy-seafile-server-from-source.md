@@ -153,6 +153,7 @@ Seahub requires Python 2.7 installed on your server, and it depends on the follo
 * [djblets](https://github.com/djblets/djblets/tarball/release-0.6.14)
 * python-sqlite3
 * python-simplejson
+* python-imaging
 
 ```sh
 export CCNET_CONF_DIR=${CCNET_CONF_DIR}
