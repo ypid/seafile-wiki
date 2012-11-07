@@ -146,7 +146,7 @@ $ seaf-server-init --seafile-dir your-seafile-data-dir --port 20001
 
 #### Seahub ####
 
-Seahub is website server of Seafile. It's written in the [django](http://djangoproject.com) framework.
+Seahub is website server of Seafile. It's written in the [Django](http://djangoproject.com) framework.
 Seahub requires Python 2.7 installed on your server, and it depends on the following python modules:  
 
 * [django 1.3.1](https://www.djangoproject.com/download/1.3.1/tarball/)
