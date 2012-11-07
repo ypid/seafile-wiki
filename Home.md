@@ -17,3 +17,15 @@
 
 * [[Build and Deploy Seafile Server from source]]
 * [[Build and Use Seafile client from source]]
+
+## Related Projects
+
+See https://github.com/haiwen for other open source projects related to Seafile.
+
+## Contact
+
+Twitter: @seafile
+
+Weibo (for Chinese): @seafile
+
+Google Group: https://groups.google.com/forum/?fromgroups#!forum/seafile
