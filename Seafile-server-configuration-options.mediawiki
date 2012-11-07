@@ -45,7 +45,7 @@ You may set a default quota (e.g. 2GB) for all users. To do this, just add the f
 
 <pre>
 [quota]
-# default user quota in GB
+# default user quota in GB, integer only
 default = 2
 </pre>
 
