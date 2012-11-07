@@ -124,7 +124,7 @@ $ ccnet-init -c ~/.ccnet --name "abc-seafile" --port 10001 --host 192.168.1.116
 #### seaf-server ####
 
 ```sh
-$ seaf-server-init --seafile-dir ~/seaf-server-data --port 20001
+$ seaf-server-init --seafile-dir your-seafile-data-dir --port 20001
 ```
 <table>
   <tr>
@@ -134,7 +134,7 @@ $ seaf-server-init --seafile-dir ~/seaf-server-data --port 20001
   </tr>
   <tr>
     <td>--seafile-dir "seafile-data-dir" </td>
-    <td>the directory to store seafile data</td>
+    <td>The directory to store seafile data. Make sure it has enough free space to hold your (future) data.</td>
     <td>~/.ccnet/seafile</td>
   </tr>
   <tr>
