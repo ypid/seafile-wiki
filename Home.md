@@ -6,7 +6,7 @@
 * [[Download and Setup Seafile Server ]]
 * [[Seafile Server Management]]
 
-**Advance**
+**Advanced**
 
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
