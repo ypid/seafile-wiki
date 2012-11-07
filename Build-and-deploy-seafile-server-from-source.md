@@ -156,6 +156,7 @@ Seahub requires Python 2.7 installed on your server, and it depends on the follo
 
 ```sh
 export CCNET_CONF_DIR=${CCNET_CONF_DIR}
+export PYTHONPATH=thirdpart
 python manage.py syncdb
 ```
 
