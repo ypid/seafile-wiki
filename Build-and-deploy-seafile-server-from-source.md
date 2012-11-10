@@ -1,5 +1,7 @@
 ## Build Seafile Server ##
 
+**Warning: not finished yet!**
+
 ### Preparation ###
 
 The following list is what you need to install on your development machine. __You should install all of them before you build seafile__.
