@@ -84,7 +84,7 @@ SITE_BASE = 'http://gonggeng.org/'
 SITE_NAME = 'gonggeng'
 
 # Set seahub website's title
-SEAHUB_TITLE = 'SeaCloud'
+SITE_TITLE = 'Seafile'
 
 # If you don't want to run seahub website on your site's root path, set this option to your preferred path.
 # e.g. setting it to '/seahub/' would run seahub on http://example.com/seahub/.
