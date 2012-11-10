@@ -18,6 +18,10 @@
 * [[Build and Deploy Seafile Server from source]]
 * [[Build and Use Seafile client from source]]
 
+## For Developer
+
+* [[Seafile Data Model]]
+
 ## Related Projects
 
 See https://github.com/haiwen for other open source projects related to Seafile.
