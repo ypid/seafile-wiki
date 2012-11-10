@@ -82,7 +82,7 @@ SITE_BASE = 'http://gonggeng.org/'
 SITE_NAME = 'gonggeng'
 
 # 修改 Seahub 网站的标题，可选参数
-SEAHUB_TITLE = 'SeaCloud'
+SITE_TITLE = 'Seafile'
 
 # 如果不是部署在根路径下，需要将该参数修改成相应的路径，可选参数
 # 例如：将seahub部署到http://example.com/seahub/下，则需要将该参数修改成 '/seahub/'
