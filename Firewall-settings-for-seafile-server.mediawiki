@@ -15,7 +15,7 @@ These ports can be either configured in setup-seafile.sh script, or set as param
 == seahub ==
 
 * Default port: 8000
-* Can be set a parameter for seahub.sh script. e.g. ./seahub.sh 8002
+* Can be set a parameter for seahub.sh script. e.g. "./seahub.sh start 8002"
 
 == httpserver ==
 
