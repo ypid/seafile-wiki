@@ -54,17 +54,30 @@ default = 2
 
 === Seahub 邮件发送 ===
 
-重置密码，目录共享，消息通知等几个服务需要邮件发送。163,qq等邮箱可以正常发送邮件，gmail目前无法发送。
-在seahub_settings.py 中写入以下配置： 
+重置密码，目录共享，消息通知等几个服务需要邮件发送。在seahub_settings.py 中写入以下配置： 
 
 <pre>
 EMAIL_USE_TLS = False
-EMAIL_HOST = 'smtp.163.com'        # smpt server
-EMAIL_HOST_USER = 'username@163.com'    # username
+EMAIL_HOST = 'smtp.domain.com'        # smpt server
+EMAIL_HOST_USER = 'username@domain.com'    # username
 EMAIL_HOST_PASSWORD = 'password'    # password
 EMAIL_PORT = '25'
-DEFAULT_FROM_EMAIL ="username@163.com"    # username
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
 </pre>
+
+如果使用gmail来发送邮件，使用以下的配置：
+
+<pre>
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'username@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+</pre>
+
 
 === Seahub 参数配置 ===
 
