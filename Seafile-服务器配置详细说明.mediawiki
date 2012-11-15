@@ -101,4 +101,7 @@ SITE_TITLE = 'Seafile'
 # 例如：将seahub部署到http://example.com/seahub/下，则需要将该参数修改成 '/seahub/'
 SITE_ROOT = '/'
 
+# 网站管理员可以重置用户的密码，重置后的初始密码为 123456，可选参数
+INIT_PASSWD = '123456'
+
 </pre>
