@@ -60,11 +60,24 @@ If you want to setup email notifications, please add the following lines to seah
 
 <pre>
 EMAIL_USE_TLS = False
-EMAIL_HOST = 'smtp.163.com'        # smpt server
-EMAIL_HOST_USER = 'username@163.com'    # username
+EMAIL_HOST = 'smtp.domain.com'        # smpt server
+EMAIL_HOST_USER = 'username@domain.com'    # username
 EMAIL_HOST_PASSWORD = 'password'    # password
 EMAIL_PORT = '25'
-DEFAULT_FROM_EMAIL ="username@163.com"    # username
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+</pre>
+
+If you are using Gmail as email server, use following lines:
+
+<pre>
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'username@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
 </pre>
 
 === Seahub Settings ===
