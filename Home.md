@@ -21,6 +21,7 @@
 ## For Developer
 
 * [[Seafile Data Model]]
+* [[Seafile synchronization algorithm]]
 
 ## Related Projects
 
