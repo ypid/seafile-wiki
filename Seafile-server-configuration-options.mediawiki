@@ -103,4 +103,7 @@ SITE_TITLE = 'Seafile'
 # e.g. setting it to '/seahub/' would run seahub on http://example.com/seahub/.
 SITE_ROOT = '/'
 
+# Site admin can reset user's password, initial password is 123456.
+INIT_PASSWD = '123456'
+
 </pre>
