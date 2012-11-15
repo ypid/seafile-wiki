@@ -51,6 +51,8 @@ Secondly, Git's merge command will fail if it fails to update a file in the work
 But on Windows, an opened Office document will be write-protected by the
 Office process. So the merge may fail in this case.
 
+That's why programs use Git directly for auto-sync is not reliable.
+
 Seafile implement its own merge algorithm based on the ideas from Git's
 merge algorithm.
 
