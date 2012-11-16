@@ -1,0 +1,116 @@
+In a production environment, we often need to deploy the seahub server behind some web server to make it more powerful.
+
+In the following section, we assume you have downloaded seahub to '''/data/abc-seafile/seahub'''. You should adjust the content of the help according to your directory layout.
+
+== Deploy with nginx ==
+
+When using nginx, we need use seahub with fastcgi. 
+
+=== Deploy in the root domain ===
+
+Assume you are running seahub as the root domain, for example '''www.myseafile.com'''
+
+This is a sample nginx config file.
+
+<pre>
+server {
+    listen 80;
+    server_name www.myseafile.com;
+    location / {
+        fastcgi_pass    127.0.0.1:8000;
+        fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
+        fastcgi_param   PATH_INFO           $fastcgi_script_name;
+
+        fastcgi_param	SERVER_PROTOCOL		$server_protocol;
+        fastcgi_param   QUERY_STRING        $query_string;
+        fastcgi_param   REQUEST_METHOD      $request_method;
+        fastcgi_param   CONTENT_TYPE        $content_type;
+        fastcgi_param   CONTENT_LENGTH      $content_length;
+        fastcgi_param	SERVER_ADDR         $server_addr;
+        fastcgi_param	SERVER_PORT         $server_port;
+        fastcgi_param	SERVER_NAME         $server_name;
+
+        access_log      /var/log/nginx/seahub.access.log;
+    	error_log       /var/log/nginx/seahub.error.log;
+    }       
+
+    location /media {
+        root /data/abc-seafile/seahub;
+    }
+}
+</pre>
+
+To start Seahub in the fastcgi way:
+
+* first ensure the python '''flup''' library is installed in your system
+* then run the following command:
+
+<pre>
+cd /data/abc-seafile/seahub
+python ./manage.py runfcgi host=127.0.0.1 port=8000 \
+ errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
+</pre>
+
+=== Deploy in a second level domain ===
+
+It's also common that you need to deploy seahub on a second level domain, for example, '''www.mycompany.com/seahub'''. This is slightly different from deploying in the root domain.
+
+First you need to create a file named '''local_settings.py''' under the seahub folder.
+
+<pre>
+cd /data/abc-seafile/seahub
+vim local_settings.py
+
+# the contents of local_settings.py
+SITE_ROOT = '/seahub/'
+MEDIA_URL = '/seahub/media/'
+</pre>
+
+The nginx config also need some modification:
+<pre>
+server {
+    listen 80;
+    server_name www.myseafile.com;
+    location /seahub {
+        fastcgi_pass    127.0.0.1:8000;
+        fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
+        fastcgi_param   PATH_INFO           $fastcgi_script_name;
+
+        fastcgi_param	SERVER_PROTOCOL		$server_protocol;
+        fastcgi_param   QUERY_STRING        $query_string;
+        fastcgi_param   REQUEST_METHOD      $request_method;
+        fastcgi_param   CONTENT_TYPE        $content_type;
+        fastcgi_param   CONTENT_LENGTH      $content_length;
+        fastcgi_param	SERVER_ADDR         $server_addr;
+        fastcgi_param	SERVER_PORT         $server_port;
+        fastcgi_param	SERVER_NAME         $server_name;
+
+        access_log      /var/log/nginx/seahub.access.log;
+    	error_log       /var/log/nginx/seahub.error.log;
+    }       
+
+    location /seahub/media {        
+        root /data/abc-seafile/;
+    }
+}
+</pre>
+
+
+== Deploy with gunicorn ==
+
+This a sample gunicorn configuration file
+
+<pre>
+import os
+
+daemon = True
+workers = 3
+
+# Logging
+runtime_dir = os.path.dirname(__file__)
+pidfile = os.path.join(runtime_dir, 'seahub.pid')
+errorlog = os.path.join(runtime_dir, 'error.log')
+accesslog = os.path.join(runtime_dir, 'access.log')
+# for file upload, we need a longer timeout value (default is only 30s, too short)
+timeout = 1200
+</pre>
