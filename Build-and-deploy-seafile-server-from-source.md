@@ -82,15 +82,55 @@ The Seafile server consists of the following parts:
   </tr>
 </table>
 
+Seahub is website server of Seafile. It's written in the [Django](http://djangoproject.com) framework.
+Seahub requires Python 2.7 installed on your server, and it depends on the following python modules:  
+
+* [django 1.3.1](https://www.djangoproject.com/download/1.3.1/tarball/)
+* [djblets](https://github.com/djblets/djblets/tarball/release-0.6.14)
+* sqlite3
+* simplejson
+* imaging
+* gunicorn
+
+Before continue, make sure you have all these modules available in your system.
+
 ### Create Configuration ###
 
-Now let's create configuration for our components:
+To create the configurations, you can choose either:
+
+* use the seafile-admin script
+* do all the configuration by hand
+
+#### Create Configurations with the seafile-admin script ####
+
+To help you create the configuration, Seafile includes a script called **seafile-admin**, which should have been installed to system path after you have built and installed Seafile from source.
+
+To use the script:
+
+* Create a new directory for all the configuration and data
+* Enter the directory, and download seahub, the website frontend of seafile to this directory.
+* Run `seafile-admin setup` to create all the configuration
+* After configuration successfully created, run `seafile-admin start` to start the all components of Seafile.
+* When needed, run `seafile-admin stop` to stop all components of Seafile.
+
+```sh
+mkdir myseafile
+cd myseafile
+git clone git@github.com:haiwen/seahub.git
+seafile-admin setup # Follow the guide step by step
+seafile-admin start
+seafile-admin stop
+```
+
+#### Create Configurations By Hand ####
+
+To create configuration of all the components of Seafile.
 
 * ccnet-server
 * seafile-server
 * seahub
 
-#### ccnet-server ####
+##### ccnet-server #####
 
 ```sh
 $ ccnet-init -c ~/.ccnet --name "abc-seafile" --port 10001 --host 192.168.1.116
@@ -123,7 +163,7 @@ $ ccnet-init -c ~/.ccnet --name "abc-seafile" --port 10001 --host 192.168.1.116
   </tr>
 </table>
 
-#### seaf-server ####
+##### seaf-server #####
 
 ```sh
 $ seaf-server-init --seafile-dir your-seafile-data-dir --port 20001
@@ -146,16 +186,10 @@ $ seaf-server-init --seafile-dir your-seafile-data-dir --port 20001
   </tr>
 </table>
 
-#### Seahub ####
+##### Seahub #####
 
 Seahub is website server of Seafile. It's written in the [Django](http://djangoproject.com) framework.
 Seahub requires Python 2.7 installed on your server, and it depends on the following python modules:  
-
-* [django 1.3.1](https://www.djangoproject.com/download/1.3.1/tarball/)
-* [djblets](https://github.com/djblets/djblets/tarball/release-0.6.14)
-* python-sqlite3
-* python-simplejson
-* python-imaging
 
 ```sh
 export CCNET_CONF_DIR=${CCNET_CONF_DIR}
