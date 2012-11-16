@@ -85,11 +85,11 @@ The Seafile server consists of the following parts:
 Seahub is website server of Seafile. It's written in the [Django](http://djangoproject.com) framework.
 Seahub requires Python 2.7 installed on your server, and it depends on the following python modules:  
 
-* [django 1.3.1](https://www.djangoproject.com/download/1.3.1/tarball/)
+* [django 1.3](https://www.djangoproject.com/download/1.3.1/tarball/)
 * [djblets](https://github.com/djblets/djblets/tarball/release-0.6.14)
 * sqlite3
 * simplejson
-* imaging
+* PIL
 * gunicorn
 
 Before continue, make sure you have all these modules available in your system.
@@ -124,16 +124,19 @@ seafile-admin stop
 
 #### Create Configurations By Hand ####
 
-To create configuration of all the components of Seafile.
+To manage your seafile configuration effectively, We strongly suggest you to create a new directory to store all the seafile configuration and data. In the following part of this article, we suppose you would create a directory `/data/abc-seafile` to store seafile data.
 
-* ccnet-server
-* seafile-server
-* seahub
+The first setup:
+
+```sh
+mkdir /data/abc-seafile # or whatever name you like
+cd /data/abc-seafile
+```
 
 ##### ccnet-server #####
 
 ```sh
-$ ccnet-init -c ~/.ccnet --name "abc-seafile" --port 10001 --host 192.168.1.116
+$ ccnet-init -c /data/abc-seafile/ccnet --name "abc-seafile" --port 10001 --host 192.168.1.116
 ```
 <table>
   <tr>
@@ -166,7 +169,7 @@ $ ccnet-init -c ~/.ccnet --name "abc-seafile" --port 10001 --host 192.168.1.116
 ##### seaf-server #####
 
 ```sh
-$ seaf-server-init --seafile-dir your-seafile-data-dir --port 20001
+$ seaf-server-init --seafile-dir /data/abc-seafile/seafile-data --port 20001
 ```
 <table>
   <tr>
@@ -188,51 +191,52 @@ $ seaf-server-init --seafile-dir your-seafile-data-dir --port 20001
 
 ##### Seahub #####
 
-Seahub is website server of Seafile. It's written in the [Django](http://djangoproject.com) framework.
-Seahub requires Python 2.7 installed on your server, and it depends on the following python modules:  
+First download seahub
 
 ```sh
-export CCNET_CONF_DIR=${CCNET_CONF_DIR}
-export PYTHONPATH=thirdpart
-python manage.py syncdb
+cd /data/ # or whatever you like
+git clone git@github.com:haiwen/seahub.git
+cd /data/seahub
 ```
 
-Here `CCNET_CONF_DIR` is the ccnet config directory you use above when create ccnet configuration. By default it's `~/.ccnet`
+Then initialize seafile database:
+
+```sh
+export CCNET_CONF_DIR=/data/abc-seafile/ccnet
+export PYTHONPATH=/data/seahub/thirdpart
+python manage.py syncdb
+```
 
 ### Start all the componenets ###
 
 #### start ccnet-server ####
 
 ```sh
-ccnet-server -c ${CCNET_CONF_DIR} -d
+ccnet-server -c /data/abc-seafile/ccnet -d
 ```
-#### start seaf-server ####
+#### start seaf-server and seaf-mon ####
 
 ```sh
-seaf-server -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR}
-seaf-mon -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR}
+seaf-server -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
+seaf-mon -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
 ```
-
-`SEAFILE_DATA_DIR` is the seafile data dir you choose when creating seafile configuration.
 
 #### start httpserver ####
 
 ```sh
-httpserver -c ${CCNET_CONF_DIR} -d ${SEAFILE_DATA_DIR}
+httpserver -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
 ```
-
-`SEAFILE_SOURCE_DIR` is the top level directory of the uncompressed seafile-${VERSION}.tar.gz tarball. For example, "/data/dev/seafile-1.1.0/".
 
 #### start seahub ####
 
 ```sh
-cd seahub
-export CCNET_CONF_DIR=${CCNET_CONF_DIR}
-export PYTHONPATH=thirdpart
+cd /data/seahub # or the place you have downloaded seahub
+export CCNET_CONF_DIR=/data/abc-seafile/ccnet
+export PYTHONPATH=/data/seahub/thirdpart
 python manage.py runserver
 ```
 
-Here again, `CCNET_CONF_DIR` is the directory you specified when creating ccnet configuration.
+Note: This would only start a basic development server of Django for Seahub, which is enough for a demo or single person usage. To setup a production level web server if you need, see [[Deploy Seahub in a production environment]]
 
 ### Done ###
 
