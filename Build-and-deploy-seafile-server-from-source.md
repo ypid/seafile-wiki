@@ -82,7 +82,7 @@ The Seafile server consists of the following parts:
   </tr>
 </table>
 
-Seahub is website server of Seafile. It's written in the [Django](http://djangoproject.com) framework.
+Seahub is the web front-end of Seafile. It's written in the [Django](http://djangoproject.com) framework.
 Seahub requires Python 2.7 installed on your server, and it depends on the following python libraries:  
 
 * [django 1.3](https://www.djangoproject.com/download/1.3.1/tarball/)
@@ -108,7 +108,7 @@ To help you create the configuration, Seafile includes a script called **seafile
 To use the script:
 
 * Create a new directory for all the configuration and data
-* Enter the directory, and download seahub, the website frontend of seafile to this directory.
+* Enter the directory, and download seahub to this directory.
 * Run `seafile-admin setup` to create all the configuration
 * After configuration successfully created, run `seafile-admin start` to start the all components of Seafile.
 * When needed, run `seafile-admin stop` to stop all components of Seafile.
@@ -118,7 +118,7 @@ mkdir /data/abc-seafile
 cd /data/abc-seafile
 git clone git@github.com:haiwen/seahub.git
 seafile-admin setup # it will guide you step by step
-seafile-admin start
+seafile-admin start # start all components
 seafile-admin stop
 ```
 
@@ -126,9 +126,9 @@ seafile-admin stop
 
 Normally, you should use the `seafile-admin` script to setup/manage your seafile server. Nevertheless, if you want to take a look at what the script does under the hood, just read on.
 
-We suggest you create a new directory to store all the seafile configuration and data. In the following part of this article, we suppose you would create a directory `/data/abc-seafile` to store seafile data.
+We suggest you create a new directory to store all the seafile configuration and data. In the following part of this section, we suppose you would create a directory `/data/abc-seafile` to store seafile data.
 
-The first setup:
+First create the directory:
 
 ```sh
 mkdir /data/abc-seafile # or whatever name you like
@@ -193,7 +193,7 @@ $ seaf-server-init --seafile-dir /data/abc-seafile/seafile-data --port 20001
 
 ##### Seahub #####
 
-First download seahub
+First download seahub:
 
 ```sh
 cd /data/ # or whatever you like
@@ -211,6 +211,8 @@ python manage.py syncdb
 
 ### Start all the componenets ###
 
+Now let's start all the components of Seafile server one by one.
+
 #### start ccnet-server ####
 
 ```sh
@@ -225,6 +227,7 @@ seaf-mon -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
 ```
 
 #### start httpserver ####
+
 
 ```sh
 httpserver -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
