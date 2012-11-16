@@ -66,40 +66,40 @@ The Seafile server consists of the following parts:
     <th>Process Name</th><th>Functionality</th>
   </tr>
   <tr>
-    <td>ccnet-server</td><td>underlying networking, peer management</td>
+    <td>ccnet-server</td><td>underlying networking</td>
   </tr>
   <tr>
     <td>seaf-server</td><td>data management</td>
   </tr>
   <tr>
-    <td>seaf-monitor</td><td>monitor statistics</td>
+    <td>seaf-monitor</td><td>monitoring seafile statistics</td>
   </tr>
   <tr>
-    <td>Seahub</td><td>website component of Seafile server</td>
+    <td>Seahub</td><td>website front-end of Seafile server</td>
   </tr>
   <tr>
-    <td>httpserver</td><td>handling raw file upload/download for Seahub</td>
+    <td>httpserver</td><td>handles raw file upload/download for Seahub</td>
   </tr>
 </table>
 
 Seahub is website server of Seafile. It's written in the [Django](http://djangoproject.com) framework.
-Seahub requires Python 2.7 installed on your server, and it depends on the following python modules:  
+Seahub requires Python 2.7 installed on your server, and it depends on the following python libraries:  
 
 * [django 1.3](https://www.djangoproject.com/download/1.3.1/tarball/)
 * [djblets](https://github.com/djblets/djblets/tarball/release-0.6.14)
 * sqlite3
 * simplejson
-* PIL
+* PIL (aka. python imaging library)
 * gunicorn
 
-Before continue, make sure you have all these modules available in your system.
+Before continue, make sure you have all these libraries available in your system.
 
 ### Create Configuration ###
 
 To create the configurations, you can choose either:
 
-* use the seafile-admin script
-* do all the configuration by hand
+* Use the seafile-admin script (Recommended)
+* Do all the configuration by hand
 
 #### Create Configurations with the seafile-admin script ####
 
@@ -114,17 +114,19 @@ To use the script:
 * When needed, run `seafile-admin stop` to stop all components of Seafile.
 
 ```sh
-mkdir myseafile
-cd myseafile
+mkdir /data/abc-seafile
+cd /data/abc-seafile
 git clone git@github.com:haiwen/seahub.git
-seafile-admin setup # Follow the guide step by step
+seafile-admin setup # it will guide you step by step
 seafile-admin start
 seafile-admin stop
 ```
 
 #### Create Configurations By Hand ####
 
-To manage your seafile configuration effectively, We strongly suggest you to create a new directory to store all the seafile configuration and data. In the following part of this article, we suppose you would create a directory `/data/abc-seafile` to store seafile data.
+Normally, you should use the `seafile-admin` script to setup/manage your seafile server. Nevertheless, if you want to take a look at what the script does under the hood, just read on.
+
+We suggest you create a new directory to store all the seafile configuration and data. In the following part of this article, we suppose you would create a directory `/data/abc-seafile` to store seafile data.
 
 The first setup:
 
@@ -214,6 +216,7 @@ python manage.py syncdb
 ```sh
 ccnet-server -c /data/abc-seafile/ccnet -d
 ```
+
 #### start seaf-server and seaf-mon ####
 
 ```sh
@@ -227,7 +230,7 @@ seaf-mon -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
 httpserver -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
 ```
 
-#### start seahub ####
+#### start Seahub ####
 
 ```sh
 cd /data/seahub # or the place you have downloaded seahub
@@ -244,4 +247,4 @@ Now open your browser and open `http://YourServerIp:8000`, you can see the seahu
 
 ## Problems Report ##
 
-If you encounter any problem when building Seafile, please leave us a message or open an issue.
+If you encounter any problem when building/deploying Seafile, please leave us a message or open an issue.
