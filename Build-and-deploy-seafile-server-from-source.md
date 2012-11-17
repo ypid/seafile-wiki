@@ -20,7 +20,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 The following libraries need to be compiled from source.
 
 * libzdb (http://www.tildeslash.com/libzdb/dist/libzdb-2.10.5.tar.gz)
-* libevhtp (https://github.com/downloads/ellzey/libevhtp/libevhtp-0.3.0.tar.gz)
+* libevhtp (https://github.com/ellzey/libevhtp/archive/1.1.6.zip)
 
 libzdb relies on two packages: `re2c` and `flex`  
 libevhtp needs to be built by `cmake`
