@@ -9,7 +9,7 @@ mkdir /data/abc-seafile # or whatever name you like
 cd /data/abc-seafile
 ```
 
-##### ccnet-server #####
+### ccnet-server ###
 
 ```sh
 $ ccnet-init -c /data/abc-seafile/ccnet --name "abc-seafile" --port 10001 --host 192.168.1.116
@@ -42,7 +42,7 @@ $ ccnet-init -c /data/abc-seafile/ccnet --name "abc-seafile" --port 10001 --host
   </tr>
 </table>
 
-##### seaf-server #####
+### seaf-server ###
 
 ```sh
 $ seaf-server-init --seafile-dir /data/abc-seafile/seafile-data --port 20001
@@ -65,7 +65,7 @@ $ seaf-server-init --seafile-dir /data/abc-seafile/seafile-data --port 20001
   </tr>
 </table>
 
-##### Seahub #####
+### Seahub ###
 
 First download seahub:
 
@@ -83,11 +83,11 @@ export PYTHONPATH=/data/seahub/thirdpart
 python manage.py syncdb
 ```
 
-### Start all the componenets ###
+## Start all the componenets ##
 
 Now let's start all the components of Seafile server one by one.
 
-#### start ccnet-server ####
+### start ccnet-server ###
 
 ```sh
 ccnet-server -c /data/abc-seafile/ccnet -d
@@ -107,7 +107,7 @@ seaf-mon -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
 httpserver -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
 ```
 
-#### start Seahub ####
+### start Seahub ###
 
 ```sh
 cd /data/seahub # or the place you have downloaded seahub
@@ -118,6 +118,6 @@ python manage.py runserver
 
 Note: This would only start a basic development server of Django for Seahub, which is enough for a demo or single person usage. To setup a production level web server if you need, see [[Deploy Seahub in a production environment]]
 
-### Done ###
+## Done ##
 
 Now open your browser and open `http://YourServerIp:8000`, you can see the seahub website running.
