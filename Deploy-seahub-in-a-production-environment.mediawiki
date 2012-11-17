@@ -1,10 +1,10 @@
-In a production environment, we often need to deploy the seahub server behind some web server to make it more powerful.
+In a production environment, we often need to deploy the seahub server behind some web server.
 
 In the following section, we assume you have downloaded seahub to '''/data/abc-seafile/seahub'''. You should adjust the content of the help according to your directory layout.
 
 == Deploy with nginx ==
 
-When using nginx, we need use seahub with fastcgi. 
+When using nginx, we need to use seahub with fastcgi. 
 
 === Deploy in the root domain ===
 
@@ -60,11 +60,16 @@ First you need to create a file named '''local_settings.py''' under the seahub f
 <pre>
 cd /data/abc-seafile/seahub
 vim local_settings.py
+</pre>
 
+In the file '''local_settings.py''', you need to define two variable:
+<pre>
 # the contents of local_settings.py
 SITE_ROOT = '/seahub/'
 MEDIA_URL = '/seahub/media/'
 </pre>
+
+'''SITE_ROOT''' is the second level domain you assign to seahub, and '''MEDIA_URL''' should be SITE_ROOT plus the '''media/''' suffix. All the two must end with a trailing slash.
 
 The nginx config also need some modification:
 <pre>
