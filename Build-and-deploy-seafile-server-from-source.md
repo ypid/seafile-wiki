@@ -148,7 +148,7 @@ cd /data/abc-seafile
 
 ```sh
 wget https://github.com/downloads/haiwen/seahub/seahub-latest.tar.gz
-tar xzf seahub.tar.gz
+tar xzf seahub-latest.tar.gz
 mv seahub-${VERSION} seahub
 ```
 
