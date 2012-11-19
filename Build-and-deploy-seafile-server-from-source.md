@@ -135,7 +135,7 @@ mkdir /data/abc-seafile
 cd /data/abc-seafile
 ```
 
-##### Download seahub to this directory.
+##### Download seahub to this directory
 
 ```sh
 wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz --output-document seahub.tar.gz
@@ -155,13 +155,19 @@ This is a screenshot of the `seafile-admin setup` command:
 And a screenshot after setup is finished successfully:
 [[images/seafile-admin-2.png]]
 
-##### After configuration successfully created, run `seafile-admin start` to start the all components of Seafile
+##### Start the Seafile server
+
+After configuration successfully created, run `seafile-admin start` to start the all components of Seafile
 
 ```sh
 seafile-admin start
 ```
 
-##### When needed, run `seafile-admin stop` to stop all components of Seafile
+At this moment, all the components should be running and seahub can be visited at **http://yourserver-ip-or-domain:8000**
+
+##### Stop the Seafile server
+
+To stop Seafile server, run `seafile-admin stop` to stop all components of Seafile
 
 ```sh
 seafile-admin stop
