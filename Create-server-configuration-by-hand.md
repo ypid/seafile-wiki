@@ -113,9 +113,10 @@ This is your directory layout now:
 First download seahub:
 
 ```sh
-cd /data/ # or whatever you like
-git clone git@github.com:haiwen/seahub.git
-cd /data/seahub
+cd /data/abc-seafile
+wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz --output-document seahub.tar.gz
+tar xzf seahub.tar.gz
+cd seahub
 ```
 
 Then initialize seafile database:
