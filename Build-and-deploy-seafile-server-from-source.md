@@ -42,27 +42,36 @@ To build Seafile Server, you need first build the latest version of **libsearpc*
 
 #### libsearpc ####
 
-* [download libsearpc-1.0.1](https://github.com/downloads/haiwen/libsearpc/libsearpc-1.0.1.tar.gz), and untar it
-* cd libsearpc-1.0.1
-* ./configure
-* make
-* make install
+```sh
+wget https://github.com/downloads/haiwen/libsearpc/libsearpc-1.0.1.tar.gz
+tar xzf libsearpc-1.0.1.tar.gz
+cd libsearpc-1.0.1
+./configure
+make
+make install
+```
 
 #### ccnet ####
 
-* [download ccnet-1.0.1](https://github.com/downloads/haiwen/ccnet/ccnet-1.0.1.tar.gz), and untar it
-* cd ccnet-1.0.1
-* ./configure --disable-client --enable-server
-* make
-* make install
+```sh
+wget https://github.com/downloads/haiwen/ccnet/ccnet-1.0.1.tar.gz
+tar xzf ccnet-1.0.1.tar.gz
+cd ccnet-1.0.1
+./configure --disable-client --enable-server
+make
+make install
+```
 
 #### seafile ####
 
-* [download seafile-1.2.0](https://github.com/downloads/haiwen/seafile/seafile-1.2.0.tar.gz), and untar it
-* cd seafile-1.2.0
-* ./configure --disable-client --enable-server --enable-httpserver
-* make
-* make install
+```sh
+wget https://github.com/downloads/haiwen/seafile/seafile-1.2.0.tar.gz
+tar xzf seafile-1.2.0.tar.gz
+cd seafile-1.2.0
+./configure --disable-client --enable-server --enable-httpserver
+make
+make install
+```
 
 ## Deploy Seafile Server ##
 
