@@ -1,20 +1,3 @@
-## What seafile-admin command does ##
-
-* as is explained, `ccnet` is responsible for the underlying networking. It needs a directory to store its own configuration and metadata. The directory normally is named `ccnet`.
-* seaf-server is responsible for all the other complex jobs (file synchronize, share management). It needs a directory to store its configuration and data. The directory is normally named `seafile-data`.
-* seahub is the website front end of seafile server. It's written in Django. If you have any experience with Django, you should know the `syncdb` command must be run to create all the database tables.
-
-So basically these are what the `seafile-admin` script do:
-
-- ensure seafile is already installed and all the python libraries seahub need are installed.
-- create the ccnet configuration 
-- create the seafile configuration
-- run Django `syncdb` command for seahub
-
-Now let's do that step by step.
-
-## Step by Step ##
-
 ### The first step ###
 
 To make it easier to migrate or backup your seafile server data, we strongly suggest you create a new directory, and place all the configuration and data under this directory.
