@@ -43,9 +43,9 @@ To build Seafile Server, you need first build the latest version of **libsearpc*
 #### libsearpc ####
 
 ```sh
-wget https://github.com/downloads/haiwen/libsearpc/libsearpc-1.0.1.tar.gz
-tar xzf libsearpc-1.0.1.tar.gz
-cd libsearpc-1.0.1
+wget https://github.com/downloads/haiwen/libsearpc/libsearpc-latest.tar.gz
+tar xzf libsearpc-latest.tar.gz
+cd libsearpc-${VERSION}
 ./configure
 make
 make install
@@ -54,9 +54,9 @@ make install
 #### ccnet ####
 
 ```sh
-wget https://github.com/downloads/haiwen/ccnet/ccnet-1.0.1.tar.gz
-tar xzf ccnet-1.0.1.tar.gz
-cd ccnet-1.0.1
+wget https://github.com/downloads/haiwen/ccnet/ccnet-latest.tar.gz
+tar xzf ccnet-latest.tar.gz
+cd ccnet-${VERSION} # VERSION is the latest version number
 ./configure --disable-client --enable-server
 make
 make install
@@ -65,9 +65,9 @@ make install
 #### seafile ####
 
 ```sh
-wget https://github.com/downloads/haiwen/seafile/seafile-1.2.1.tar.gz
-tar xzf seafile-1.2.1.tar.gz
-cd seafile-1.2.1
+wget https://github.com/downloads/haiwen/seafile/seafile-latest.tar.gz
+tar xzf seafile-latest.tar.gz
+cd seafile-${VERSION}
 ./configure --disable-client --enable-server --enable-httpserver
 make
 make install
@@ -147,9 +147,9 @@ cd /data/abc-seafile
 ##### Download seahub to this directory
 
 ```sh
-wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz --output-document seahub.tar.gz
+wget https://github.com/downloads/haiwen/seahub/seahub-latest.tar.gz
 tar xzf seahub.tar.gz
-mv seahub-1.2.0 seahub
+mv seahub-${VERSION} seahub
 ```
 
 ##### Run `seafile-admin setup` to create all the configuration
