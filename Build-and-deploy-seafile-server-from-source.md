@@ -149,11 +149,66 @@ mv seahub-1.2.0 seahub
 seafile-admin setup
 ```
 
+The script would ask you a series of questions, and finally create the configuration for you.
+
+<table>
+  <tr>
+    <th>Name</th><th>Usage</th><th>Default</th><th>Requirement</th>
+  </tr>
+  <tr>
+    <td>server name</td>
+    <td>The name of the server that would be shown on the client</td>
+    <td>N/A</td>
+    <td>3 ~ 15 letters or digits</td>
+  </tr>
+  <tr>
+    <td>ip or domain</td>
+    <td>The ip address or domain name of the server</td>
+    <td>N/A</td>
+    <td>Make sure to use the right ip or domain, or the client would have trouble connecting it</td>
+  </tr>
+  <tr>
+  <td>ccnet port</td>
+  <td>the tcp port used by ccnet</td>
+  <td>10001</td>
+  <td></td>
+  </tr>
+  <tr>
+    <td>seafile port</td>
+    <td>tcp port used by seafile</td>
+    <td>12001</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>admin email</td>
+    <td>Email address of the admin account</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>admin password</td>
+    <td>password of the admin account</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
 This is a screenshot of the `seafile-admin setup` command:
 [[images/seafile-admin-1.png]]
 
 And a screenshot after setup is finished successfully:
 [[images/seafile-admin-2.png]]
+
+At this time, the directory layout would be like this:
+```
+/data
+ --abc-seafile/
+   --ccnet/
+     --ccnet.conf
+   --seafile-data/
+     --seafile.conf
+   --seahub/
+```
 
 ##### Start the Seafile server
 
