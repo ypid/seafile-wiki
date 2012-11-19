@@ -31,24 +31,24 @@ To build Seafile Server, you need first build the latest version of **libsearpc*
 
 #### libsearpc ####
 
-* [download](https://www.github.com/haiwen/libsearpc/downloads) the latest version tarball , and untar it
-* cd libsearpc-${VERSION}
+* [download libsearpc-1.0.1](https://github.com/downloads/haiwen/libsearpc/libsearpc-1.0.1.tar.gz), and untar it
+* cd libsearpc-1.0.1
 * ./configure
 * make
 * make install
 
 #### ccnet-server ####
 
-* [download](https://www.github.com/haiwen/ccnet/downloads) the latest version tarball , and untar it
-* cd ccnet-${VERSION}
+* [download ccnet-1.0.1](https://github.com/downloads/haiwen/ccnet/ccnet-1.0.1.tar.gz), and untar it
+* cd ccnet-1.0.1
 * ./configure --disable-client --enable-server
 * make
 * make install
 
 #### seafile ####
 
-* [download](https://www.github.com/haiwen/seafile/downloads) the latest version tarball , and untar it
-* cd seafile-${VERSION}
+* [download seafile-1.2.0](https://github.com/downloads/haiwen/seafile/seafile-1.2.0.tar.gz), and untar it
+* cd seafile-1.2.0
 * ./configure --disable-client --enable-server --enable-httpserver
 * make
 * make install
