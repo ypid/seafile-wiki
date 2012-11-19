@@ -26,6 +26,12 @@ mkdir /data/abc-seafile
 cd /data/abc-seafile
 ```
 
+This is your directory layout right now:
+```
+/data
+ --abc-seafile/
+```
+
 ### ccnet-server ###
 
 ```sh
@@ -59,6 +65,15 @@ $ ccnet-init -c /data/abc-seafile/ccnet --name "foo-seafile" --port 10001 --host
   </tr>
 </table>
 
+This is your directory layout now:
+
+```
+/data
+ --abc-seafile/
+   --ccnet/
+     --ccnet.conf
+```
+
 ### seaf-server ###
 
 ```sh
@@ -82,6 +97,17 @@ $ seaf-server-init --seafile-dir /data/abc-seafile/seafile-data --port 20001
   </tr>
 </table>
 
+This is your directory layout now:
+
+```
+/data
+ --abc-seafile/
+   --ccnet/
+     --ccnet.conf
+   --seafile-data/
+     --seafile.conf
+```
+
 ### Seahub ###
 
 First download seahub:
@@ -99,6 +125,22 @@ export CCNET_CONF_DIR=/data/abc-seafile/ccnet
 export PYTHONPATH=/data/seahub/thirdpart
 python manage.py syncdb
 ```
+
+This is your directory layout right now:
+
+```
+/data
+ --abc-seafile/
+   --ccnet/
+     --ccnet.conf
+   --seafile-data/
+     --seafile.conf
+   --seahub/
+```
+
+### Create a seahub admin account ###
+
+XXX: write how to create a seahub admin
 
 ## Start all the componenets ##
 
