@@ -4,7 +4,7 @@
 
 ### Preparation ###
 
-The following list is what you need to install on your development machine. __You should install all of them before you build seafile__.
+The following list is all the libraries you need to install on your machine. __You should install all of them before you build seafile__.
 
 Package names are according to Ubuntu 12.04. For other Linux distros, please find their corresponding names yourself.
 
@@ -37,7 +37,7 @@ To build Seafile Server, you need first build the latest version of **libsearpc*
 * make
 * make install
 
-#### ccnet-server ####
+#### ccnet ####
 
 * [download ccnet-1.0.1](https://github.com/downloads/haiwen/ccnet/ccnet-1.0.1.tar.gz), and untar it
 * cd ccnet-1.0.1
@@ -55,11 +55,11 @@ To build Seafile Server, you need first build the latest version of **libsearpc*
 
 ## Deploy Seafile Server ##
 
-To deploy Seafile server, we need first know about its components.
+To deploy Seafile server, you should first know about the components of Seafile server.
 
 ### Components of the Seafile server
 
-The Seafile server consists of the following parts:
+The Seafile server consists of the following components:
 
 <table>
   <tr>
@@ -82,8 +82,8 @@ The Seafile server consists of the following parts:
   </tr>
 </table>
 
-Seahub is the web front-end of Seafile. It's written in the [Django](http://djangoproject.com) framework.
-Seahub requires Python 2.7 installed on your server, and it depends on the following python libraries:  
+Seahub is the web front end of Seafile. It's written in the [Django](http://djangoproject.com) framework.
+Seahub requires Python 2.7 installed on your server, and it needs the following python libraries:  
 
 * [django 1.3](https://www.djangoproject.com/download/1.3.1/tarball/)
 * [djblets](https://github.com/djblets/djblets/tarball/release-0.6.14)
