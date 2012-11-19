@@ -170,7 +170,7 @@ httpserver -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
 ### start Seahub ###
 
 ```sh
-cd /data/seahub # or the place you have downloaded seahub
+cd /data/abc-seafile/seahub
 export CCNET_CONF_DIR=/data/abc-seafile/ccnet
 export PYTHONPATH=/data/seahub/thirdpart
 python manage.py runserver
