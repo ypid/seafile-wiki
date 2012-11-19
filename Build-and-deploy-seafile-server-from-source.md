@@ -25,6 +25,17 @@ The following libraries need to be compiled from source.
 libzdb relies on two packages: `re2c` and `flex`  
 libevhtp needs to be built by `cmake`
 
+**Seahub** is the web front end of Seafile. It's written in the [Django](http://djangoproject.com) framework. Seahub requires Python 2.7 installed on your server, and it needs the following python libraries:  
+
+* [django 1.3](https://www.djangoproject.com/download/1.3.1/tarball/)
+* [djblets](https://github.com/djblets/djblets/tarball/release-0.6.14)
+* sqlite3
+* simplejson
+* PIL (aka. python imaging library)
+* gunicorn
+
+Before continue, make sure you have all these libraries available in your system.
+
 ### Building ###
 
 To build Seafile Server, you need first build the latest version of **libsearpc** and **ccnet**.
@@ -55,8 +66,6 @@ To build Seafile Server, you need first build the latest version of **libsearpc*
 
 ## Deploy Seafile Server ##
 
-To deploy Seafile server, you should first know about the components of Seafile server.
-
 ### Components of the Seafile server
 
 The Seafile server consists of the following components:
@@ -82,46 +91,83 @@ The Seafile server consists of the following components:
   </tr>
 </table>
 
-Seahub is the web front end of Seafile. It's written in the [Django](http://djangoproject.com) framework.
-Seahub requires Python 2.7 installed on your server, and it needs the following python libraries:  
+### Configurations of all components ###
 
-* [django 1.3](https://www.djangoproject.com/download/1.3.1/tarball/)
-* [djblets](https://github.com/djblets/djblets/tarball/release-0.6.14)
-* sqlite3
-* simplejson
-* PIL (aka. python imaging library)
-* gunicorn
-
-Before continue, make sure you have all these libraries available in your system.
+* **ccnet** needs a directory to store its own configuration and metadata, normally is named `ccnet`.
+* **seaf-server** nees a directory to store its configuration and data, normally named `seafile-data`.
+* **seahub** is written in Django. If you have any experience with Django, you should know the `syncdb` command must be run to create all the database tables.
+* An **admin account** has to be created, so that you, the admin, can login with this account to manage the server.
 
 ### Create Configuration ###
 
-To create the configurations, you can choose either:
+These are the essential steps to create the configuration:
 
-* use the seafile-admin script (Recommended)
+- ensure seafile is already installed and all the python libraries seahub need are installed.
+- create the ccnet configuration with the `ccnet-init` program
+- create the seafile configuration with `seaf-server-init` program
+- run Django `syncdb` command for seahub
+- create an admin account for the seafile server
+
+To create the configurations, you can **choose either**:
+
+* use the seafile-admin script
 * [[create server configuration by hand]]
+
+
 
 #### Create Configurations with the seafile-admin script ####
 
-To help you create the configuration, Seafile includes a script called **seafile-admin**, which should have been installed to system path after you have built and installed Seafile from source.
+`seafile-admin` should have been installed to system path after you have built and installed Seafile from source. It has three subcommands:
+```
+Usage: seafile-admin <operation>
 
-To use the script:
+    setup       guide you to setup the seafile server
+    start       start the seafile server
+    stop        stop the seafile server
+```
 
-* Create a new directory for all the configuration and data
-* Enter the directory, and download seahub to this directory.
-* Run `seafile-admin setup` to create all the configuration
-* After configuration successfully created, run `seafile-admin start` to start the all components of Seafile.
-* When needed, run `seafile-admin stop` to stop all components of Seafile.
+##### Create a new directory for all the configuration and data
+
+To make it easier to migrate or backup your seafile server data, we strongly suggest you create a new directory, and place all the configuration and data under this directory. 
 
 ```sh
 mkdir /data/abc-seafile
 cd /data/abc-seafile
+```
+
+##### Download seahub to this directory.
+
+```sh
 wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz --output-document seahub.tar.gz
 tar xzf seahub.tar.gz
-seafile-admin setup # it will guide you step by step
-seafile-admin start # start all components after setup finished
+mv seahub-1.2.0 seahub
+```
+
+##### Run `seafile-admin setup` to create all the configuration
+
+```sh
+seafile-admin setup
+```
+
+This is a screenshot of the `seafile-admin setup` command:
+[[images/seafile-admin-1.png]]
+
+And a screenshot after setup is finished successfully:
+[[images/seafile-admin-2.png]]
+
+##### After configuration successfully created, run `seafile-admin start` to start the all components of Seafile
+
+```sh
+seafile-admin start
+```
+
+##### When needed, run `seafile-admin stop` to stop all components of Seafile
+
+```sh
 seafile-admin stop
 ```
+
+
 
 ## Problems Report ##
 
