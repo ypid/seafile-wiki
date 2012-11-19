@@ -65,9 +65,9 @@ make install
 #### seafile ####
 
 ```sh
-wget https://github.com/downloads/haiwen/seafile/seafile-1.2.0.tar.gz
-tar xzf seafile-1.2.0.tar.gz
-cd seafile-1.2.0
+wget https://github.com/downloads/haiwen/seafile/seafile-1.2.1.tar.gz
+tar xzf seafile-1.2.1.tar.gz
+cd seafile-1.2.1
 ./configure --disable-client --enable-server --enable-httpserver
 make
 make install
@@ -147,9 +147,9 @@ cd /data/abc-seafile
 ##### Download seahub to this directory
 
 ```sh
-wget https://github.com/haiwen/seahub/archive/1.2.1.tar.gz --output-document seahub.tar.gz
+wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz --output-document seahub.tar.gz
 tar xzf seahub.tar.gz
-mv seahub-1.2.1 seahub
+mv seahub-1.2.0 seahub
 ```
 
 ##### Run `seafile-admin setup` to create all the configuration
