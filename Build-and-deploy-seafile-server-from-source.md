@@ -147,9 +147,9 @@ cd /data/abc-seafile
 ##### Download seahub to this directory
 
 ```sh
-wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz --output-document seahub.tar.gz
+wget https://github.com/haiwen/seahub/archive/1.2.1.tar.gz --output-document seahub.tar.gz
 tar xzf seahub.tar.gz
-mv seahub-1.2.0 seahub
+mv seahub-1.2.1 seahub
 ```
 
 ##### Run `seafile-admin setup` to create all the configuration
