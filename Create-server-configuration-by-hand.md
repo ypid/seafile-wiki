@@ -1,18 +1,35 @@
-Normally, you should use the `seafile-admin` script to setup/manage your seafile server. Nevertheless, if you want to take a look at what the script does under the hood, just read on.
+## What seafile-admin command does ##
 
-We suggest you create a new directory to store all the seafile configuration and data. In the following part of this section, we suppose you would create a directory `/data/abc-seafile` to store seafile data.
+* as is explained, `ccnet` is responsible for the underlying networking. It needs a directory to store its own configuration and metadata. The directory normally is named `ccnet`.
+* seaf-server is responsible for all the other complex jobs (file synchronize, share management). It needs a directory to store its configuration and data. The directory is normally named `seafile-data`.
+* seahub is the website front end of seafile server. It's written in Django. If you have any experience with Django, you should know the `syncdb` command must be run to create all the database tables.
 
-First create the directory:
+So basically these are what the `seafile-admin` script do:
+
+- ensure seafile is already installed and all the python libraries seahub need are installed.
+- create the ccnet configuration 
+- create the seafile configuration
+- run Django `syncdb` command for seahub
+
+Now let's do that step by step.
+
+## Step by Step ##
+
+### The first step ###
+
+To make it easier to migrate or backup your seafile server data, we strongly suggest you create a new directory, and place all the configuration and data under this directory.
+
+In the following part of this section, we suppose you would create a directory `/data/abc-seafile`.
 
 ```sh
-mkdir /data/abc-seafile # or whatever name you like
+mkdir /data/abc-seafile
 cd /data/abc-seafile
 ```
 
 ### ccnet-server ###
 
 ```sh
-$ ccnet-init -c /data/abc-seafile/ccnet --name "abc-seafile" --port 10001 --host 192.168.1.116
+$ ccnet-init -c /data/abc-seafile/ccnet --name "foo-seafile" --port 10001 --host 192.168.1.116
 ```
 <table>
   <tr>
