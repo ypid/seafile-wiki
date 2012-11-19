@@ -167,13 +167,13 @@ The script would ask you a series of questions, and finally create the configura
   <tr>
     <td>server name</td>
     <td>The name of the server that would be shown on the client</td>
-    <td>N/A</td>
+    <td></td>
     <td>3 ~ 15 letters or digits</td>
   </tr>
   <tr>
     <td>ip or domain</td>
     <td>The ip address or domain name of the server</td>
-    <td>N/A</td>
+    <td></td>
     <td>Make sure to use the right ip or domain, or the client would have trouble connecting it</td>
   </tr>
   <tr>
