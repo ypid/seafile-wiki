@@ -116,10 +116,10 @@ To use the script:
 ```sh
 mkdir /data/abc-seafile
 cd /data/abc-seafile
-wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz -O seahub-1.2.0.tar.gz
-tar xzf seahub-1.2.0.tar.gz
+wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz -O seahub.tar.gz
+tar xzf seahub.tar.gz
 seafile-admin setup # it will guide you step by step
-seafile-admin start # start all components
+seafile-admin start # start all components after setup finished
 seafile-admin stop
 ```
 
