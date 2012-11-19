@@ -116,7 +116,8 @@ To use the script:
 ```sh
 mkdir /data/abc-seafile
 cd /data/abc-seafile
-git clone git@github.com:haiwen/seahub.git
+wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz -O seahub-1.2.0.tar.gz
+tar xzf seahub-1.2.0.tar.gz
 seafile-admin setup # it will guide you step by step
 seafile-admin start # start all components
 seafile-admin stop
