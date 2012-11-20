@@ -1,4 +1,3 @@
-# Seafile web界面启用Https #
 
 SSL数字证书需要向相应机构购买，这里使用免费的自认证证书。
 
@@ -12,15 +11,9 @@ SSL数字证书需要向相应机构购买，这里使用免费的自认证证�
 
 如果Nginx没有启用SSL模块，则需要重新编译。命令如下：
 
-    wget http://nginx.org/download/nginx-0.7.65.tar.gz
-    tar zxvf nginx-0.7.65.tar.gz
-    cd /root/nginx-0.7.65
     ./configure --with-http_stub_status_module --with-http_ssl_module
-    make
-    mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.old
-    cp ./objs/nginx /usr/local/nginx/sbin/nginx
-    kill -USR2 `cat /usr/local/nginx/logs/nginx.pid`
-    kill -QUIT `cat /usr/local/nginx/logs/nginx.pid.oldbin`
+    
+    make && make install
 
 3. 修改Nginx配置
 
