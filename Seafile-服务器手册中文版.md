@@ -10,3 +10,4 @@
 * [[Seafile 相关的防火墙设置]]
 * [[Seafile 服务器端软件的升级]]
 * [[Seafile 服务器端数据备份]]
+* [[Seafile web界面启用Https]]
