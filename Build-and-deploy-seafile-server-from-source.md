@@ -6,11 +6,11 @@ The following list is all the libraries you need to install on your machine. __Y
 
 Package names are according to Ubuntu 12.04. For other Linux distros, please find their corresponding names yourself.
 
-* libevent-dev ( 2.0 or later )
+* libevent-dev  (2.0 or later )
 * libcurl4-openssl-dev  (1.0.0 or later)
-* libglib2.0-dev ( 2.28 or later)
+* libglib2.0-dev (2.28 or later)
 * uuid-dev
-* intltool ( 0.40 or later)
+* intltool (0.40 or later)
 * libsqlite3-dev (3.7 or later)
 * python2.7-dev 
 * libmysqlclient-dev (5.5 or later)
