@@ -1,0 +1,47 @@
+# Seafile web界面启用Https #
+
+SSL数字证书需要向相应机构购买，这里使用免费的自认证证书。
+
+1. 生成SSL数字认证
+
+    openssl genrsa -out privkey.pem 2048
+    
+    openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
+
+2. 启用Nginx的SSL模块（可选）
+
+如果Nginx没有启用SSL模块，则需要重新编译。命令如下：
+
+    wget http://nginx.org/download/nginx-0.7.65.tar.gz
+    tar zxvf nginx-0.7.65.tar.gz
+    cd /root/nginx-0.7.65
+    ./configure --with-http_stub_status_module --with-http_ssl_module
+    make
+    mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.old
+    cp ./objs/nginx /usr/local/nginx/sbin/nginx
+    kill -USR2 `cat /usr/local/nginx/logs/nginx.pid`
+    kill -QUIT `cat /usr/local/nginx/logs/nginx.pid.oldbin`
+
+3. 修改Nginx配置
+
+    server
+    {
+    listen 443;
+    ssl on;
+    ssl_certificate /etc/ssl/cacert.pem;	# 需要改成cacert.pem的路径
+    ssl_certificate_key /etc/ssl/privkey.pem;	# 需要改成privkey.pem的路径
+    server_name www.yourdoamin.com;
+    index index.html index.htm index.php;
+    root /home/wwwroot/yourdomain;
+    ......
+    ......
+    }
+
+
+4. 重启Nginx
+
+    nginx -s reload
+
+5. 测试Https
+
+登陆到 https://www.yourdomain.com, 如果看到浏览器的关于证书错误的警告，则表示配置成功。
