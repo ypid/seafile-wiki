@@ -1,7 +1,5 @@
 ## Build Seafile Server ##
 
-**Warning: not finished yet!**
-
 ### Preparation ###
 
 The following list is all the libraries you need to install on your machine. __You should install all of them before you build seafile__.
