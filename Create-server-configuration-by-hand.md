@@ -2,23 +2,23 @@
 
 To make it easier to migrate or backup your seafile server data, we strongly suggest you create a new directory, and place all the configuration and data under this directory.
 
-In the following part of this section, we suppose you would create a directory `/data/abc-seafile`.
+In the following part of this section, we suppose you would create a directory `/data/haiwen`.
 
 ```sh
-mkdir /data/abc-seafile
-cd /data/abc-seafile
+mkdir /data/haiwen
+cd /data/haiwen
 ```
 
 This is your directory layout right now:
 ```
 /data
- --abc-seafile/
+ --haiwen/
 ```
 
 ### ccnet-server ###
 
 ```sh
-$ ccnet-init -c /data/abc-seafile/ccnet --name "foo-seafile" --port 10001 --host 192.168.1.116
+$ ccnet-init -c /data/haiwen/ccnet --name "foo-seafile" --port 10001 --host 192.168.1.116
 ```
 <table>
   <tr>
@@ -52,7 +52,7 @@ This is your directory layout now:
 
 ```
 /data
- --abc-seafile/
+ --haiwen/
    --ccnet/
      --ccnet.conf
 ```
@@ -60,7 +60,7 @@ This is your directory layout now:
 ### seaf-server ###
 
 ```sh
-$ seaf-server-init --seafile-dir /data/abc-seafile/seafile-data --port 20001
+$ seaf-server-init --seafile-dir /data/haiwen/seafile-data --port 20001
 ```
 <table>
   <tr>
@@ -84,7 +84,7 @@ This is your directory layout now:
 
 ```
 /data
- --abc-seafile/
+ --haiwen/
    --ccnet/
      --ccnet.conf
    --seafile-data/
@@ -96,7 +96,7 @@ This is your directory layout now:
 First download seahub:
 
 ```sh
-cd /data/abc-seafile
+cd /data/haiwen
 wget https://github.com/haiwen/seahub/archive/1.2.0.tar.gz --output-document seahub.tar.gz
 tar xzf seahub.tar.gz
 cd seahub
@@ -105,7 +105,7 @@ cd seahub
 Then initialize seafile database:
 
 ```sh
-export CCNET_CONF_DIR=/data/abc-seafile/ccnet
+export CCNET_CONF_DIR=/data/haiwen/ccnet
 export PYTHONPATH=/data/seahub/thirdpart
 python manage.py syncdb
 ```
@@ -114,7 +114,7 @@ This is your directory layout right now:
 
 ```
 /data
- --abc-seafile/
+ --haiwen/
    --ccnet/
      --ccnet.conf
    --seafile-data/
@@ -133,29 +133,29 @@ Now let's start all the components of Seafile server one by one.
 ### start ccnet-server ###
 
 ```sh
-ccnet-server -c /data/abc-seafile/ccnet -d
+ccnet-server -c /data/haiwen/ccnet -d
 ```
 
 #### start seaf-server and seaf-mon ####
 
 ```sh
-seaf-server -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
-seaf-mon -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
+seaf-server -c /data/haiwen/ccnet -d /data/haiwen/seafile-data
+seaf-mon -c /data/haiwen/ccnet -d /data/haiwen/seafile-data
 ```
 
 #### start httpserver ####
 
 
 ```sh
-httpserver -c /data/abc-seafile/ccnet -d /data/abc-seafile/seafile-data
+httpserver -c /data/haiwen/ccnet -d /data/haiwen/seafile-data
 ```
 
 ### start Seahub ###
 
 ```sh
-cd /data/abc-seafile/seahub
-export CCNET_CONF_DIR=/data/abc-seafile/ccnet
-export PYTHONPATH=/data/seahub/thirdpart
+cd /data/haiwen/seahub
+export CCNET_CONF_DIR=/data/haiwen/ccnet
+export PYTHONPATH=/data/haiwen/seahub/thirdpart
 python manage.py runserver
 ```
 

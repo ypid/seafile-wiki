@@ -6,7 +6,7 @@ First, ensure that:
 * you have started other components of Seafile server
 * you have '''NOT''' started Seahub
 
-In the following section, we assume the path to seahub is '''/data/abc-seafile/seahub'''. You should adjust the content of the help according to your directory layout.
+In the following section, we assume the path to seahub is '''/data/haiwen/seahub'''. You should adjust the content of the help according to your directory layout.
 
 == Deploy with Nginx ==
 
@@ -41,7 +41,7 @@ server {
     }       
 
     location /media {
-        root /data/abc-seafile/seahub;
+        root /data/haiwen/seahub;
     }
 }
 </pre>
@@ -53,9 +53,9 @@ To start Seahub in the fastcgi way:
 
 <pre>
 export CCNET_CONF_DIR=/path/to/your/ccnet/conf/dir
-export PYTHONPATH=/data/abc-seafile/seahub/thirdpart:$PYTHONPATH
+export PYTHONPATH=/data/haiwen/seahub/thirdpart:$PYTHONPATH
 
-cd /data/abc-seafile/seahub
+cd /data/haiwen/seahub
 python ./manage.py runfcgi host=127.0.0.1 port=8000 \
  errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
 </pre>
@@ -67,7 +67,7 @@ It's also common that you need to deploy seahub on a second level domain, for ex
 First you need to create a file named '''local_settings.py''' under the seahub folder.
 
 <pre>
-cd /data/abc-seafile/seahub
+cd /data/haiwen/seahub
 vim local_settings.py
 </pre>
 
@@ -104,7 +104,7 @@ server {
     }       
 
     location /seahub/media {        
-        root /data/abc-seafile/;
+        root /data/haiwen/;
     }
 }
 </pre>

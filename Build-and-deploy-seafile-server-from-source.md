@@ -135,11 +135,11 @@ Usage: seafile-admin <operation>
 
 ##### Create a new directory for all the configuration and data
 
-To make it easier to migrate or backup your seafile server data, we strongly suggest you create a new directory, and place all the configuration and data under this directory. 
+To make it easier to migrate or backup your seafile server data, we strongly suggest you create a new directory, and place all the configuration and data under this directory. Suppose your organization's name is **haiwen**, we create a new directory called **haiwen** to hold all the data.
 
 ```sh
-mkdir /data/abc-seafile
-cd /data/abc-seafile
+mkdir /data/haiwen
+cd /data/haiwen
 ```
 
 ##### Download seahub to this directory
@@ -209,7 +209,7 @@ And a screenshot after setup is finished successfully:
 At this time, the directory layout would be like this:
 ```
 /data
- --abc-seafile/
+ --haiwen/
    --ccnet/
      --ccnet.conf
    --seafile-data/

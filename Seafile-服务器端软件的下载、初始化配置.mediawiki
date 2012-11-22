@@ -74,7 +74,7 @@ $ ./setup-seafile.sh
 | 一般使用默认的10001 端口，如果已经被占用，可以设置为其他的端口
 |-
 | seafile data dir
-| seafile 数据存放的目录，用上面的例子，默认将是 /data/abc-seafile/seafile-data
+| seafile 数据存放的目录，用上面的例子，默认将是 /data/haiwen/seafile-data
 | seafile 数据将随着使用而逐渐增加，请把它放在一个有足够大空闲空间的分区上
 |-
 | seafile server port 
