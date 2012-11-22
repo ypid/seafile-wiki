@@ -2,7 +2,7 @@ In a production environment, we often need to deploy the seahub server behind so
 
 In the following section, we assume you have downloaded seahub to '''/data/abc-seafile/seahub'''. You should adjust the content of the help according to your directory layout.
 
-== Deploy with nginx ==
+== Deploy with Nginx ==
 
 When using nginx, we need to use seahub with fastcgi. 
 
@@ -46,6 +46,9 @@ To start Seahub in the fastcgi way:
 * then run the following command:
 
 <pre>
+export CCNET_CONF_DIR=/path/to/your/ccnet/conf/dir
+export PYTHONPATH=/data/abc-seafile/seahub/thirdpart:$PYTHONPATH
+
 cd /data/abc-seafile/seahub
 python ./manage.py runfcgi host=127.0.0.1 port=8000 \
  errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
@@ -99,3 +102,5 @@ server {
     }
 }
 </pre>
+
+== Deploy With Apache ==
