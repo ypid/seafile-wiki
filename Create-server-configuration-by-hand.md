@@ -159,7 +159,7 @@ export PYTHONPATH=/data/seahub/thirdpart
 python manage.py runserver
 ```
 
-Note: This would only start a basic development server of Django for Seahub, which is enough for a demo or single person usage. To setup a production level web server if you need, see [[Deploy Seahub in a production environment]]
+Note: This would only start a basic development server of Django for Seahub, which is enough for a demo or single person usage. To setup a production level web server if you need, see [[Deploy Seahub With Nginx/Apache]]
 
 ## Done ##
 
