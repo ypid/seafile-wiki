@@ -116,8 +116,17 @@ Now you should have the following directory layout
 
 Under seafile-server-1.2.0 directory, run the following commands
 
+* Start seafile:
+
 <pre>
 ./seafile.sh start # Start seafile service
+</pre>
+
+* Start seahub
+
+'''Note:''' If you want to deploy seahub with nginx or apache. In this case, do not run the next command. Instead, follow the instructions about [[Deploy Seahub With Nginx/Apache]].
+
+<pre>
 ./seahub.sh start  # Start seahub website (by default running on 8000 port)
 </pre>
 
