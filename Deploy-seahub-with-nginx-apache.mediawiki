@@ -1,7 +1,9 @@
 In a production environment, we often need to deploy the seahub server behind some web server.
 
-First, ensure that:
+Seahub is the web front end of the seafile server. It requires other components of the Seafile server to be running.
 
+First, ensure that:
+ 
 * you have started other components of Seafile server
 * you have '''NOT''' started Seahub
 
