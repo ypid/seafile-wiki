@@ -10,6 +10,7 @@
 
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
+* [[Deploy Seahub in a production environment]]
 
 [[Seafile 服务器手册中文版]]
 
