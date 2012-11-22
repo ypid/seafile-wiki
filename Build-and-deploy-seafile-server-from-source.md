@@ -225,6 +225,12 @@ After configuration successfully created, run `seafile-admin start` to start the
 seafile-admin start
 ```
 
+**Note** You may want to deploy seahub with nginx or apache. In this case, run the `start` command with `--no-web`, and follow the instructions about [[Deploy Seahub With Nginx/Apache]].
+
+```sh
+seafile-admin start --no-web
+```
+
 At this moment, all the components should be running and seahub can be visited at **http://yourserver-ip-or-domain:8000**
 
 ##### Stop the Seafile server
@@ -234,8 +240,6 @@ To stop Seafile server, run `seafile-admin stop` to stop all components of Seafi
 ```sh
 seafile-admin stop
 ```
-
-
 
 ## Problems Report ##
 
