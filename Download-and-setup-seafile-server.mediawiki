@@ -19,7 +19,7 @@ we suggest you to layout your deployment as follows
 <pre>
     mkdir haiwen
     cd haiwen
-    wget http://www.gonggeng.org/~gonggeng/seafile-server_1.2.0_x86-64.tar.gz
+    wget https://github.com/downloads/haiwen/seafile/seafile-server_1.2.0_x86-64.tar.gz
     tar xzf seafile-server_1.2.0_x86-64.tar.gz
 </pre>
 
