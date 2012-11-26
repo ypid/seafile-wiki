@@ -1,4 +1,4 @@
-# Seafile data backup #
+Seafile data backup
 
 Seafile data are all stored in the installation directory, so just back up whole directory.
 
