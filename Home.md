@@ -11,6 +11,7 @@
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
 * [[Deploy Seahub With Nginx/Apache]]
+* [[Seafile server data backup]]
 
 [[Seafile 服务器手册中文版]]
 
