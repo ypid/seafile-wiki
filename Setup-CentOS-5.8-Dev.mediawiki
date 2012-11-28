@@ -26,7 +26,7 @@ sudo rpm -ivh epel-release-5-4.noarch.rpm
 === Install packages ===
 
 <pre>
-sudo yum install gcc gcc-g++ openssl-devel python26-devel libffi-devel re2c flex
+sudo yum install gcc gcc-g++ openssl-devel python26-devel libffi-devel re2c flex mysql-devel
 </pre>
 
 Set python2.6 as the default:
@@ -55,7 +55,7 @@ export LDFLAGS="-L/opt/lib -L/opt/lib64 $LDFLAGS"
 
 === openssl ===
 
-openssl > 0.9.8k is required
+openssl > 0.9.8k is required.
 
 # Download the source of the stable version from  [http://www.openssl.org/source/]
 # build
@@ -68,7 +68,7 @@ make install
 
 === GLib ===
 
-Glib above 2.24 is required.
+Glib > 2.24 is required.
 
 # download the source of the stable version from [http://developer.gnome.org/glib/]
 # build and install
@@ -94,7 +94,7 @@ make install
 
 === CMake ===
 
-CMake above 2.8 is required. We need it to build <code>libevhtp</code>(see below).
+CMake > 2.8 is required. We need it to build <code>libevhtp</code>(see below).
 
 # download the source of the stable version from [http://www.cmake.org/cmake/resources/software.html]
 # build and install
@@ -106,6 +106,8 @@ make install
 </pre>
 
 === libevhtp ===
+
+libevhtp is a http server libary on top of libevent. We used it in httpserver.
 
 # download the latest from [https://github.com/ellzey/libevhtp/tags]
 # build and install
@@ -124,12 +126,27 @@ make
 sudo make install
 </pre>
 
-== libzdb ==
+=== sqlite3 ===
 
-# download libzdb from [http://www.tildeslash.com/libzdb/dist/libzdb-2.10.5.tar.gz]
+# download the source of the stable version from [http://www.sqlite.org/download.html]
 # build and install
 <pre>
 ./configure --prefix=/opt
 make
 make install
 </pre>
+
+=== libzdb ===
+
+<code>libzdb</code> provides a consistent API to various database backends, including sqlite/mysql/pg/oracle. It's used by ccnet-server and seafile-server.
+
+# download libzdb from [http://www.tildeslash.com/libzdb/dist/libzdb-2.10.5.tar.gz]
+# build and install
+
+''Note'': Ensure <code>sqlite3</code> is built and installed before building libzdb.
+<pre>
+./configure --prefix=/opt
+make
+make install
+</pre>
+
