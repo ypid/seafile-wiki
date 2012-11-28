@@ -1,4 +1,3 @@
-
 == System Admin ==
 
 === Create a non-root user ===
