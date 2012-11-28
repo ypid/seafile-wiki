@@ -38,13 +38,29 @@ sudo ln -f /usr/bin/python2.6
 
 == Install library dependencies ==
 
-To seperate system libraries from the libraries we build, we install it to '''/opt'''. Later we can link to the libraries we build by simply set the '''PKT_CONFIG_PATH''' environment variable.
+* The version of some libraries are too old on CentOS 5.8, so that we need to build an up-to-date version of each of them.
+* To seperate system libraries from the libraries we build, we install it to '''/opt'''.
 
 Add the following lines to <code>~/.bashrc</code>:
+
 <pre>
-export PKG_CONFIG_PATH=/opt/lib/pkgconfig:$PKG_CONFIG_PATH
-export LD_LIBRARY_PATH=/opt/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=/opt/lib/pkgconfig:/opt/lib64/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/opt/lib:/opt/lib64:$LD_LIBRARY_PATH
 export PATH=/opt/bin:$PATH
+export CMAKE_PREFIX_PATH=/opt:$CMAKE_PREFIX_PATH
+</pre>
+
+=== openssl ===
+
+openssl > 0.9.8k is required
+
+# Download the latest from  [http://www.openssl.org/source/]
+# build
+
+<pre>
+./config --prefix=/opt shared
+make
+make install
 </pre>
 
 === GLib ===
@@ -86,19 +102,6 @@ make
 make install
 </pre>
 
-=== openssl ===
-
-openssl > 0.9.8k is required
-
-# Download the latest from  [http://www.openssl.org/source/]
-# build
-
-<pre>
-./config --prefix=/opt
-make
-make install
-</pre>
-
 === libevhtp ===
 
-libevhtp 0.4.9 is required
+# download the latest from [https://github.com/ellzey/libevhtp/tags]
