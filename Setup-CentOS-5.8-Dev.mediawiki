@@ -54,7 +54,7 @@ export CMAKE_PREFIX_PATH=/opt:$CMAKE_PREFIX_PATH
 
 openssl > 0.9.8k is required
 
-# Download the latest from  [http://www.openssl.org/source/]
+# Download the source of the stable version from  [http://www.openssl.org/source/]
 # build
 
 <pre>
@@ -67,7 +67,7 @@ make install
 
 Glib above 2.24 is required.
 
-# download latest stable version from [http://developer.gnome.org/glib/]
+# download the source of the stable version from [http://developer.gnome.org/glib/]
 # build and install
 
 <pre>
@@ -78,22 +78,24 @@ make install
 
 === libevent ===
 
-libevent > 2.0 is reqired.
+libevent > 2.0 is required.
 
-# download latest stable version from [http://libevent.org]
+# download source of the stable version from [http://libevent.org]
 # build and install
 
+''Note'': Due to the mechanism used in the <code>configure</code> scripts of libevent source as I write this(''2012.11.28''), we have to set <code>CPPFLAGS</code> and <code>LDFLAGS</code> to use the <code>openssl</code> library we installed in <code>/opt</code>
+
 <pre>
-./configure --prefix=/opt
+CPPFLAGS=-I/opt/include LDFLAGS='-L/opt/lib -L/opt/lib64' ./configure --prefix=/opt
 make
 make install
 </pre>
 
 === CMake ===
 
-CMake above 2.8 is required.
+CMake above 2.8 is required. We need it to build <code>libevhtp</code>(see below).
 
-# download latest stable version from [http://www.cmake.org/cmake/resources/software.html]
+# download the source of the stable version from [http://www.cmake.org/cmake/resources/software.html]
 # build and install
 
 <pre>
@@ -105,3 +107,18 @@ make install
 === libevhtp ===
 
 # download the latest from [https://github.com/ellzey/libevhtp/tags]
+# build and install
+
+<pre>
+cmake .
+make 
+sudo make install
+</pre>
+
+''Note'': The above commands would install <code>libevhtp</code> to <code>/usr/local</code>. As I write this(''2012.11.28''), the cmake configuration of <code>libevhtp</code> does not support the <code>CMAKE_INSTALL_PREFIX</code> setting. Otherwise we can do this to install it to <code>/opt</code>
+
+<pre>
+cmake -DCMAKE_INSTALL_PREFIX=/opt .
+make 
+sudo make install
+</pre>
