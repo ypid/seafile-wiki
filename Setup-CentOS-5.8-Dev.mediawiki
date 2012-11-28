@@ -3,8 +3,15 @@
 === Create a non-root user ===
 <pre>
 useradd -d /home/plt -m -p hello123 -s /bin/bash plt
+</pre>
+
+Add this user to sudoer list:
+<pre>
 /usr/sbin/visudo
 </pre>
+
+Add a line <code>plt     ALL=(ALL)       ALL</code> under the line <code>root     ALL=(ALL)       ALL
+</code>
 
 === Add EPEL to yum repository ===
 
@@ -19,7 +26,7 @@ sudo rpm -ivh epel-release-5-4.noarch.rpm
 === Install packages ===
 
 <pre>
-sudo yum install python26-dev gcc openssl-devel sqlite-devel.x86_64
+sudo yum install gcc gcc-g++ openssl-devel python26-devel sqlite-devel.x86_64 libffi-devel
 </pre>
 
 Set python2.6 as the default:
@@ -31,13 +38,15 @@ sudo ln -f /usr/bin/python2.6
 
 == Install library dependencies ==
 
-To seperate system libraries from the libraries we build, we install it to '''/opt'''. Later we can link to the libraries we build by simply set the @PKT_CONFIG_PATH@ environment variable.
+To seperate system libraries from the libraries we build, we install it to '''/opt'''. Later we can link to the libraries we build by simply set the '''PKT_CONFIG_PATH''' environment variable.
 <pre>
 export PKG_CONFIG_PATH=/opt/lib/pkgconfig
 export LD_LIBRARY_PATH=/opt/lib
 </pre>
 
 === GLib ===
+
+Glib above 2.24 is required.
 
 # download latest stable version from [http://developer.gnome.org/glib/]
 # build and install
@@ -50,6 +59,8 @@ make install
 
 === libevent ===
 
+libevent > 2.0 is reqired.
+
 # download latest stable version from [http://libevent.org]
 # build and install
 
@@ -59,3 +70,15 @@ make
 make install
 </pre>
 
+=== CMake ===
+
+CMake above 2.8 is required.
+
+# download latest stable version from [http://www.cmake.org/cmake/resources/software.html]
+# build and install
+
+<pre>
+./bootstrap
+make 
+make install
+</pre>
