@@ -85,3 +85,20 @@ CMake above 2.8 is required.
 make 
 make install
 </pre>
+
+=== openssl ===
+
+openssl > 0.9.8k is required
+
+# Download the latest from  [http://www.openssl.org/source/]
+# build
+
+<pre>
+./config --prefix=/opt
+make
+make install
+</pre>
+
+=== libevhtp ===
+
+libevhtp 0.4.9 is required
