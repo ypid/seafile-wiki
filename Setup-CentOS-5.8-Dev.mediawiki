@@ -16,10 +16,16 @@ wget http://mirror.nus.edu.sg/Fedora/epel/5/i386/epel-release-5-4.noarch.rpm
 sudo rpm -ivh epel-release-5-4.noarch.rpm
 </pre>
 
-=== install packages ===
+=== Install packages ===
 
 <pre>
-sudo yum install python26-dev gcc
+sudo yum install python26-dev gcc openssl-devel sqlite-devel.x86_64
+</pre>
+
+Set python2.6 as the default:
+<pre>
+cd /usr/local/bin
+sudo ln -f /usr/bin/python2.6
 </pre>
 
 
@@ -33,7 +39,18 @@ export LD_LIBRARY_PATH=/opt/lib
 
 === GLib ===
 
-# download latest from [http://developer.gnome.org/glib/]
+# download latest stable version from [http://developer.gnome.org/glib/]
+# build and install
+
+<pre>
+./configure --prefix=/opt
+make
+make install
+</pre>
+
+=== libevent ===
+
+# download latest stable version from [http://libevent.org]
 # build and install
 
 <pre>
