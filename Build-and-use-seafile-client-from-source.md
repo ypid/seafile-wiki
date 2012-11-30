@@ -59,7 +59,7 @@ Please visit [[Build seafile client on windows]]. We suggest you [download the w
 
 ### Linux ###
 
-After you build and install Seafile client on Linux, you can start it by the `seafile-applet command`
+After you build and install Seafile client on Linux, you can start it by the `seafile-applet` command
 ```sh
    $ seafile-applet
 ```
