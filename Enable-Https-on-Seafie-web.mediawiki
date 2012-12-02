@@ -1,4 +1,3 @@
-
 Here we use self sign SSL digital certificate by free.
 
 1. Generate SSL digital certificate with OpenSSL
@@ -36,4 +35,4 @@ If your Nginx does not support SSL, you need to recompile it, the commands are a
 
 5. Test Https
 
-Open your browser, and input `https://www.yourdomain.com`, if you see a security alert dialog, that means Https is enabled.
+Open your browser, and input https://www.yourdomain.com, if you see a security alert dialog, that means Https is enabled.
