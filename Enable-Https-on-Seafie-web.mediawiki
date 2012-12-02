@@ -1,0 +1,39 @@
+
+Here we use self sign SSL digital certificate by free.
+
+1. Generate SSL digital certificate with OpenSSL
+
+    openssl genrsa -out privkey.pem 2048
+
+    openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
+
+2. Enable SSL module of Nginx (optional)
+
+If your Nginx does not support SSL, you need to recompile it, the commands are as follows:
+
+    ./configure --with-http_stub_status_module --with-http_ssl_module
+    
+    make && make install
+
+3. Modify Nginx configuration file
+
+    server
+    {
+    listen 443;
+    ssl on;
+    ssl_certificate /etc/ssl/cacert.pem;	# path to your cacert.pem
+    ssl_certificate_key /etc/ssl/privkey.pem;	# path to your privkey.pem
+    server_name www.yourdoamin.com;
+    index index.html index.htm index.php;
+    root /home/wwwroot/yourdomain;
+    ......
+    ......
+    }
+
+4. Reload Nginx
+
+    nginx -s reload
+
+5. Test Https
+
+Open your browser, and input `https://www.yourdomain.com`, if you see a security alert dialog, that means Https is enabled.
