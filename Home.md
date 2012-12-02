@@ -10,8 +10,9 @@
 
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
-* [[Deploy Seahub With Nginx/Apache]]
+* [[Deploy Seafile Web With Nginx/Apache]]
 * [[Seafile server data backup]]
+* [[Enable Https on Seafie Web]]
 
 [[Seafile 服务器手册中文版]]
 
