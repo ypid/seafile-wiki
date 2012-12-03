@@ -41,6 +41,11 @@ sudo ln -f /usr/bin/python2.6
 * The version of some libraries are too old on CentOS 5.8, so that we need to build an up-to-date version of each of them.
 * To seperate system libraries from the libraries we build, we install it to '''/opt'''.
 
+Change the owner of <code>/opt</code> to plt:
+<pre>
+sudo chown -R plt:plt /opt
+</pre>
+
 Add the following lines to <code>~/.bashrc</code>:
 
 <pre>
