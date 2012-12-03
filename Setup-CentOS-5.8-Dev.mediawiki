@@ -131,6 +131,14 @@ make
 sudo make install
 </pre>
 
+''Note on 32-bit systems'': As I write this(''2012.12.03''), <code>libevhtp/evthr/evthr.c</code> uses the atomic function <code>__sync_fetch_add_add</code>, which requires the <code>-march=i486</code> flag to be added, otherwise a link error would be raised. see [http://stackoverflow.com/questions/130740/link-error-when-compiling-gcc-atomic-operation-in-32-bit-mode]
+
+<pre>
+cmake -DCMAKE_C_FLAGS="-march=i486 $CPPFLAGS" .
+make 
+sudo make install
+</pre>
+
 === sqlite3 ===
 
 # download the source of the stable version from [http://www.sqlite.org/download.html]
@@ -154,4 +162,3 @@ make install
 make
 make install
 </pre>
-
