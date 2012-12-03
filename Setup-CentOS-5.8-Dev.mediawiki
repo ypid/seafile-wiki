@@ -105,7 +105,7 @@ CMake > 2.8 is required. We need it to build <code>libevhtp</code>(see below).
 # build and install
 
 <pre>
-./bootstrap
+./bootstrap --prefix=/opt
 make 
 make install
 </pre>
