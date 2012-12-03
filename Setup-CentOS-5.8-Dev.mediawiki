@@ -26,7 +26,7 @@ sudo rpm -ivh epel-release-5-4.noarch.rpm
 === Install packages ===
 
 <pre>
-sudo yum install gcc gcc-g++ openssl-devel python26-devel libffi-devel re2c flex mysql-devel
+sudo yum install gcc gcc-c++ openssl-devel python26-devel libffi-devel re2c flex mysql-devel
 </pre>
 
 Set python2.6 as the default:
