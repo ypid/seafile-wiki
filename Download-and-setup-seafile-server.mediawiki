@@ -1,6 +1,6 @@
 This manual explains how to setup and run Seafile server from a pre-built package.
 
-== Download == 
+== Download ==
 
 * [http://www.seafile.com/download Download] the latest server package.
 * This pre-built package only supports 64-bit linux.
