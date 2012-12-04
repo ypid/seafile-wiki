@@ -3,7 +3,7 @@
 **Basic**
 
 * [[Seafile Server Components Overview]]
-* [[Download and Setup Seafile Server ]]
+* [[Download and Setup Your Seafile Server ]]
 * [[Seafile Server Management]]
 
 **Advanced**
