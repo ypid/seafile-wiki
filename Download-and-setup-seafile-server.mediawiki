@@ -1,0 +1,170 @@
+This manual explains how to setup and run Seafile server from a pre-built package.
+
+== Download ==
+
+* [http://www.seafile.com/download Download] the latest server package.
+* This pre-built package only supports 64-bit linux.
+* The pre-built package currently only supports "new enough" OS.
+
+If you're running an old OS or 32-bit OS, you may [https://github.com/haiwen/seafile/wiki/Build-and-deploy-seafile-server-from-source build Seafile from source].
+
+== Deploying and Directory Layout ==
+
+Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.2.0_x86-64.tar.gz into your home directory,
+we suggest you to layout your deployment as follows
+
+* Create a new folder named "haiwen" in your home directory.
+* Untar seafile-server_1.2.0_x86-64.tar.gz into "haiwen" directory.
+
+<pre>
+    mkdir haiwen
+    cd haiwen
+    wget https://github.com/downloads/haiwen/seafile/seafile-server_1.2.0_x86-64.tar.gz
+    tar xzf seafile-server_1.2.0_x86-64.tar.gz
+</pre>
+
+Now you should have the following directory layout
+<pre>
+  haiwen
+     -- seafile-server-1.2.0
+</pre>
+
+'''The benefit of this layout is that'''
+
+* We can place all the config files for Seafile server inside "haiwen" directory, making it easier to manage.
+* When you upgrade to a new version of Seafile, you can simply untar the latest package into "haiwen" directory. ''In this way you can reuse the existing config files in "haiwen" directory and don't need to configure again''.
+
+== Setting Up Seafile Server ==
+
+=== Prerequisites ===
+
+The Seafile server package requires the following packages have been installed in your system
+
+* python 2.6 or 2.7
+* python-setuptools
+* python-simplejson
+* python-imaging
+* sqlite3
+
+If some of them are not installed, the seafile initialization script will ask you to install them.
+
+=== Setup ===
+
+Change into haiwen/seafile-server-1.2.0 directory, and run setup-seafile.sh script
+<pre>
+$ ./setup-seafile.sh
+</pre>
+
+[[images/server-setup.png|You'll see these outputs when you run the setup script]]
+
+The script will guide you through the settings of various configuration options.
+
+{| border="1" cellspacing="0" cellpadding="5" align="center"
+! width="160" |Option
+! width="300" |Description
+! width="300" |Note
+|-
+| seafile server name 
+| Name of this seafile server
+| 3-15 characters, only English letters, digits and underscore ('_') are allowed
+|-
+| seafile server ip or domain
+| The IP address or domain name used by this service
+| Seafile client program will access the server with this address
+|-
+| ccnet server port 
+| The TCP port used by ccnet, the underlying networking service of Seafile
+| You may usually use the default (10001). If it's been used by other service, you can set it to another port.
+|-
+| seafile data dir
+| Seafile stores your data in this directory. By default it'll be placed in the current directory.
+| The size of this directory will increase as you put more and more data into Seafile. Please select a disk partition with enough free space.
+|-
+| seafile server port 
+| The TCP port used by Seafile to transfer data
+| You may usually use the default (12001). If it's been used by other service, you can set it to another port.
+|-
+| seahub admin email
+| Admin account for seafile website
+| 
+|-
+| seahub admin password
+| Password for website admin
+| 
+|-
+|}
+
+If the setup is successful, you'll see the following output
+
+[[images/server-setup-successfully.png]]
+
+Now you should have the following directory layout
+
+<pre>
+   haiwen
+     --seafile-server-1.2.0 # untar from seafile package
+     --seafile-data   # seafile configuration and data (if you choose the default)
+     --seahub-data    # seahub data
+     --ccnet          # ccnet configuration and data 
+     --seahub.db      # sqlite3 database used by seahub
+     --seahub_settings.py # optional config file for seahub
+</pre>
+
+== Running Seafile Server ==
+
+=== Starting Seafile Server and Seahub Website ===
+
+Under seafile-server-1.2.0 directory, run the following commands
+
+* Start seafile:
+
+<pre>
+./seafile.sh start # Start seafile service
+</pre>
+
+* Start seahub
+
+'''Note:''' You may want to deploy seahub with nginx or apache. In this case, do not run the next command. Instead, follow the instructions about [[Deploy Seahub With Nginx/Apache]].
+
+<pre>
+./seahub.sh start  # Start seahub website (by default running on 8000 port)
+</pre>
+
+After starting the services, you may open a web browser to check if you can visit seahub website.
+
+Now you may read about [[Seafile-server-management|how to manage the server]].
+
+== Stopping and Restarting Seafile and Seahub ==
+
+==== Stopping ====
+
+<pre>
+./seafile.sh stop # stop seafile processes
+./seahub.sh stop # stop seahub website
+</pre>
+
+==== Restarting ====
+
+<pre>
+./seafile.sh restart
+./seahub.sh restart
+</pre>
+
+==== When the Scripts Fail ====
+
+Most of the time, seafile.sh and seahub.sh work fine. But when they fail, you may
+
+* Use '''pgrep''' command to check if seafile/seahub processes are still running
+
+<pre>
+$ pgrep -f seafile-controller # check seafile processes
+$ pgrep -f "manage.py run_gunicorn" # check seahub process
+</pre>
+
+* Use '''pkill''' to kill the processes
+
+<pre>
+$ pkill -f seafile-controller
+$ pkill -f "manage.py run_gunicorn"
+$ pkill -f httpserver
+</pre>
