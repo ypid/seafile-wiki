@@ -57,9 +57,10 @@ $ ./setup-seafile.sh
 该脚本会依次询问你一些问题，从而一步步引导你配置 seafile 的各项参数
 
 {| border="1" cellspacing="0" cellpadding="5" align="center"
-! width="160" |参数
-! width="300" |作用
-! width="300" |说明
+|+ Seafile 配置参数
+! 参数
+! 作用
+! 说明
 |-
 | seafile server name 
 | seafile 服务器的名字，将来在客户端会显示为这个名字
