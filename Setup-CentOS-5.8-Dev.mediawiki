@@ -2,7 +2,8 @@
 
 === Create a non-root user ===
 <pre>
-useradd -d /home/plt -m -p hello123 -s /bin/bash plt
+useradd -d /home/plt -m -s /bin/bash plt
+passwd plt
 </pre>
 
 Add this user to sudoer list:
