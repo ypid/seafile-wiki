@@ -59,6 +59,44 @@ $ ./setup-seafile.sh
 
 The script will guide you through the settings of various configuration options.
 
+
+{| border="1" cellspacing="0" cellpadding="5" align="center"
+|+ Seafile configuration options
+! Option
+! Description
+! Note
+|-
+| seafile server name 
+| Name of this seafile server
+| 3-15 characters, only English letters, digits and underscore ('_') are allowed
+|-
+| seafile server ip or domain
+| The IP address or domain name used by this service
+| Seafile client program will access the server with this address
+|-
+| ccnet server port 
+| The TCP port used by ccnet, the underlying networking service of Seafile
+| You may usually use the default (10001). If it's been used by other service, you can set it to another port.
+|-
+| seafile data dir
+| Seafile stores your data in this directory. By default it'll be placed in the current directory.
+| The size of this directory will increase as you put more and more data into Seafile. Please select a disk partition with enough free space.
+|-
+| seafile server port 
+| The TCP port used by Seafile to transfer data
+| You may usually use the default (12001). If it's been used by other service, you can set it to another port.
+|-
+| seahub admin email
+| Admin account for seafile website
+| 
+|-
+| seahub admin password
+| Password for website admin
+| 
+|-
+|}
+
+
 If the setup is successful, you'll see the following output
 
 [[images/server-setup-successfully.png]]
