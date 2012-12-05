@@ -1,4 +1,4 @@
-Here we use self sign SSL digital certificate by free.
+Here we use self-signed SSL digital certificate for free.
 
 1. Generate SSL digital certificate with OpenSSL
 
