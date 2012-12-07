@@ -164,3 +164,16 @@ make install
 make
 make install
 </pre>
+
+=== libarchive ===
+
+<code>libarchive</code> is used by <code>httpserver</code> to provide zip format download of a sub directory.
+
+# download latest stable version of libarchive from [http://libarchive.github.com/]
+# build and install
+
+<pre>
+./configure --prefix=/opt
+make
+make install
+</pre>
