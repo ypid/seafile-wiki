@@ -5,6 +5,7 @@
 * [[Seafile Server Components Overview]]
 * [[Download and Setup Seafile Server ]]
 * [[Seafile Server Management]]
+* [[Garbage Collecting Unused Blocks on Seafile Server]]
 
 **Advanced**
 
@@ -13,7 +14,6 @@
 * [[Deploy Seafile Web With Nginx/Apache]]
 * [[Enable Https on Seafie Web]]
 * [[Seafile server data backup]]
-* [[Garbage Collecting Unused Blocks on Seafile Server]]
 
 [[Seafile 服务器手册中文版]]
 
