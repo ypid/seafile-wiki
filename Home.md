@@ -5,6 +5,7 @@
 * [[Seafile Server Components Overview]]
 * [[Download and Setup Seafile Server ]]
 * [[Seafile Server Management]]
+* [[Upgrading Seafile Server]]
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
 
 **Advanced**
