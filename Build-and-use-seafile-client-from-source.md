@@ -51,24 +51,10 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 Appindicator is needed for Unity desktop environment.
 
-### Windows ###
-
-Please visit [[Build seafile client on windows]]. We suggest you [download the windows installer](http://www.seafile.com/download) for Seafile client, instead of building it yourself. 
 
 ## Use Seafile Client ##
-
-### Linux ###
 
 After you build and install Seafile client on Linux, you can start it by the `seafile-applet` command
 ```sh
    $ seafile-applet
 ```
-
-### Windows ###
-
-* After download the installer(a .msi file), click the msi file and follow the installer to finish the installation.
-* The program will start automatically after installation.
-
-## Problems Report ##
-
-If you encounter any problem when building Seafile, please leave us a message or open an issue.
