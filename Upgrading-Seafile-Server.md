@@ -35,7 +35,7 @@ haiwen
 
 Finally run the upgrade script in seafile-server-1.3.0 directory.
 
-    $ cd haiwen/seafile-server-1.3.0
+    $ cd haiwen/seafile-server-1.3.0/upgrade
     $ ./upgrade_1.2.0_1.3.0_server.sh
 
 The naming rule for upgrade scripts is upgrade_a.b.c_x.y.z_server.sh,
@@ -49,4 +49,4 @@ The procedure is:
 1. upgrade from 1.1.0 to 1.2.0;
 2. upgrade from 1.2.0 to 1.3.0.
 
-Just run the upgrade scripts in sequence.
+Just run the upgrade scripts in sequence. (You don't need to download server package 1.2.0)
