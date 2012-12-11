@@ -16,7 +16,7 @@ ID=eb812fd276432eff33bcdde7506f896eb4769da0
 # This is the name of this Seafile server. It'll be displayed on Seafile client program.
 NAME=example
 
-# This is the URL for seahub website
+# This is the URL for Seafile Web. It'll be displayed on Seafile client program.
 SERVICE_URL=http://www.example.com:8000
 
 
