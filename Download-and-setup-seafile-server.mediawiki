@@ -130,8 +130,29 @@ Under seafile-server-1.2.0 directory, run the following commands
 '''Note:''' You may want to deploy seahub with nginx or apache. In this case, do not run the next command. Instead, follow the instructions about [[Deploy Seahub With Nginx/Apache]].
 
 <pre>
-./seahub.sh start  # Start seahub website (by default running on 8000 port)
+./seahub.sh start <port>  # Start seahub website, port defaults to 8000
 </pre>
+
+'''Note:''' If you want to run seahub in a port other than the default 8000, say 8001, you must:
+
+* stop the seafile server 
+<pre>
+./seafile.sh stop
+./seahub.sh stop
+</pre>
+
+* modify the value of <code>SERVICE_URL</code> in the file <code>haiwen/ccnet/ccnet.conf</code>, like this: (assume your ip or domain is <code>192.168.1.100</code>)
+<pre>
+SERVICE_URL = 192.168.1.100:8001
+</pre>
+
+* restart seafile server
+<pre>
+./seafile.sh start
+./seahub.sh start 8001
+</pre>
+
+see [[Seafile server configuration options]] for more details about <code>ccnet.conf</code>.
 
 After starting the services, you may open a web browser to check if you can visit seahub website.
 
