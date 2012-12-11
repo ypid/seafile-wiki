@@ -1,8 +1,8 @@
 This manual explains how to change various config options for Seafile server. We assume that you've [[Download-and-setup-seafile-server|setup Seafile server]]. 
 
-== Seafile Network Configurations ==
+== Seafile Network Configurations (ccnet.conf) ==
 
-You may change Seafile's network options by modifying ccnet/ccnet.conf file. Let's walk through the options by an example.
+You may change Seafile's network options by modifying `ccnet/ccnet.conf` file. Let's walk through the options by an example.
 
 <pre>
 [General]
@@ -16,7 +16,7 @@ ID=eb812fd276432eff33bcdde7506f896eb4769da0
 # This is the name of this Seafile server. It'll be displayed on Seafile client program.
 NAME=example
 
-# This is the URL for Seafile Web. It'll be displayed on Seafile client program.
+# This is the URL for Seahub(Seafile Web). It'll be displayed on Seafile client program.
 SERVICE_URL=http://www.example.com:8000
 
 
