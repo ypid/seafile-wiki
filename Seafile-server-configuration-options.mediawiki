@@ -80,9 +80,9 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 </pre>
 
-=== Seahub Settings ===
+=== Seahub Settings (seahub_settings.py) ===
 
-You may change seahub website's settings in seahub_settings.py.
+You may change seahub website's settings in `seahub_settings.py`.
 
 <pre>
 
