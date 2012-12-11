@@ -127,13 +127,19 @@ Under seafile-server-1.2.0 directory, run the following commands
 
 * Start seahub
 
-'''Note:''' You may want to deploy seahub with nginx or apache. In this case, do not run the next command. Instead, follow the instructions about [[Deploy Seahub With Nginx/Apache]].
-
 <pre>
 ./seahub.sh start <port>  # Start seahub website, port defaults to 8000
 </pre>
 
-'''Note:''' If you want to run seahub in a port other than the default 8000, say 8001, you must:
+After starting the services, you may open a web browser to check if you can visit seahub website.
+
+==== Deploy seahub with nginx/apache ====
+
+You may want to deploy seahub with nginx or apache. In this case, do not run the next command. Instead, follow the instructions about [[Deploy Seafile Web With Nginx/Apache]].
+
+==== Run Seahub on another port ====
+
+If you want to run seahub in a port other than the default 8000, say 8001, you must:
 
 * stop the seafile server 
 <pre>
@@ -153,10 +159,6 @@ SERVICE_URL = 192.168.1.100:8001
 </pre>
 
 see [[Seafile server configuration options]] for more details about <code>ccnet.conf</code>.
-
-After starting the services, you may open a web browser to check if you can visit seahub website.
-
-Now you may read about [[Seafile-server-management|how to manage the server]].
 
 == Stopping and Restarting Seafile and Seahub ==
 
@@ -192,3 +194,5 @@ $ pkill -f seafile-controller
 $ pkill -f "manage.py run_gunicorn"
 $ pkill -f httpserver
 </pre>
+
+Now you may read about [[Seafile-server-management|how to manage the server]].
