@@ -39,9 +39,9 @@ cd seafile-server
 ./seafile.sh restart
 </pre>
 
-== Storage Quota Setting ==
+== Storage Quota Setting (seafile.conf) ==
 
-You may set a default quota (e.g. 2GB) for all users. To do this, just add the following lines to seafile-data/seafile.conf file
+You may set a default quota (e.g. 2GB) for all users. To do this, just add the following lines to `seafile-data/seafile.conf` file
 
 <pre>
 [quota]
