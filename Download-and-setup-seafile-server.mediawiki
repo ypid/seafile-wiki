@@ -2,7 +2,7 @@ This manual explains how to setup and run Seafile server from a pre-built packag
 
 == Download ==
 
-[http://www.seafile.com/download Download] the latest server package.
+[http://www.seafile.com/en/download Download] the latest server package.
 
 You may also [https://github.com/haiwen/seafile/wiki/Build-and-deploy-seafile-server-from-source build Seafile from source].
 
