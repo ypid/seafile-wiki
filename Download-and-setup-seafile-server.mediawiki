@@ -2,11 +2,9 @@ This manual explains how to setup and run Seafile server from a pre-built packag
 
 == Download ==
 
-* [http://www.seafile.com/download Download] the latest server package.
-* This pre-built package only supports 64-bit linux.
-* The pre-built package currently only supports "new enough" OS.
+[http://www.seafile.com/download Download] the latest server package.
 
-If you're running an old OS or 32-bit OS, you may [https://github.com/haiwen/seafile/wiki/Build-and-deploy-seafile-server-from-source build Seafile from source].
+You may also [https://github.com/haiwen/seafile/wiki/Build-and-deploy-seafile-server-from-source build Seafile from source].
 
 == Deploying and Directory Layout ==
 
@@ -19,7 +17,7 @@ we suggest you to layout your deployment as follows
 <pre>
     mkdir haiwen
     cd haiwen
-    wget https://github.com/downloads/haiwen/seafile/seafile-server_1.2.0_x86-64.tar.gz
+    ### after moving seafile-server_1.2.0_x86-64.tar.gz to this directory
     tar xzf seafile-server_1.2.0_x86-64.tar.gz
 </pre>
 
