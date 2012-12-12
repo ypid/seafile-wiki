@@ -27,7 +27,7 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 ##### libsearpc #####
 
-* [download](https://www.github.com/haiwen/libsearpc/downloads) the latest version tarball , and untar it
+* wget http://seafile.com.cn/downloads/libsearpc-latest.tar.gz
 * cd libsearpc-${VERSION}
 * ./configure --prefix=/usr
 * make
@@ -35,7 +35,7 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 ##### ccnet #####
 
-* [download](https://www.github.com/haiwen/ccnet/downloads) the latest version tarball , and untar it
+* wget http://seafile.com.cn/downloads/ccnet-latest.tar.gz
 * cd ccnet-${VERSION}
 * ./configure --prefix=/usr
 * make
@@ -43,14 +43,13 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 ##### seafile #####
 
-* [download](https://www.github.com/haiwen/seafile/downloads) the latest version tarball , and untar it
+* wget http://seafile.com.cn/downloads/seafile-latest.tar.gz
 * cd seafile-${VERSION}
 * ./configure --prefix=/usr --enable-appindicator
 * make
 * make install
 
 Appindicator is needed for Unity desktop environment.
-
 
 ## Use Seafile Client ##
 
