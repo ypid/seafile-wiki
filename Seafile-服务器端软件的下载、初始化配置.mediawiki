@@ -3,11 +3,10 @@ Seafile 服务器端软件的下载、初始化配置
 == 下载 == 
 
 * 请到 [http://www.seafile.com/download 这里] 下载最新的服务器 seafile-server.tar.gz 压缩包。
-* 服务器端软件只支持 64 位的 linux.
 
 == 解压 ==
 
-比如你的公司/组织 名叫 haiwen，下载了 0.9.4 版本的服务器端软件。那么，
+比如你的公司/组织 名叫 haiwen，下载了 0.9.4 版本的 64 位服务器端软件。那么，
 
 * 新建一个 haiwen 的文件夹
 * 把下载的 seafile-server_0.9.4_x86-64.tar.gz 包解压到 haiwen 目录下。
