@@ -45,7 +45,7 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 * wget http://seafile.com.cn/downloads/seafile-latest.tar.gz
 * cd seafile-${VERSION}
-* ./configure --prefix=/usr --enable-appindicator
+* ./configure --prefix=/usr ### add `--enable-appindicator` if you use ubuntu
 * make
 * make install
 
