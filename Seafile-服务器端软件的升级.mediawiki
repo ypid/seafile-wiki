@@ -77,3 +77,14 @@ upgrade_x.x.x_y.y.y_server.sh 的脚本命名方式为：
 
 * 到最新的版本的目录下
 * 把从 你当前的版本 到 最新的版本 之间的所有脚本都顺序执行一遍
+
+== 小版本升级 ==
+
+小版本升级是指形如 1.0.1 到 1.0.1 这样的升级。 需要做的是：
+
+<pre>
+cd haiwen/seafile-server-1.0.1/seahub/media
+mv avatars/* ../../../seahub-data/avatars
+rmdir avatars
+ln -s ../../../seahub-data/avatars
+</pre>
