@@ -59,7 +59,7 @@ Minor upgrade is like an upgrade from 1.3.0 to 1.3.1. For this type of upgrade, 
 
 <pre>
 cd haiwen/seafile-server-1.3.1/seahub/media
-mv avatars/* ../../../seahub-data/avatars
-rmdir avatars
+cp -rf avatars/* ../../../seahub-data/avatars/
+rm -rf avatars
 ln -s ../../../seahub-data/avatars
 </pre>
