@@ -80,8 +80,8 @@ server {
     }       
 
     location /seafile/media {
-        rewrite ^/seafile/media(.*)$ media$1 break;
-        root /path/to/seahub/
+        rewrite ^/seafile/media(.*)$ /media$1 break;
+        root /path/to/seahub/;
     }
 }
 </pre>
@@ -91,6 +91,8 @@ server {
 '''planned'''
 
 = Start Seahub =
+
+Before you start seafile and seahub, you first need to modify the file <code>ccnet.conf</code>.
 
 == Modify ccnet.conf ==
 
