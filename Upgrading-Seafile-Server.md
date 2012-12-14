@@ -1,4 +1,4 @@
-## Continuous Upgrade
+## Continuous Upgrade (like from 1.3 to 1.4)
 
 Continuous upgrade means to upgrade from one version of Seafile server to the next version.
 For example, upgrading from 1.2.0 to 1.3.0 is a continuous upgrade.
@@ -43,7 +43,7 @@ Finally run the upgrade script in seafile-server-1.3.0 directory.
 The naming rule for upgrade scripts is `upgrade_a.b_x.y.sh`,
 where `a.b` is the old version, and `x.y` is the new version.
 
-## Noncontinuous Upgrade
+## Noncontinuous Upgrade (like from 1.2 to 1.4)
 
 You may also upgrade a few versions at once, e.g. from 1.1.0 to 1.3.0.
 The procedure is:
@@ -53,7 +53,7 @@ The procedure is:
 
 Just run the upgrade scripts in sequence. (You don't need to download server package 1.2.0)
 
-## Minor upgrade
+## Minor upgrade (like from 1.3.0 to 1.3.1)
 
 Minor upgrade is like an upgrade from 1.3.0 to 1.3.1. For this type of upgrade, you need to:
 
