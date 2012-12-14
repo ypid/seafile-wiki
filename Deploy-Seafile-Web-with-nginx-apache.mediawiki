@@ -3,8 +3,7 @@ In a production environment, you often want to deploy Seafile Web(Seahub) behind
 First, ensure that:
 
 * you have installed the <code>python-flup</code> library
-* you have started other components of Seafile server
-* you have '''NOT''' started Seahub
+* you have '''NOT''' started seafile or seahub
 
 = Deploy with nginx =
 
@@ -89,13 +88,23 @@ server {
 
 = Deploy With Apache =
 
-'''TODO'''
+'''planned'''
 
 = Start Seahub =
 
+== Modify ccnet.conf ==
+
+Modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
+
+<pre>
+SERVICE_URL = www.myseafile.com
+</pre>
+
+Now you can start seafile server, and then, start seahub with as following.
+
 == When use the pre-compiled server package ==
 
-Assume you have followed the steps in [[Download and Setup Seafile Server]]. We need to setup some enviroment variables before start seahub.
+Assume you have followed the steps in [[Download and Setup Seafile Server]]. 
 
 <pre>
 seafile_prefix=/data/haiwen/seafile-server-1.3.0 # your seafile server directory
