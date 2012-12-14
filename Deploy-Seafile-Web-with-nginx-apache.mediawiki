@@ -163,3 +163,32 @@ cd /data/haiwen/seahub
 python ./manage.py runfcgi host=127.0.0.1 port=8000 \
  errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
 </pre>
+
+== Restart script ==
+
+To easily restart your seahub, try this small script:
+
+<pre>
+#!/bin/bash
+
+SCRIPT=$(readlink -f "$0")
+
+SEAFILE_PREFIX=$(dirname "${SCRIPT}")
+SEAHUB_DIR="${SEAFILE_PREFIX}/seahub"
+PIDFILE="${SEAHUB_DIR}/seahub.pid"
+
+cd ${SEAHUB_DIR}
+if [ -f $PIDFILE ]; then
+    kill `cat -- $PIDFILE`
+    rm -f -- $PIDFILE
+fi
+
+export PYTHONPATH=${SEAFILE_PREFIX}/seafile/lib/python2.6/site-packages:${SEAFILE_PREFIX}/seafile/lib64/python2.6/site-packages:${SEAFILE_PREFIX}/seafile/lib/python2.7/site-packages:${SEAFILE_PREFIX}/seahub/thirdpart:$PYTHONPATH
+export LD_LIBRARY_PATH=${SEAFILE_PREFIX}/seafile/lib/:${SEAFILE_PREFIX}/seafile/lib64:${LD_LIBRARY_PATH}
+export CCNET_CONF_DIR=${SEAFILE_PREFIX}/../ccnet
+./manage.py runfcgi host=127.0.0.1 port=8000 pidfile=$PIDFILE errlog=/tmp/seahub.error
+
+</pre>
+
+Put this script at the same directory with seafile.sh and seahub.sh. Then you can easily restart your seahub
+fcgi daemon by <pre>./restart.sh</pre>
