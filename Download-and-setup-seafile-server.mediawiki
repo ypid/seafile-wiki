@@ -111,15 +111,15 @@ Now you should have the following directory layout
      --seahub_settings.py # optional config file for seahub
 </pre>
 
-== Before Running ==
+== Running Seafile Server ==
 
-If you have large clients number, you must inscrease linux file descriptors by ulimit.
+=== Before Running ===
+
+Since Seafile uses persistent connection between client and server, if you have '''a large number of clients ''', you should increase Linux file descriptors by ulimit before start seafile, like:
 
 <pre>
 ulimit -n 30000
 </pre>
-
-== Running Seafile Server ==
 
 === Starting Seafile Server and Seahub Website ===
 
