@@ -27,6 +27,7 @@ If your Nginx does not support SSL, you need to recompile it, the commands are a
     root /home/wwwroot/yourdomain;
     ......
     ......
+    fastcgi_param   HTTPS   on;
     }
 
 4. Reload Nginx
