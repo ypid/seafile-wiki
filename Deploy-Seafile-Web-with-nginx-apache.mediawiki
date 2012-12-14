@@ -91,7 +91,30 @@ server {
 
 = Deploy With Apache =
 
-'''planned'''
+== Setup Apache ==
+
+You need to configure Apache first, install and enable mod_fastcgi. Edit httpd.conf file, add this line:
+
+  FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
+
+== Deploy in the root domain ==
+
+Assume you are running seahub as the root domain, for example '''www.myseafile.com'''
+
+This is a sample apache config file.
+
+<pre>
+<VirtualHost *:80>
+  ServerName www.example.com
+  DocumentRoot /var/www
+  Alias /media  /home/user/haiwen/seafile-server-1.3.2/seahub/media
+  RewriteEngine On
+  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^/(.*)$ /seahub.fcgi/$1 [QSA,L]
+</VirtualHost>
+</pre>
+
 
 = Start Seahub =
 
