@@ -55,7 +55,7 @@ Just run the upgrade scripts in sequence. (You don't need to download server pac
 
 ## Minor upgrade (like from 1.3.0 to 1.3.1)
 
-Minor upgrade is like an upgrade from 1.3.0 to 1.3.1. For this type of upgrade, you need to:
+Minor upgrade is like an upgrade from 1.3.0 to 1.3.1. For this type of upgrade, you only need to update the avatar link:
 
 <pre>
 cd haiwen/seafile-server-1.3.1/seahub/media
