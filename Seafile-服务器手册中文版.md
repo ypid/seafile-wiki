@@ -11,3 +11,4 @@
 * [[Seafile 服务器端软件的升级]]
 * [[Seafile 服务器端数据备份]]
 * [[Seafile web界面启用Https]]
+* [[建立单机开发环境]]
