@@ -1,0 +1,39 @@
+= Dev-environment-setup =
+
+== 建立开发环境的流程 ==
+以 ubuntu 11.10 为例
+
+* 安装编译的依赖
+<pre>
+  gtk-doc-tools libgtk2.0-dev libcurl4-openssl-dev uuid-dev libreadline-dev intltool libsqlite3-dev
+  build-essential autoconf automake libtool python-dev libnotify-dev python-gobject-dev libevent-dev
+  valac libnautilus-extension-dev libmysqlcient-dev json-glib valac
+</pre>
+
+* 安装 libzdb
+zdb 依赖于 re2c 和 flex，因此 先 apt-get install re2c flex
+到 libzdb 官网上下载源码包， http://tildeslash.com/libzdb/ 然后编译安装
+
+* 安装python 依赖
+需要安装 web.py 和 mako 以及 simplejson
+<pre>
+  sudo easy_install web.py mako simplejson
+</pre>
+
+* 下载代码
+<pre>
+  git clone gonggeng@gonggeng.org:git-repo/libsearpc.git
+  git clone gonggeng@gonggeng.org:git-repo/ccnet.git
+</pre>
+
+* 编译
+先编译安装 libsearpc ， 再编译安装 ccnet
+<pre>
+  ./autogen.sh
+  CFLAGS="-g -Wall -DENABLE_DEBUG" ./configure
+  make
+</pre>
+
+== 服务器配置 ==
+
+* 需要先安装 mysql-server (sudo apt-get install mysql-server)
