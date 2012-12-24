@@ -5,5 +5,5 @@ Seafile server comprises of the following servicess
 * Ccnet：networking service daemon
 * Seafile server：data service daemon
 * Seahub：the website
-* HttpServer: for downloading and uploading files in website
+* HttpServer: handles raw file upload/download for Seahub
 * Controller: monitors ccnet and seafile daemons, restart them if necessary
