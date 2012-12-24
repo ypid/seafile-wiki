@@ -17,6 +17,7 @@ ID=eb812fd276432eff33bcdde7506f896eb4769da0
 NAME=example
 
 # This is the URL for Seahub(Seafile Web). It'll be displayed on Seafile client program.
+# The domain part (i.e., www.example.com) will also be used by the client to connect the server.
 SERVICE_URL=http://www.example.com:8000
 
 
