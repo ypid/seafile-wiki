@@ -64,12 +64,12 @@ The script will guide you through the settings of various configuration options.
 ! Description
 ! Note
 |-
-| seafile server name 
+| server name 
 | Name of this seafile server
 | 3-15 characters, only English letters, digits and underscore ('_') are allowed
 |-
-| seafile server ip or domain
-| The IP address or domain name used by this service
+| server ip or domain
+| The IP address or domain name used by this server
 | Seafile client program will access the server with this address
 |-
 | ccnet server port 
