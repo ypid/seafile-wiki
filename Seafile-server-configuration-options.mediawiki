@@ -87,15 +87,14 @@ You may change seahub website's settings in `seahub_settings.py`.
 
 <pre>
 
-# You should change 'localhost' to your server's IP address, but keep the port 8082.
-# Otherwise you won't be able to download or preview files on seahub website.
-HTTP_SERVER_ROOT = "http://localhost:8082"
+# The address of httpserver. httpserver is used for downloading and uploading files on seahub website.
+HTTP_SERVER_ROOT = "http://www.example.com:8082"
 
 # Set this to seahub website's URL. This URL is contained in email notifications.
-SITE_BASE = 'http://gonggeng.org/'
+SITE_BASE = 'http://www.example.com/'
 
 # Set this to your website's name. This is contained in email notifications.
-SITE_NAME = 'gonggeng'
+SITE_NAME = 'example.com'
 
 # Set seahub website's title
 SITE_TITLE = 'Seafile'
