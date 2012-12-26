@@ -6,7 +6,8 @@ In a production environment, you often want to deploy Seafile Web(Seahub) behind
 Before continue, ensure that:
 
 * you have installed the <code>python-flup</code> library
-* you have '''NOT''' started seafile or seahub
+* you have '''NOT''' started seahub
+* you have started seafile by `./seafile.sh`
 
 = Deploy with nginx =
 
