@@ -121,7 +121,7 @@ This is a sample apache config file.
 
 '''Todo'''
 
-= Start Seahub =
+= Start Seafile and Seahub =
 
 Before you start seafile and seahub, you first need to modify the file <code>ccnet.conf</code>.
 
