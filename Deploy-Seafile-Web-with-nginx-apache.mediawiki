@@ -6,8 +6,7 @@ In a production environment, you often want to deploy Seafile Web(Seahub) behind
 Before continue, ensure that:
 
 * you have installed the <code>python-flup</code> library
-* you have '''NOT''' started seahub
-* you have started seafile by `./seafile.sh`
+* you have '''NOT''' started seahub or seafile
 
 = Deploy with nginx =
 
@@ -120,7 +119,7 @@ This is a sample apache config file.
 
 == Deploy in a non-root domain ==
 
-'''todo'''
+'''Todo'''
 
 = Start Seahub =
 
@@ -136,7 +135,7 @@ SERVICE_URL = www.myseafile.com
 
 If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>. 
 
-Now you can start seafile server, and then, start seahub with as following.
+Now you can start seafile server by `./seafile.sh` and then, start seahub with as following.
 
 == When use the pre-compiled server package ==
 
