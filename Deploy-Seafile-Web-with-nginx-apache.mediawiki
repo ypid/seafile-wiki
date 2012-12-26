@@ -85,7 +85,7 @@ SERVICE_URL = www.myseafile.com
 </pre>
 
 '''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
- 
+
 === Start Seafile Server ===
 
 Now you can start seafile server by 
