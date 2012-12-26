@@ -44,51 +44,6 @@ server {
 }
 </pre>
 
-== Deploy in a non-root domain ==
-
-Assume your want to deploy seahub to '''www.mycompany.com/seafile'''. First you need to modify the settings file:
-
-* If you're using the pre-compiled server package, the file is <code><top seafile server dir>/seahub_settings.py</code>
-* If you build seafile server from source, the file need to be created yourself as <code>/path/to/seahub/local_settings.py</code>
-
-Add these two lines to that file:
-<pre>
-SITE_ROOT = '/seafile/' 
-MEDIA_URL = '/seafile/media/'
-</pre>
-
-'''SITE_ROOT''' is the suffix of the domain domain you assign to seahub, and '''MEDIA_URL''' should be SITE_ROOT plus the '''media/''' suffix. All the two must end with a trailing slash.
-
-The nginx config also need some modification:
-<pre>
-server {
-    listen 80;
-    server_name www.myseafile.com;
-    location /seafile {
-        fastcgi_pass    127.0.0.1:8000;
-        fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
-        fastcgi_param   PATH_INFO           $fastcgi_script_name;
-
-        fastcgi_param	SERVER_PROTOCOL		$server_protocol;
-        fastcgi_param   QUERY_STRING        $query_string;
-        fastcgi_param   REQUEST_METHOD      $request_method;
-        fastcgi_param   CONTENT_TYPE        $content_type;
-        fastcgi_param   CONTENT_LENGTH      $content_length;
-        fastcgi_param	SERVER_ADDR         $server_addr;
-        fastcgi_param	SERVER_PORT         $server_port;
-        fastcgi_param	SERVER_NAME         $server_name;
-
-        access_log      /var/log/nginx/seahub.access.log;
-    	error_log       /var/log/nginx/seahub.error.log;
-    }       
-
-    location /seafile/media {
-        rewrite ^/seafile/media(.*)$ /media$1 break;
-        root /path/to/seahub/;
-    }
-}
-</pre>
-
 = Deploy With Apache =
 
 == Setup Apache ==
@@ -117,10 +72,6 @@ This is a sample apache config file.
 </VirtualHost>
 </pre>
 
-== Deploy in a non-root domain ==
-
-'''Todo'''
-
 = Start Seafile and Seahub =
 
 Before you start seafile and seahub, you first need to modify the file <code>ccnet.conf</code>.
@@ -133,13 +84,16 @@ Modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.c
 SERVICE_URL = www.myseafile.com
 </pre>
 
-If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>. 
+'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>. 
 
-Now you can start seafile server by `./seafile.sh` and then, start seahub with as following.
+Now you can start seafile server by 
+<pre>./seafile.sh</pre> 
+
+After seafile is started, then start seahub with as following.
 
 == When use the pre-compiled server package ==
 
-Assume you have followed the steps in [[Download and Setup Seafile Server]]. 
+Assume you have followed the steps in [[Download and Setup Seafile Server]], please run commands as follows:
 
 <pre>
 seafile_prefix=/data/haiwen/seafile-server-1.3.0 # your seafile server directory
