@@ -203,4 +203,5 @@ $ pkill -f "manage.py run_gunicorn"
 $ pkill -f httpserver
 </pre>
 
-Now you may read about [[Seafile-server-management|how to manage the server]].
+==That's it!==
+That's it! Now you may read about [[Seafile-server-management|how to manage the server]].
