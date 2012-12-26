@@ -8,9 +8,9 @@ Before continue, ensure that:
 * you have installed the <code>python-flup</code> library
 * you have '''NOT''' started seahub or seafile
 
-= Deploy with nginx =
+== Deploy with nginx ==
 
-== Deploy in the root domain ==
+=== Deploy in the root domain ===
 
 Assume you are running seahub as the root domain, for example '''www.myseafile.com'''
 
@@ -44,9 +44,9 @@ server {
 }
 </pre>
 
-= Deploy With Apache =
+== Deploy With Apache ==
 
-== Setup Apache ==
+=== Setup Apache ===
 
 You need to configure Apache first, install and enable mod_fastcgi. 
 
@@ -54,7 +54,7 @@ Then edit httpd.conf file, add this line:
 
   FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
 
-== Deploy in the root domain ==
+=== Deploy in the root domain ===
 
 Assume you are running seahub as the root domain, for example '''www.myseafile.com'''
 
@@ -72,11 +72,11 @@ This is a sample apache config file.
 </VirtualHost>
 </pre>
 
-= Start Seafile and Seahub =
+== Start Seafile and Seahub ==
 
 Before you start seafile and seahub, you first need to modify the file <code>ccnet.conf</code>.
 
-== Modify ccnet.conf ==
+=== Modify ccnet.conf ===
 
 Modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
 
@@ -91,7 +91,7 @@ Now you can start seafile server by
 
 After seafile is started, then start seahub with as following.
 
-== When use the pre-compiled server package ==
+=== When use the pre-compiled server package ===
 
 Assume you have followed the steps in [[Download and Setup Seafile Server]], please run commands as follows:
 
@@ -105,7 +105,7 @@ cd ${seafile_prefix}/seahub
 python ./manage.py runfcgi host=127.0.0.1 port=8000 errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
 </pre>
 
-== When build seafile server from source ==
+=== When build seafile server from source ===
 
 Assume you have followed the steps of [[Build and Deploy Seafile Server from source]], and you have uncompressed seahub to <code>/data/haiwen/seahub/</code>
 
@@ -118,7 +118,7 @@ python ./manage.py runfcgi host=127.0.0.1 port=8000 \
  errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
 </pre>
 
-== Restart script ==
+=== Restart script ===
 
 To easily restart your seahub, try this small script:
 
