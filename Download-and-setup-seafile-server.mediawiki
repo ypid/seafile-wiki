@@ -137,11 +137,13 @@ Under seafile-server-1.2.0 directory, run the following commands
 ./seahub.sh start <port>  # Start seahub website, port defaults to 8000
 </pre>
 
-After starting the services, you may open a web browser to check if you can visit seahub website.
+After starting the services, you may open a web browser and types 
+<pre>
+http://127.0.0.1:8000/
+</pre>
+you will be redirected to the Login page. Enter username and password you provided during Seafile setup, then will be returned to the `Myhome` page where you can create libraries. 
 
-==== Deploy seahub with nginx/apache ====
-
-You may want to deploy seahub with nginx or apache. In this case, do not run the next command. Instead, follow the instructions about [[Deploy Seafile Web With Nginx/Apache]].
+'''Congratulations!''' Now you have successfully setup your private Seafile server.
 
 ==== Run Seahub on another port ====
 
