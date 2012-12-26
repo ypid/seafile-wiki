@@ -84,14 +84,16 @@ Modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.c
 SERVICE_URL = www.myseafile.com
 </pre>
 
-'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>. 
+'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+ 
+=== Start Seafile Server ===
 
 Now you can start seafile server by 
 <pre>./seafile.sh</pre> 
 
 After seafile is started, then start seahub with as following.
 
-=== When use the pre-compiled server package ===
+=== Start Seahub (when using the pre-compiled server package) ===
 
 Assume you have followed the steps in [[Download and Setup Seafile Server]], please run commands as follows:
 
@@ -105,7 +107,7 @@ cd ${seafile_prefix}/seahub
 python ./manage.py runfcgi host=127.0.0.1 port=8000 errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
 </pre>
 
-=== When build seafile server from source ===
+=== Start seahub (when building seafile server from source) ===
 
 Assume you have followed the steps of [[Build and Deploy Seafile Server from source]], and you have uncompressed seahub to <code>/data/haiwen/seahub/</code>
 
