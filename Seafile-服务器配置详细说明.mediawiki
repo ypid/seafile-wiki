@@ -86,7 +86,7 @@ Seahub 的配置可以在 seahub_settings.py 里覆盖。以下是几个可配�
 <pre>
 
 # 必须把这里的 localhost 改为你的IP地址，端口8082不要修改，否则无法在 Seahub 网站上下载和查看文件
-HTTP_SERVER_ROOT = "http://localhost:8082"
+HTTP_SERVER_ROOT = "http://www.example.com:8082"
 
 # 必须改成你的网址，该参数用在邮件发送服务里用户可点击的网址
 SITE_BASE = 'http://gonggeng.org/'
