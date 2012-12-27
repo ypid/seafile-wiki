@@ -75,7 +75,7 @@ Before you start seafile and seahub, you first need to modify the file <code>ccn
 Modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
 
 <pre>
-SERVICE_URL = www.myseafile.com
+SERVICE_URL = http://www.myseafile.com
 </pre>
 
 '''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
