@@ -14,7 +14,6 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * uuid-dev
 * intltool ( 0.40 or later)
 * libsqlite3-dev (3.7 or later)
-* python2.7-dev
 * python-mako
 * python-webpy
 * python-simplejson

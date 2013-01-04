@@ -12,7 +12,6 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * uuid-dev
 * intltool (0.40 or later)
 * libsqlite3-dev (3.7 or later)
-* python2.7-dev 
 * libmysqlclient-dev (5.5 or later)
 
 The following libraries need to be compiled from source.
