@@ -1,4 +1,4 @@
-'''Note:''' This document is for seafile server 1.4 and later. For a old version, see [[Deploy Seafile Web With Nginx/Apache old|here]].
+'''Note:''' This document is for seafile server before 1.4. For seafile server 1.4 and later, see [[Deploy Seafile Web With Nginx/Apache|here]].
 
 In a production environment, you often want to deploy Seafile Web(Seahub) behind a reverse proxy like Apache or nginx. Use a web server serves multiple purposes:
 
@@ -94,10 +94,14 @@ After seafile is started, then start seahub as following.
 Assume you have followed the steps in [[Download and Setup Seafile Server]], please run commands as follows:
 
 <pre>
-./seahub.sh start-fastcgi
-</pre>
+seafile_prefix=/data/haiwen/seafile-server-1.3.0 # your seafile server directory
+export PYTHONPATH=${seafile_prefix}/seafile/lib/python2.6/site-packages:${seafile_prefix}/seafile/lib64/python2.6/site-packages:${seafile_prefix}/seafile/lib/python2.7/site-packages:${seafile_prefix}/seahub/thirdpart:$PYTHONPATH
+export LD_LIBRARY_PATH=${seafile_prefix}/seafile/lib/:${seafile_prefix}/seafile/lib64:${LD_LIBRARY_PATH}
+export CCNET_CONF_DIR=/data/haiwen/ccnet # directory store your ccnet.conf
 
-The <code>start-fastcgi</code> command of <code>seahub.sh</code> is available since Seafile server 1.4.
+cd ${seafile_prefix}/seahub
+python ./manage.py runfcgi host=127.0.0.1 port=8000 errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
+</pre>
 
 === Start seahub (when building seafile server from source) ===
 
@@ -105,10 +109,38 @@ Assume you have followed the steps of [[Build and Deploy Seafile Server from sou
 
 <pre>
 export CCNET_CONF_DIR=/path/to/your/ccnet/conf/dir
-export SEAFILE_CONF_DIR=/path/to/your/seafile/conf/dir
 export PYTHONPATH=/data/haiwen/seahub/thirdpart:$PYTHONPATH
 
 cd /data/haiwen/seahub
 python ./manage.py runfcgi host=127.0.0.1 port=8000 \
  errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
 </pre>
+
+=== Restart script ===
+
+To easily restart your seahub, try this small script:
+
+<pre>
+#!/bin/bash
+
+SCRIPT=$(readlink -f "$0")
+
+SEAFILE_PREFIX=$(dirname "${SCRIPT}")
+SEAHUB_DIR="${SEAFILE_PREFIX}/seahub"
+PIDFILE="${SEAHUB_DIR}/seahub.pid"
+
+cd ${SEAHUB_DIR}
+if [ -f $PIDFILE ]; then
+    kill `cat -- $PIDFILE`
+    rm -f -- $PIDFILE
+fi
+
+export PYTHONPATH=${SEAFILE_PREFIX}/seafile/lib/python2.6/site-packages:${SEAFILE_PREFIX}/seafile/lib64/python2.6/site-packages:${SEAFILE_PREFIX}/seafile/lib/python2.7/site-packages:${SEAFILE_PREFIX}/seahub/thirdpart:$PYTHONPATH
+export LD_LIBRARY_PATH=${SEAFILE_PREFIX}/seafile/lib/:${SEAFILE_PREFIX}/seafile/lib64:${LD_LIBRARY_PATH}
+export CCNET_CONF_DIR=${SEAFILE_PREFIX}/../ccnet
+./manage.py runfcgi host=127.0.0.1 port=8000 pidfile=$PIDFILE errlog=/tmp/seahub.error
+
+</pre>
+
+Put this script at the same directory with seafile.sh and seahub.sh. Then you can easily restart your seahub
+fcgi daemon by <pre>./restart.sh</pre>
