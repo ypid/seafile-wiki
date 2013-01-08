@@ -31,7 +31,8 @@ a directory layout similar to the following:
 
 To run GC program
 
-    cd ~/haiwen/seafile-server-{version}
+    cd ~/haiwen/seafile-server-{version}/seafile
+    export LD_LIBRARY_PATH=./lib:${LD_LIBRARY_PATH}
     ./bin/seafserv-gc -c ../ccnet -d ../seafile-data
 
 If you [[built seafile server from source|Build and deploy seafile server from source]],
