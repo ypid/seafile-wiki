@@ -12,6 +12,7 @@
 
 == 忘记了 seahub 管理员的 帐号/密码 怎么办 ? ==
 
-可以在 seafile-server 目录下执行 create-seahub-admin.sh 脚本，该脚本会引导你创建新的管理员帐号和密码
-
+* Seafile server 1.4 之前的版本: 可以在 seafile-server 目录下执行 <code>create-seahub-admin.sh</code> 脚本，该脚本会引导你创建新的管理员帐号和密码
 [[images/create-seahub-admin.png|运行create-seahub-admin.sh时的截图]]
+* Seafile server 1.4 及以后的版本：  可以在 seafile-server 目录下执行 <code>reset-admin.sh</code> 脚本，该脚本会引导你创建新的管理员帐号和密码
+
