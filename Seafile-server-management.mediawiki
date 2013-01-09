@@ -12,6 +12,11 @@ In a private server, the default setting doesn't support users to reset their pa
 
 == Forgot Admin Account or Password? ==
 
-You may run create-seahub-admin.sh script under seafile-server directory. This script would help you reset admin account and password.
+For Seafile server before 1.4, You may run <code>create-seahub-admin.sh</code> script under seafile-server directory. This script would help you create a new admin account.
 
 [[images/create-seahub-admin.png]]
+
+For Seafile server 1.4 and later, you may run <code>reset-admin.sh</code> script under seafile-server directory. This script would help you reset the admin account and password.
+
+[[images/reset-admin.png]]
+
