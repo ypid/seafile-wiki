@@ -17,6 +17,3 @@ For Seafile server before 1.4, You may run <code>create-seahub-admin.sh</code> s
 [[images/create-seahub-admin.png]]
 
 For Seafile server 1.4 and later, you may run <code>reset-admin.sh</code> script under seafile-server directory. This script would help you reset the admin account and password.
-
-[[images/reset-admin.png]]
-
