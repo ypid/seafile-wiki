@@ -139,7 +139,7 @@ Under seafile-server-1.2.0 directory, run the following commands
 
 After starting the services, you may open a web browser and types 
 <pre>
-http://127.0.0.1:8000/
+http://192.168.1.111:8000/
 </pre>
 you will be redirected to the Login page. Enter username and password you provided during Seafile setup, then will be returned to the `Myhome` page where you can create libraries. 
 
@@ -151,8 +151,8 @@ If you want to run seahub in a port other than the default 8000, say 8001, you m
 
 * stop the seafile server 
 <pre>
-./seafile.sh stop
 ./seahub.sh stop
+./seafile.sh stop
 </pre>
 
 * modify the value of <code>SERVICE_URL</code> in the file <code>haiwen/ccnet/ccnet.conf</code>, like this: (assume your ip or domain is <code>192.168.1.100</code>)
@@ -173,8 +173,8 @@ see [[Seafile server configuration options]] for more details about <code>ccnet.
 ==== Stopping ====
 
 <pre>
-./seafile.sh stop # stop seafile processes
 ./seahub.sh stop # stop seahub website
+./seafile.sh stop # stop seafile processes
 </pre>
 
 ==== Restarting ====
