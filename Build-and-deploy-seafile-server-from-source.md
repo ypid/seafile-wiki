@@ -20,7 +20,7 @@ The following libraries need to be compiled from source.
 * libevhtp (https://github.com/ellzey/libevhtp/archive/1.1.6.zip)
 
 libzdb relies on two packages: `re2c` and `flex`  
-libevhtp needs to be built by `cmake`
+libevhtp needs to be built by `cmake`.  Please use 1.1.6 or 1.1.7.
 
 **Seahub** is the web front end of Seafile. It's written in the [Django](http://djangoproject.com) framework. Seahub requires Python 2.6(2.7) installed on your server, and it needs the following python libraries:  
 
