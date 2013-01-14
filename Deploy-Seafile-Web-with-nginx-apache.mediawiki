@@ -3,7 +3,7 @@
 In a production environment, you often want to deploy Seafile Web(Seahub) behind a reverse proxy like Apache or nginx. Use a web server serves multiple purposes:
 
 * Static files can be served by Apache/Nginx directly to achieve better performance.
-* You need to use Apache/Nginx if you want to [[Enable Https on Seafie Web]].
+* You need to use Apache/Nginx if you want to [[Enable Https on Seafile Web]].
 
 Before continue, ensure that:
 
