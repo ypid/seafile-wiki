@@ -69,6 +69,13 @@ pemfile=/path/to/ssl/pemfile/
 privkey=/path/to/ssl/privkey
 </pre>
 
+Default maximum upload file size is 100M, you can modify this setting.
+<pre>
+[httpserver]
+# Set maximum upload file size to 200M.
+max_upload_size=200
+</pre>
+
 == Seahub Configurations (seahub_settings.py) ==
 
 === Sending Email Notifications on Seahub ===
