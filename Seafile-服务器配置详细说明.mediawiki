@@ -1,6 +1,6 @@
 这篇帮助文档介绍了服务器的管理员如何更改 Seafile 服务器的配置。这里假设你已经完成了[[Seafile-服务器端软件的下载、初始化配置|对服务器的第一次配置]]。
 
-== Seafile 的网络配置 ==
+== Seafile 的网络配置 (ccnet.conf) ==
 
 你可以通过修改 ccnet/ccnet.conf 文件中的选项来控制 Seafile 的网络参数。下面我们通过一个示例配置来介绍可配置的选项。
 
@@ -12,10 +12,11 @@ USER_NAME=example
 
 # 请不要更改这个 ID
 ID=eb812fd276432eff33bcdde7506f896eb4769da0
+
 # NAME 会被同步到客户端上，做为服务器的名字
 NAME=example
 
-# SERVICE_URL 应该设置为 Seahub 网站的 URL
+# SERVICE_URL 应该设置为 Seahub(Seafile 网站)的 URL
 SERVICE_URL=http://www.example.com:8000
 
 
@@ -38,7 +39,7 @@ cd seafile-server
 ./seafile.sh restart
 </pre>
 
-== 存储容量限制 ==
+== 存储容量限制 (seafile.conf) ==
 
 你可以为所有用户设定一个默认的容量上限。这只需要在 seafile-data/seafile.conf 文件中加入以下几行：
 
@@ -50,7 +51,32 @@ default = 2
 
 如果你想给某个特定用户设置容量上限，你可以用管理员身份登录 seahub 网站，然后在“系统管理”页面中设置。
 
-== Seahub 配置 ==
+== Seafile Httpserver配置 (seafile.conf) ==
+
+Seafile httpserver 的配置在<code>seafile-data/seafile.conf</code>里的<code>[httpserver]</code>段。
+
+如果你需要为httpserver指定其他端口，或者要启动https，则需要修改httpserver的配置。关于如何为Seahub和httpserver开启https，请参考 [[Enable Https on Seafile Web]]。
+
+<pre>
+[httpserver]
+# tcp port for httpserver
+port = 8082
+# use https or not
+https=true
+# if https is used, the path to the SSL pemfile and privkey must be provided.
+pemfile=/path/to/ssl/pemfile/
+privkey=/path/to/ssl/privkey
+</pre>
+
+默认从Seafile网站上传文件的大小限制为100M，你可以添加以下配置来修改这个限制。
+
+<pre>
+[httpserver]
+# Set maximum upload file size to 200M.
+max_upload_size=200
+</pre>
+
+== Seahub 配置 (seahub_settings.py) ==
 
 === Seahub 邮件发送 ===
 
