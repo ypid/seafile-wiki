@@ -57,6 +57,8 @@ privkey=/path/to/privkey
 
 8082 is the recommended port, but you can use any port number that is available.
 
+'''Note:''' If your key file is encrypted, you need to decrypt first.
+
 == Modify settings to use https ==
 
 === ccnet conf ===
