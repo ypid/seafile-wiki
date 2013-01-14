@@ -112,7 +112,7 @@ You may change seahub website's settings in `seahub_settings.py`.
 <pre>
 
 # The address of httpserver. httpserver is used for downloading and uploading files on seahub website.
-# NOTE: this configuration is no longer used since server version 1.4.
+# NOTE: this variable is no longer used since server version 1.4.
 HTTP_SERVER_ROOT = "http://www.example.com:8082"
 
 # Set this to seahub website's URL. This URL is contained in email notifications.
@@ -133,21 +133,21 @@ INIT_PASSWD = '123456'
 
 # Using Django to server static file. Set to `False` if deployed behide a web server, default is `True`.
 # NOTE: since version 1.3.
-SERVE_STATIC = False
+SERVE_STATIC = True
 
 # Whether to use pdf.js to view pdf files online. Default is `True`,  you can turn it off.
 # NOTE: since version 1.4.
-USE_PDFJS = False
+USE_PDFJS = True
 
 # Enalbe or disalbe registration on web. Default is `False`.
 # NOTE: since version 1.4.
 ENABLE_SIGNUP = False
 
-# Whether to send email when a system staff adding new member. Default is `True`.
+# Whether to send email when a system admin adding a new member. Default is `True`.
 # NOTE: since version 1.4.
 SEND_EMAIL_ON_ADDING_SYSTEM_MEMBER = True
 
- # Whether to send email when a system staff resetting user's password. Default is `True`.
+ # Whether to send email when a system admin resetting a user's password. Default is `True`.
 # NOTE: since version 1.4.
 SEND_EMAIL_ON_RESETTING_USER_PASSWD = True
 
