@@ -55,7 +55,7 @@ default = 2
 
 Seafile httpserver 的配置在<code>seafile-data/seafile.conf</code>里的<code>[httpserver]</code>段。
 
-如果你需要为httpserver指定其他端口，或者要启动https，则需要修改httpserver的配置。关于如何为Seahub和httpserver开启https，请参考 [[Enable Https on Seafile Web]]。
+如果你需要为httpserver指定其他端口，或者要启动https，则需要修改httpserver的配置。关于如何为Seahub和httpserver开启https，请参考 [[Seafile web界面启用Https]]。
 
 <pre>
 [httpserver]
