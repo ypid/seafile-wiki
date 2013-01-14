@@ -107,7 +107,7 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 === Seahub Settings ===
 
-You may change seahub website's settings in `seahub_settings.py`.
+You may change seahub website's settings by adding variables in `seahub_settings.py`.
 
 <pre>
 
@@ -131,7 +131,7 @@ SITE_ROOT = '/'
 # Site admin can reset user's password, initial password is 123456.
 INIT_PASSWD = '123456'
 
-# Using Django to server static file. Set to `False` if deployed behide a web server, default is `True`.
+# Whether to use Django to server static file. Set to `False` if deployed behide a web server, default is `True`.
 # NOTE: since version 1.3.
 SERVE_STATIC = True
 
