@@ -52,6 +52,23 @@ default = 2
 
 This setting applies to all users. If you want to set quota for a specific user, you may log in to seahub website as administrator, then set it in "System Admin" page.
 
+== seafile httpserver configuratoin (seafile.conf) ==
+
+The configuration of seafile httpserver is in the <code>[httpserver]</code> section of the file <code>seafile-data/seafile.conf</code>
+
+If you want to use another port for httpesrver, or enable https on httpserver, you need to modify the httpserver configuration; Otherwise, you can leave it as it is. See [[Enable Https on Seafile Web]] for more details on how to enable https for seafile web and httpserver.
+
+<pre>
+[httpserver]
+# tcp port for httpserver
+port = 8082
+# use https or not
+https=true
+# if https is used, the path to the SSL pemfile and privkey must be provided.
+pemfile=/path/to/ssl/pemfile/
+privkey=/path/to/ssl/privkey
+</pre>
+
 == Seahub Configurations (seahub_settings.py) ==
 
 === Sending Email Notifications on Seahub ===
