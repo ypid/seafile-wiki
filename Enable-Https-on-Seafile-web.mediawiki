@@ -57,6 +57,9 @@ privkey=/path/to/privkey
 
 8082 is the recommended port, but you can use any port number that is available.
 
+After modified <code>seafile.conf</code>, you need to restart seafile by <code>./seafile.sh restart</code>.
+Then open your browser and input <code>https://www.yourdomain.com:8082</code>(assume port is 8082), you should see a blank page without any errors.
+
 '''Note:''' If your key file is encrypted, you need to decrypt first.
 
 == Modify settings to use https ==
