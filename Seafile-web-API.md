@@ -293,7 +293,7 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 
 * 404 The path is not exist.
 * 440 Repo is encrypted, and password is not provided.
-* 520 Internal server error.
+* 520 Operation failed..
 
 ### <a id="new-directory"></a>New directory ###
 
@@ -327,7 +327,7 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 **Errors**
 
 * 400 Path is missing or invalid(e.g. p=/)
-* 520 Internal server error
+* 520 Operation failed.
 
 **Notes**
 
@@ -361,7 +361,7 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 **Errors**
 
 * 400 Path is missing or invalid(e.g. p=/)
-* 520 Internal server error
+* 520 Operation failed.
 
 **Note**
 
@@ -389,7 +389,7 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 
 * 400 Path is missing
 * 404 File not found
-* 520 Internal server error
+* 520 Operation failed.
 
 ### <a id="delete-file"></a>Delete file ###
 
@@ -415,7 +415,7 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 **Errors**
 
 * 400 Path is missing
-* 520 Internal server error
+* 520 Operation failed.
 
 **Note**
 
