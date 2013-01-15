@@ -55,6 +55,8 @@ privkey=/path/to/privkey
 
 8082是默认端口，你可以使用任何有效的端口。
 
+修改完<code>seafile.conf</code>后，需要通过<code>./seafile.sh restart</code>重启Seafile。之后在浏览器里输入<code>https://www.yourdomain.com:8082</code>，出现空白页面，则表示配置成功。
+
 '''Note:''' 如果你的密钥文件已加密，请先解密。
 
 == 修改配置使Https生效 ==
