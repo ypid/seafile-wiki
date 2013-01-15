@@ -8,23 +8,23 @@ You may also [https://github.com/haiwen/seafile/wiki/Build-and-deploy-seafile-se
 
 == Deploying and Directory Layout ==
 
-Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.2.0_x86-64.tar.gz into your home directory,
+Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.4.0_x86-64.tar.gz into your home directory,
 we suggest you to layout your deployment as follows
 
 * Create a new folder named "haiwen" in your home directory.
-* Untar seafile-server_1.2.0_x86-64.tar.gz into "haiwen" directory.
+* Untar seafile-server_1.4.0_x86-64.tar.gz into "haiwen" directory.
 
 <pre>
     mkdir haiwen
     cd haiwen
-    ### after moving seafile-server_1.2.0_x86-64.tar.gz to this directory
-    tar xzf seafile-server_1.2.0_x86-64.tar.gz
+    ### after moving seafile-server_1.4.0_x86-64.tar.gz to this directory
+    tar xzf seafile-server_1.4.0_x86-64.tar.gz
 </pre>
 
 Now you should have the following directory layout
 <pre>
   haiwen
-     -- seafile-server-1.2.0
+     -- seafile-server-1.4.0
 </pre>
 
 '''The benefit of this layout is that'''
@@ -48,7 +48,7 @@ If some of them are not installed, the seafile initialization script will ask yo
 
 === Setup ===
 
-Change into haiwen/seafile-server-1.2.0 directory, and run setup-seafile.sh script
+Change into haiwen/seafile-server-1.4.0 directory, and run setup-seafile.sh script
 <pre>
 $ ./setup-seafile.sh
 </pre>
@@ -107,7 +107,7 @@ Now you should have the following directory layout
 
 <pre>
    haiwen
-     --seafile-server-1.2.0 # untar from seafile package
+     --seafile-server-1.4.0 # untar from seafile package
      --seafile-data   # seafile configuration and data (if you choose the default)
      --seahub-data    # seahub data
      --ccnet          # ccnet configuration and data 
@@ -127,7 +127,7 @@ ulimit -n 30000
 
 === Starting Seafile Server and Seahub Website ===
 
-Under seafile-server-1.2.0 directory, run the following commands
+Under seafile-server-1.4.0 directory, run the following commands
 
 * Start seafile:
 
