@@ -85,7 +85,7 @@ SERVICE_URL = http://www.myseafile.com
 === Start Seafile Server ===
 
 Now you can start seafile server by 
-<pre>./seafile.sh</pre> 
+<pre>./seafile.sh start</pre> 
 
 After seafile is started, then start seahub as following.
 
