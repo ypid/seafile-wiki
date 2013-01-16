@@ -46,7 +46,7 @@ server {
 
 == Deploy With Apache ==
 
-Before deploying with Apache, you need to configure Apache first, install and enable mod_fastcgi. 
+Before deploying with Apache, you need to configure Apache first, install and enable mod_fastcgi. You should also enable mod_rewrite. 
 
 Then edit httpd.conf file, add this line:
 
