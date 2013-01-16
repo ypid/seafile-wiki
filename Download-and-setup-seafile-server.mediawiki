@@ -239,16 +239,16 @@ Most of the time, seafile.sh and seahub.sh work fine. But when they fail, you ma
 * Use '''pgrep''' command to check if seafile/seahub processes are still running
 
 ```bash
-$ pgrep -f seafile-controller # check seafile processes
-$ pgrep -f "manage.py run_gunicorn" # check seahub process
+pgrep -f seafile-controller # check seafile processes
+pgrep -f "manage.py run_gunicorn" # check seahub process
 ```
 
 * Use '''pkill''' to kill the processes
 
 ```bash
-$ pkill -f seafile-controller
-$ pkill -f "manage.py run_gunicorn"
-$ pkill -f httpserver
+pkill -f seafile-controller
+pkill -f "manage.py run_gunicorn"
+pkill -f httpserver
 ```
 
 ==That's it!==
