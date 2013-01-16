@@ -78,7 +78,7 @@ cd seafile-server-*
 ./setup-seafile.sh  #run the setup script & answer prompted questions
 ```
 
-If some of them are not installed, the seafile initialization script will ask you to install them.
+If some of the prerequisites are not installed, the seafile initialization script will ask you to install them.
 
 [[images/server-setup.png|You'll see these outputs when you run the setup script]]
 
