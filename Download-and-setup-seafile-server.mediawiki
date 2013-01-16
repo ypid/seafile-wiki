@@ -65,15 +65,20 @@ The Seafile server package requires the following packages have been installed i
 * python-imaging
 * sqlite3
 
-If some of them are not installed, the seafile initialization script will ask you to install them.
+```bash
+#on Debian
+apt-get update
+apt-get install python2.7 python-setuptools python-simplejson python-imaging sqlite3
+```
 
 === Setup ===
 
-Go into haiwen/seafile-server-1.4.0 directory, and run setup-seafile.sh script
-<pre>
-$ cd seafile-server-1.4.0
-$ ./setup-seafile.sh    ## chmod +x *.sh if necessary
-</pre>
+```bash
+cd seafile-server-*
+./setup-seafile.sh  #run the setup script & answer prompted questions
+````
+
+If some of them are not installed, the seafile initialization script will ask you to install them.
 
 [[images/server-setup.png|You'll see these outputs when you run the setup script]]
 
