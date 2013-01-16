@@ -18,24 +18,35 @@ wget http://seafile.googlecode.com/files/seafile-server_1.4.0_x86-64.tar.gz
 
 == Deploying and Directory Layout ==
 
-Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.4.0_x86-64.tar.gz into your home directory,
-we suggest you to layout your deployment as follows
+Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.4.0_* into your home directory.
+We suggest you to layout your deployment as follows : 
 
-* Create a new folder named "haiwen" in your home directory.
-* Untar seafile-server_1.4.0_x86-64.tar.gz into "haiwen" directory.
-
-<pre>
-    mkdir haiwen
-    cd haiwen
-    ### after moving seafile-server_1.4.0_x86-64.tar.gz to this directory
-    tar xzf seafile-server_1.4.0_x86-64.tar.gz
-</pre>
+```bash
+mkdir haiwen  
+mv seafile-server_* haiwen
+cd haiwen
+# after moving seafile-server_* to this directory
+tar -xzf seafile-server_*
+mkdir installed
+mv seafile-server_* installed
+```
 
 Now you should have the following directory layout
-<pre>
-  haiwen
-     -- seafile-server-1.4.0
-</pre>
+```bash
+#tree haiwen -L 2
+haiwen
+├── installed
+│   └── seafile-server_1.4.0_x86-64.tar.gz
+└── seafile-server-1.4.0
+    ├── reset-admin.sh
+    ├── runtime
+    ├── seafile
+    ├── seafile.sh
+    ├── seahub
+    ├── seahub.sh
+    ├── setup-seafile.sh
+    └── upgrade
+```
 
 '''The benefit of this layout is that'''
 
