@@ -48,11 +48,10 @@ If some of them are not installed, the seafile initialization script will ask yo
 
 === Setup ===
 
-go into haiwen/seafile-server-1.4.0 directory, and run setup-seafile.sh script
+Go into haiwen/seafile-server-1.4.0 directory, and run setup-seafile.sh script
 <pre>
 $ cd seafile-server-1.4.0
-$ chmod +x *.sh
-$ ./setup-seafile.sh
+$ ./setup-seafile.sh    ## chmod +x *.sh if necessary
 </pre>
 
 [[images/server-setup.png|You'll see these outputs when you run the setup script]]
