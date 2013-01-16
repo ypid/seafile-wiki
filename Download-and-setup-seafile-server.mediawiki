@@ -76,7 +76,7 @@ apt-get install python2.7 python-setuptools python-simplejson python-imaging sql
 ```bash
 cd seafile-server-*
 ./setup-seafile.sh  #run the setup script & answer prompted questions
-````
+```
 
 If some of them are not installed, the seafile initialization script will ask you to install them.
 
