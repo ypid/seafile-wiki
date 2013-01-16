@@ -6,6 +6,16 @@ This manual explains how to setup and run Seafile server from a pre-built packag
 
 You may also [https://github.com/haiwen/seafile/wiki/Build-and-deploy-seafile-server-from-source build Seafile from source].
 
+```bash
+#check if your system is x86 (32bit) or x86_64 (64 bit)
+uname -m      
+
+#download for 32bit 
+wget http://seafile.googlecode.com/files/seafile-server_1.4.0_i386.tar.gz
+#or for 64bit
+wget http://seafile.googlecode.com/files/seafile-server_1.4.0_x86-64.tar.gz  
+```
+
 == Deploying and Directory Layout ==
 
 Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.4.0_x86-64.tar.gz into your home directory,
