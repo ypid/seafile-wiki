@@ -6,9 +6,9 @@ First, you can check the ccnet.log in client (~/.ccnet/logs/ccnet.log for Linux,
 
 Possible reasons:
 
-* Firewall: Ensure the firewall is configured properly. See [[Firewall Settings for Seafile Server ]]
 * Miss config of  <code>SERVICE_URL</code>: Check whether the value of is set correctly in server's <code>ccnet.conf</code>.
 * Using a server name in file `hosts`, (Currently, seafile client can't use hosts file to resolve server).
+* Firewall: Ensure the firewall is configured properly. See [[Firewall Settings for Seafile Server ]]
 
 Trouble shooting:
 
