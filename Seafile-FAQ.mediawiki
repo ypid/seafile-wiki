@@ -1,5 +1,3 @@
-(This page is still in draft)
-
 = General Questions =
 
 == When downloading a library, the client hangs at "connecting server" ==
@@ -10,14 +8,9 @@
 # <http or https>://<domain or ip>:<port>
 SERVICE_URL = http://seafile.myserver.com:8000
 ```
-
 <code>SERVICE_URL</code> must always point to the address of your seahub website. If you later change the address of your seahub website, e.g. you use a different ip/domain or port, or [[Enable Https on Seafile Web|change from http to https]], you must update the value of <code>SERVICE_URL</code> accordingly, and then restart the seafile server.
 
-= Server =
-
-== Https ==
-
-=== 
+= Server = 
 
 == Python releated ==
 
@@ -26,3 +19,9 @@ SERVICE_URL = http://seafile.myserver.com:8000
 No, You must have python 2.6 or 2.7 installed on your server.
 
 = Client =
+
+== The bubble notification is distracting, how can I disable it? ==
+
+* Click the seafile tray icon, choose "open admin page" to open the local web interface
+* On the local web interface, click the "Settings" tab
+* uncheck the option "Notify when libraries are synchronized"
