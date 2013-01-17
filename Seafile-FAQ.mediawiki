@@ -2,13 +2,18 @@
 
 == When downloading a library, the client hangs at "connecting server" ==
 
-* Ensure the firewall is configured properly. See [[Firewall Settings for Seafile Server ]]
-* Check whether the value of <code>SERVICE_URL</code> is set correctly in <code>ccnet.conf</code>. It should be like this:
-```conf
-# <http or https>://<domain or ip>:<port>
-SERVICE_URL = http://seafile.myserver.com:8000
-```
-<code>SERVICE_URL</code> must always point to the address of your seahub website. If you later change the address of your seahub website, e.g. you use a different ip/domain or port, or [[Enable Https on Seafile Web|change from http to https]], you must update the value of <code>SERVICE_URL</code> accordingly, and then restart the seafile server.
+First, you can check the ccnet.log in client (~/.ccnet/logs/ccnet.log for Linux, C:/users/your_name/ccnet/logs/ccnet.log for Windows) to see what's wrong.
+
+Possible reasons:
+
+* Firewall: Ensure the firewall is configured properly. See [[Firewall Settings for Seafile Server ]]
+* Miss config of  <code>SERVICE_URL</code>: Check whether the value of is set correctly in server's <code>ccnet.conf</code>.
+* Using a server name in file `hosts`, (Currently, seafile client can't use hosts file to resolve server).
+
+Trouble shooting:
+
+* Click the  download button of a library, this will redirect you to a local address like http://localhost:13420/repo/download/?relay_id=...&relay_addr=cloud.seafile.com&relay_port=10001. Check the relay_addr and relay_port part. These two parameters are used by the client to connect the server.
+* Manually telnet to see if you can connect: <code>telnet cloud.seafile.com 10001</code> 
 
 == How can I contact seafile developers? ==
 
