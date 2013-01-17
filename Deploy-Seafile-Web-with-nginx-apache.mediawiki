@@ -1,4 +1,4 @@
-'''Note:''' This document is for seafile server 1.4 and later. For a old version, see [[Deploy Seafile Web With Nginx/Apache old|here]].
+'''Note:''' This document is for seafile server 1.4 and later. For an old version, see [[Deploy Seafile Web With Nginx/Apache old|here]].
 
 In a production environment, you often want to deploy Seafile Web(Seahub) behind a reverse proxy like Apache or nginx. Use a web server serves multiple purposes:
 
