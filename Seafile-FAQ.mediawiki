@@ -10,6 +10,19 @@ SERVICE_URL = http://seafile.myserver.com:8000
 ```
 <code>SERVICE_URL</code> must always point to the address of your seahub website. If you later change the address of your seahub website, e.g. you use a different ip/domain or port, or [[Enable Https on Seafile Web|change from http to https]], you must update the value of <code>SERVICE_URL</code> accordingly, and then restart the seafile server.
 
+== How can I contact seafile developers? ==
+
+You can contact us through:
+* [https://groups.google.com/forum/?fromgroups=#!forum/seafile Google groups]. This is our recommended place to discuss about seafile.
+* [https://twitter.com/seafile Twitter]. Chinese users can also use [http://weibo.com/seafile weibo].
+* [https://github.com/haiwen/seafile/issues create an issue for seafile on Github], if you think you find a bug.
+
+You're always welcome to contact us if you want to:
+
+* ask for help about problems when using seafile
+* report bugs you find
+* give us your suggestion for seafile
+
 = Server = 
 
 == Python releated ==
