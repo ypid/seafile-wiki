@@ -4,11 +4,25 @@
 
 == When downloading a library, the client hangs at "connecting server" ==
 
+* Ensure the firewall is configured properly. See [[Firewall Settings for Seafile Server ]]
+* Check whether the value of <code>SERVICE_URL</code> is set correctly in <code>ccnet.conf</code>. It should be like this:
+```conf
+# <http or https>://<domain or ip>:<port>
+SERVICE_URL = http://seafile.myserver.com:8000
+```
+
+<code>SERVICE_URL</code> must always point to the address of your seahub website. If you later change the address of your seahub website, e.g. you use a different ip/domain or port, or [[Enable Https on Seafile Web|change from http to https]], you must update the value of <code>SERVICE_URL</code> accordingly, and then restart the seafile server.
 
 = Server =
 
 == Https ==
+
+=== 
+
 == Python releated ==
 
-= Client =
+=== Does Seafile server support Python 3? ===
 
+No, You must have python 2.6 or 2.7 installed on your server.
+
+= Client =
