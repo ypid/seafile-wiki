@@ -77,7 +77,7 @@ Contents
     {
     "usage": 26038531,
     "total": 104857600,
-    "email": "user@example.com",
+    "email": "user@example.com"
     }
 
 **Errors**
@@ -192,7 +192,7 @@ Contents
 
 **Sample request**
 
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://127.0.0.1:8000/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/download-info/
+    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/download-info/
 
 **Sample response**
 
@@ -309,13 +309,13 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 
 **Sample request**
 
-    curl -d  "operation=mkdir" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://127.0.0.1:8000/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+    curl -d  "operation=mkdir" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
 
 **Sample response**
    
     ...
     < HTTP/1.0 201 CREATED
-    < Location: https://127.0.0.1:8000/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+    < Location: https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
     ...
 
     "success"
@@ -345,7 +345,7 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 
 **Sample request**
 
-    curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://127.0.0.1:8000/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+    curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
 
 **Sample response**
 
@@ -379,11 +379,11 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 
 **Sample request**
 
-    curl  -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://127.0.0.1:8000/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
+    curl  -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
 
 **Sample response**
 
-    "https://localhost:8082/files/adee6094/foo.c"
+    "https://cloud.seafile.com:8082/files/adee6094/foo.c"
 
 **Errors**
 
@@ -403,7 +403,7 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 
 **Sample request**
 
-    curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://127.0.0.1:8000/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
+    curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
 
 **Sample response**
 
@@ -476,13 +476,13 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 
 **Sample request**
 
-    curl -v -d "repo_id=dae8cecc-2359-4d33-aa42-01b7846c4b32&p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://127.0.0.1:8000/api2/starredfiles/
+    curl -v -d "repo_id=dae8cecc-2359-4d33-aa42-01b7846c4b32&p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/starredfiles/
 
 **Sample response**
 
     ...
     < HTTP/1.0 201 CREATED
-    < Location: https://127.0.0.1:8000/api2/starredfiles/
+    < Location: https://cloud.seafile.com/api2/starredfiles/
     ...
     "success"
 
@@ -508,7 +508,7 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 
 **Sample request**
 
-    curl -X DELETE -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' 'https://127.0.0.1:8000/api2/starredfiles/?repo_id=dae8cecc-2359-4d33-aa42-01b7846c4b32&p=/foo.md'
+    curl -X DELETE -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' 'https://cloud.seafile.com/api2/starredfiles/?repo_id=dae8cecc-2359-4d33-aa42-01b7846c4b32&p=/foo.md'
 
 **Sample response**
 
@@ -539,13 +539,13 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 
 **Sample request**
 
-    curl -v  -X PUT -d "p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://127.0.0.1:8000/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
+    curl -v  -X PUT -d "p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
 
 **Sample response**
 
     ...
     < HTTP/1.0 201 CREATED
-    < Location: https://127.0.0.1:8000/f/9b437a7e55/
+    < Location: https://cloud.seafile.com/f/9b437a7e55/
     ...
 
 **Success**
