@@ -112,3 +112,7 @@ cd /data/haiwen/seahub
 python ./manage.py runfcgi host=127.0.0.1 port=8000 \
  errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
 </pre>
+
+== Deploy Seafile at Non-root domain ==
+
+'''todo'''
