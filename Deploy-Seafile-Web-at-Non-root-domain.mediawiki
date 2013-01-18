@@ -1,0 +1,69 @@
+
+This documentation will talk about how to deploy Seafile Web using Apache/Nginx with proxy, and will set Seafile Web at Non-root directory of the website(e.g., www.example.com/seafile/). 
+
+== Deploy with Nginx ==
+
+First, we need to overwrite some variables in seahub_settings.py:
+
+<pre>
+SERVE_STATIC = False
+MEDIA_URL = '/seafmedia/'
+SITE_ROOT = '/seafile/'
+</pre>
+
+We will use Nginx to serve static files(js, css, etc), so we just disable <code>SERVE_STATIC</code>.
+
+<code>MEDIA_URL</code> can be anything you like, just make sure a trailing slash is appended at the end.
+
+We deploy Seafile at <code>/seafile/</code> directory instead of root directory, so we set <code>SITE_ROOT</code> to <code>/seafile/</code>.
+
+Then, we need to configure the Nginx:
+
+<pre>
+    location /seafile {
+        proxy_pass  http://127.0.0.1:8000;
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+        proxy_redirect off;
+        proxy_buffering off;
+        proxy_set_header        Host            $host;
+        proxy_set_header        X-Real-IP       $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location /seafmedia/ {
+             rewrite ^/seafmedia(.*)$ /media$1 break;
+             # Change to your path
+             root /Users/xiez/seahub;
+    }
+</pre>
+
+Now you need to reload Nginx, and open your browser to check if everything works fine.
+
+== Deploy with Apache ==
+
+First, you need to modify seahub_settings.py as above.
+
+Then you need to configure your Apache, here is the sample configuration:
+
+<pre>
+<VirtualHost *:80>
+  ServerName 127.0.0.1
+  DocumentRoot /var/www
+  Alias /seafmedia  /Users/xiez/dev/seahub/media
+
+  <Location /seafile>
+  ProxyPass http://localhost:8000/seafile
+  ProxyPassReverse http://localhost:8000/seafile
+  </Location>
+
+  <Directory /Users/xiez/dev/seahub/media>
+      Options +Indexes
+      Allow from all
+  </Directory>
+  
+</virtualhost>
+</pre>
+
+We use Alias to let Apache serve static files, please change the second argument to your path.  And don't forget to add 'Allow from all', otherwise you will get 403 error.
+
+Now restart Apache, and test if everything works fine.
