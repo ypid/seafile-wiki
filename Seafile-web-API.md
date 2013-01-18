@@ -77,7 +77,7 @@ Contents
     {
     "usage": 26038531,
     "total": 104857600,
-    "email": "mingdid@163.com"
+    "email": "user@example.com",
     }
 
 **Errors**
@@ -205,7 +205,7 @@ Contents
     "encrypted": "",
     "repo_name": "test",
     "relay_id": "8e4b13b49ca79f35732d9f44a0804940d985627c",
-    "email": "mingdid%40163.com"
+    "email": "user@example.com"
     }
 
 ## <a id="upload-file"></a>Upload file ##
@@ -230,13 +230,13 @@ Contents
 
 **Sample response**
 
-    "http://localhost:8082/upload-api/ef881b22"
+    "http://cloud.seafile.com:8082/upload-api/ef881b22"
 
 ### Upload File
 
 After getting the upload link, POST to this link for uploading files.
 
-**POST** http://localhost:8082/upload-api/ef881b22
+**POST** http://cloud.seafile.com:8082/upload-api/ef881b22
 
 **Errors**
 
