@@ -16,6 +16,12 @@
 * [[Enable Https on Seafile Web]]
 * [[Seafile server data backup]]
 
+**FAQ**
+
+[[Seafile FAQ]]
+
+**For Chinese Users**
+
 [[Seafile 服务器手册中文版]]
 
 ## Building and Using Seafile from Source
