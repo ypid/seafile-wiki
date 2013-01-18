@@ -115,4 +115,4 @@ python ./manage.py runfcgi host=127.0.0.1 port=8000 \
 
 == Deploy Seafile at Non-root domain ==
 
-'''todo'''
+See [[Deploy Seafile Web at Non root domain]]
