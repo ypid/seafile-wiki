@@ -1,0 +1,66 @@
+== Install MinGW ==
+
+On windows, The MinGW toolchain is used to compile Seafile. Download [http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst mingw-get-install] and install MinGW with it.
+
+== Get the libraries ==
+
+Download the following libraries from [http://www.gtk.org/download/win32.php gtk-windows page]
+
+'''Note''': For each library, both '''run-time''' and '''dev''' files should be downloaded.
+
+* glib
+* zlib
+* gettext-runtime
+* intltool
+* pkg-config
+* gettext-tools
+
+Unzip all these packages to c:/MinGW.
+
+=== Other libraries ===
+
+* [http://www.openssl.org/source/openssl-1.0.0d.tar.gz openssl]. Download the tarball and uncompress it, then open the MinGW shell and go to the uncompressed directory.
+
+```bash
+/configure –prefix=/mingw mingw shared
+make && make install
+```
+
+* [http://monkey.org/~provos/libevent-2.0.11-stable.tar.gz libevent 2.11]
+
+```bash
+./configure –prefix=/mingw
+make && make install
+```
+
+* [http://www.sqlite.org/sqlite-autoconf-3070701.tar.gz libsqlite3]. The same with libevent.
+
+=== valac ===
+
+Download [http://vala-win32.googlecode.com/files/vala-0.12.0.exe vala] and install it. The installer would automaticaly add <tt>C:\vala-0.12\bin</tt> to PATH for you.
+
+== Python-related ==
+
+Python 2.6 or 2.7 is required to build/run seafile client.
+
+* [http://www.python.org/ftp/python/2.6/python-2.6.msi Python 2.6]
+* [http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.6.exe/download Py2exe 2.6]
+* [http://pypi.python.org/packages/2.6/s/setuptools/setuptools-0.6c11.win32-py2.6.exe#md5=1509752c3c2e64b5d0f9589aafe053dc easy_install]
+
+After that, add <code>C:\Python26</code> and <code>C:\Python26\scripts</code> to <code>PATH</code> environment variable (Assume you have installed python to <code>C:\Python26</code>. Then install the following python packages with easy_install:
+
+* web.py
+* mako
+* simplejson
+
+```bash
+easy_install web.py mako simplejson
+```
+
+== Get seafile source code ==
+
+* Create a directory, for example c:\seafile-src
+* Download the source code of libsearpc/ccnet/seafile
+** [http://seafile.com.cn/downloads/libsearpc-latest.tar.gz libsearpc]
+** [http://seafile.com.cn/downloads/seafile-latest.tar.gz ccnet]
+** [http://seafile.com.cn/downloads/seafile-latest.tar.gz seafile]
