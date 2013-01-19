@@ -35,13 +35,9 @@ make && make install
 
 * [http://www.sqlite.org/sqlite-autoconf-3070701.tar.gz libsqlite3]. The same with libevent.
 
-=== valac ===
-
-Download [http://vala-win32.googlecode.com/files/vala-0.12.0.exe vala] and install it. The installer would automaticaly add <tt>C:\vala-0.12\bin</tt> to PATH for you.
-
 == Python-related ==
 
-Python 2.6 or 2.7 is required to build/run seafile client.
+Python 2.6 or 2.7 is required to build/run seafile client. Here we use python 2.6, but python 2.7 is also OK.
 
 * [http://www.python.org/ftp/python/2.6/python-2.6.msi Python 2.6]
 * [http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.6.exe/download Py2exe 2.6]
@@ -59,8 +55,78 @@ easy_install web.py mako simplejson
 
 == Get seafile source code ==
 
-* Create a directory, for example c:\seafile-src
-* Download the source code of libsearpc/ccnet/seafile
+* Download the latest source code of libsearpc/ccnet/seafile
 ** [http://seafile.com.cn/downloads/libsearpc-latest.tar.gz libsearpc]
 ** [http://seafile.com.cn/downloads/seafile-latest.tar.gz ccnet]
 ** [http://seafile.com.cn/downloads/seafile-latest.tar.gz seafile]
+
+* Uncompress the source code
+
+Create a directory, for example <code>D:\build</code> and uncompress the source to this directory.
+
+```bash
+mkdir /d/build
+cd /d/build
+tar xf libsearpc-latest.tar.gz
+tar xf ccnet-latest.tar.gz
+tar xf seafile-latest.tar.gz
+```
+
+== Configure and compile ==
+
+=== Setup the environment variables ===
+
+```bash
+export PYTHONPATH=/c/Python26/
+export PYTHON_DIR=/c/Python26/lib/site-packages
+```
+
+=== Compile ===
+
+```bash
+cd libsearpc-{version}
+./configure --prefix=/mingw --disable-static --disable-console
+make && make install
+
+cd ccnet-{version}
+./configure --prefix=/mingw --disable-static --disable-console
+make && make install
+
+cd seafile-{version}
+./configure --prefix=/mingw --disable-static --disable-console
+make && make install
+```
+
+== Collect all components to a single directory ==
+
+=== Dependency walker ===
+
+* First download and install [[dependency walker|http://www.dependencywalker.com]]
+* Add the path to dependency walker executable(<code>depend.exe</code>) to the <code>PATH</code> environment variable
+
+=== Invoke the setup-win.py script ===
+
+Invoke the <code>setup-win.py</code> script to collect all components of seafile client to a single directory
+
+```bash
+cd seafile-{version}
+./setup-win.py /d/seafile-install # collect all files to /d/seafile-install
+```
+
+=== Start Seafile ===
+
+Open the folder <code>D:\seafile-install\bin</code> in Explorer, double click the file <code>seafile-applet.exe</code>, and seafile is started!
+
+== What the script does for you ==
+
+Seafile client is consisted of three programs:
+
+* ccnet daemon. Responsible for network communication with seafile servers.
+* seafile daemon. Responsible for local directory monitoring and file synchronization.
+* seafile web interface. Handles the user interaction through a local web interface.
+
+And the script does the following for you:
+
+* Use py2exe to package the seafile web interface into a standalone program, seafile-web.exe, and copy it to the target directory
+* Copy ccnet executable(<code>ccnet.exe</code>) and seafile executable (<code>seaf-daemon.exe</code>) to the target directory.
+* Collect the shared libraries required by seafile programs to the target directory. Dependency walker is used to analyse which shared libraries we need.
