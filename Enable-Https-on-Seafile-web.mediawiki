@@ -68,5 +68,5 @@ Then open your browser and input <code>https://www.yourdomain.com:8082</code>(as
 
 Since you change from http to https, you need to modify the value of "SERVICE_URL" in <code>ccnet/ccnet.conf</code>:
 <pre>
-SERVICE_URL = https://your.server.domain
+SERVICE_URL = https://www.yourdoamin.com
 </pre>
