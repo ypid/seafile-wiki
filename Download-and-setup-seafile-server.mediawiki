@@ -11,9 +11,9 @@ You may also [https://github.com/haiwen/seafile/wiki/Build-and-deploy-seafile-se
 uname -m      
 
 #download for 32bit 
-wget http://seafile.googlecode.com/files/seafile-server_1.4.0_i386.tar.gz
+wget http://seafile.googlecode.com/files/seafile-server_1.4.1_i386.tar.gz
 #or for 64bit
-wget http://seafile.googlecode.com/files/seafile-server_1.4.0_x86-64.tar.gz  
+wget http://seafile.googlecode.com/files/seafile-server_1.4.1_x86-64.tar.gz  
 ```
 
 == Deploying and Directory Layout ==
