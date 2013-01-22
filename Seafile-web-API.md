@@ -84,7 +84,7 @@ Contents
 
 * 403 Invalid token
 
-## <a id="list-libraries"></a>List Libararies ##
+## <a id="list-libraries"></a>List Libraries ##
 
 **GET** https://cloud.seafile.com/api2/repos/
 
