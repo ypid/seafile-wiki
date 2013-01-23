@@ -36,7 +36,7 @@ You're always welcome to contact us if you want to:
 
 No, You must have python 2.6 or 2.7 installed on your server.
 
-= Client =
+= Desktop Client =
 
 == The bubble notification is distracting, how can I disable it? ==
 
@@ -52,3 +52,14 @@ No, You must have python 2.6 or 2.7 installed on your server.
 
 * TODO
 
+= Mobile Client =
+
+== Android ==
+
+=== Display "Login failed" when using Seadroid to log onto Private Seafile, what may cause the problem? ===
+
+* TODO
+
+== Apple iOS ==
+
+* TODO
