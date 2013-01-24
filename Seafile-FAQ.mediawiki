@@ -60,6 +60,10 @@ No, You must have python 2.6 or 2.7 installed on your server.
 
 * If you're using Apache + fastcgi, please make sure <code>HTTP_AUTHORIZATION</code> is passing to fastcgi daemon, here is the sample rewrite rule: <code>RewriteRule ^/(.*)$ /seahub.fcgi/$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]</code>
 
+* If your private Seafile has enabled HTTPS, you need to make sure the CA is valid for your Android. You can use the browser in your Android, and open your private seafile url, check whether everything works fine.
+
+* If none of these works for you, you can using a tool named `curl` to see what's really going on. e.g., <code>curl -v -d "username=user@example.com&password=passwd" http://www.youseafile.com/api2/auth-token/</code> This command works same as log onto your seafile. For more information about seafile API, please see [[Seafile web API]].
+
 == Apple iOS ==
 
 * TODO
