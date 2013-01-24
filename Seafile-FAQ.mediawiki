@@ -58,7 +58,7 @@ No, You must have python 2.6 or 2.7 installed on your server.
 
 === Display "Login failed" when using Seadroid to log onto Private Seafile, what may cause the problem? ===
 
-* TODO
+* If you're using Apache + fastcgi, please make sure <code>HTTP_AUTHORIZATION</code> is passing to fastcgi daemon, here is the sample rewrite rule: <code>RewriteRule ^/(.*)$ /seahub.fcgi/$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]</code>
 
 == Apple iOS ==
 
