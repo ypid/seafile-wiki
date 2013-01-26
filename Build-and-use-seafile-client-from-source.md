@@ -8,17 +8,19 @@ The following list is what you need to install on your development machine. __Yo
 
 Package names are according to Ubuntu 12.04. For other Linux distros, please find their corresponding names yourself.
 
-* libevent-dev ( 2.0 or later ) (libevent-devel for Fedora)
-* libcurl4-openssl-dev  (1.0.0 or later) (openssl-devel for Fedora)
-* libgtk2.0-dev ( 2.24 or later) (gtk2-devel for Fedora)
-* uuid-dev  (libuuid-devel for Fedora)
+* libevent-dev ( 2.0 or later )
+* libcurl4-openssl-dev  (1.0.0 or later)
+* libgtk2.0-dev ( 2.24 or later)
+* uuid-dev
 * intltool ( 0.40 or later) 
-* libsqlite3-dev (3.7 or later)  (sqlite-devel for Fedora)
+* libsqlite3-dev (3.7 or later)
 * python-mako 
 * python-webpy
 * python-simplejson
-* libnotify-dev (libnotify-devel for Fedora)
+* libnotify-dev
 * libappindicator-dev (needed for Ubuntu Unity Desktop, not requied otherwise)
+
+For Fedora, they are libevent-devel, openssl-devel, gtk2-devel, libuuid-devel, sqlite-devel, libnotify-devel.
 
 #### Building ####
 
