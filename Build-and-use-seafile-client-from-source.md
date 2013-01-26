@@ -8,16 +8,16 @@ The following list is what you need to install on your development machine. __Yo
 
 Package names are according to Ubuntu 12.04. For other Linux distros, please find their corresponding names yourself.
 
-* libevent-dev ( 2.0 or later )
-* libcurl4-openssl-dev  (1.0.0 or later)
-* libgtk2.0-dev ( 2.24 or later)
-* uuid-dev
-* intltool ( 0.40 or later)
-* libsqlite3-dev (3.7 or later)
-* python-mako
+* libevent-dev ( 2.0 or later ) (libevent-devel for Fedora)
+* libcurl4-openssl-dev  (1.0.0 or later) (openssl-devel for Fedora)
+* libgtk2.0-dev ( 2.24 or later) (gtk2-devel for Fedora)
+* uuid-dev  (libuuid-devel for Fedora)
+* intltool ( 0.40 or later) 
+* libsqlite3-dev (3.7 or later)  (sqlite-devel for Fedora)
+* python-mako 
 * python-webpy
 * python-simplejson
-* libnotify-dev
+* libnotify-dev (libnotify-devel for Fedora)
 * libappindicator-dev (needed for Ubuntu Unity Desktop, not requied otherwise)
 
 #### Building ####
@@ -36,7 +36,7 @@ To build Seafile client, you need first build the latest version of **libsearpc*
 
 * wget http://seafile.com.cn/downloads/ccnet-latest.tar.gz
 * cd ccnet-${VERSION}
-* ./configure --prefix=/usr
+* ./configure --prefix=/usr   ### `export PKG_CONFIG_PATH=/usr/lib/pkgconfig` if libsearpc is not found
 * make
 * make install
 
@@ -54,5 +54,6 @@ Appindicator is needed for Unity desktop environment.
 
 After you build and install Seafile client on Linux, you can start it by the `seafile-applet` command
 ```sh
+   $ sudo ldconfig  ### (it is need sometimes after compilation)
    $ seafile-applet
 ```
