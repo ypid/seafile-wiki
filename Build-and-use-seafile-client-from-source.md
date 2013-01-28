@@ -19,6 +19,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * python-simplejson
 * libnotify-dev
 * libappindicator-dev (needed for Ubuntu Unity Desktop, not requied otherwise)
+* valac
 
 For Fedora, they are libevent-devel, openssl-devel, gtk2-devel, libuuid-devel, sqlite-devel, libnotify-devel.
 
