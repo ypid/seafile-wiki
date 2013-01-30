@@ -105,6 +105,8 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 </pre>
 
+'''Note''': If your Email service still can not work, you may checkout the log file <code>/tmp/seahub.log</code>.
+
 === Seahub Settings ===
 
 You may change seahub website's settings by adding variables in `seahub_settings.py`.
