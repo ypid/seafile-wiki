@@ -104,6 +104,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 </pre>
 
+'''Note''': 如果按照以上配置仍旧无法配成功，请查看<code>/tmp/seahub.log</code>，里面会有详细的错误信息。
 
 === Seahub 参数配置 ===
 
