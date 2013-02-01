@@ -289,7 +289,7 @@ When you want to upgrade to a new vesrion of seafile server, you need to:
 * Get and latest source code and build libsearpc/ccnet/seafile, just as what you do in a fresh setup
 * Run the upgrade script. The upgrade script mainly updates database used by seafile for you. For example, create a new database table that is used in the latest seafile server but not in the previous version.
 
-'''Note:''' If your are using seafile server before 1.4.5 (i.e. 1.4.1 and below), you need to [[Build server from source   modify server directory layout before 1.4.5|manually modify the directory layout]] before reading on, because the directory layout created by <code>seafile-admin</code> is not correct.
+'''Note:''' If your are using seafile server before 1.4.5 (i.e. 1.4.1 and below), you need to [[modify server directory layout before 1.4.5|manually modify the directory layout]] before reading on, because the directory layout created by <code>seafile-admin</code> is not correct.
 
 === Get and build the latest source ===
 
