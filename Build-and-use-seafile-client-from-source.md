@@ -28,8 +28,8 @@ For Fedora, they are libevent-devel, openssl-devel, gtk2-devel, libuuid-devel, s
 First you should get the latest source of seafile:
 
 ```bash
-* wget http://seafile.com.cn/downloads/seafile-latest.tar.gz
-* tar xzf seafile-latest.tar.gz
+wget http://seafile.com.cn/downloads/seafile-latest.tar.gz
+tar xzf seafile-latest.tar.gz
 ```
 
 After running the above commands, you should have a folder `seafile-{VERSION}` (VERSION is the latest version number, for example 1.4.5) in your current directory. The source of libsearpc/ccnet is also included in that folder.
