@@ -34,37 +34,46 @@ libevhtp needs to be built by `cmake`.  libevhtp's version should be 1.1.6 or 1.
 Before continue, make sure you have all these libraries available in your system.
 
 ### Building ###
+First you should get the latest source of seafile:
 
-To build Seafile Server, you need first build the latest version of **libsearpc** and **ccnet**.
+```bash
+wget http://seafile.com.cn/downloads/seafile-latest.tar.gz
+tar xzf seafile-latest.tar.gz
+```
 
-#### libsearpc ####
+After running the above commands, you should have a folder `seafile-{VERSION}` (VERSION is the latest version number, for example 1.4.5) in your current directory. The source of libsearpc/ccnet is also included in that folder.
 
-```sh
-wget http://seafile.com.cn/downloads/libsearpc-latest.tar.gz
-tar xzf libsearpc-latest.tar.gz
-cd libsearpc-${VERSION}
+```bash
+seafile-{VERSION}
+├── libsearpc
+├── ccnet
+├── ... (other files)
+```
+
+To build Seafile client, you need first build **libsearpc** and **ccnet**. 
+
+##### libsearpc #####
+
+```bash
+cd seafile-{VERSION}/libsearpc
 ./configure
 make
 make install
 ```
 
-#### ccnet ####
+##### ccnet #####
 
-```sh
-wget http://seafile.com.cn/downloads/ccnet-latest.tar.gz
-tar xzf ccnet-latest.tar.gz
-cd ccnet-${VERSION} # VERSION is the latest version number
-./configure --disable-client --enable-server
+```bash
+cd seafile-{VERSION}/ccnet
+./configure --disable-client --enable-server   ### `export PKG_CONFIG_PATH=/usr/lib/pkgconfig` if libsearpc is not found
 make
 make install
 ```
 
-#### seafile ####
+##### seafile #####
 
-```sh
-wget http://seafile.com.cn/downloads/seafile-latest.tar.gz
-tar xzf seafile-latest.tar.gz
-cd seafile-${VERSION}
+```bash
+cd seafile-${VERSION}/
 ./configure --disable-client --enable-server --enable-httpserver
 make
 make install
