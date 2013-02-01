@@ -1,6 +1,6 @@
-Before seafile server 1.4.5, if you built seafile server from source and used the seafile-admin script, your directory layout would not be correct, which means you can't use the seafile server upgrade scripts when upgrading. 
+Before seafile server 1.4.5, if you built seafile server from source and used the seafile-admin script, your directory layout would not be correct, which means you can't use the upgrade scripts when upgrading seafile server.
 
-To make things work correctly, follow the instructions on this page.
+To make things work correctly, follow the instructions on this page step by step.
 
 === The Old, Incorret Layout ===
 
