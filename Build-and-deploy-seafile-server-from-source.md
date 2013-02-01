@@ -50,7 +50,7 @@ seafile-{VERSION}
 ├── ... (other files)
 ```
 
-To build Seafile client, you need first build **libsearpc** and **ccnet**. 
+To build Seafile server, you need first build **libsearpc** and **ccnet**. 
 
 ##### libsearpc #####
 
