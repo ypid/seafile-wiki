@@ -35,7 +35,7 @@ First you should get the latest source of seafile:
 After running the above commands, you should have a folder `seafile-{VERSION}` (VERSION is the latest version number, for example 1.4.5) in your current directory. The source of libsearpc/ccnet is also included in that folder.
 
 ```bash
-seafile-{VERSION} ## version is like 1.4.5
+seafile-{VERSION}
 ├── libsearpc
 ├── ccnet
 ├── ... (other files)
