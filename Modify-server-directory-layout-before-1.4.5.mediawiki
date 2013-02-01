@@ -46,7 +46,7 @@ mv runtime seafile-server/
 * Move the seahub database file outside, and create seahub_settings.py
 
 ```bash
-mv seafile-server/seahub/seafile.db seafile.db
+mv seafile-server/seahub/seahub.db seahub.db
 touch seahub_settings.py
 ```
 
