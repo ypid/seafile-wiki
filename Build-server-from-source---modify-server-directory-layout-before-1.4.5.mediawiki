@@ -1,0 +1,60 @@
+Before seafile server 1.4.5, if you built seafile server from source and used the seafile-admin script, your directory layout would not be correct, which means you can't use the seafile server upgrade scripts when upgrading. 
+
+To make things work correctly, follow the instructions on this page.
+
+=== The Old, Incorret Layout ===
+
+```bash
+haiwen/
+└── ccnet/
+└── seafile-data/
+└── seahub/
+    └── seahub.db
+└── runtime/
+```
+
+=== The New, Correct Layout ===
+
+```bash
+haiwen/
+└── ccnet/ # ccnet config
+└── seafile-data/ # seafile config and data
+└── seahub-data/  # seahub data
+└── seahub.db     # seahub database file
+└── seahub_settings.py # seahub custom settings
+└── seafile-server
+    └── runtime/
+    └── seahub/
+```
+
+=== Change the old layout to the new layout ===
+
+* Go to the top level directory (in our example it is '''/data/haiwen''')
+
+```bash
+cd /data/haiwen
+```
+
+* Create the '''seafile-server''' directory, and move the <code>seahub/</code> and <code>runtime/</code> directory into it.
+
+```bash
+mkdir seafile-server
+mv seahub seafile-server/
+mv runtime seafile-server/
+```
+
+* Move the seahub database file outside, and create seahub_settings.py
+
+```bash
+mv seafile-server/seahub/seafile.db seafile.db
+touch seahub_settings.py
+```
+
+* Move the seahub avatars directory outside, and create a symbolic link to it
+
+```bash
+mkdir seahub-data
+cd seahub/media
+mv avatars ../../../seahub-data/
+ln -s ../../../seahub-data/avatars
+```
