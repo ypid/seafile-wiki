@@ -235,11 +235,7 @@ seafile-admin start
 
 At this moment, all the components should be running and seahub can be visited at **http://yourserver-ip-or-domain:8000**
 
-**Note** You may want to deploy seahub with nginx or apache. In this case, run the `start` command with `--no-web`, and follow the instructions about [[Deploy Seafile Web With Nginx/Apache]].
-
-```sh
-seafile-admin start --no-web
-```
+**Note** You may want to deploy seahub with nginx or apache. In this case, follow the instructions on [[Deploy Seafile Web With Nginx/Apache]].
 
 ##### Stop the Seafile server
 
