@@ -1,3 +1,5 @@
+**Note:** Do not forget to update your Nginx/Apache config file if you deploy seafile with them.
+
 ## Continuous Upgrade (like from 1.2 to 1.3)
 
 Continuous upgrade means to upgrade from one version of Seafile server to the next version.
