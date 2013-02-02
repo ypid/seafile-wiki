@@ -72,4 +72,4 @@ This command tool will guild you to create a seahub admin.
 
 ## Issues with the upgrades ##
 
-Since it's difficult to provide a upgrade script in MySQL, we will add a file named `1.x_1.y.mysql` which contains all the upgrade statements in our release.
+We will add a file named `1.x_1.y.mysql` which contains all the upgrade statements in our release.
