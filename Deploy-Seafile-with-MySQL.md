@@ -70,7 +70,7 @@ Assume current path is `/data/haiwen/seafile-server-1.4`, and you have exported 
 
 This command tool will guild you to create a seahub admin.
 
-Note: this command is added since version 1.4.5.
+**Note:** this command is added since version 1.4.5.
 
 ## Issues with the upgrades ##
 
