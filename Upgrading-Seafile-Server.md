@@ -1,5 +1,7 @@
 **Note:** Do not forget to update your Nginx/Apache config file if you deploy seafile with them.
 
+This page is for users who use the pre-compiled seafile server package. If you [build seafile server from source](Build and Deploy Seafile Server from source), please read the **Upgrading Seafile Server** section on that page, instead of this one.
+
 ## Continuous Upgrade (like from 1.2 to 1.3)
 
 Continuous upgrade means to upgrade from one version of Seafile server to the next version.
