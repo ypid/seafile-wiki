@@ -54,7 +54,7 @@ touch seahub_settings.py
 
 ```bash
 mkdir seahub-data
-cd seahub/media
+cd seafile-server/seahub/media
 mv avatars ../../../seahub-data/
 ln -s ../../../seahub-data/avatars
 ```
