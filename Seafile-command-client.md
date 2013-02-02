@@ -1,21 +1,17 @@
 Overview
 ========
 
-Seaf-cli.py program is used to run seafile client in command line.  The first
-command you need to run is 'init' command, which creates some config files for
-you, when you are the first time to use seafile client.  If you already have a
-config file, you can run other commands directly.
+Seaf-cli is used to run seafile client in command line.  The first command you need to run is 'init' command, which creates config files for you. Then you can start seafile-client and clone libraries from servers.
 
 
 Subcommands
 ===========
     init:           initialize config file before starting seafile client
     start:          start seafile client
-    start-ccnet:    start ccnet daemon
-    start-seafile:  start seafile daemon
-    clone:          clone a repo from seafile server
-    sync:           synchronize a repo from seafile server
-    desync:         desynchronize a repo from seafile server
+    stop:           stop seafile client
+    clone:          clone a library from seafile server
+    sync:           synchronize an existing folder with a library from seafile server
+    desync:         desynchronize a folder with seafile server
 
 
 Usage
@@ -32,6 +28,11 @@ start
 Start seafile client. This command start `ccnet` and `seaf-daemon`, `ccnet` is the network part of seafile client, `seaf-daemon` manages the files.
 
     usage: seaf-cli start
+
+stop
+----
+
+    usage: seaf-cli stop
 
 clone
 -----
