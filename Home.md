@@ -20,7 +20,7 @@
 **FAQ & Others**
 
 * [[Seafile FAQ]]
-* [[Seafile CLI cient]]
+* [[Seafile CLI client]]
 
 **For Chinese Users**
 
