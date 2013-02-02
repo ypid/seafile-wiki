@@ -36,7 +36,7 @@
 * [[Seafile Data Model]]
 * [[Seafile synchronization algorithm]]
 * [[Seafile web API]]
-* [[Seafile command client]]
+* [[Seafile client command]]
 
 ## Related Projects
 
