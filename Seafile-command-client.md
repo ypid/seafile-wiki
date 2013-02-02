@@ -23,43 +23,30 @@ Usage
 
 init
 ----
-Initialize config file in a given path.
+Initialize seafile client. This command create sub-directories `seafile-data` and `seafile` under `parent-dir`. 
 
-    usage: seaf-cli init -c <config> [-n <username>]
+    usage: seaf-cli init -p <parent-dir>
 
 start
 -----
-Start seafile client
+Start seafile client. This command start `ccnet` and `seaf-daemon`, `ccnet` is the network part of seafile client, `seaf-daemon` manages the files.
 
-    usage: seaf-cli start -c <config> [-w <worktree>]
-
-start-ccnet
------------
-Start ccnet daemon
-
-    usage: seaf-cli start-ccnet -c <config>
-
-start-seafile
--------------
-Start seafile daemon
-
-    usage: seaf-cli start-seafile -c <config> [-w <worktree>]
+    usage: seaf-cli start
 
 clone
 -----
-clone a repo from seafile server
+clone a library from seafile server
 
-    usage: seaf-cli clone -c <config> -r <repo-id> -u <seahub-server-url>
-                          [-w <worktree> -n <username> -p <password>]
+    usage: seaf-cli clone -r <library-id> -h <seahub-server-url> -u <username> -p <password>
 
 sync
 ----
-Synchronize a repo from seafile server
+Synchronize a library with an existing folder
 
-    usage: seaf-cli sync -c <config> -r <repo-id>
+    usage: seaf-cli sync -r <library-id> -h <seahub-server-url> -d <existing-folder> -u <username> -p <password>
 
 desync
 ------
-Desynchronize a repo from seafile server
+Desynchronize a library from seafile server
 
-    usage: seaf-cli desync -c <config> -r <repo-id>
+    usage: seaf-cli desync -d <existing-folder>
