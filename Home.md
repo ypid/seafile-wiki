@@ -17,9 +17,10 @@
 * [[Enable Https on Seafile Web]]
 * [[Seafile server data backup]]
 
-**FAQ**
+**FAQ & Others**
 
-[[Seafile FAQ]]
+* [[Seafile FAQ]]
+* [[Seafile CLI cient]]
 
 **For Chinese Users**
 
@@ -37,7 +38,6 @@
 * [[Seafile Data Model]]
 * [[Seafile synchronization algorithm]]
 * [[Seafile web API]]
-* [[Seafile command client]]
 
 ## Related Projects
 
