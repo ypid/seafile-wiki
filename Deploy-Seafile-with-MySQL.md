@@ -1,7 +1,5 @@
 # Deploy Seafile with MySQL #
 
-## Note ##
-
 If you need to deploy Seafile with MySQL, you need to download **seafile-server-1.4.5 or above**.
 
 ## Preparation ##
