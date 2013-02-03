@@ -6,7 +6,7 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
 
 1. [[Download and setup seafile server]], then start seafile and seahub and make sure everything is OK.
 
-2. Setup MySQL, we assume MySQL user is `root` and password is `root`.
+2. Setup MySQL, we assume MySQL user is `root` and password is `root` in our example below.
 
 3. Create 3 databases named `ccnet-db`, `seafile-db`, `seahub-db`. e.g., ``create database `ccnet-db` character set = 'utf8';``
 
