@@ -32,7 +32,7 @@ PORT=13419
 
 </pre>
 
-在更改了 ccnet.conf 之后，你需要重启 Seafile 以使得设置生效。
+'''Note''': 在更改了 ccnet.conf 之后，你需要重启 Seafile 以使得设置生效。
 
 <pre>
 cd seafile-server
@@ -68,12 +68,22 @@ pemfile=/path/to/ssl/pemfile/
 privkey=/path/to/ssl/privkey
 </pre>
 
-默认从Seafile网站上传文件的大小限制为100M，你可以添加以下配置来修改这个限制。
+修改上传／下载限制。
 
 <pre>
 [httpserver]
 # Set maximum upload file size to 200M.
 max_upload_size=200
+
+# Set maximum download directory size to 200M.
+max_download_dir_size=200
+</pre>
+
+'''Note''': 重启Seafile和Seahub后生效。
+
+<pre>
+./seahub.sh restart
+./seafile.sh restart
 </pre>
 
 == Seahub 配置 (seahub_settings.py) ==
@@ -113,7 +123,6 @@ Seahub 的配置可以在 seahub_settings.py 里覆盖。以下是几个可配�
 <pre>
 
 # Seafile httpserver 的地址。 Httpserver 用来从网站上下载或上传文件。
-# NOTE: 这个参数从1.4版本开始已经不再使用。
 HTTP_SERVER_ROOT = "http://www.example.com:8082"
 
 # 必须改成你的网址，该参数用在邮件发送服务里用户可点击的网址
@@ -152,4 +161,10 @@ SEND_EMAIL_ON_ADDING_SYSTEM_MEMBER = True
 # NOTE: since version 1.4.
 SEND_EMAIL_ON_RESETTING_USER_PASSWD = True
 
+</pre>
+
+'''Note''': 重启Seahub后生效。
+
+<pre>
+./seahub.sh restart
 </pre>
