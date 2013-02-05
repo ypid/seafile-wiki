@@ -69,6 +69,7 @@ pemfile=/path/to/ssl/pemfile/
 privkey=/path/to/ssl/privkey
 </pre>
 
+<pre>
 [httpserver]
 # Set maximum upload file size to 200M.
 max_upload_size=200
