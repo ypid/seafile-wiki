@@ -52,7 +52,7 @@ default = 2
 
 This setting applies to all users. If you want to set quota for a specific user, you may log in to seahub website as administrator, then set it in "System Admin" page.
 
-== seafile httpserver configuratoin (seafile.conf) ==
+== Seafile httpserver configuratoin (seafile.conf) ==
 
 The configuration of seafile httpserver is in the <code>[httpserver]</code> section of the file <code>seafile-data/seafile.conf</code>
 
@@ -69,11 +69,12 @@ pemfile=/path/to/ssl/pemfile/
 privkey=/path/to/ssl/privkey
 </pre>
 
-Default maximum upload file size from seafile web is 100M, you can modify this setting by adding follow line.
-<pre>
 [httpserver]
 # Set maximum upload file size to 200M.
 max_upload_size=200
+
+# Set maximum download directory size to 200M.
+max_download_dir_size=200
 </pre>
 
 == Seahub Configurations (seahub_settings.py) ==
@@ -114,7 +115,6 @@ You may change seahub website's settings by adding variables in `seahub_settings
 <pre>
 
 # The address of httpserver. httpserver is used for downloading and uploading files on seahub website.
-# NOTE: this variable is no longer used since server version 1.4.
 HTTP_SERVER_ROOT = "http://www.example.com:8082"
 
 # Set this to seahub website's URL. This URL is contained in email notifications.
