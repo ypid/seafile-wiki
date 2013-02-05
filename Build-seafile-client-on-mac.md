@@ -26,7 +26,7 @@ Setup development environment
 
 5. Set pkg config environment
 
-	    export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:/user/local/lib/pkgconfig
+	    export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:/usr/local/lib/pkgconfig
 
 
 Compiling libsearpc
