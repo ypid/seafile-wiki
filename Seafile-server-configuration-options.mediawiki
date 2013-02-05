@@ -33,7 +33,7 @@ PORT=13419
 
 </pre>
 
-You should restart seafile so that your changes take effect.
+'''Note''': You should restart seafile so that your changes take effect.
 
 <pre>
 cd seafile-server
@@ -69,6 +69,8 @@ pemfile=/path/to/ssl/pemfile/
 privkey=/path/to/ssl/privkey
 </pre>
 
+Change upload/download settings.
+
 <pre>
 [httpserver]
 # Set maximum upload file size to 200M.
@@ -76,6 +78,12 @@ max_upload_size=200
 
 # Set maximum download directory size to 200M.
 max_download_dir_size=200
+</pre>
+
+'''Note''': You need to restart seafile and seahub so that your changes take effect.
+<pre>
+./seahub.sh restart
+./seafile.sh restart
 </pre>
 
 == Seahub Configurations (seahub_settings.py) ==
@@ -154,4 +162,10 @@ SEND_EMAIL_ON_ADDING_SYSTEM_MEMBER = True
 # NOTE: since version 1.4.
 SEND_EMAIL_ON_RESETTING_USER_PASSWD = True
 
+</pre>
+
+'''Note''': You need to restart seahub so that your changes take effect.
+
+<pre>
+./seahub.sh restart
 </pre>
