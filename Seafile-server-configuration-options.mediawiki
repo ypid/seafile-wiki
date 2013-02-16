@@ -24,11 +24,13 @@ SERVICE_URL=http://www.example.com:8000
 [Network]
 
 # Ccnet waits for client connections on this port. If it's used by other services, please change it.
+# This is only useful for the seafile server.
 PORT=10001
 
 [Client]
 # Ccnet listens to this port on localhost for local clients' request (e.g. seahub website).
 # If it's been used by other services, ccnet and seafile would not be able to run.
+# If you want to run seafile client and server on the same machine, change this port for the client.
 PORT=13419
 
 </pre>
