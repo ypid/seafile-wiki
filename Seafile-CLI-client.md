@@ -1,53 +1,57 @@
-Overview
-========
+seaf-cli is command line interface for seafile client.
 
-Seaf-cli is used to run seafile client in command line.  The first command you need to run is 'init' command, which creates config files for you. Then you can start seafile-client and clone libraries from servers.
+Subcommands:
 
-
-Subcommands
-===========
-    init:           initialize config file before starting seafile client
-    start:          start seafile client
+    init:           create config files for seafile client
+    start:          start and run seafile client as daemon
     stop:           stop seafile client
-    clone:          clone a library from seafile server
-    sync:           synchronize an existing folder with a library from seafile server
-    desync:         desynchronize a folder with seafile server
+    list:           list local liraries
+    status:         show syncing status
+    download:       download a library from seafile server
+    sync:           synchronize an existing folder with a library in 
+                        seafile server
+    desync:         desynchronize a library with seafile server
 
 
-Usage
-=====
+Detail
+======
+
+Seafile client stores all its configure information in a config dir. The default location is `~/.ccnet`. All the commands below accept an option `-c <config-dir>`.
 
 init
 ----
-Initialize seafile client. This command create sub-directories `seafile-data` and `seafile` under `parent-dir`. 
+Initialize seafile client. This command initializes the config dir. It also creates sub-directories `seafile-data` and `seafile` under `parent-dir`. `seafile-data` is used to store internal data, while `seafile` is used as the default location put downloaded libraries. 
 
-    usage: seaf-cli init -p <parent-dir>
+    seaf-cli init [-c <config-dir>] -d <parent-dir>
 
 start
 -----
 Start seafile client. This command start `ccnet` and `seaf-daemon`, `ccnet` is the network part of seafile client, `seaf-daemon` manages the files.
 
-    usage: seaf-cli start
+    seaf-cli start [-c <config-dir>]
 
 stop
 ----
+Stop seafile client.
 
-    usage: seaf-cli stop
+    seaf-cli stop [-c <config-dir>]
+
 
 clone
 -----
 clone a library from seafile server
 
-    usage: seaf-cli clone -r <library-id> -h <seahub-server-url> -u <username> -p <password>
+    seaf-cli clone -l <library-id> -h <seahub-server-url> -d <parent-directory> -u <username> -p <password>
+
 
 sync
 ----
-Synchronize a library with an existing folder
+Synchronize a library with an existing folder.
 
-    usage: seaf-cli sync -r <library-id> -h <seahub-server-url> -d <existing-folder> -u <username> -p <password>
+    seaf-cli sync -l <library-id> -h <seahub-server-url> -d <existing-folder> -u <username> -p <password>
 
 desync
 ------
 Desynchronize a library from seafile server
 
-    usage: seaf-cli desync -d <existing-folder>
+    seaf-cli desync -d <existing-folder>
