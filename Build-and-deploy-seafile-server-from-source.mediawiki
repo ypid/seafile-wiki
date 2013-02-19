@@ -63,7 +63,7 @@ haiwen/
 First you should get the latest source of seafile:
 
 ```bash
-wget http://seafile.com.cn/downloads/seafile-latest.tar.gz
+wget http://seafile.googlecode.com/files/seafile-latest.tar.gz
 tar xzf seafile-latest.tar.gz
 ```
 
@@ -72,7 +72,7 @@ After running the above commands, you should have a folder <code>seafile-{VERSIO
 Also download the latest source of seahub, for later use.
 
 ```bash
-wget http://seafile.com.cn/downloads/seahub-latest.tar.gz
+wget http://seafile.googlecode.com/files/seahub-latest.tar.gz
 tar xzf seahub-latest.tar.gz
 mv seahub-{VERSION} seahub # VERSION is the version number of the latest seahub
 ```
@@ -312,8 +312,8 @@ mv seafile-server/seahub seafile-server/seahub-old
 
 ```bash
 cd /data/haiwen/seafile-server
-wget http://seafile.com.cn/downloads/seafile-latest.tar.gz
-wget http://seafile.com.cn/downloads/seahub-latest.tar.gz
+wget http://seafile.googlecode.com/files/seafile-latest.tar.gz
+wget http://seafile.googlecode.com/files/seahub-latest.tar.gz
 ```
 
 * uncompress the source code
