@@ -1,3 +1,5 @@
+**Note**: seaf-cli will be available in seafile version 1.5.0. 
+
 seaf-cli is command line interface for seafile client.
 
 Subcommands:
