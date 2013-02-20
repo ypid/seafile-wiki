@@ -8,7 +8,7 @@ Subcommands:
     list:           list local liraries
     status:         show syncing status
     download:       download a library from seafile server
-    sync:           synchronize an existing folder with a library in 
+    sync:           synchronize an existing folder with a library in
                         seafile server
     desync:         desynchronize a library with seafile server
 
@@ -20,7 +20,7 @@ Seafile client stores all its configure information in a config dir. The default
 
 init
 ----
-Initialize seafile client. This command initializes the config dir. It also creates sub-directories `seafile-data` and `seafile` under `parent-dir`. `seafile-data` is used to store internal data, while `seafile` is used as the default location put downloaded libraries. 
+Initialize seafile client. This command initializes the config dir. It also creates sub-directories `seafile-data` and `seafile` under `parent-dir`. `seafile-data` is used to store internal data, while `seafile` is used as the default location put downloaded libraries.
 
     seaf-cli init [-c <config-dir>] -d <parent-dir>
 
@@ -37,18 +37,18 @@ Stop seafile client.
     seaf-cli stop [-c <config-dir>]
 
 
-clone
------
-clone a library from seafile server
+Download
+--------
+Download a library from seafile server
 
-    seaf-cli clone -l <library-id> -h <seahub-server-url> -d <parent-directory> -u <username> -p <password>
+    seaf-cli download -l <library-id> -s <seahub-server-url> -d <parent-directory> -u <username> -p <password>
 
 
 sync
 ----
 Synchronize a library with an existing folder.
 
-    seaf-cli sync -l <library-id> -h <seahub-server-url> -d <existing-folder> -u <username> -p <password>
+    seaf-cli sync -l <library-id> -s <seahub-server-url> -d <existing-folder> -u <username> -p <password>
 
 desync
 ------
