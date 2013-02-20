@@ -36,6 +36,12 @@ You're always welcome to contact us if you want to:
 
 No, You must have python 2.6 or 2.7 installed on your server.
 
+== Website displays "Page unavailable", what can I do? ==
+
+* You can check the back trace in seahub log files (/tmp/seahub_django_request.log, /tmp/seahub.log).
+
+* You can also turn on debug by adding <code>DEBUG = True</code> to seahub_settings.py and restart seahub by <code>./seahub.sh restart</code>, then refresh that page, all the debug infomations will be displayed.
+
 = Desktop Client =
 
 == The bubble notification is distracting, how can I disable it? ==
