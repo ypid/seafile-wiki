@@ -55,10 +55,7 @@ easy_install web.py mako simplejson
 
 == Get seafile source code ==
 
-* Download the latest source code of libsearpc/ccnet/seafile
-** [http://seafile.com.cn/downloads/libsearpc-latest.tar.gz libsearpc]
-** [http://seafile.com.cn/downloads/seafile-latest.tar.gz ccnet]
-** [http://seafile.com.cn/downloads/seafile-latest.tar.gz seafile]
+* Download [http://seafile.com.cn/downloads/seafile-1.4.5.tar.gz the latest source code of seafile]
 
 * Uncompress the source code
 
@@ -67,8 +64,6 @@ Create a directory, for example <code>D:\build</code> and uncompress the source 
 ```bash
 mkdir /d/build
 cd /d/build
-tar xf libsearpc-latest.tar.gz
-tar xf ccnet-latest.tar.gz
 tar xf seafile-latest.tar.gz
 ```
 
@@ -84,11 +79,11 @@ export PYTHON_DIR=/c/Python26/lib/site-packages
 === Compile ===
 
 ```bash
-cd libsearpc-{version}
+cd seafile-{version}/libsearpc-{version}
 ./configure --prefix=/mingw --disable-static --disable-console
 make && make install
 
-cd ccnet-{version}
+cd seafile-{version}/ccnet-{version}
 ./configure --prefix=/mingw --disable-static --disable-console
 make && make install
 
@@ -104,13 +99,13 @@ make && make install
 * First download and install [[dependency walker|http://www.dependencywalker.com]]
 * Add the path to dependency walker executable(<code>depend.exe</code>) to the <code>PATH</code> environment variable
 
-=== Invoke the setup-win.py script ===
+=== Invoke the setupwin.py script ===
 
-Invoke the <code>setup-win.py</code> script to collect all components of seafile client to a single directory
+Invoke the <code>setupwin.py</code> script to collect all components of seafile client to a single directory
 
 ```bash
 cd seafile-{version}
-./setup-win.py /d/seafile-install # collect all files to /d/seafile-install
+./setupwin.py /d/seafile-install # collect all files to /d/seafile-install
 ```
 
 === Start Seafile ===
