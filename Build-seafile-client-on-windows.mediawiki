@@ -11,11 +11,13 @@ Download the following libraries from [http://www.gtk.org/download/win32.php gtk
 * glib
 * zlib
 * gettext-runtime
-* intltool
+
 * pkg-config
 * gettext-tools
 
-Unzip all these packages to c:/MinGW.
+Unzip all these packages to '''C:/MinGW'''.
+
+* Download [http://ftp.gnome.org/pub/GNOME/binaries/win32/intltool/0.40/intltool_0.40.4-1_win32.zip intltool] and [http://ftp.gnome.org/pub/GNOME/binaries/win32/intltool/0.40/intltool-dev_0.40.4-1_win32.zip intltool-dev], and extracts it to '''C:/MinGW''' too.
 
 === Other libraries ===
 
@@ -55,7 +57,7 @@ easy_install web.py mako simplejson
 
 == Get seafile source code ==
 
-* Download [http://seafile.com.cn/downloads/seafile-1.4.5.tar.gz the latest source code of seafile]
+* Download [http://seafile.googlecode.com/files/seafile-1.4.5.tar.gz the latest source code of seafile]
 
 * Uncompress the source code
 
