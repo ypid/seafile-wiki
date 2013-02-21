@@ -74,8 +74,8 @@ tar xf seafile-latest.tar.gz
 === Setup the environment variables ===
 
 ```bash
-export PYTHONPATH=/c/Python26/
-export PYTHON_DIR=/c/Python26/lib/site-packages
+export PYTHON_DIR=/c/Python26/
+export PYTHONPATH=/c/Python26/lib/site-packages
 ```
 
 === Compile ===
