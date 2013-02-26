@@ -106,7 +106,7 @@ make install
 
 ```bash
 cd seafile-{VERSION}/ccnet
-./configure --disable-client --enable-server   # `export PKG_CONFIG_PATH=/usr/lib/pkgconfig` if libsearpc is not found
+./configure --disable-client --enable-server   # `export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig` if libsearpc is not found
 make
 make install
 ```
