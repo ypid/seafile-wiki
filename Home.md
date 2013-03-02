@@ -16,6 +16,7 @@
 * [[Deploy Seafile Web With Nginx/Apache]]
 * [[Enable Https on Seafile Web]]
 * [[Seafile server data backup]]
+* [[Configure Seafile to use LDAP]]
 
 **FAQ & Others**
 
