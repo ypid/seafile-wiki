@@ -1,3 +1,5 @@
+'''Warning: The current latest package is broken. Will be fixed soon.'''
+
 == Build Seafile Server ==
 
 === Preparation ===
