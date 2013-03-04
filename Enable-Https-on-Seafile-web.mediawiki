@@ -1,5 +1,7 @@
 == Enable https on Seahub ==
 
+'''Note: current Android client only accept self-assigned CA with a valid domain, like cloud.seafile.com. IP address is not supported.''' 
+
 To enable https, follow the following instructions step by step.
 
 Here we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the first step.
