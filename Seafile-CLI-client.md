@@ -27,14 +27,16 @@ seaf-cli download -l "the id of the library" -s  "the url + port of server" -d "
 seaf-cli status  # check status of ongoing downloads
 # Name  Status  Progress
 # Apps    downloading     9984/10367, 9216.1KB/s
-``` 
+```
 
 1. download a library from a server and sync with an existing folder.
 ```sh
 # This is the same as download : replace download by sync 
 seaf-cli sync -l "the id of the library" -s  "the url + port of server" -d "the folder where the library folder will be downloaded" -u "username on server" -p "password"
 ```
+
 1. rejoice
+
 
 ##Uninstallation
 ```sh
