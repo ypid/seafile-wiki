@@ -149,6 +149,8 @@ The seafile server consists of the following components:
   </tr>
 </table>
 
+[[images/server-arch.png]]
+
 * '''ccnet''' stores its configuration and metadata is a directory named <code>ccnet</code>.
 * '''seaf-server''' store its configuration and data in a directory, normally named <code>seafile-data</code>.
 * '''seahub''' is written in Django. If you have any experience with Django, you should know the <code>syncdb</code> command must be run to create all the database tables.
