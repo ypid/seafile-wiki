@@ -1,5 +1,9 @@
 ## Build Seafile Client ##
 
+### The components of seafile client ###
+
+[[images/client-arch.png]]
+
 ### Linux ###
 
 #### Preparation ####
