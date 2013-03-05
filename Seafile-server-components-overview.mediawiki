@@ -7,3 +7,5 @@ Seafile server comprises of the following servicess
 * Seahub：the website
 * HttpServer: handles raw file upload/download for Seahub
 * Controller: monitors ccnet and seafile daemons, restart them if necessary
+
+[[images/server-arch.png]]
