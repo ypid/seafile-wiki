@@ -1,4 +1,52 @@
-**Note**: seaf-cli will be available in seafile version 1.5.0. 
+#Seafile client for a Cli server
+
+##Installation (debian based)
+
+1. download & install client
+  1. get latest url @ http://www.seafile.com/download/
+  1. then 
+```sh
+cd /usr/local/src
+wget http://seafile.googlecode.com/files/seafile_1.5.2_amd64.deb  #download it 
+gdebi seafile_1.5.2_amd64.deb #install it with the required dependencies
+```
+
+1. initialise & daemonize the client
+```sh
+# choose a folder where to store the seafile client settings e.g ~/.seafile-client
+mkdir ~/.seafile-client            #create the settings folder
+seaf-cli init -d ~/.seafile-client #initialise seafile client with this folder
+seaf-cli start # start seaf-cli daemon maybe this can or should be added to /etc/rc.local ? 
+```
+
+1. download a library from a server
+  1. retrieve the library id by browsing on the server -> it's in the url after `/repo/`
+  1. then
+```sh
+seaf-cli download -l "the id of the library" -s  "the url + port of server" -d "the folder where the library folder will be downloaded" -u "username on server" -p "password"
+seaf-cli status  # check status of ongoing downloads
+# Name  Status  Progress
+# Apps    downloading     9984/10367, 9216.1KB/s
+``` 
+
+1. download a library from a server and sync with an existing folder.
+```sh
+# This is the same as download : replace download by sync 
+seaf-cli sync -l "the id of the library" -s  "the url + port of server" -d "the folder where the library folder will be downloaded" -u "username on server" -p "password"
+```
+1. rejoice
+
+##Uninstallation
+```sh
+seaf-cli stop
+rm -rf ~/.seafile-client
+rm -rf ~/.ccnet   #note this should note be erased if you run the server on the same host
+apt-get remove seafile
+apt-get autoremove
+```
+
+
+##Man documentation
 
 seaf-cli is command line interface for seafile client.
 
