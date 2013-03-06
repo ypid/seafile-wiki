@@ -3,7 +3,7 @@
 ##Installation (debian based)
 
 1. download & install client
-  1. get latest url @ http://www.seafile.com/download/
+  1. get latest url @ http://www.seafile.com/en/download/
   1. then 
 ```sh
 cd /usr/local/src
@@ -23,11 +23,13 @@ seaf-cli start # start seaf-cli daemon maybe this can or should be added to /etc
   1. retrieve the library id by browsing on the server -> it's in the url after `/repo/`
   1. then
 ```sh
-seaf-cli download -l "the id of the library" -s  "the url + port of server" -d "the folder where the library folder will be downloaded" -u "username on server" -p "password"
+seaf-cli download -l "the id of the library" -s  "the url + port of server" -d "the folder where the library folder will be downloaded" -u "username on server" [-p "password"]
 seaf-cli status  # check status of ongoing downloads
 # Name  Status  Progress
 # Apps    downloading     9984/10367, 9216.1KB/s
 ```
+
+    Note, if you not supply the password parameter in the command, it will be asked later, which is more safe.
 
 1. download a library from a server and sync with an existing folder.
 ```sh
@@ -93,14 +95,14 @@ Download
 --------
 Download a library from seafile server
 
-    seaf-cli download -l <library-id> -s <seahub-server-url> -d <parent-directory> -u <username> -p <password>
+    seaf-cli download -l <library-id> -s <seahub-server-url> -d <parent-directory> -u <username> [-p <password>]
 
 
 sync
 ----
 Synchronize a library with an existing folder.
 
-    seaf-cli sync -l <library-id> -s <seahub-server-url> -d <existing-folder> -u <username> -p <password>
+    seaf-cli sync -l <library-id> -s <seahub-server-url> -d <existing-folder> -u <username> [-p <password>]
 
 desync
 ------
