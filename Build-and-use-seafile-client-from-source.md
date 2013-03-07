@@ -74,7 +74,10 @@ make
 make install
 ```
 
-Appindicator is needed for Unity desktop environment.
+Note:
+
+* Appindicator is needed for Unity desktop environment.
+* If only CLI wanted: `./configure --prefix=/usr --disable-gui`
 
 ## Use Seafile Client ##
 
