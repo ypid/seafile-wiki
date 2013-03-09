@@ -1,15 +1,11 @@
-## Seafile Server Manuals
-
-**Basic**
-
+##Server Basics
 * [[Seafile Server Components Overview]]
 * [[Download and Setup Seafile Server ]]
 * [[Seafile Server Management]]
 * [[Upgrading Seafile Server]]
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
 
-**Advanced**
-
+##Server Advandced
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
 * [[Deploy Seafile with MySQL]]
@@ -18,35 +14,29 @@
 * [[Seafile server data backup]]
 * [[Configure Seafile to use LDAP]]
 
-**FAQ & Others**
-
-* [[Seafile FAQ]]
+##Clients
 * [[Seafile CLI client]]
 
-**For Chinese Users**
-
-[[Seafile 服务器手册中文版]]
-
-## Building and Using Seafile from Source
-
-* [[Build and Deploy Seafile Server from source]]
-* [[Build and Use Seafile client from source]]
-* [[Build seafile client on Mac]]
-
-## For Developer
-
+## For developers
 * [[Seafile Data Model]]
 * [[Seafile synchronization algorithm]]
 * [[Seafile web API]]
 
+## Sources
+* [[Build and Deploy Seafile Server from source]]
+* [[Build and Use Seafile client from source]]
+* [[Build seafile client on Mac]]
+
+## FAQ & Others
+* [[Seafile FAQ]]
+
+## For Chinese Users
+* [[Seafile 服务器手册中文版]]
+
 ## Related Projects
+* See https://github.com/haiwen for other open source projects related to Seafile.
 
-See https://github.com/haiwen for other open source projects related to Seafile.
-
-## Contact
-
-Twitter: @seafile
-
-Weibo (for Chinese): @seafile
-
-Google Group: https://groups.google.com/forum/?fromgroups#!forum/seafile
+## Contact information
+* Twitter: @seafile
+* Weibo (for Chinese): @seafile
+* Google Group: https://groups.google.com/forum/?fromgroups#!forum/seafile
