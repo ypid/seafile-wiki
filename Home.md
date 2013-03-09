@@ -16,7 +16,7 @@
 * [[Configure Seafile to use LDAP]]
 
 ##Clients
-* [[CLI (Command Line Interface)]]
+* [[Seafile CLI client]]
 
 ## For developers
 * [[Seafile Data Model]]
