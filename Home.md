@@ -1,3 +1,4 @@
+#Seafile
 ##Server Basics
 * [[Seafile Server Components Overview]]
 * [[Download and Setup Seafile Server ]]
