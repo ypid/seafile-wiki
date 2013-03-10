@@ -7,8 +7,8 @@
   1. then 
 ```sh
 cd /usr/local/src
-wget http://seafile.googlecode.com/files/seafile_1.5.2_amd64.deb  #download it 
-gdebi seafile_1.5.2_amd64.deb #install it with the required dependencies
+wget http://seafile.googlecode.com/files/seafile_1.5.3_amd64.deb  #download it 
+gdebi seafile_1.5.3_amd64.deb #install it with the required dependencies
 ```
 
 1. initialise & daemonize the client
@@ -29,7 +29,10 @@ seaf-cli status  # check status of ongoing downloads
 # Apps    downloading     9984/10367, 9216.1KB/s
 ```
 
-    Note, if you not supply the password parameter in the command, it will be asked later, which is more safe.
+    Note
+
+        * If you not supply the password parameter in the command, it will be asked later, which is more safe.
+        * You should supply the ID of the library, like `2858a617-c91d-4c4e-bfe1-81bdf2ea201f`
 
 1. download a library from a server and sync with an existing folder.
 ```sh
