@@ -1,22 +1,19 @@
 #Seafile client for a Cli server
 
-##Installation (debian based)
+##Installation
 
-1. Download & install client
-  1. get latest url @ http://www.seafile.com/en/download/
-  1. then 
+1. Download the client
 ```sh
-cd /usr/local/src
-wget http://seafile.googlecode.com/files/seafile_1.5.3_amd64.deb  #download it 
-gdebi seafile_1.5.3_amd64.deb #install it with the required dependencies
+wget http://seafile.googlecode.com/files/seafile-cli_1.5.3_x86-64.tar.gz 
+tar xzf seafile-cli_1.5.3_x86-64.tar.gz
 ```
 
 1. Initialise & daemonize the client
 ```sh
 # choose a folder where to store the seafile client settings e.g ~/.seafile-client
-mkdir ~/.seafile-client            #create the settings folder
-seaf-cli init -d ~/.seafile-client #initialise seafile client with this folder
-seaf-cli start # start seaf-cli daemon maybe this can or should be added to /etc/rc.local ? 
+mkdir ~/.seafile-client            # create the settings folder
+seaf-cli init -d ~/.seafile-client # initialise seafile client with this folder
+seaf-cli start
 ```
 
 1. Download a library from a server
@@ -40,17 +37,6 @@ seaf-cli sync -l "the id of the library" -s  "the url + port of server" -d "the 
 ```
 
 1. rejoice
-
-
-##Uninstallation
-```sh
-seaf-cli stop
-rm -rf ~/.seafile-client
-rm -rf ~/.ccnet   #note this should note be erased if you run the server on the same host
-apt-get remove seafile
-apt-get autoremove
-```
-
 
 ##Man documentation
 
