@@ -2,7 +2,7 @@
 
 ##Installation (debian based)
 
-1. download & install client
+1. Download & install client
   1. get latest url @ http://www.seafile.com/en/download/
   1. then 
 ```sh
@@ -11,7 +11,7 @@ wget http://seafile.googlecode.com/files/seafile_1.5.3_amd64.deb  #download it
 gdebi seafile_1.5.3_amd64.deb #install it with the required dependencies
 ```
 
-1. initialise & daemonize the client
+1. Initialise & daemonize the client
 ```sh
 # choose a folder where to store the seafile client settings e.g ~/.seafile-client
 mkdir ~/.seafile-client            #create the settings folder
@@ -19,7 +19,7 @@ seaf-cli init -d ~/.seafile-client #initialise seafile client with this folder
 seaf-cli start # start seaf-cli daemon maybe this can or should be added to /etc/rc.local ? 
 ```
 
-1. download a library from a server
+1. Download a library from a server
   1. retrieve the library id by browsing on the server -> it's in the url after `/repo/`
   1. then
 ```sh
@@ -29,12 +29,11 @@ seaf-cli status  # check status of ongoing downloads
 # Apps    downloading     9984/10367, 9216.1KB/s
 ```
 
-    Note
+    Note: if you not supply the password parameter in the command, it will be asked later, which is more safe.
 
-        * If you not supply the password parameter in the command, it will be asked later, which is more safe.
-        * You should supply the ID of the library, like `2858a617-c91d-4c4e-bfe1-81bdf2ea201f`
+    Example: `./seaf-cli download -l 0536c006-8a43-449e-8718-39f12111620d -s http://cloud.seafile.com -d /tmp -u freeplant@test.com`
 
-1. download a library from a server and sync with an existing folder.
+1. Download a library from a server and sync with an existing folder.
 ```sh
 # This is the same as download : replace download by sync 
 seaf-cli sync -l "the id of the library" -s  "the url + port of server" -d "the folder where the library folder will be downloaded" -u "username on server" -p "password"
