@@ -14,7 +14,8 @@ Contents
 * [Get file](#get-file)
 * [Delete file](#delete-file)
 * [Starred files](#starredfile)
-* [SharedLinks](#sharedlink)
+* [Shared Links](#sharedlink)
+* [Shared Libraries](#sharedlibs)
 
 # Seafile Web API v2 #
 
@@ -531,6 +532,8 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 
 **PUT** https://cloud.seafile.com/api2/repos/{repo-id}/file/shared-link/
 
+**Request parameters**
+
 * token
 
 * repo-id
@@ -556,3 +559,43 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 
 * 400 Path is missing
 * 500 Internal server error
+
+## <a id="sharedlibs"></a>Shared Libraries ##
+
+### List shared libraries ###
+
+**GET** https://cloud.seafile.com/api2/shared-repos/
+
+**Request parameters**
+
+* token
+
+**Sample request**
+
+    curl -v -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/shared-repos/
+    
+**Sample response**
+
+    [{"repo_id": "7d42522b-1f6f-465d-b9c9-879f8eed7c6c", "share_type": "personal", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1361072500, "repo_desc": "ff", "group_id": 0, "repo_name": "\u6d4b\u8bd5\u4e2d\u6587pdf"}, {"repo_id": "79bb29cd-b683-4844-abaf-433952723ca5", "share_type": "group", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1359182468, "repo_desc": "test", "group_id": 1, "repo_name": "test_enc"}]
+
+### Unshare a library ###
+
+**DELETE** https://cloud.seafile.com/api2/share-repos/{repo-id}/
+
+**Request parameters**
+
+* token
+
+* share_type
+
+* user
+
+* group_id
+
+**Sample request**
+
+    curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-repos/7d42522b-1f6f-465d-b9c9-879f8eed7c6c/?share_type=personal&user=user@example.com&group_id=0"
+
+**Sample response**
+
+    "success"
