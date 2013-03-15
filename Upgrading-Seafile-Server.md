@@ -57,13 +57,39 @@ The procedure is:
 
 Just run the upgrade scripts in sequence. (You don't need to download server package 1.2.0)
 
-## Minor upgrade (like from 1.3.0 to 1.3.1)
+## Minor upgrade (like from 1.5.0 to 1.5.1)
+Minor upgrade is like an upgrade from 1.5.0 to 1.5.1. 
 
-Minor upgrade is like an upgrade from 1.3.0 to 1.3.1. For this type of upgrade, you only need to update the avatar link:
+1. Here is our dir strutcutre
+```sh
+cd haiwen
+tree -L 1
+.
+├── app
+├── ccnet
+├── seafile-data
+├── seafile-server-1.5.0
+├── seafile-server-1.5.1
+├── seahub-data
+├── seahub.db
+├── seahub_settings.py
+└── seahub_settings.pyc
+```
+1. Stop the current server first as for any upgrade 
+```sh
+seafile-server-1.5.0/seahub.sh stop
+seafile-server-1.5.0/seafile.sh stop
+```
+1. For this type of upgrade, you only need to update the avatar link.
+```sh
+cp -rf seafile-server-1.5.1/seahub/media/avatars/* seahub-data/avatars
+rm -rf seafile-server-1.5.1/seahub/media/avatars
+#the new server avatars' folder will be linked to the updated avatars folder
+ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/  
+```
 
-<pre>
-cd haiwen/seafile-server-1.3.1/seahub/media
-cp -rf avatars/* ../../../seahub-data/avatars/
-rm -rf avatars
-ln -s ../../../seahub-data/avatars avatars
-</pre>
+1. Start the new server version as for any upgrade 
+```sh
+seafile-server-1.5.1/seafile.sh start
+seafile-server-1.5.1/seahub.sh start
+```
