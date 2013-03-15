@@ -30,7 +30,7 @@
 
 ## FAQ & Others
 * [[Seafile FAQ]]
-* [[Press-Reviews-&-Announcements]]
+* [[Press Reviews & Announcements]]
 
 ## For Chinese Users
 * [[Seafile 服务器手册中文版]]
