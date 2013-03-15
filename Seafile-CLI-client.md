@@ -10,10 +10,17 @@ tar xzf seafile-cli_1.5.3_x86-64.tar.gz
 
 1. Initialise & daemonize the client
 ```sh
+cd seafile-cli_1.5.3
 # choose a folder where to store the seafile client settings e.g ~/.seafile-client
 mkdir ~/.seafile-client            # create the settings folder
-seaf-cli init -d ~/.seafile-client # initialise seafile client with this folder
-seaf-cli start
+./seaf-cli init -d ~/.seafile-client # initialise seafile client with this folder
+./seaf-cli start
+```
+
+1. Install seafile in your environment
+```sh
+#link the full path of the exectuable
+ln -s `readlink -f seaf-cli` /usr/bin/
 ```
 
 1. Download a library from a server
@@ -28,7 +35,7 @@ seaf-cli status  # check status of ongoing downloads
 
     Note: if you not supply the password parameter in the command, it will be asked later, which is more safe.
 
-    Example: `./seaf-cli download -l 0536c006-8a43-449e-8718-39f12111620d -s http://cloud.seafile.com -d /tmp -u freeplant@test.com`
+    Example: `seaf-cli download -l 0536c006-8a43-449e-8718-39f12111620d -s http://cloud.seafile.com -d /tmp -u freeplant@test.com`
 
 1. Download a library from a server and sync with an existing folder.
 ```sh
