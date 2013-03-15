@@ -42,6 +42,12 @@ No, You must have python 2.6 or 2.7 installed on your server.
 
 * You can also turn on debug by adding <code>DEBUG = True</code> to seahub_settings.py and restart seahub by <code>./seahub.sh restart</code>, then refresh that page, all the debug infomations will be displayed.
 
+== Avatar pictures vanished after upgrading server, what can I do? ==
+
+* You need to check whether the "avatars" symbolic link under seahub/media/ is correctly link to ../../../seahub-data/avatars. If not, you need to correct the link according to the "minor upgrade" section in [[Upgrading-Seafile-Server]]
+
+* If your avatars link is correctly linked, you may refresh seahub cache by <code>rm -rf /tmp/seahub_cache/*</code>
+
 = Desktop Client =
 
 == The bubble notification is distracting, how can I disable it? ==
