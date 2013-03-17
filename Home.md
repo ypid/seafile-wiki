@@ -5,6 +5,7 @@
 * [[Seafile Server Management]]
 * [[Upgrading Seafile Server]]
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
+* [[Seafile Logs]]
 
 ##Server Advandced
 * [[Seafile Server Configuration Options ]]
