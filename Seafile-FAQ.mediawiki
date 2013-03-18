@@ -62,7 +62,11 @@ No, You must have python 2.6 or 2.7 installed on your server.
 
 == Folders/Libraries not in sync, what's the problem? ==
 
-* TODO
+Most of the syncing problems caused by file names: 
+
+* Files with ":" "?" "$" in name are not synced as they are not supported in Windows.
+* If you have two files in a folder only different in upper/lower case like 'Readme.md' and 'readme.md', it will prevent sync in Windows.
+* [Mac] Seafile will encounter syncing problem related to European characters. We have fixed some characters, but some bugs may be still remain. If you encounter the problem, send [Home Folder]/.ccnet/seafile.log to us. 
 
 = Mobile Client =
 
