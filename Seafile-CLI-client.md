@@ -12,8 +12,8 @@ tar xzf seafile-cli_1.5.3_x86-64.tar.gz
 ```sh
 cd seafile-cli_1.5.3
 # choose a folder where to store the seafile client settings e.g ~/.seafile-client
-mkdir /tmp/seaf-cli-data            # create the settings folder
-./seaf-cli init -d /tmp/seaf-cli-data # initialise seafile client with this folder
+mkdir ~/.seafile-client            # create the settings folder
+./seaf-cli init -d ~/.seafile-client  # initialise seafile client with this folder
 ./seaf-cli start
 ```
 
