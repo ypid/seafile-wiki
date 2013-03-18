@@ -43,7 +43,7 @@ seaf-cli status  # check status of ongoing downloads
 seaf-cli sync -l "the id of the library" -s  "the url + port of server" -d "the folder where the library folder will be downloaded" -u "username on server" -p "password"
 ```
 
-1. :sparkles: rejoice :sparkles:
+1. rejoice
 
 ##Man documentation
 
