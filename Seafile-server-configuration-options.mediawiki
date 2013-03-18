@@ -16,8 +16,9 @@ ID=eb812fd276432eff33bcdde7506f896eb4769da0
 # This is the name of this Seafile server. It'll be displayed on Seafile client program.
 NAME=example
 
-# This is the URL for Seahub(Seafile Web). It'll be displayed on Seafile client program.
+# This is outside URL for Seahub(Seafile Web). It'll be displayed on Seafile client program.
 # The domain part (i.e., www.example.com) will also be used by the client to connect the server.
+# Note: Outside URL means "if you use Nginx, it should be the Nginx's address"
 SERVICE_URL=http://www.example.com:8000
 
 
