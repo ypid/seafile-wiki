@@ -68,6 +68,12 @@ Most of the syncing problems caused by file names:
 * If you have two files in a folder only different in upper/lower case like 'Readme.md' and 'readme.md', it will prevent sync in Windows.
 * [Mac] Seafile will encounter syncing problem related to European characters. We have fixed some characters, but some bugs may be still remain. If you encounter the problem, send [Home Folder]/.ccnet/seafile.log to us. 
 
+Other causes:
+
+* If you have a broken symbolic link in the folder, it will stop the syncing.
+
+Send us seafile.log to help us debug!
+
 = Mobile Client =
 
 == Android ==
