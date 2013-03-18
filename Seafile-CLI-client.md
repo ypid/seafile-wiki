@@ -12,8 +12,8 @@ tar xzf seafile-cli_1.5.3_x86-64.tar.gz
 ```sh
 cd seafile-cli_1.5.3
 # choose a folder where to store the seafile client settings e.g ~/.seafile-client
-mkdir ~/.seafile-client            # create the settings folder
-./seaf-cli init -d ~/.seafile-client # initialise seafile client with this folder
+mkdir /tmp/seaf-cli-data            # create the settings folder
+./seaf-cli init -d /tmp/seaf-cli-data # initialise seafile client with this folder
 ./seaf-cli start
 ```
 
@@ -43,7 +43,7 @@ seaf-cli status  # check status of ongoing downloads
 seaf-cli sync -l "the id of the library" -s  "the url + port of server" -d "the folder where the library folder will be downloaded" -u "username on server" -p "password"
 ```
 
-1. rejoice
+1. :sparkles: rejoice :sparkles:
 
 ##Man documentation
 
