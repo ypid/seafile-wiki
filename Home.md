@@ -7,7 +7,7 @@
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
 * [[Seafile Logs]]
 
-##Server Advandced
+##Server Advanced
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
 * [[Deploy Seafile with MySQL]]
