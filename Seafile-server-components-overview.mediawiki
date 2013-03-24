@@ -1,6 +1,6 @@
 = Components of Seafile Server =
 
-Seafile server comprises of the following servicess
+Seafile server comprises of the following services
 
 * Ccnet：networking service daemon
 * Seafile server：data service daemon
