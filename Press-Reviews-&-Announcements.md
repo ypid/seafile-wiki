@@ -8,7 +8,7 @@
 
 ## From users
 
-- 2012-03-07 [time-say-seafile](https://www.dseichter.de/blog/2013/03/27/time-say-seafile/)
+- 2012-03-27 [time-say-seafile](https://www.dseichter.de/blog/2013/03/27/time-say-seafile/)
 
 ## Announcements
 
