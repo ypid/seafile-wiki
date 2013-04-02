@@ -126,9 +126,6 @@ You may change seahub website's settings by adding variables in `seahub_settings
 
 <pre>
 
-# The address of httpserver. httpserver is used for downloading and uploading files on seahub website.
-HTTP_SERVER_ROOT = "http://www.example.com:8082"
-
 # Set this to seahub website's URL. This URL is contained in email notifications.
 SITE_BASE = 'http://www.example.com/'
 

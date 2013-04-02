@@ -122,9 +122,6 @@ Seahub 的配置可以在 seahub_settings.py 里覆盖。以下是几个可配�
 
 <pre>
 
-# Seafile httpserver 的地址。 Httpserver 用来从网站上下载或上传文件。
-HTTP_SERVER_ROOT = "http://www.example.com:8082"
-
 # 必须改成你的网址，该参数用在邮件发送服务里用户可点击的网址
 SITE_BASE = 'http://gonggeng.org/'
 
