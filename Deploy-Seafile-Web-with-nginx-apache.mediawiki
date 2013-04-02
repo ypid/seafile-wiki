@@ -85,35 +85,29 @@ SERVICE_URL = http://www.myseafile.com
 
 '''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
 
-=== Start Seafile Server ===
-
-Now you can start seafile server by 
-<pre>./seafile.sh start</pre> 
-
-After seafile is started, then start seahub as following.
-
-=== Start Seahub (when using the pre-compiled server package) ===
+=== Start Seafile/Seahub (when using the pre-compiled server package) ===
 
 Assume you have followed the steps in [[Download and Setup Seafile Server]], please run commands as follows:
 
 <pre>
+./seafile.sh start
 ./seahub.sh start-fastcgi
 </pre>
 
 The <code>start-fastcgi</code> command of <code>seahub.sh</code> is available since Seafile server 1.4.
 
-=== Start seahub (when building seafile server from source) ===
+=== Start Seafile/Seahub (when building seafile server from source) ===
 
-Assume you have followed the steps of [[Build and Deploy Seafile Server from source]], and you have uncompressed seahub to <code>/data/haiwen/seahub/</code>
+Assume you have followed the steps of [[Build and Deploy Seafile Server from source]]. To start seafile, and start seahub in fastcgi mode, you should:
 
 <pre>
-export CCNET_CONF_DIR=/path/to/your/ccnet/conf/dir
-export SEAFILE_CONF_DIR=/path/to/your/seafile/conf/dir
-export PYTHONPATH=/data/haiwen/seahub/thirdpart:$PYTHONPATH
+seafile-admin start --fastcgi
+</pre>
 
-cd /data/haiwen/seahub
-python ./manage.py runfcgi host=127.0.0.1 port=8000 \
- errlog=/tmp/seahub-stderr.log outlog=/tmp/seahub-stdout.log
+The default port is <code>8000</code>, to use another port, just append a <code>--port</code> argument:
+
+<pre>
+seafile-admin start --fastcgi --port [PORT]
 </pre>
 
 == Deploy Seafile at Non-root domain ==
