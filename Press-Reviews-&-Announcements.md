@@ -8,6 +8,7 @@
 
 ## From users
 
+- 2012-04-02 [cloud-storage-on-raspberry-pi](http://stevenhickson.blogspot.co.uk/2013/04/cloud-storage-on-raspberry-pi.html)
 - 2012-03-27 [time-say-seafile](https://www.dseichter.de/blog/2013/03/27/time-say-seafile/)
 
 ## Announcements
