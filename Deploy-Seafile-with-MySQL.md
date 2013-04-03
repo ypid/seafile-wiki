@@ -43,6 +43,9 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
                 'PASSWORD' : 'root',
                 'NAME' : 'seahub-db',
                 'HOST' : '/var/lib/mysql/mysql.sock',
+                'OPTIONS': {
+                    "init_command": "SET storage_engine=INNODB",
+                }
             }
         }
 
