@@ -1,4 +1,3 @@
-
 == Build Seafile Server ==
 
 === Preparation ===
@@ -17,7 +16,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 
 The following libraries need to be compiled from source.
 
-* libzdb [http://www.tildeslash.com/libzdb/dist/libzdb-2.10.5.tar.gz]
+* libzdb [https://seafile.googlecode.com/files/libzdb-2.11.1-mod.tar.gz]
 * libevhtp [https://github.com/ellzey/libevhtp/archive/1.1.6.zip]
 
 libzdb relies on two packages: <code>re2c</code> and <code>flex</code>
