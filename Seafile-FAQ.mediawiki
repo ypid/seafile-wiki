@@ -1,5 +1,3 @@
-= General Questions =
-
 == When downloading a library, the client hangs at "connecting server" ==
 
 First, you can check the ccnet.log in client (~/.ccnet/logs/ccnet.log for Linux, C:/users/your_name/ccnet/logs/ccnet.log for Windows) to see what's wrong.
@@ -14,11 +12,7 @@ Trouble shooting:
 * Click the  download button of a library, this will redirect you to a local address like http://localhost:13420/repo/download/?relay_id=...&relay_addr=cloud.seafile.com&relay_port=10001. Check the relay_addr and relay_port part. These two parameters are used by the client to connect the server.
 * Manually telnet to see if you can connect: <code>telnet cloud.seafile.com 10001</code> 
 
-= Server = 
-
-== Python releated ==
-
-=== Does Seafile server support Python 3? ===
+== Does Seafile server support Python 3? ==
 
 No, You must have python 2.6 or 2.7 installed on your server.
 
@@ -33,3 +27,7 @@ No, You must have python 2.6 or 2.7 installed on your server.
 * You need to check whether the "avatars" symbolic link under seahub/media/ is correctly link to ../../../seahub-data/avatars. If not, you need to correct the link according to the "minor upgrade" section in [[Upgrading-Seafile-Server]]
 
 * If your avatars link is correctly linked, and avatars are still broken, you may refresh seahub cache by <code>rm -rf /tmp/seahub_cache/*</code>
+
+== Failed to open txt/md file online, other files are OK ==
+
+Make sure your server can connect itself via the domain name.
