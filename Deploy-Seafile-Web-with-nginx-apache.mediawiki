@@ -113,3 +113,20 @@ seafile-admin start --fastcgi --port [PORT]
 == Deploy Seafile at Non-root domain ==
 
 See [[Deploy Seafile Web at Non root domain]]
+
+== Notes when upgrading seafile server ==
+
+When [[upgrading seafile server]], beside the normal steps you should take, there is one extra step to go: '''Update the path of the static files in your nginx/apache configuration'''. For example, assume your are upgrading seafile server 1.3.0 to 1.4.0, then:
+
+* For Nginx:
+
+```
+    location /media {
+        root /home/user/haiwen/seafile-server-1.4.0/seahub;
+    }
+```
+* For Apache:
+
+```
+  Alias /media  /home/user/haiwen/seafile-server-1.4.0/seahub/media
+```
