@@ -1,4 +1,4 @@
-**Note:** Do not forget to update your Nginx/Apache config file if you deploy seafile with them.
+**Note:** Do not forget to [update your Nginx/Apache config file](https://github.com/haiwen/seafile/wiki/Deploy-Seafile-Web-with-nginx-apache#notes-when-upgrading-seafile-server) if you deploy seafile with them.
 
 This page is for users who use the pre-compiled seafile server package. If you [build seafile server from source](Build and Deploy Seafile Server from source), please read the **Upgrading Seafile Server** section on that page, instead of this one.
 
