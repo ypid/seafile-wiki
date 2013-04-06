@@ -7,26 +7,12 @@ First, you can check the ccnet.log in client (~/.ccnet/logs/ccnet.log for Linux,
 Possible reasons:
 
 * Miss config of  <code>SERVICE_URL</code>: Check whether the value of is set correctly in server's <code>ccnet.conf</code>.
-* Using a server name in file `hosts`, (Currently, seafile client can't use hosts file to resolve server).
 * Firewall: Ensure the firewall is configured properly. See [[Firewall Settings for Seafile Server ]]
 
 Trouble shooting:
 
 * Click the  download button of a library, this will redirect you to a local address like http://localhost:13420/repo/download/?relay_id=...&relay_addr=cloud.seafile.com&relay_port=10001. Check the relay_addr and relay_port part. These two parameters are used by the client to connect the server.
 * Manually telnet to see if you can connect: <code>telnet cloud.seafile.com 10001</code> 
-
-== How can I contact seafile developers? ==
-
-You can contact us through:
-* [https://groups.google.com/forum/?fromgroups=#!forum/seafile Google groups]. This is our recommended place to discuss about seafile.
-* [https://twitter.com/seafile Twitter]. Chinese users can also use [http://weibo.com/seafile weibo].
-* [https://github.com/haiwen/seafile/issues create an issue for seafile on Github], if you think you find a bug.
-
-You're always welcome to contact us if you want to:
-
-* ask for help about problems when using seafile
-* report bugs you find
-* give us your suggestion for seafile
 
 = Server = 
 
@@ -47,45 +33,3 @@ No, You must have python 2.6 or 2.7 installed on your server.
 * You need to check whether the "avatars" symbolic link under seahub/media/ is correctly link to ../../../seahub-data/avatars. If not, you need to correct the link according to the "minor upgrade" section in [[Upgrading-Seafile-Server]]
 
 * If your avatars link is correctly linked, and avatars are still broken, you may refresh seahub cache by <code>rm -rf /tmp/seahub_cache/*</code>
-
-= Desktop Client =
-
-== The bubble notification is distracting, how can I disable it? ==
-
-* Click the seafile tray icon, choose "open admin page" to open the local web interface
-* On the local web interface, click the "Settings" tab
-* uncheck the option "Notify when libraries are synchronized"
-
-== seafile-data\blocks directory on the client grows quickly, how can I shrink the folder? ==
-
-* This is the "cache" directory on the client side. Seafile client runs auto garbage collection each time you restart it.
-
-== Folders/Libraries not in sync, what's the problem? ==
-
-Most of the syncing problems caused by file names: 
-
-* Files with ":" "?" "$" in name are not synced as they are not supported in Windows.
-* If you have two files in a folder only different in upper/lower case like 'Readme.md' and 'readme.md', it will prevent sync in Windows.
-* [Mac] Seafile will encounter syncing problem related to European characters. We have fixed some characters, but some bugs may be still remain. If you encounter the problem, send [Home Folder]/.ccnet/seafile.log to us. 
-
-Other causes:
-
-* If you have a broken symbolic link in the folder, it will stop the syncing.
-
-Send us seafile.log to help us debug!
-
-= Mobile Client =
-
-== Android ==
-
-=== Display "Login failed" when using Seadroid to log onto Private Seafile, what may cause the problem? ===
-
-* If you're using Apache + fastcgi, please make sure <code>HTTP_AUTHORIZATION</code> is passing to fastcgi daemon, here is the sample rewrite rule: <code>RewriteRule ^/(.*)$ /seahub.fcgi/$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]</code>
-
-* If your private Seafile has enabled HTTPS, you need to make sure the CA is valid for your Android. You can use the browser in your Android, and open your private seafile url, check whether everything works fine.
-
-* If none of these works for you, you can using a tool named `curl` to see what's really going on. e.g., <code>curl -v -d "username=user@example.com&password=passwd" http://www.youseafile.com/api2/auth-token/</code> This command works same as log onto your seafile. For more information about seafile API, please see [[Seafile web API]].
-
-== Apple iOS ==
-
-* TODO
