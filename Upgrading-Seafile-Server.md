@@ -82,7 +82,6 @@ seafile-server-1.5.0/seafile.sh stop
 ```
 1. For this type of upgrade, you only need to update the avatar link.
 ```sh
-cp -rf seafile-server-1.5.1/seahub/media/avatars/* seahub-data/avatars
 rm -rf seafile-server-1.5.1/seahub/media/avatars
 #the new server avatars' folder will be linked to the updated avatars folder
 ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/  
