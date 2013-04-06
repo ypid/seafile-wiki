@@ -30,7 +30,8 @@
 * [[Build seafile client on Mac]]
 
 ## FAQ & Others
-* [[Seafile FAQ]]
+* [[Seafile Server FAQ|Seafile FAQ]]
+* [Seafile Client FAQ](https://seacloud.cc/group/3/wiki/)
 * [[Press Reviews & Announcements]]
 
 ## For Chinese Users
