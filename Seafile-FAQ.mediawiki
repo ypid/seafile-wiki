@@ -28,6 +28,10 @@ No, You must have python 2.6 or 2.7 installed on your server.
 
 * If your avatars link is correctly linked, and avatars are still broken, you may refresh seahub cache by <code>rm -rf /tmp/seahub_cache/*</code>
 
+== Failed to upload/download file online ==
+
+* Make sure you firewall for seafile httpserver is opened.
+
 == Failed to open txt/md file online, other files are OK ==
 
 Make sure your server can connect itself via the domain name.
