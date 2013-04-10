@@ -30,8 +30,8 @@ No, You must have python 2.6 or 2.7 installed on your server.
 
 == Failed to upload/download file online ==
 
-1. Make sure you firewall for seafile httpserver is opened.
-2. Using chrome/firefox debug mode to find which link is given when click download button and what's wrong with this link
+* Make sure you firewall for seafile httpserver is opened.
+* Using chrome/firefox debug mode to find which link is given when click download button and what's wrong with this link
 
 == Failed to open txt/md file online, other files are OK ==
 
