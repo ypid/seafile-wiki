@@ -4,6 +4,7 @@
 * [[Seafile 服务器端软件的下载、初始化配置]]
 * [[Seafile 服务器管理]]
 * [[Seafile 服务器端软件的升级]]
+* [[Seafile Windows 版服务器]]
 
 **高级**
 
