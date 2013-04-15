@@ -41,6 +41,5 @@
 * See https://github.com/haiwen for other open source projects related to Seafile.
 
 ## Contact information
-* Twitter: @seafile
-* Weibo (for Chinese): @seafile
+* Twitter: @seafile https://twitter.com/seafile
 * Google Group: https://groups.google.com/forum/?fromgroups#!forum/seafile
