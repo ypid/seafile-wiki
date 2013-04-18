@@ -1,6 +1,7 @@
 == Enable https on Seahub ==
 
-To enable https, follow the following instructions step by step.
+Note: Seafile has two web components, Seahub and Http-server. Seahub is to serve normal web pages and Http-server is to serve only raw file uploading/downloading. You need set both parts to use https. 
+
 
 Here we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the first step.
 
