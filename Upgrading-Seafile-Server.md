@@ -1,6 +1,10 @@
 **Note:** Do not forget to [update your Nginx/Apache config file](https://github.com/haiwen/seafile/wiki/Deploy-Seafile-Web-with-nginx-apache#notes-when-upgrading-seafile-server) if you deploy seafile with them.
 
-This page is for users who use the pre-compiled seafile server package. If you [build seafile server from source](Build and Deploy Seafile Server from source), please read the **Upgrading Seafile Server** section on that page, instead of this one.
+This page is for users who use the pre-compiled seafile server package. 
+
+- If you [build seafile server from source](Build and Deploy Seafile Server from source), please read the **Upgrading Seafile Server** section on that page, instead of this one.
+
+- If you have deployed seafile server with mysql, you need to manually update your database tables. See [[Deploy Seafile with MySQL]] for details.
 
 ## Continuous Upgrade (like from 1.2 to 1.3)
 
