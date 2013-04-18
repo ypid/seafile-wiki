@@ -88,17 +88,19 @@ ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/
 
 ## Upgrading ##
 
-When upgrading seafile server, 
+### Update avatars symbol link ###
 
-- First update avatars symbol link
+Assume your top level directory is `/data/haiwen/`, and you are upgrading to seafile server version 1.6.0:
 
 ```
-cd haiwen/seafile-server-1.4/seahub/media
+cd /data/haiwen
+cp -a seafile-server-1.6.0/seahub/media/avatars/* seahub-data/avatars/
+rm -rf seafile-server-1.6.0/seahub/media/avatars
 #the new server avatars' folder will be linked to the updated avatars folder
-ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/  
+ln -s -t seafile-server-1.6.0/seahub/media/  ../../../seahub-data/avatars/
 ```
 
-- Upgrading database tables
+### Update database tables  ###
 
 When a new version of seafile server is released, there may be changes to the database of seafile/seahub. 
 We provide the sql statements to update the databases:
