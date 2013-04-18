@@ -73,7 +73,7 @@ This command tool will guild you to create a seahub admin.
 
 **Note:** this command is added since version 1.4.5.
 
-## Issues with the upgrades ##
+## How to Upgrades ##
 
 We will add a file named `1.x_1.y.mysql` which contains all the upgrade statements in our release.
 
@@ -81,7 +81,6 @@ After updating database, you also need to manually update avatar symbol link.
 
 ```
 cd haiwen/seafile-server-1.4/seahub/media
-cp -rf avatars/* ../../../seahub-data/avatars/
-rm -rf avatars
-ln -s ../../../seahub-data/avatars
+#the new server avatars' folder will be linked to the updated avatars folder
+ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/  
 ```
