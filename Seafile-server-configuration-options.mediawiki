@@ -55,6 +55,15 @@ default = 2
 
 This setting applies to all users. If you want to set quota for a specific user, you may log in to seahub website as administrator, then set it in "System Admin" page.
 
+== Default history length limit ==
+
+If you don't want to keep all file revision history, you may set a default history length limit for all libraries.
+
+```
+[history]
+keey_days = days of history to keep
+```
+
 == Seafile httpserver configuratoin (seafile.conf) ==
 
 The configuration of seafile httpserver is in the <code>[httpserver]</code> section of the file <code>seafile-data/seafile.conf</code>
