@@ -11,6 +11,11 @@ unused data blocks will increase on Seafile server.
 To release the storage space occupied by unused blocks, you have to run a
 "garbage collection" program to clean up unused blocks on your server.
 
+The GC program cleans up two types of unused blocks:
+
+1. Blocks that no library references to;
+2. If you set history length limit on some libraries, the out-dated blocks in those libraries will also be removed.
+
 **Before running GC, you must shutdown the seafile program on your server.**
 This is because new blocks written into Seafile while GC is running may be
 mistakenly deleted by the GC program.
@@ -45,4 +50,10 @@ useful data blocks:
 
     seafserv-gc -c /data/haiwen/ccnet -d /data/haiwen/seafile-data --verify
 
-It will print a warning if any useful blocks are missing. Normally it prints nothing ;)
+It will print a warning if any useful blocks are missing.
+
+If you want to do sanity check before actually removing any data, you can use the --dry-run option
+
+    seafserv-gc -c /data/haiwen/ccnet -d /data/haiwen/seafile-data --dry-run
+
+It will show you the total block number vs. the number of blocks to be removed.
