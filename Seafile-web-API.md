@@ -8,6 +8,7 @@ Contents
 * [Decrypt library](#decrypt-library)
 * [Fetch library download info](#download-library)
 * [Upload file](#upload-file)
+* [Update file](#update-file)
 * [List directory entries](#list-directory)
 * [New directory](#new-directory)
 * [Delete directory](#delete-directory)
@@ -244,13 +245,61 @@ After getting the upload link, POST to this link for uploading files.
     400 Bad request
     440 Invalid filename
     441 File already exists
-    442 File size is too larg
+    442 File size is too large
     443 Out of quota
     500 Internal server error
 
 **Note**
 
 For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
+
+## <a id="update-file"></a>Update file ##
+
+### Get Update Link
+
+**GET** https://cloud.seafile.com/api2/repos/{repo-id}/update-link/
+
+**Request parameters**
+
+* token
+
+* repo-id
+
+**Errors**
+
+    500 Run out of quota
+
+**Sample request**
+
+    curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/update-link/
+
+**Sample response**
+
+    "http://cloud.seafile.com:8082/update-api/ef881b22"
+
+### Update File
+
+After getting the upload link, POST to this link for uploading files.
+
+**POST** http://cloud.seafile.com:8082/upload-api/ef881b22
+
+**Returns**
+
+The id of the updated file
+
+**Sample response**
+
+    "adc83b19e793491b1c6ea0fd8b46cd9f32e592fc"
+
+**Errors**
+
+    400 Bad request
+    440 Invalid filename
+    442 File size is too large
+    443 Out of quota
+    500 Internal server error
+
+
 
 
 ### <a id="list-directory"></a>List directory entries ###
