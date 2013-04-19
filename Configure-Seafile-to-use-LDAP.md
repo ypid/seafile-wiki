@@ -1,4 +1,4 @@
-Starting from **1.5** (please upgrade if your're not running 1.5+), Seafile supports authenticating users from LDAP.
+Starting from seafile server **1.5** (please upgrade if your're not running 1.5+), Seafile supports authenticating users from LDAP.
 
 The current code of seahub assumes that user name to be email address, so it's not possible to log in with UNIX user names or Windows Domain user names now. The support may be added later.
 
