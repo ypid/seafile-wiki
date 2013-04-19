@@ -1,6 +1,8 @@
 Starting from 1.5, Seafile supports authenticating users from LDAP.
 The current code of seahub assumes that user name to be email address, so it's not possible to log in with UNIX user names or Windows Domain user names now. The support may be added later.
 
+Note that the seafile admin user account is always stored in sqlite/mysql database, not in LDAP.
+
 To use LDAP to authenticate user, please add the following lines to ccnet.conf
 
     [LDAP]
