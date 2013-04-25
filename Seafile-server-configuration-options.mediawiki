@@ -61,7 +61,7 @@ If you don't want to keep all file revision history, you may set a default histo
 
 ```
 [history]
-keey_days = days of history to keep
+keep_days = days of history to keep
 ```
 
 == Seafile httpserver configuratoin (seafile.conf) ==
