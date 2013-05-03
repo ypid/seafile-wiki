@@ -12,7 +12,7 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
 
 ## Steps ##
 
-1. Shutdown services by `./seahub.sh stop` and `./seafile.sh stop`. Then, append MySQL configurations to 3 config files (you may need to change to fit your configuration).
+1. Shutdown services by `./seahub.sh stop` and `./seafile.sh stop`. Then, append MySQL the following configurations to 3 config files (you may need to change to fit your configuration).
 
     Append following lines to `ccnet/ccnet.conf`:
 
@@ -69,15 +69,15 @@ Assume current path is `/data/haiwen/seafile-server-1.4`, and you have exported 
     cd seahub
     python manage.py createsuperuser
 
-This command tool will guild you to create a seahub admin.
+This command tool will guide you to create a seahub admin.
 
 **Note:** this command is added since version 1.4.5.
 
-## How to Upgrades ##
+## How to Upgrade ##
 
 We will add a file named `1.x_1.y.mysql` which contains all the upgrade statements in our release.
 
-After updating database, you also need to manually update avatar symbol link.
+After updating the database, you will also need to manually update the avatars symbolic link.
 
 ```
 cd haiwen/seafile-server-1.4/seahub/media
@@ -88,7 +88,7 @@ ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/
 
 ## Upgrading ##
 
-### Update avatars symbol link ###
+### Update avatars symbolic link ###
 
 Assume your top level directory is `/data/haiwen/`, and you are upgrading to seafile server version 1.6.0:
 
@@ -109,7 +109,7 @@ We provide the sql statements to update the databases:
 - `upgrade/mysql/<VERSION>/seafile.sql`, for changes to seafile database
 - `upgrade/mysql/<VERSION>/ccnet.sql`, for changes to ccnet database
 
-To apply the changes, just execute the sqls in the correspondent database. If any of the sql files above does not exist, it means the new version does not bring changes to the correspondent database.
+To apply the changes, just execute the sqls in the correspondent database. If any of the sql files above do not exist, it means the new version does not bring changes to the correspondent database.
 
 ```sh
 seafile-server-1.6.0
