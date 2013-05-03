@@ -1,11 +1,11 @@
 '''Note:''' This document is for seafile server 1.4 and later. For an old version, see [[Deploy Seafile Web With Nginx/Apache old|here]].
 
-In a production environment, you often want to deploy Seafile Web(Seahub) behind a reverse proxy like Apache or nginx. Use a web server serves multiple purposes:
+In a production environment, you often want to deploy Seafile Web(Seahub) behind a reverse proxy like Apache or nginx. Using a web server serves multiple purposes:
 
 * Static files can be served by Apache/Nginx directly to achieve better performance.
 * You need to use Apache/Nginx if you want to [[Enable Https on Seafile Web]].
 
-Before continue, ensure that:
+Before continuing, ensure that:
 
 * you have installed the <code>python-flup</code> library
 * you have '''NOT''' started seahub or seafile
@@ -39,7 +39,7 @@ server {
     }       
 
     location /media {
-        root /home/user/haiwen/seafile-server-1.3.2/seahub;
+        root /home/user/haiwen/seafile-server-1.6.1/seahub;
     }
 }
 </pre>
@@ -60,7 +60,7 @@ This is a sample apache config file.
 <VirtualHost *:80>
   ServerName www.myseafile.com
   DocumentRoot /var/www
-  Alias /media  /home/user/haiwen/seafile-server-1.3.2/seahub/media         
+  Alias /media  /home/user/haiwen/seafile-server-1.6.1/seahub/media         
   RewriteEngine On
   RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -116,7 +116,7 @@ See [[Deploy Seafile Web at Non root domain]]
 
 == Notes when Upgrading Seafile Server ==
 
-When [[upgrading seafile server]], beside the normal steps you should take, there is one extra step to go: '''Update the path of the static files in your nginx/apache configuration'''. For example, assume your are upgrading seafile server 1.3.0 to 1.4.0, then:
+When [[upgrading seafile server]], besides the normal steps you should take, there is one extra step to do: '''Update the path of the static files in your nginx/apache configuration'''. For example, assume your are upgrading seafile server 1.3.0 to 1.4.0, then:
 
 * For Nginx:
 
