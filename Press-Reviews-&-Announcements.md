@@ -1,5 +1,5 @@
 ## Reviews
-
+- 2013.05.04 [addictivetips](http://www.addictivetips.com/windows-tips/seafile-private-cloud-storage-collaboration-solution-for-teams/)
 - 2013.03.26 [p.umputun.com (Russian)](http://p.umputun.com/p/2013/03/26/seafile-dlia-domashniegho-oblaka/)
 - 2013.03.12 [MTE](http://maketecheasier.com/use-seafile-for-file-syncing-and-collaboration/2013/03/12)
 - 2013.02.25 [Linuxaria](http://linuxaria.com/article/installation-of-seafile-open-source-dropbox-alternative-for-teams)
