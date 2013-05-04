@@ -51,7 +51,10 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
 
 2. Start seafile by `./seafile.sh start`. There will be several tables created in `ccnet-db` and `seafile-db` if your configuration is correct.
 
-3. Start seahub as follows (assume current path is `/data/haiwen/seafile-server-1.4`, and python-mysqldb (package name on ubuntu) installed):
+3. Install python-mysqldb (package name on ubuntu):
+        sudo apt-get install python-mysqldb
+
+4. Start seahub as follows (assume current path is `/data/haiwen/seafile-server-1.4`:
 
         export CCNET_CONF_DIR=/data/haiwen/ccnet
         export SEAFILE_CONF_DIR=/data/haiwen/seafile-data
