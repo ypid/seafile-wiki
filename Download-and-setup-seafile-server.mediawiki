@@ -189,7 +189,7 @@ After starting the services, you may open a web browser and types
 ```
 http://192.168.1.111:8000/
 ```
-you will be redirected to the Login page. Enter username and password you provided during Seafile setup, then will be returned to the `Myhome` page where you can create libraries. 
+you will be redirected to the Login page. Enter the username and password you were provided during the Seafile setup. You will then be returned to the `Myhome` page where you can create libraries. 
 
 '''Congratulations!''' Now you have successfully setup your private Seafile server.
 
@@ -234,7 +234,7 @@ see [[Seafile server configuration options]] for more details about <code>ccnet.
 
 ==== When the Scripts Fail ====
 
-Most of the time, seafile.sh and seahub.sh work fine. But when they fail, you may
+Most of the time, seafile.sh and seahub.sh work fine. But if they fail, you may
 
 * Use '''pgrep''' command to check if seafile/seahub processes are still running
 
