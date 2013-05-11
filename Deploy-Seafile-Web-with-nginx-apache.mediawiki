@@ -52,7 +52,7 @@ Then edit httpd.conf file, add this line:
 
   FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
 
-After that, assume you are running seahub as the root domain, for example '''www.myseafile.com'''
+After that, assume you are running seahub as the root domain, for example '''www.myseafile.com'''. Note, "/var/www/seahub.fcgi" is just a placeholder, you don't need to actually have this file in your system.
 
 This is a sample apache config file.
 
@@ -93,8 +93,6 @@ Assume you have followed the steps in [[Download and Setup Seafile Server]], ple
 ./seafile.sh start
 ./seahub.sh start-fastcgi
 </pre>
-
-The <code>start-fastcgi</code> command of <code>seahub.sh</code> is available since Seafile server 1.4.
 
 === Start Seafile/Seahub (when building seafile server from source) ===
 
