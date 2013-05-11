@@ -1,4 +1,5 @@
 ## Reviews
+- 2013.05.08 [neoteo.com](http://www.neoteo.com/seafile-crea-una-nube-de-almacenamiento-privada)
 - 2013.05.04 [addictivetips](http://www.addictivetips.com/windows-tips/seafile-private-cloud-storage-collaboration-solution-for-teams/)
 - 2013.04.29 [unixmen](http://www.unixmen.com/seafile-yet-another-alternative-for-dropbox-and-owncloud/)
 - 2013.04.20 [stadt-bremerhaven.de](http://stadt-bremerhaven.de/seafile-eigene-cloud-loesung-in-version-1-6-veroeffentlicht/)
