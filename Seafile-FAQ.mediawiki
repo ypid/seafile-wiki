@@ -16,6 +16,10 @@ Trouble shooting:
 
 No, You must have python 2.6 or 2.7 installed on your server.
 
+== Can Seafile server run on FreeBSD? ==
+
+A solution is here http://wowi.fr/seafile-freebsd-en.html#.UY-leaBji1E (Not confirmed by us, if you tried with success, leave a comment here.)
+
 == Website displays "Page unavailable", what can I do? ==
 
 * You can check the back trace in seahub log files (/tmp/seahub_django_request.log, /tmp/seahub.log).
