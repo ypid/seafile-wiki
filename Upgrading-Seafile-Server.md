@@ -96,3 +96,8 @@ ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/
 seafile-server-1.5.1/seafile.sh start
 seafile-server-1.5.1/seahub.sh start
 ```
+
+1. If the new version works file, the old version can be removed
+```sh
+rm -rf seafile-server-1.5.0
+```
