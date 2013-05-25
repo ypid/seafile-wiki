@@ -13,3 +13,21 @@ A ignore.txt file specifies untracked files that Seafile should ignore.  Each li
 
 ## Notes
 Although Seafile tries to do the best effect, you can always create a new file on web page, which a pattern matches.  So after such a file is created, the file still could be synchronized into local library.  Unfortunately, if you modify this file in local library after that, you will get a unmerged stage library, and that will cause Seafile couldn't synchronize your local library with remote library.  There are two method to solve this problem if you forgot this rule.  One is to remove this file from the local library and the latest remote version will be synchronized.  Removing this pattern from ignore.txt file is another choice.
+
+## Example
+```# This is an example of Seafile ignore.txt file
+
+# a regular file
+test-file
+
+# a dir
+test-dir/
+
+# wildcard *
+test-star1/*
+test-star2/*.html
+
+# wildcard ?
+test-qu1/?.html
+test-qu2/?/
+```
