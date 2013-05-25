@@ -18,6 +18,7 @@
 
 ##Clients
 * [[Seafile CLI client]]
+* [[Specifies untracked files to ignore]]
 
 ## For developers
 * [[Seafile Data Model]]
