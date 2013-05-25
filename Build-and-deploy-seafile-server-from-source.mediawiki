@@ -13,6 +13,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * intltool (0.40 or later)
 * libsqlite3-dev (3.7 or later)
 * libmysqlclient-dev (5.5 or later)
+* libarchive-dev 
 
 The following libraries need to be compiled from source.
 
