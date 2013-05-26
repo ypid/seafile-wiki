@@ -189,6 +189,7 @@ subcommands:
 Go to the top level directory(in this guide it's '''/data/haiwen/'''), and run '''seafile-admin setup''' to create all the configuration:
 ```sh
 cd /data/haiwen
+export PYTHONPATH=/data/haiwen/seafile-server/seahub/thirdpart
 seafile-admin setup
 ```
 
