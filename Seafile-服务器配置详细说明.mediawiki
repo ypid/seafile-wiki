@@ -90,7 +90,7 @@ max_download_dir_size=200
 
 === Seahub 邮件发送 ===
 
-重置密码，目录共享，消息通知等几个服务需要邮件发送。在seahub_settings.py 中写入以下配置： 
+重置密码，发送外链，消息通知等几个服务需要邮件发送。在seahub_settings.py 中写入以下配置： 
 
 <pre>
 EMAIL_USE_TLS = False
