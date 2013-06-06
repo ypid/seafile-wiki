@@ -1,18 +1,21 @@
 # Specifies untracked files to ignore
 
 ## Description
-A ignore.txt file specifies untracked files that Seafile should ignore.  Each line in a ignore.txt file specifies a pattern.  The following pattern format can be accepted.
+A seafile-ignore.txt file specifies untracked files that Seafile should ignore.  Each line in a ignore.txt file specifies a pattern. You have to put seafile-ignore.txt in the root directory of a library. The following pattern format can be accepted.
 
 1. A blank line matches no files.
 
 1. A line starting with # serves as a comment.
 
-1. If the pattern ends with a slash, it would only find a match with a directory.  In other words, foo/ will match a directory foo and paths underneath it, but will not match a regular file or a symbolic link foo.
-
 1. Seafile supports wildcards in the pattern.  For example, "foo/*" matches "foo/1" and "foo/hello".  "foo/?" matches "foo/1" but not "foo/hello".
 
+1. If the pattern ends with a slash, it would **only** match a directory.  In other words, foo/ will match a directory foo and paths underneath it, but will not match a regular file or a symbolic link foo.
+
+1. If a pattern doesn't end with a slash or a wildcard, it would **not** match a directory. For example, "foo" can only match regular file "foo" or a symbolic link; while "foo/" and "foo*" match a directory and paths under that directory.
+
 ## Notes
-Although Seafile tries to do the best effect, you can always create a new file on web page, which a pattern matches.  So after such a file is created, the file still could be synchronized into local library.  Unfortunately, if you modify this file in local library after that, you will get a unmerged stage library, and that will cause Seafile couldn't synchronize your local library with remote library.  There are two method to solve this problem if you forgot this rule.  One is to remove this file from the local library and the latest remote version will be synchronized.  Removing this pattern from ignore.txt file is another choice.
+* The seafile-ignore.txt file only controls which files to ignore on the client side. You can still create a file from seahub web interface that's ignored on the client. In this case the created file will still be synced back to clients. But any later local changes to those files will be ignored.
+* seafile-ignore.txt only ignores untracked files. If a file is already synced, and some time later you add it to the ignore list, its existing versions won't be removed.
 
 ## Example
 ```# This is an example of Seafile ignore.txt file
