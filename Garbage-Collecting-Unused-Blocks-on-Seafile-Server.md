@@ -57,3 +57,9 @@ If you want to do sanity check before actually removing any data, you can use th
     seafserv-gc -c /data/haiwen/ccnet -d /data/haiwen/seafile-data --dry-run
 
 It will show you the total block number vs. the number of blocks to be removed.
+
+If the metadata of some libraries are damaged on the server, the GC program would stop proceeding because it can't tell whether a block is used by some damaged libraries or not. If you don't want to keep the data of the damaged library, you can run GC with --ignore-errors or -i option
+
+    seafserv-gc -c /data/haiwen/ccnet -d /data/haiwen/seafile-data --ignore-errors
+
+This will mask the blocks of the damaged libraries as unused and delete them.
