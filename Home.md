@@ -17,9 +17,8 @@
 * [[Seafile server data backup]]
 * [[Configure Seafile to use LDAP]]
 
-##Clients
+## Clients
 * [[Seafile CLI client]]
-* [[Specifies untracked files to ignore]]
 
 ## For developers
 * [[Seafile Data Model]]
