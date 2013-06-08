@@ -7,7 +7,7 @@ A seafile-ignore.txt file specifies untracked files that Seafile should ignore. 
 
 1. A line starting with # serves as a comment.
 
-1. Seafile supports wildcards in the pattern.  For example, "foo/*" matches "foo/1" and "foo/hello".  "foo/?" matches "foo/1" but not "foo/hello".
+1. Seafile supports wildcards in the pattern.  For example, "foo/*" matches "foo/1" and "foo/hello".  "foo/?" matches "foo/1" but not "foo/hello". Note that the wildcard character * matches all the paths under a directory. For instance, "foo/*.html" matches "foo/a.html" and "foo/templates/b.html".
 
 1. If the pattern ends with a slash, it would **only** match a directory.  In other words, foo/ will match a directory foo and paths underneath it, but will not match a regular file or a symbolic link foo.
 
