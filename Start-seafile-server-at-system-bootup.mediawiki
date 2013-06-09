@@ -1,0 +1,69 @@
+== For Ubuntu/Debian ==
+
+On Ubuntu/Debain, we make use of the [https://help.ubuntu.com/community/UbuntuBootupHowto /etc/init.d/] scripts to start seafile/seahub at system boot.
+* Create a script '''/etc/init.d/seafile-server'''
+```
+sudo vim /etc/init.d/seafile-server
+```
+The content of this script is:
+
+(You need to modify the value of '''user''' and '''script_path''' accordingly)
+```
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:		seafile-server
+# Required-Start:	$all
+# Required-Stop:	$all
+# Should-Start:		$local_fs
+# Should-Stop:		$local_fs
+# Default-Start:	2 3 4 5
+# Default-Stop:		0 1 6
+### END INIT INFO
+
+# Change the value of "user" to your user name
+user=haiwen
+
+# Change the value of "script_path" to your path of seafile installation
+script_path=/data/haiwen/seafile-server-1.7.0
+
+sudo -u ${user} ${script_path}/seafile.sh start > /tmp/seafile.init.log 2>&1
+sudo -u ${user} ${script_path}/seahub.sh start > /tmp/seahub.init.log 2>&1
+```
+
+* Then update the system config
+```
+# make the script executable
+sudo chmod +x /etc/init.d/seafile-server
+# update system rc.d config to enable seafile-server
+sudo update-rc.d seafile-server defaults
+```
+
+* Done. Don't forget to update the value of '''script_path''' later if you update your seafile server.
+
+== For RHEL/CentOS ==
+
+On RHEL/CentOS, the script [http://www.centos.org/docs/5/html/Installation_Guide-en-US/s1-boot-init-shutdown-run-boot.html /etc/rc.local] is executed by the system at bootup, so we start seafile/seahub there.
+
+* Locate your python executable (python 2.6 or 2.7)
+```
+which python2.6 # or "which python2.7"
+```
+
+* In /etc/rc.local, add the directory of python2.6(2.7) to '''PATH''', and add the seafile/seahub start command
+
+````
+# Assume the python 2.6(2.7) executable is in "/usr/local/bin"
+PATH=$PATH:/usr/local/bin/
+
+# Change the value of "user" to your user name
+user=haiwen
+
+# Change the value of "script_path" to your path of seafile installation
+script_path=/data/haiwen/seafile-server-1.7.0
+
+sudo -u ${user} ${script_path}/seafile.sh start > /tmp/seafile.init.log 2>&1
+sudo -u ${user} ${script_path}/seahub.sh start > /tmp/seahub.init.log 2>&1
+```
+
+* Done. Don't forget to update the value of '''script_path''' later if you update your seafile server.
+
