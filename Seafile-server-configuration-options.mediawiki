@@ -171,6 +171,11 @@ SEND_EMAIL_ON_ADDING_SYSTEM_MEMBER = True
 # NOTE: since version 1.4.
 SEND_EMAIL_ON_RESETTING_USER_PASSWD = True
 
+# Hide `Organization` tab.
+# If you want your private seafile behave exactly like https://cloud.seafile.com/, you can set this flag.
+# NOTE: since version 1.7.
+CLOUD_MODE = True
+
 </pre>
 
 '''Note''': You need to restart seahub so that your changes take effect.
