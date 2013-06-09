@@ -10,8 +10,7 @@
 ##Server Advanced
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
-* [[Deploy Seafile with MySQL]]
-* [[Deploy Seafile with PostgreSQL]]
+* [[Deploy Seafile with MySQL]] / [[Deploy Seafile with PostgreSQL]]
 * [[Deploy Seafile Web With Nginx/Apache]]
 * [[Enable Https on Seafile Web]]
 * [[Seafile server data backup]]
