@@ -248,7 +248,6 @@ pgrep -f "manage.py run_gunicorn" # check seahub process
 ```bash
 pkill -f seafile-controller
 pkill -f "manage.py run_gunicorn"
-pkill -f httpserver
 ```
 
 ==That's it!==
