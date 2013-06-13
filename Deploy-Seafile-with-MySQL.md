@@ -77,19 +77,6 @@ This command tool will guide you to create a seahub admin.
 
 **Note:** this command is added since version 1.4.5.
 
-## How to Upgrade ##
-
-We will add a file named `1.x_1.y.mysql` which contains all the upgrade statements in our release.
-
-After updating the database, you will also need to manually update the avatars symbolic link.
-
-```
-cd haiwen/seafile-server-1.4/seahub/media
-#the new server avatars' folder will be linked to the updated avatars folder
-ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/  
-```
-
-
 ## Upgrading ##
 
 ### Update avatars symbolic link ###
@@ -106,12 +93,11 @@ ln -s -t seafile-server-1.6.0/seahub/media/  ../../../seahub-data/avatars/
 
 ### Update database tables  ###
 
-When a new version of seafile server is released, there may be changes to the database of seafile/seahub. 
-We provide the sql statements to update the databases:
+When a new version of seafile server is released, there may be changes to the database of seafile/seahub/ccnet. We provide the sql statements to update the databases:
 
-- `upgrade/mysql/<VERSION>/seahub.sql`, for changes to seahub database
-- `upgrade/mysql/<VERSION>/seafile.sql`, for changes to seafile database
-- `upgrade/mysql/<VERSION>/ccnet.sql`, for changes to ccnet database
+- `upgrade/sql/<VERSION>/mysql/seahub.sql`, for changes to seahub database
+- `upgrade/sql/<VERSION>/mysql/seafile.sql`, for changes to seahub database
+- `upgrade/sql/<VERSION>/mysql/ccnet.sql`, for changes to seahub database
 
 To apply the changes, just execute the sqls in the correspondent database. If any of the sql files above do not exist, it means the new version does not bring changes to the correspondent database.
 
@@ -120,9 +106,10 @@ seafile-server-1.6.0
 ├── seafile
 ├── seahub
 ├── upgrade
-    ├── mysql
+    ├── sql
         ├── 1.6.0
-            ├── seahub.mysql
-            ├── seafile.mysql
-            ├── ccnet.mysql
+            ├── mysql
+                ├── seahub.mysql
+                ├── seafile.mysql
+                ├── ccnet.mysql
 ```
