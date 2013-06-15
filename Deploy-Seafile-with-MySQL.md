@@ -22,6 +22,7 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
         USER=root
         PASSWD=root
         DB=ccnet-db
+        UNIX_SOCKET=/var/lib/mysql/mysql.sock
     
     Replace the database section in `seafile-data/seafile.conf` with following lines:
 
@@ -31,6 +32,7 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
         user=root
         password=root
         db_name=seafile-db
+        unix_socket=/var/lib/mysql/mysql.sock
 
     Append following lines to `seahub_settings.py`:
 
@@ -40,7 +42,7 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
                 'USER' : 'root',
                 'PASSWORD' : 'root',
                 'NAME' : 'seahub-db',
-                'HOST' : 'localhost',
+                'HOST' : '/var/lib/mysql/mysql.sock',
                 'OPTIONS': {
                     "init_command": "SET storage_engine=INNODB",
                 }
