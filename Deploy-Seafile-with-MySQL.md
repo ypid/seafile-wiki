@@ -23,7 +23,9 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
         PASSWD=root
         DB=ccnet-db
         UNIX_SOCKET=/var/lib/mysql/mysql.sock # use UNIX_SOCKET=/var/run/mysqld/mysqld.sock on Debian&Ubuntu
-    
+
+    Note: `UNIX_SOCKET` is only required if MySQL sits in the same machine with Seafile.    
+
     Replace the database section in `seafile-data/seafile.conf` with following lines:
 
         [database]
