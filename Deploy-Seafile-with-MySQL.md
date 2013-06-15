@@ -18,23 +18,21 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
 
         [Database]
         ENGINE=mysql
-        HOST=localhost
+        HOST=127.0.0.1
         USER=root
         PASSWD=root
         DB=ccnet-db
-        UNIX_SOCKET=/var/lib/mysql/mysql.sock # use UNIX_SOCKET=/var/run/mysqld/mysqld.sock on Debian&Ubuntu
 
-    Note: `UNIX_SOCKET` is only required if MySQL sits in the same machine with Seafile.    
+    Note: Use `127.0.0.1`, don't use `localhost`.    
 
     Replace the database section in `seafile-data/seafile.conf` with following lines:
 
         [database]
         type=mysql
-        host=localhost
+        host=127.0.0.1
         user=root
         password=root
         db_name=seafile-db
-        unix_socket=/var/lib/mysql/mysql.sock # use UNIX_SOCKET=/var/run/mysqld/mysqld.sock on Debian&Ubuntu
 
     Append following lines to `seahub_settings.py`:
 
@@ -44,7 +42,7 @@ If you need to deploy Seafile with MySQL, you need to download **seafile-server-
                 'USER' : 'root',
                 'PASSWORD' : 'root',
                 'NAME' : 'seahub-db',
-                'HOST' : 'localhost', 
+                'HOST' : '127.0.0.1', 
                 'OPTIONS': {
                     "init_command": "SET storage_engine=INNODB",
                 }
