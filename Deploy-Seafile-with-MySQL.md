@@ -2,7 +2,7 @@
 
 If you need to deploy Seafile with MySQL, you need to download **seafile-server-1.4.5 or above**.
 
-**Note:** make sure that seafile is started by `./seafile.sh start` and LDAP is not enabled, otherwise administrator will not be created.
+**Note:** make sure that seafile is started by `./seafile.sh start` and LDAP is not enabled, otherwise seahub admin will not be created correctly.
 
 ## Preparation ##
 
