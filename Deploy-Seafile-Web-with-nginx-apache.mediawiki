@@ -73,7 +73,7 @@ Note: HTTP_AUTHORIZATION is used in API authorization
 
 == Start Seafile and Seahub ==
 
-Before you start seafile and seahub, you first need to modify the file <code>ccnet.conf</code>.
+Before you start seafile and seahub, you first need to modify the file <code>ccnet.conf</code> and <code>seahub_settings.py</code>.
 
 === Modify ccnet.conf ===
 
@@ -84,6 +84,14 @@ SERVICE_URL = http://www.myseafile.com
 </pre>
 
 '''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+
+
+=== Modify seahub_setting.py ===
+
+Add this line,
+<pre>
+USE_X_FORWARDED_HOST = True
+</pre>
 
 === Start Seafile/Seahub (when using the pre-compiled server package) ===
 
