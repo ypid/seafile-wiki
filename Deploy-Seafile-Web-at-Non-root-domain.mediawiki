@@ -1,4 +1,3 @@
-
 This documentation will talk about how to deploy Seafile Web using Apache/Nginx with proxy, and will set Seafile Web at Non-root directory of the website(e.g., www.example.com/seafile/). 
 
 '''Note:''' We assume you have read [[Deploy Seafile Web with nginx apache]].
@@ -9,6 +8,7 @@ First, we need to overwrite some variables in seahub_settings.py:
 
 <pre>
 SERVE_STATIC = False
+USE_X_FORWARDED_HOST = True
 MEDIA_URL = '/seafmedia/'
 SITE_ROOT = '/seafile/'
 </pre>
