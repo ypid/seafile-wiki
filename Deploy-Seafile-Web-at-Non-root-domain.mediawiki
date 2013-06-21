@@ -1,4 +1,4 @@
-This documentation will talk about how to deploy Seafile Web using Apache/Nginx with proxy, and will set Seafile Web at Non-root directory of the website(e.g., www.example.com/seafile/). 
+This documentation will talk about how to deploy Seafile Web using Apache/Nginx at Non-root directory of the website(e.g., www.example.com/seafile/). 
 
 '''Note:''' We assume you have read [[Deploy Seafile Web with nginx apache]].
 
@@ -8,7 +8,6 @@ First, we need to overwrite some variables in seahub_settings.py:
 
 <pre>
 SERVE_STATIC = False
-USE_X_FORWARDED_HOST = True
 MEDIA_URL = '/seafmedia/'
 SITE_ROOT = '/seafile/'
 </pre>
@@ -22,21 +21,32 @@ We deploy Seafile at <code>/seafile/</code> directory instead of root directory,
 Then, we need to configure the Nginx:
 
 <pre>
+server {
+    listen 80;
+    server_name www.example.com;
     location /seafile {
-        proxy_pass  http://127.0.0.1:8000;
-        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
-        proxy_redirect off;
-        proxy_buffering off;
-        proxy_set_header        Host            $host;
-        proxy_set_header        X-Real-IP       $remote_addr;
-        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
+        fastcgi_pass    127.0.0.1:8000;
+        fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
+        fastcgi_param   PATH_INFO           $fastcgi_script_name;
 
-    location /seafmedia/ {
-             rewrite ^/seafmedia(.*)$ /media$1 break;
-             # Change to your path
-             root /Users/xiez/seahub;
+        fastcgi_param	SERVER_PROTOCOL		$server_protocol;
+        fastcgi_param   QUERY_STRING        $query_string;
+        fastcgi_param   REQUEST_METHOD      $request_method;
+        fastcgi_param   CONTENT_TYPE        $content_type;
+        fastcgi_param   CONTENT_LENGTH      $content_length;
+        fastcgi_param	SERVER_ADDR         $server_addr;
+        fastcgi_param	SERVER_PORT         $server_port;
+        fastcgi_param	SERVER_NAME         $server_name;
+
+        access_log      /var/log/nginx/seahub.access.log;
+    	error_log       /var/log/nginx/seahub.error.log;
+    }       
+
+    location /seafmedia {
+        rewrite ^/seafmedia(.*)$ /media$1 break;
+        root /home/user/haiwen/seafile-server-1.6.1/seahub;
     }
+}
 </pre>
 
 Now you need to reload Nginx, and open your browser to check if everything works fine.
@@ -45,27 +55,23 @@ Now you need to reload Nginx, and open your browser to check if everything works
 
 First, you need to modify seahub_settings.py as above.
 
-Then you need to configure your Apache, here is the sample configuration:
+Then edit httpd.conf file, add this line:
+
+  FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
+
+After that, you need to configure your Apache, here is the sample configuration:
 
 <pre>
 <VirtualHost *:80>
-  ServerName 127.0.0.1
+  ServerName www.example.com
   DocumentRoot /var/www
-  Alias /seafmedia  /Users/xiez/dev/seahub/media
-
-  <Location /seafile>
-  ProxyPass http://localhost:8000/seafile
-  ProxyPassReverse http://localhost:8000/seafile
-  </Location>
-
-  <Directory /Users/xiez/dev/seahub/media>
-      Options +Indexes
-      Allow from all
-  </Directory>
-  
-</virtualhost>
+  Alias /seafmedia  /home/user/haiwen/seafile-server-1.6.1/seahub/media
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^/(seafile.*)$ /seahub.fcgi/$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]  
+</VirtualHost>
 </pre>
 
-We use Alias to let Apache serve static files, please change the second argument to your path.  And don't forget to add 'Allow from all', otherwise you will get 403 error.
+We use Alias to let Apache serve static files, please change the second argument to your path.
 
 Now restart Apache, and test if everything works fine.
