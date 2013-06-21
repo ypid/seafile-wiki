@@ -33,6 +33,7 @@
 ## FAQ & Others
 * [[Seafile Server FAQ|Seafile FAQ]]
 * [Seafile Client FAQ](https://seacloud.cc/group/3/wiki/)
+* [FAQ for Security Features](https://seacloud.cc/group/3/wiki/faq-for-security-features/)
 * [[Press Reviews & Announcements]]
 
 ## For Chinese Users
