@@ -29,6 +29,7 @@ script_path=/data/haiwen/seafile-server-1.7.0
 sudo -u ${user} ${script_path}/seafile.sh start > /tmp/seafile.init.log 2>&1
 sudo -u ${user} ${script_path}/seahub.sh start > /tmp/seahub.init.log 2>&1
 ```
+'''Note''': If you want to start seahub in fastcgi, just change the '''"seahub.sh start"''' in the last line above to '''"seahub.sh start-fastcgi"'''
 
 * Then update the system config
 ```
@@ -64,6 +65,6 @@ script_path=/data/haiwen/seafile-server-1.7.0
 sudo -u ${user} ${script_path}/seafile.sh start > /tmp/seafile.init.log 2>&1
 sudo -u ${user} ${script_path}/seahub.sh start > /tmp/seahub.init.log 2>&1
 ```
+'''Note''': If you want to start seahub in fastcgi, just change the '''"seahub.sh start"''' in the last line above to '''"seahub.sh start-fastcgi"'''
 
 * Done. Don't forget to update the value of '''script_path''' later if you update your seafile server.
-
