@@ -116,6 +116,22 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 '''Note''': 如果按照以上配置仍旧无法配成功，请查看<code>/tmp/seahub.log</code>，里面会有详细的错误信息。
 
+=== 定制 Seahub Logo ===
+
+1. 添加你的logo文件到 <code>seahub/media/img/</code>
+
+2. 在 <code>seahub_settings.py</code> 覆盖 <code>LOGO_PATH</code> 配置
+
+<pre>
+LOGO_PATH = img/<your-logo-file-name>
+</pre>
+
+3. 在 <code>seahub_settings.py</code> 覆盖 <code>LOGO_URL</code> 配置
+
+<pre>
+LOGO_URL = 'http://your-seafile.com'
+</pre>
+
 === Seahub 参数配置 ===
 
 Seahub 的配置可以在 seahub_settings.py 里覆盖。以下是几个可配置的参数。
