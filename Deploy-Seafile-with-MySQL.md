@@ -98,8 +98,8 @@ ln -s -t seafile-server-1.6.0/seahub/media/  ../../../seahub-data/avatars/
 When a new version of seafile server is released, there may be changes to the database of seafile/seahub/ccnet. We provide the sql statements to update the databases:
 
 - `upgrade/sql/<VERSION>/mysql/seahub.sql`, for changes to seahub database
-- `upgrade/sql/<VERSION>/mysql/seafile.sql`, for changes to seahub database
-- `upgrade/sql/<VERSION>/mysql/ccnet.sql`, for changes to seahub database
+- `upgrade/sql/<VERSION>/mysql/seafile.sql`, for changes to seafile database
+- `upgrade/sql/<VERSION>/mysql/ccnet.sql`, for changes to ccnet database
 
 To apply the changes, just execute the sqls in the correspondent database. If any of the sql files above do not exist, it means the new version does not bring changes to the correspondent database.
 
