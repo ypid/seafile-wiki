@@ -3,7 +3,7 @@ A lot of people want to deploy a seafile server in their LAN, and access it from
 To achieve this, you need:
 
 - A router which supports port forwarding
-- Use a dnynamic DNS Serivce
+- Use a dynamic DNS Service
 - Modify your seafile server configuration
 
 ### Table of Contents
@@ -55,7 +55,7 @@ Seafile server is composed of several components. You need to configure port for
   <td>8082</td>
 </tr>
 <tr>
-  <td>httpserver</td>
+  <td>seahub</td>
   <td>8000</td>
 </tr>
 </table>
@@ -78,7 +78,7 @@ If your port forwarding is working, the command above should succeed. Otherwise,
 If your port forwarding is not working, the reasons may be:
 
 - You have configured a wrong port forwarding
-- Your routers may need a restart
+- Your router may need a restart
 - You network may be down
 
 ## Use a Dynamic DNS Serivce
@@ -87,7 +87,7 @@ If your port forwarding is not working, the reasons may be:
 
 Having done all the steps above, you should be able to visit your seahub server outside your LAN by your WAN IP. But for most people, the WAN IP address is likey to change regularly by their ISP(Internet Serice Provider), which makes this approach impratical.
 
-You can use a dynamic DNS(DDNS) Serice to overcome this problem. By using a dymaic DNS serivce, you can visit your seahub by domain name (instead of by IP), and the domain name will always be mapped to your WAN IP address, even if it changes regularly.
+You can use a dynamic DNS(DDNS) Service to overcome this problem. By using a dynamic DNS service, you can visit your seahub by domain name (instead of by IP), and the domain name will always be mapped to your WAN IP address, even if it changes regularly.
 
 There are a dozen of dynmaic DNS service providers on the internet. If you don't know what service to choose We recommend using [www.noip.com](http://www.noip.com) since it performs well in our testing.
 
