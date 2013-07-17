@@ -9,9 +9,10 @@ To achieve this, you need:
 ### Table of Contents
 
 - [Setup the server](Deploy-seafile-server-behind-nat#setup-the-server)
-- [Setup port Forwarding in your router](Deploy-seafile-server-behind-nat#setup-port-forwarding-in-your-router)
+- [Setup port forwarding in your router](Deploy-seafile-server-behind-nat#setup-port-forwarding-in-your-router)
+- [Use a dynamic dns serivce](Deploy-seafile-server-behind-nat#use-a-dynamic-dns-serivce)
 - [Modify your seafile configuration](Deploy-seafile-server-behind-nat#modify-your-seafile-configuration)
-- [Use a Dynamic DNS Serivce](Deploy-seafile-server-behind-nat#use-a-dynamic-dns-serivce)
+
 
 ## Setup the server
 
@@ -105,4 +106,3 @@ SERVICE_URL = <Your dynamic DNS domain>:8000
 ```
 
 Restart your seafile server after this.
-
