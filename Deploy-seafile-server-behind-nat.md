@@ -6,6 +6,13 @@ To achieve this, you need:
 - Use a dnynamic DNS Serivce
 - Modify your seafile server configuration
 
+### Table of Contents
+
+- [Setup the server](Deploy-seafile-server-behind-nat#setup-the-server)
+- [Setup port Forwarding in your router](Deploy-seafile-server-behind-nat#setup-port-forwarding-in-your-router)
+- [Modify your seafile configuration](Deploy-seafile-server-behind-nat#modify-your-seafile-configuration)
+- [Use a Dynamic DNS Serivce](Deploy-seafile-server-behind-nat#use-a-dynamic-dns-serivce)
+
 ## Setup the server
 
 First, you should follow the guide on [[Download and Setup Seafile Server]] to setup your Seafile server. 
@@ -75,5 +82,27 @@ If your port forwarding is not working, the reasons may be:
 
 ## Use a Dynamic DNS Serivce
 
+### Why use a Dynamic DNS(DDNS)  Service?
 
+Having done all the steps above, you should be able to visit your seahub server outside your LAN by your WAN IP. But for most people, the WAN IP address is likey to change regularly by their ISP(Internet Serice Provider), which makes this approach impratical.
+
+You can use a dynamic DNS(DDNS) Serice to overcome this problem. By using a dymaic DNS serivce, you can visit your seahub by domain name (instead of by IP), and the domain name will always be mapped to your WAN IP address, even if it changes regularly.
+
+There are a dozen of dynmaic DNS service providers on the internet. If you don't know what service to choose We recommend using [www.noip.com](http://www.noip.com) since it performs well in our testing.
+
+The detailed process is beyond the scope of this wiki. But basically, you should:
+
+1) Choose a DDNS service provider
+2) Register an account on the DDNS service provider's website
+3) Download a client from your DDNS service provider to keep your domain name always mapped to your WAN IP
+
+## Modify your seafile configuration
+
+After you have setup your DDNS service, you need to modify the `ccnet.conf`:
+
+```
+SERVICE_URL = <Your dynamic DNS domain>:8000
+```
+
+Restart your seafile server after this.
 
