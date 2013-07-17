@@ -93,9 +93,9 @@ There are a dozen of dynmaic DNS service providers on the internet. If you don't
 
 The detailed process is beyond the scope of this wiki. But basically, you should:
 
-1) Choose a DDNS service provider
-2) Register an account on the DDNS service provider's website
-3) Download a client from your DDNS service provider to keep your domain name always mapped to your WAN IP
+1. Choose a DDNS service provider
+2. Register an account on the DDNS service provider's website
+3. Download a client from your DDNS service provider to keep your domain name always mapped to your WAN IP
 
 ## Modify your seafile configuration
 
