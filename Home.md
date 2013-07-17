@@ -16,6 +16,7 @@
 * [[Seafile server data backup]]
 * [[Configure Seafile to use LDAP]]
 * [[Start Seafile Server At System Bootup]]
+* [[Deploy Seafile Server Behind a Router]]
 
 ## Clients
 * [[Seafile CLI client]]
