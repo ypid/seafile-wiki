@@ -36,4 +36,32 @@ test-star2/*.html
 # wildcard ?
 test-qu1/?.html
 test-qu2/?/
+
+# Ignore some common temporary/backup/OS-specific files
+*~
+*/*~
+
+*.bak
+*/*.bak
+
+.DS_Store
+*/.DS_Store
+
+._*
+*/._*
+
+Thumbs.db
+*/Thumbs.db
+
+Desktop.ini
+*/Desktop.ini
+
+.directory
+*/.directory
+
+*.swp
+*/*.swp
+
+*.kate-swp
+*/*.kate-swp
 ```
