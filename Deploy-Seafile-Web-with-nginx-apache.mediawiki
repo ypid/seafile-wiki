@@ -128,3 +128,41 @@ When [[upgrading seafile server]], besides the normal steps you should take, the
 ```
   Alias /media  /home/user/haiwen/seafile-server-1.4.0/seahub/media
 ```
+
+== Deploy Httpserver behind Nginx/Apache ==
+
+In seafile, Httpserver is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for http request. You may want to deploy httpserver behind nginx/apache because:
+
+* Your server is befind a firewall, and you don't want open too many ports in the firewall
+* You want to enable HTTPS on httpserver.
+
+If you want to deploy httpserver behind nginx/apache, follow the steps below.
+
+We assume your domain name is '''http://www.myseafile.com''', and here we deploy httpserver to the '''/seafhttp''' path.
+
+=== modify nginx/apache configuration ===
+
+* Nginx:
+
+```nginx
+    location /seafhttp {
+        rewrite ^/seafhttp(.*)$ $1 break;
+        proxy_pass https://127.0.0.1:8082;
+    }
+```
+
+* Apache:
+
+```
+TODO
+```
+
+=== modify seahub_settings.py ===
+
+You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
+
+```python
+HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
+```
+
+'''Note''': If later for some reason you don't deploy httpserver behind nginx/apache anymore, remember to remove the line you have added above!
