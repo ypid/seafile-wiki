@@ -47,7 +47,25 @@ Open your browser, and input https://www.yourdomain.com, if you see a security a
 
 '''Note:''' This is available in seafile server 1.4 and later.
 
-The configuration of seafile httpserver is in the file <code>seafile-data/seafile.conf</code>. To enable https on seafile httpserver, add the following lines to <code>seafile.conf</code>:
+There are two ways of enabling https on seafile httpserver. You can either:
+
+* Use the https support provided by httpserver itself
+* Or you can deploy httpserver behind nginx/apache, and use https support provided by nginx/apache
+
+The second method is recommended, since the https support provided by httpserver has some subtle bugs, and may be removed in a future relase.
+
+=== Enable https on httpserver with Nginx/Apache ===
+
+This is the recommended way.
+
+* follow the instructions on [https://github.com/haiwen/seafile/wiki/Deploy-Seafile-Web-with-nginx-apache#deploy-httpserver-behind-nginxapache Deploy httpserver behind nginx/apache].
+* since you have setup nginx/apache to use https when you setup https support for Seahub, there's nothing more to do.
+
+=== Enable https on httpserver with https support provided itself ===
+
+'''Note''': This method should be considered deprecated.
+
+The configuration of seafile httpserver is in the file <code>seafile-data/seafile.conf</code>. To use the native https support of seafile httpserver, add the following lines to <code>seafile.conf</code>:
 <pre>
 [httpserver]
 port=8082
