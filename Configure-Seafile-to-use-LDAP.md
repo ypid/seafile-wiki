@@ -39,3 +39,34 @@ Example config for Active Directory:
     USER_DN = cn=admin,cn=users,dc=example,dc=com # or use admin@example.local etc
     PASSWORD = secret
     LOGIN_ATTR = mail
+
+## New in 1.8
+
+Starting from version 1.8, seafile adds some new LDAP features
+
+* Multiple base DN
+* Additional search filter
+
+Multiple base DN is useful when your company has more than one OUs to use Seafile. You can specify a list of base DN in the "BASE" config. The DNs are separated by ";", e.g. `cn=developers,dc=example,dc=com;cn=marketing,dc=example,dc=com`
+
+Search filter is very useful when you have a large organization but only a portion of people want to use Seafile. The filter can be given by setting "FILTER" config. For example, add the following line to LDAP config:
+
+```
+FILTER = memberOf=CN=group,CN=developers,DC=example,DC=com
+```
+
+Note that the cases in the above example is significant.
+
+## Known Issues
+
+### ldaps (LDAP over SSL) doesn't work on Ubuntu/Debian
+
+Please see https://github.com/haiwen/seafile/issues/274
+
+This is because the pre-compiled package is built on CentOS. The libldap we distribute is from CentOS so it search for config files on /etc/openldap/ldap.conf. But Ubuntu/Debian uses /etc/ldap/ldap.conf. So the path to the CA files can't be found on the client.
+
+The work around is 
+
+```
+mkdir /etc/openldap && ln -s /etc/ldap/ldap.conf /etc/openldap/
+```
