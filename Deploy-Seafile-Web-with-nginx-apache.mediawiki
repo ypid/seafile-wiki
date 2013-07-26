@@ -152,9 +152,18 @@ We assume your domain name is '''http://www.myseafile.com''', and here we deploy
 ```
 
 * Apache:
-
+Enable proxy_http:
 ```
-TODO
+a2enmod proxy_http
+```
+
+Append these lines to your VirtualHost configuration:
+```
+ProxyPass /seafhttp http://127.0.0.1:8082
+ProxyPassReverse /seafhttp http://127.0.0.1:8082
+
+RewriteEngine On
+RewriteRule ^/seafhttp/ - [QSA,L]
 ```
 
 === modify seahub_settings.py ===
