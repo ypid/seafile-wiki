@@ -45,8 +45,6 @@ Open your browser, and input https://www.yourdomain.com, if you see a security a
 
 == Enable https on seafile httpserver ==
 
-'''Note:''' This is available in seafile server 1.4 and later.
-
 There are two ways of enabling https on seafile httpserver. You can either:
 
 * Use the https support provided by httpserver itself
