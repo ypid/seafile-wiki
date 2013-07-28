@@ -26,3 +26,11 @@ Seafile Windows 版服务器端软件的下载、初始化配置
 
 == Seafile 的数据库配置 ==
 Windows 服务器目前仅支持 SQLITE 和 MySQL，默认使用SQLITE，MySQL的配置参考[[Deploy Seafile with MySQL|Deploy Seafile with MySQL]]。
+
+== 使用Nginx/Apache配置Seafile Web服务器 ==
+先修改配置文件seafile-data/seafile.conf,然后参考 [[Deploy Seafile Web with nginx apache|Deploy Seafile Web with nginx apache]] 配置 Nginx/Apache。
+<pre>
+    [seahub]
+    port=8000
+    fastcgi=true
+</pre>
