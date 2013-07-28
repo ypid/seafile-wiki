@@ -1,4 +1,4 @@
-== Enable https on Seahub ==
+== Enable https on Seahub (Nginx)==
 
 Note: Seafile has two web components, Seahub and Http-server. Seahub is to serve normal web pages and Http-server is to serve only raw file uploading/downloading. You need set both parts to use https. 
 
@@ -22,6 +22,11 @@ If your Nginx does not support SSL, you need to recompile it, the commands are a
 
 Assume you have configured nginx as [[Deploy-Seafile-Web-with-nginx-apache]]. To use https, you need to modify your nginx configuration file.
 <pre>
+    server {
+        listen       80;
+        server_name  www.yourdoamin.com; 
+        rewrite ^/(.*) https://$server_name/$1 permanent;
+        }
     server
     {
     listen 443;
@@ -39,9 +44,47 @@ Assume you have configured nginx as [[Deploy-Seafile-Web-with-nginx-apache]]. To
     nginx -s reload
 </pre>
 
+* Force redirect http to https
+<pre>
+    server
+    {
+    listen 443;
+    ssl on;
+    ssl_certificate /etc/ssl/cacert.pem;	# path to your cacert.pem
+    ssl_certificate_key /etc/ssl/privkey.pem;	# path to your privkey.pem
+    server_name www.yourdoamin.com;    
+    ......
+    ......
+    fastcgi_param   HTTPS   on;
+    fastcgi_param HTTP_SCHEME https;
+    }
+</pre>
+
 * Test Https
 
 Open your browser, and input https://www.yourdomain.com, if you see a security alert dialog, that means Https is enabled.
+
+== Enable https on Seahub (Apache)==
+* Modify Apache configuration file
+
+Assume you have configured Apache as [[Deploy-Seafile-Web-with-nginx-apache]]. To use https, you need to modify your Apache configuration file.
+<pre>
+  LoadModule ssl_module modules/mod_ssl.so
+  LoadModule fastcgi_module modules/mod_fastcgi-2.4.6-AP22.dll
+  LoadModule rewrite_module modules/mod_rewrite.so
+  <VirtualHost *:443>
+    ServerName www.yourdoamin.com; 
+    DocumentRoot E:/seafile-server-1.7.1/seahub
+    Alias /media  E:/seafile-server-1.7.1/seahub/media
+    RewriteEngine On
+    SSLEngine On 
+    SSLCertificateFile "E:/seafile-server-1.7.1/cacert.pem" 
+    SSLCertificateKeyFile "E:/seafile-server-1.7.1//privkey.pem"
+    RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ /seahub.fcgi/$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+  </virtualhost>
+</pre>
 
 == Enable https on seafile httpserver ==
 
