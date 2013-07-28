@@ -24,3 +24,5 @@ Seafile Windows 版服务器端软件的下载、初始化配置
 
 若需要修改配置，参考 [[Seafile 服务器配置详细说明|Seafile 服务器配置详细说明]]
 
+== Seafile 的数据库配置 ==
+Windows 服务器目前仅支持 SQLITE 和 MySQL，默认使用SQLITE，MySQL的配置参考[[Deploy Seafile with MySQL|Deploy Seafile with MySQL]]。
