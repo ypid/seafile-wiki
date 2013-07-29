@@ -192,6 +192,8 @@ SEND_EMAIL_ON_RESETTING_USER_PASSWD = True
 # NOTE: since version 1.7.
 CLOUD_MODE = True
 
+# Online preview maximum file size, defaults to 30M.
+FILE_PREVIEW_MAX_SIZE = 30 * 1024 * 1024
 </pre>
 
 '''Note''': You need to restart seahub so that your changes take effect.
