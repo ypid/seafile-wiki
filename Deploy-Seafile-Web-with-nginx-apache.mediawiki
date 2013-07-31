@@ -148,9 +148,14 @@ We assume your domain name is '''http://www.myseafile.com''', and here we deploy
     location /seafhttp {
         rewrite ^/seafhttp(.*)$ $1 break;
         proxy_pass https://127.0.0.1:8082;
-        client_max_body_size 10m;
+        client_max_body_size 0;
     }
 ```
+
+nginx settings "client_max_body_size" is by default 1m.
+Uploading a file bigger than this limit will give you an error message HTTP error code 413 ("Request Entity Too Large").
+
+You should use 0 to disable this feature or write the same value than for the parameter max_upload_size in section [httpserver] of /seafile/seafile-data/seafile.conf
 
 * Apache:
 Enable proxy_http:
