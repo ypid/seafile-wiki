@@ -148,6 +148,7 @@ We assume your domain name is '''http://www.myseafile.com''', and here we deploy
     location /seafhttp {
         rewrite ^/seafhttp(.*)$ $1 break;
         proxy_pass https://127.0.0.1:8082;
+        client_max_body_size 10m;
     }
 ```
 
