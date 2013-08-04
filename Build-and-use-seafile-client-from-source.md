@@ -25,10 +25,10 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * libappindicator-dev (needed for Ubuntu Unity Desktop, not requied otherwise)
 * valac  (only needed if you build from git repo)
 
-For Fedora, install the following with YUM:
+For a fresh Fedora 19 installation, the following will install all dependencies via YUM:
 
 ```bash
-$ sudo yum install libevent-devel openssl-devel gtk2-devel libuuid-devel sqlite-devel libnotify-devel intltool python-simplejson
+$ sudo yum install wget gcc libevent-devel openssl-devel gtk2-devel libuuid-devel sqlite-devel libnotify-devel intltool python-simplejson python-webpy
 ```
 
 #### Building ####
@@ -36,8 +36,8 @@ $ sudo yum install libevent-devel openssl-devel gtk2-devel libuuid-devel sqlite-
 First you should get the latest source of seafile:
 
 ```bash
-wget http://seafile.googlecode.com/files/seafile-latest.tar.gz
-tar xzf seafile-latest.tar.gz
+$ wget http://seafile.googlecode.com/files/seafile-latest.tar.gz
+$ tar xzf seafile-latest.tar.gz
 ```
 
 After running the above commands, you should have a folder `seafile-{VERSION}` (VERSION is the latest version number, for example 1.4.5) in your current directory. The source of libsearpc/ccnet is also included in that folder.
@@ -54,28 +54,32 @@ To build Seafile client, you need first build **libsearpc** and **ccnet**.
 ##### libsearpc #####
 
 ```bash
-cd seafile-{VERSION}/libsearpc
-./configure --prefix=/usr
-make
-make install
+$ cd seafile-{VERSION}/libsearpc
+$ ./configure --prefix=/usr
+$ make
+$ sudo make install
 ```
 
 ##### ccnet #####
 
+NOTE: If libsearpc is not found while executing `configure` below, run: `export PKG_CONFIG_PATH=/usr/lib/pkgconfig`.
+
 ```bash
-cd seafile-{VERSION}/ccnet
-./configure --prefix=/usr   ### `export PKG_CONFIG_PATH=/usr/lib/pkgconfig` if libsearpc is not found
-make
-make install
+$ cd seafile-{VERSION}/ccnet
+$ ./configure --prefix=/usr
+$ make
+$ sudo make install
 ```
 
 ##### seafile #####
 
+NOTE: If using Ubuntu, add `--enable-appindicator` at the end of the `configure` command below.
+
 ```bash
-cd seafile-${VERSION}/
-./configure --prefix=/usr ### add `--enable-appindicator` if you use ubuntu
-make
-make install
+$ cd seafile-${VERSION}/
+$ ./configure --prefix=/usr
+$ make
+$ sudo make install
 ```
 
 Note:
