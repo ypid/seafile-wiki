@@ -1,5 +1,3 @@
-'''Note:''' This document is for seafile server 1.4 and later. For an old version, see [[Deploy Seafile Web With Nginx/Apache old|here]].
-
 In a production environment, you often want to deploy Seafile Web(Seahub) behind a reverse proxy like Apache or nginx. Using a web server serves multiple purposes:
 
 * Static files can be served by Apache/Nginx directly to achieve better performance.
