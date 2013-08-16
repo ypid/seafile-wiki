@@ -194,6 +194,9 @@ CLOUD_MODE = True
 
 # Online preview maximum file size, defaults to 30M.
 FILE_PREVIEW_MAX_SIZE = 30 * 1024 * 1024
+
+# Customize seahub css
+BRANDING_CSS = 'css/your-style.css'
 </pre>
 
 '''Note''': You need to restart seahub so that your changes take effect.
