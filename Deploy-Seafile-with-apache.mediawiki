@@ -29,6 +29,17 @@ Assume you are running Seahub using domain '''www.myseafile.com'''. This is a sa
 
 Note: HTTP_AUTHORIZATION is used in API authorization
 
+=== Modify ccnet.conf ===
+
+You need also to modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
+to let Seafile know the domain you choose.
+
+<pre>
+SERVICE_URL = http://www.myseafile.com
+</pre>
+
+'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+
 == Deploy HttpServer behind Apache ==
 
 In Seafile, HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request. You may want to deploy HttpServer behind Apache because:
@@ -54,7 +65,15 @@ RewriteEngine On
 RewriteRule ^/seafhttp - [QSA,L]
 ```
 
-== Sample config ==
+=== Modify seahub_settings.py ===
+
+You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
+
+```python
+HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
+```
+
+=== Sample config ===
 
 Here is sample config after merging above lines:
 
@@ -83,23 +102,7 @@ Here is sample config after merging above lines:
 </VirtualHost>
 </pre>
 
-=== Modify seahub_settings.py ===
 
-You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
-
-```python
-HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
-```
-
-== Modify ccnet.conf ==
-
-Modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
-
-<pre>
-SERVICE_URL = http://www.myseafile.com
-</pre>
-
-'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
 
 == Start Seafile and Seahub ==
 
