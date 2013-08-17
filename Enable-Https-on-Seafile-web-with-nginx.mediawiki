@@ -4,20 +4,20 @@ Note: Seafile has two web components, Seahub and HttpServer. Seahub is to serve 
 
 Here we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the first step.
 
-* Generate SSL digital certificate with OpenSSL
+=== Generate SSL digital certificate with OpenSSL ===
 <pre>
     openssl genrsa -out privkey.pem 2048
     openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
 </pre>
 
-* Enable SSL module of Nginx (optional)
+=== Enable SSL module of Nginx (optional) ===
 If your Nginx does not support SSL, you need to recompile it, the commands are as follows:
 <pre>
     ./configure --with-http_stub_status_module --with-http_ssl_module
     make && make install
 </pre>
 
-* Modify Nginx configuration file
+=== Modify Nginx configuration file ===
 
 Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https, you need to modify your nginx configuration file.
 <pre>
@@ -39,7 +39,7 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
     }
 </pre>
 
-* Sample configuration file
+=== Sample configuration file ===
 
 Here is the sample configuration file:
 
@@ -85,12 +85,12 @@ Here is the sample configuration file:
     }
 </pre>
 
-* Reload Nginx
+=== Reload Nginx ===
 <pre>
     nginx -s reload
 </pre>
 
-* Test Https
+=== Test Https ===
 
 Open your browser, and input https://www.yourdomain.com, if you see a security alert dialog, that means Https is enabled.
 
