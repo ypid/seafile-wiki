@@ -100,11 +100,11 @@ Open your browser, and input https://www.yourdomain.com, if you see a security a
 
 Since you change from http to https, you need to modify the value of "SERVICE_URL" in <code>ccnet/ccnet.conf</code>:
 <pre>
-SERVICE_URL = https://www.yourdoamin.com
+SERVICE_URL = https://www.yourdomain.com
 </pre>
 
 === seahub_settings.py ===
 
 ```python
-HTTP_SERVER_ROOT = 'https://www.myseafile.com/seafhttp'
+HTTP_SERVER_ROOT = 'https://www.yourdomain.com/seafhttp'
 ```
