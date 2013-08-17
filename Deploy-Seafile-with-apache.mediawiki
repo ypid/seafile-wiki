@@ -31,7 +31,7 @@ Note: HTTP_AUTHORIZATION is used in API authorization
 
 === Modify ccnet.conf ===
 
-You need also to modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
+You need to modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
 to let Seafile know the domain you choose.
 
 <pre>
