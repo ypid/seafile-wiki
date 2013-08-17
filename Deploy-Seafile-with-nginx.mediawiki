@@ -18,7 +18,7 @@ server {
         fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
         fastcgi_param   PATH_INFO           $fastcgi_script_name;
 
-        fastcgi_param	SERVER_PROTOCOL		$server_protocol;
+        fastcgi_param	SERVER_PROTOCOL	    $server_protocol;
         fastcgi_param   QUERY_STRING        $query_string;
         fastcgi_param   REQUEST_METHOD      $request_method;
         fastcgi_param   CONTENT_TYPE        $content_type;
@@ -54,7 +54,7 @@ We assume your domain name is '''http://www.myseafile.com''', and here we deploy
 ```nginx
     location /seafhttp {
         rewrite ^/seafhttp(.*)$ $1 break;
-        proxy_pass https://127.0.0.1:8082;
+        proxy_pass http://127.0.0.1:8082;
         client_max_body_size 0;
     }
 ```
@@ -120,6 +120,10 @@ When [[upgrading seafile server]], besides the normal steps you should take, the
         root /home/user/haiwen/seafile-server-1.4.0/seahub;
     }
 ```
+
+=== Enalbe Https on Seafile ===
+
+see [[Enalbe Https on Seafile web with nginx]]
 
 == Deploy Seafile at Non-root domain ==
 
