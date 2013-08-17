@@ -1,4 +1,12 @@
-Log files of seafile server:
+Log files of seafile server (for version 1.8 and later):
+
+* Ccnet Log: logs/ccnet.log
+* Seafile server： logs/seafile.log
+* HttpServer: logs/http.log
+* Controller: logs/controller.log
+* Seahub：logs/seahub_django_request.log, logs/seahub.log
+
+Log files of seafile server (for version 1.7 or before):
 
 * Ccnet Log: ccnet/logs/ccnet.log
 * Seafile server： seafile-data/seafile.log
