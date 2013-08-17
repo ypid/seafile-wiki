@@ -1,3 +1,12 @@
+===Generate SSL digital certificate with OpenSSL ==
+
+ere we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the this step.
+
+<pre>
+    openssl genrsa -out privkey.pem 2048
+    openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
+</pre>
+
 == Enable https on Seahub ==
 
 Assume you have configured Apache as [[Deploy Seafile with Apache]]. To use https, you need to enable mod_ssl
