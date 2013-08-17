@@ -1,7 +1,5 @@
 == Enable https on Seahub ==
 
-Note: Seafile has two web components, Seahub and HttpServer. Seahub is to serve normal web pages and Http-server is to serve only raw file uploading/downloading. You need set both parts to use https. 
-
 Here we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the first step.
 
 === Generate SSL digital certificate with OpenSSL ===
@@ -25,17 +23,17 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
         listen       80;
         server_name  www.yourdoamin.com; 
         rewrite ^/(.*) https://$server_name/$1 permanent;	# force redirect http to https
-        }
-    server
-    {
-    listen 443;
-    ssl on;
-    ssl_certificate /etc/ssl/cacert.pem;	# path to your cacert.pem
-    ssl_certificate_key /etc/ssl/privkey.pem;	# path to your privkey.pem
-    server_name www.yourdoamin.com;    
-    ......
-    ......
-    fastcgi_param   HTTPS   on;
+    }
+
+    server {
+        listen 443;
+        ssl on;
+        ssl_certificate /etc/ssl/cacert.pem;	# path to your cacert.pem
+        ssl_certificate_key /etc/ssl/privkey.pem;	# path to your privkey.pem
+        server_name www.yourdoamin.com;    
+        ......
+        ......
+        fastcgi_param   HTTPS   on;
     }
 </pre>
 
@@ -89,10 +87,6 @@ Here is the sample configuration file:
 <pre>
     nginx -s reload
 </pre>
-
-=== Test Https ===
-
-Open your browser, and input https://www.yourdomain.com, if you see a security alert dialog, that means Https is enabled.
 
 == Modify settings to use https ==
 
