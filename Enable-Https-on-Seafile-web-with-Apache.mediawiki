@@ -1,0 +1,67 @@
+== Enable https on Seahub ==
+* Modify Apache configuration file
+
+Assume you have configured Apache as [[Deploy-Seafile-Web-with-Apache]]. To use https, you need to modify your Apache configuration file.
+<pre>
+<VirtualHost *:443>
+  ServerName www.myseafile.com
+  DocumentRoot /var/www
+  Alias /media  /home/user/haiwen/seafile-server-1.8.0/seahub/media
+  SSLEngine On 
+  SSLCertificateFile "/path/to/cacert.pem" 
+  SSLCertificateKeyFile "/path/to/privkey.pem"
+
+  RewriteEngine On
+  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</VirtualHost>
+</pre>
+
+=== Sample config ===
+
+Here is a sample configuration:
+
+<pre>
+<VirtualHost *:443>
+  ServerName www.myseafile.com
+  DocumentRoot /var/www
+  Alias /media  /home/user/haiwen/seafile-server-1.8.0/seahub/media
+
+  SSLEngine On 
+  SSLCertificateFile "/path/to/cacert.pem" 
+  SSLCertificateKeyFile "/path/to/privkey.pem"
+
+  RewriteEngine On
+
+  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+
+  #
+  # seafile httpserver
+  #
+  ProxyPass /seafhttp http://127.0.0.1:8082
+  ProxyPassReverse /seafhttp http://127.0.0.1:8082
+  RewriteRule ^/seafhttp - [QSA,L]
+
+  #
+  # seahub
+  #
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</VirtualHost>
+</pre>
+
+== Modify settings to use https ==
+
+=== ccnet conf ===
+
+Since you change from http to https, you need to modify the value of "SERVICE_URL" in <code>ccnet/ccnet.conf</code>:
+<pre>
+SERVICE_URL = https://www.myseafile.com
+</pre>
+
+=== seahub_settings.py ===
+
+```python
+HTTP_SERVER_ROOT = 'https://www.myseafile.com/seafhttp'
+```

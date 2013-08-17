@@ -137,6 +137,10 @@ When [[upgrading seafile server]], besides the normal steps you should take, the
   Alias /media  /home/user/haiwen/seafile-server-1.4.0/seahub/media
 ```
 
+=== Enable Https on Seafile ===
+
+See [[Enable Https on Seafile web with Apache]]
+
 == Deploy Seafile at Non-root domain ==
 
 See [[Deploy Seafile Web at Non root domain]]
