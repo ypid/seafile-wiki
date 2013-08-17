@@ -1,6 +1,12 @@
 == Enable https on Seahub ==
 
-Assume you have configured Apache as [[Deploy Seafile with Apache]]. To use https, you need to modify your Apache configuration file.
+Assume you have configured Apache as [[Deploy Seafile with Apache]]. To use https, you need to enable mod_ssl
+
+<pre>
+[sudo] a2enmod ssl
+</pre>
+
+Then modify your Apache configuration file.
 <pre>
 <VirtualHost *:443>
   ServerName www.myseafile.com
@@ -11,7 +17,6 @@ Assume you have configured Apache as [[Deploy Seafile with Apache]]. To use http
   SSLCertificateKeyFile "/path/to/privkey.pem"
 
   RewriteEngine On
-  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </VirtualHost>
@@ -32,8 +37,6 @@ Here is a sample configuration:
   SSLCertificateKeyFile "/path/to/privkey.pem"
 
   RewriteEngine On
-
-  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
 
   #
   # seafile httpserver
