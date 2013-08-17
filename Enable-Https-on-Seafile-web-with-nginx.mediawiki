@@ -1,4 +1,4 @@
-== Enable https on Seahub (Nginx)==
+== Enable https on Seahub ==
 
 Note: Seafile has two web components, Seahub and HttpServer. Seahub is to serve normal web pages and Http-server is to serve only raw file uploading/downloading. You need set both parts to use https. 
 
