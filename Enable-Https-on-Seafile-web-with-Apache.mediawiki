@@ -17,6 +17,7 @@ Then modify your Apache configuration file.
   SSLCertificateKeyFile "/path/to/privkey.pem"
 
   RewriteEngine On
+  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </VirtualHost>
@@ -33,8 +34,8 @@ Here is a sample configuration:
   Alias /media  /home/user/haiwen/seafile-server-1.8.0/seahub/media
 
   SSLEngine On 
-  SSLCertificateFile "/path/to/cacert.pem" 
-  SSLCertificateKeyFile "/path/to/privkey.pem"
+  SSLCertificateFile /path/to/cacert.pem
+  SSLCertificateKeyFile /path/to/privkey.pem
 
   RewriteEngine On
 
@@ -48,6 +49,7 @@ Here is a sample configuration:
   #
   # seahub
   #
+  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </VirtualHost>
