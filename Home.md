@@ -11,7 +11,7 @@
 * [[Seafile Server Configuration Options ]]
 * [[Firewall Settings for Seafile Server ]]
 * [[Deploy Seafile with MySQL]] / [[Deploy Seafile with PostgreSQL]]
-* [[Deploy Seafile With nginx]] / [[Deploy Seafile With apache]]
+* [[Deploy Seafile With Nginx]] / [[Deploy Seafile With Apache]]
 * [[Enable Https on Seafile Web]]
 * [[Seafile server data backup]]
 * [[Configure Seafile to use LDAP]]

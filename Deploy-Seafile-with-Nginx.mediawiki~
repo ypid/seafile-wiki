@@ -3,7 +3,7 @@ Before continuing, ensure that:
 * you have installed the <code>python-flup</code> library
 * you have '''NOT''' started seahub or seafile
 
-== Deploy Seahub with Nginx ==
+== Deploy Seahub with nginx ==
 
 Assume you are running seahub as the root domain, for example '''www.myseafile.com'''
 
@@ -121,9 +121,9 @@ When [[upgrading seafile server]], besides the normal steps you should take, the
     }
 ```
 
-=== Enable Https on Seafile ===
+=== Enalbe Https on Seafile ===
 
-see [[Enalbe Https on Seafile web with Nginx]]
+see [[Enalbe Https on Seafile web with nginx]]
 
 == Deploy Seafile at Non-root domain ==
 
