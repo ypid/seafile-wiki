@@ -1,5 +1,4 @@
 == Enable https on Seahub ==
-* Modify Apache configuration file
 
 Assume you have configured Apache as [[Deploy Seafile with Apache]]. To use https, you need to modify your Apache configuration file.
 <pre>
