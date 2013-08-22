@@ -105,7 +105,7 @@ cd seafile-server-*
 
 If some of the prerequisites are not installed, the seafile initialization script will ask you to install them.
 
-[[images/server-setup.png|You'll see these outputs when you run the setup script]]
+[[images/server-setup.mysql.png|You'll see these outputs when you run the setup script]]
 
 The script will guide you through the settings of various configuration options.
 
@@ -165,6 +165,8 @@ Please choose a way to initialize seafile databases:
 
 If you choose "[1] Create new ccnet/seafile/seahub databases", you would be asked these questions:
 
+[[images/mysql-create-new.png|You'll see these output:]]
+
 {| border="1" cellspacing="0" cellpadding="5" align="center"
 |+ Database related questions for "Create new ccnet/seafile/seahub databases"
 ! Question
@@ -206,6 +208,8 @@ If you choose "[1] Create new ccnet/seafile/seahub databases", you would be aske
 
 
 If you choose "[2] Use existing ccnet/seafile/seahub databases", you would be asked these questions:
+
+[[images/mysql-use-existing.png|You'll see these output:]]
 
 {| border="1" cellspacing="0" cellpadding="5" align="center"
 |+ Database related questions for "Use existing ccnet/seafile/seahub databases"
@@ -372,4 +376,3 @@ That's it! Now you may want read more about seafile.
 * [[Seafile-server-management|How to manage the server]].
 * [[Deploy Seafile Web With Nginx/Apache|Deploy Seafile Web(Seahub) with Nginx/Apache]].
 * [[Deploy-Seafile-with-MySQL|Deploy Seafile with MySQL]].
-
