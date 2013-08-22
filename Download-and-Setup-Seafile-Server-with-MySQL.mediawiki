@@ -98,8 +98,6 @@ apt-get install python2.7 python-setuptools python-simplejson python-imaging pyt
 
 === Setup ===
 
-# use
-
 ```bash
 cd seafile-server-*
 ./setup-seafile-mysql.sh  #run the setup script & answer prompted questions
@@ -152,11 +150,24 @@ The script will guide you through the settings of various configuration options.
 |-
 |}
 
+
+At this moment, you need to choose a way to initialize seafile databases:
+
+```sh
+-------------------------------------------------------
+Please choose a way to initialize seafile databases:
+-------------------------------------------------------
+
+[1] Create new ccnet/seafile/seahub databases
+[2] Use existing ccnet/seafile/seahub databases
+
+```
+
 If you have choosed "[1] Create new ccnet/seafile/seahub databases", you would be asked these questions:
 
 {| border="1" cellspacing="0" cellpadding="5" align="center"
 |+ Database related questions for "Create new ccnet/seafile/seahub databases"
-! Option
+! Question
 ! Description
 ! Note
 |-
@@ -198,7 +209,7 @@ If you have choosed "[2] Use existing ccnet/seafile/seahub databases", you would
 
 {| border="1" cellspacing="0" cellpadding="5" align="center"
 |+ Database related questions for "Use existing ccnet/seafile/seahub databases"
-! Option
+! Question
 ! Description
 ! Note
 |-
@@ -228,7 +239,7 @@ If you have choosed "[2] Use existing ccnet/seafile/seahub databases", you would
 |-
 | seahub dabase name
 | the name of the database used by seahub, default is "seahub-db"
-| the database would be created if not existing
+| this database must already exist
 |}
 
 
@@ -361,3 +372,5 @@ That's it! Now you may want read more about seafile.
 * [[Seafile-server-management|How to manage the server]].
 * [[Deploy Seafile Web With Nginx/Apache|Deploy Seafile Web(Seahub) with Nginx/Apache]].
 * [[Deploy-Seafile-with-MySQL|Deploy Seafile with MySQL]].
+
+
