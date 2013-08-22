@@ -1,1 +1,363 @@
 ''This page is still in draft.''
+
+This manual explains how to setup and run Seafile server from a pre-built package with MySQL.
+
+Starting from Seafile Server 1.8.2, a script, <code>setup-seafile-mysql.sh</code>, is shipped with the seafile server package to automate the work of use Seafile with MySQL. Before that, you need to do a lot of work by hand.
+
+== Download ==
+
+[http://www.seafile.com/en/download Download] the latest server package.
+
+```bash
+#check if your system is x86 (32bit) or x86_64 (64 bit)
+uname -m
+
+#download for 32bit
+wget http://seafile.googlecode.com/files/seafile-server_{version}_i386.tar.gz
+#or for 64bit
+wget http://seafile.googlecode.com/files/seafile-server_{version}_x86-64.tar.gz
+```
+
+== Deploying and Directory Layout ==
+
+Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.4.0_* into your home directory.
+We suggest you to layout your deployment as follows :
+
+```bash
+mkdir haiwen
+mv seafile-server_* haiwen
+cd haiwen
+# after moving seafile-server_* to this directory
+tar -xzf seafile-server_*
+mkdir installed
+mv seafile-server_* installed
+```
+
+Now you should have the following directory layout
+```bash
+#tree haiwen -L 2
+haiwen
+├── installed
+│   └── seafile-server_1.4.0_x86-64.tar.gz
+└── seafile-server-1.4.0
+    ├── reset-admin.sh
+    ├── runtime
+    ├── seafile
+    ├── seafile.sh
+    ├── seahub
+    ├── seahub.sh
+    ├── setup-seafile.sh
+    └── upgrade
+```
+
+'''The benefit of this layout is that'''
+
+* We can place all the config files for Seafile server inside "haiwen" directory, making it easier to manage.
+* When you upgrade to a new version of Seafile, you can simply untar the latest package into "haiwen" directory. ''In this way you can reuse the existing config files in "haiwen" directory and don't need to configure again''.
+
+== About MySQL Databases ==
+
+Three components of Seafile Server need their own databases:
+
+* ccnet server
+* seafile server
+* seahub
+
+See [[Seafile Server Components Overview]] if you want to know more about the seafile server components.
+
+There are two ways to intialize the databases:
+
+# let the <code>setup-seafile-mysql.sh</code> script create the databases for you.
+# create the databases by yourself, or someone else (the database admin, for example)
+
+We recommend the first way. The script would ask you for the root password of the mysql server, and it will create:
+
+* database for ccnet/seafile/seahub.
+* a new user to access these databases
+
+However, if you don't have the root password, then you need someone who has the privileges, e.g., the database admin, to create the databases for you. Two create the databases by hand, refer to [[TODO]].
+
+
+== Setting Up Seafile Server ==
+
+=== Prerequisites ===
+
+The Seafile server package requires the following packages have been installed in your system
+
+* python 2.6 or 2.7
+* python-setuptools
+* python-simplejson
+* python-imaging
+* python-mysqldb
+
+```bash
+#on Debian/Ubuntu
+apt-get update
+apt-get install python2.7 python-setuptools python-simplejson python-imaging python-mysqldb
+```
+
+=== Setup ===
+
+# use
+
+```bash
+cd seafile-server-*
+./setup-seafile-mysql.sh  #run the setup script & answer prompted questions
+```
+
+If some of the prerequisites are not installed, the seafile initialization script will ask you to install them.
+
+[[images/server-setup.png|You'll see these outputs when you run the setup script]]
+
+The script will guide you through the settings of various configuration options.
+
+
+{| border="1" cellspacing="0" cellpadding="5" align="center"
+|+ Seafile configuration options
+! Option
+! Description
+! Note
+|-
+| server name
+| Name of this seafile server
+| 3-15 characters, only English letters, digits and underscore ('_') are allowed
+|-
+| server ip or domain
+| The IP address or domain name used by this server
+| Seafile client program will access the server with this address
+|-
+| ccnet server port
+| The TCP port used by ccnet, the underlying networking service of Seafile
+| Default is 10001. If it's been used by other service, you can set it to another port.
+|-
+| seafile data dir
+| Seafile stores your data in this directory. By default it'll be placed in the current directory.
+| The size of this directory will increase as you put more and more data into Seafile. Please select a disk partition with enough free space.
+|-
+| seafile server port
+| The TCP port used by Seafile to transfer data
+| Default is 12001. If it's been used by other service, you can set it to another port.
+|-
+| httpsever  port
+| The TCP port used by Seafile httpserver
+| Default is 8082. If it's been used by other service, you can set it to another port.
+|-
+| seahub admin email
+| Admin account for seafile website
+|
+|-
+| seahub admin password
+| Password for website admin
+|
+|-
+|}
+
+If you have choosed "[1] Create new ccnet/seafile/seahub databases", you would be asked these questions:
+
+{| border="1" cellspacing="0" cellpadding="5" align="center"
+|+ Database related questions for "Create new ccnet/seafile/seahub databases"
+! Option
+! Description
+! Note
+|-
+| mysql server host
+| the host address of the mysql server
+| the default is localhost
+|-
+| mysql server port
+| the port of the mysql server
+| the default is 3306. Almost every mysql server uses this port.
+|-
+| root password
+| the password of mysql root account 
+| The root password is required to create new databases and a new user
+|-
+| mysql user for seafile
+| the new user to use for mysql
+| all Seafile programs will access MySQL server using this user. If the user does not exist, it would be created
+|-
+| password for seafile mysql user
+| the password for the user above
+| 
+|-
+| ccnet dabase name
+| the name of the database used by ccnet, default is "ccnet-db"
+| the database would be created if not existing
+|-
+| seafile dabase name
+| the name of the database used by seafile, default is "seafile-db"
+| the database would be created if not existing
+|-
+| seahub dabase name
+| the name of the database used by seahub, default is "seahub-db"
+| the database would be created if not existing
+|}
+
+
+If you have choosed "[2] Use existing ccnet/seafile/seahub databases", you would be asked these questions:
+
+{| border="1" cellspacing="0" cellpadding="5" align="center"
+|+ Database related questions for "Use existing ccnet/seafile/seahub databases"
+! Option
+! Description
+! Note
+|-
+| mysql server host
+| the host address of the mysql server
+| the default is localhost
+|-
+| mysql server port
+| the port of the mysql server
+| the default is 3306. Almost every mysql server uses this port.
+|-
+| mysql user for seafile
+| the user to use for mysql.
+| all Seafile programs will access MySQL server using this user. The user must already exists.
+|-
+| password for seafile mysql user
+| the password for the user above. The password must be correct.
+| 
+|-
+| ccnet dabase name
+| the name of the database used by ccnet
+| this database must already exist
+|-
+| seafile dabase name
+| the name of the database used by seafile, default is "seafile-db"
+| this database must already exist
+|-
+| seahub dabase name
+| the name of the database used by seahub, default is "seahub-db"
+| the database would be created if not existing
+|}
+
+
+If the setup is successful, you'll see the following output
+
+[[images/server-setup-successfully.png]]
+
+Now you should have the following directory layout :
+```bash
+#tree haiwen -L 2
+haiwen
+├── ccnet               # configuration files
+│   ├── ccnet.conf
+│   ├── mykey.peer
+│   ├── PeerMgr
+│   └── seafile.ini
+├── installed
+│   └── seafile-server_1.4.0_x86-64.tar.gz
+├── seafile-data
+│   └── seafile.conf
+├── seafile-server-1.4.0  # active version
+│   ├── reset-admin.sh
+│   ├── runtime
+│   ├── seafile
+│   ├── seafile.sh
+│   ├── seahub
+│   ├── seahub.sh
+│   ├── setup-seafile.sh
+│   └── upgrade
+├── seahub-data
+│   └── avatars
+├── seahub_settings.py   # optional config file
+└── seahub_settings.pyc
+```
+
+== Running Seafile Server ==
+
+=== Before Running ===
+
+Since Seafile uses persistent connection between client and server, if you have '''a large number of clients ''', you should increase Linux file descriptors by ulimit before start seafile, like:
+
+```bash
+ulimit -n 30000
+```
+
+=== Starting Seafile Server and Seahub Website ===
+
+Under seafile-server-1.4.0 directory, run the following commands
+
+* Start seafile:
+
+```bash
+./seafile.sh start # Start seafile service
+```
+
+* Start seahub
+
+```bash
+./seahub.sh start <port>  # Start seahub website, port defaults to 8000
+```
+
+After starting the services, you may open a web browser and types
+```
+http://192.168.1.111:8000/
+```
+you will be redirected to the Login page. Enter the username and password you were provided during the Seafile setup. You will then be returned to the `Myhome` page where you can create libraries.
+
+'''Congratulations!''' Now you have successfully setup your private Seafile server.
+
+==== Run Seahub on another port ====
+
+If you want to run seahub in a port other than the default 8000, say 8001, you must:
+
+* stop the seafile server
+```bash
+./seahub.sh stop
+./seafile.sh stop
+```
+
+* modify the value of <code>SERVICE_URL</code> in the file <code>haiwen/ccnet/ccnet.conf</code>, like this: (assume your ip or domain is <code>192.168.1.100</code>)
+```bash
+SERVICE_URL = http://192.168.1.100:8001
+```
+
+* restart seafile server
+```bash
+./seafile.sh start
+./seahub.sh start 8001
+```
+
+see [[Seafile server configuration options]] for more details about <code>ccnet.conf</code>.
+
+== Stopping and Restarting Seafile and Seahub ==
+
+==== Stopping ====
+
+```bash
+./seahub.sh stop # stop seahub website
+./seafile.sh stop # stop seafile processes
+```
+
+==== Restarting ====
+
+```bash
+./seafile.sh restart
+./seahub.sh restart
+```
+
+==== When the Scripts Fail ====
+
+Most of the time, seafile.sh and seahub.sh work fine. But if they fail, you may
+
+* Use '''pgrep''' command to check if seafile/seahub processes are still running
+
+```bash
+pgrep -f seafile-controller # check seafile processes
+pgrep -f "manage.py run_gunicorn" # check seahub process
+```
+
+* Use '''pkill''' to kill the processes
+
+```bash
+pkill -f seafile-controller
+pkill -f "manage.py run_gunicorn"
+```
+
+==That's it!==
+That's it! Now you may want read more about seafile.
+
+* [[Seafile-server-management|How to manage the server]].
+* [[Deploy Seafile Web With Nginx/Apache|Deploy Seafile Web(Seahub) with Nginx/Apache]].
+* [[Deploy-Seafile-with-MySQL|Deploy Seafile with MySQL]].
