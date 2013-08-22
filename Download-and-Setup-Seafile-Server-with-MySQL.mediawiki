@@ -38,8 +38,8 @@ Now you should have the following directory layout
 #tree haiwen -L 2
 haiwen
 ├── installed
-│   └── seafile-server_1.4.0_x86-64.tar.gz
-└── seafile-server-1.4.0
+│   └── seafile-server_1.8.2_x86-64.tar.gz
+└── seafile-server-1.8.2
     ├── reset-admin.sh
     ├── runtime
     ├── seafile
@@ -75,7 +75,7 @@ We recommend the first way. The script would ask you for the root password of th
 * database for ccnet/seafile/seahub.
 * a new user to access these databases
 
-However, if you don't have the root password, then you need someone who has the privileges, e.g., the database admin, to create the databases for you. Two create the databases by hand, refer to [[TODO]].
+However, sometimes you have to use the second way. If you don't have the root password, you need someone who has the privileges, e.g., the database admin, to create the databases for you. To create the databases by hand, refer to [[TODO]].
 
 
 == Setting Up Seafile Server ==
@@ -151,7 +151,7 @@ The script will guide you through the settings of various configuration options.
 |}
 
 
-At this moment, you need to choose a way to initialize seafile databases:
+At this moment, you will be asked to choose a way to initialize seafile databases:
 
 ```sh
 -------------------------------------------------------
@@ -163,7 +163,7 @@ Please choose a way to initialize seafile databases:
 
 ```
 
-If you have choosed "[1] Create new ccnet/seafile/seahub databases", you would be asked these questions:
+If you choose "[1] Create new ccnet/seafile/seahub databases", you would be asked these questions:
 
 {| border="1" cellspacing="0" cellpadding="5" align="center"
 |+ Database related questions for "Create new ccnet/seafile/seahub databases"
@@ -205,7 +205,7 @@ If you have choosed "[1] Create new ccnet/seafile/seahub databases", you would b
 |}
 
 
-If you have choosed "[2] Use existing ccnet/seafile/seahub databases", you would be asked these questions:
+If you choose "[2] Use existing ccnet/seafile/seahub databases", you would be asked these questions:
 
 {| border="1" cellspacing="0" cellpadding="5" align="center"
 |+ Database related questions for "Use existing ccnet/seafile/seahub databases"
@@ -257,10 +257,10 @@ haiwen
 │   ├── PeerMgr
 │   └── seafile.ini
 ├── installed
-│   └── seafile-server_1.4.0_x86-64.tar.gz
+│   └── seafile-server_1.8.2_x86-64.tar.gz
 ├── seafile-data
 │   └── seafile.conf
-├── seafile-server-1.4.0  # active version
+├── seafile-server-1.8.2  # active version
 │   ├── reset-admin.sh
 │   ├── runtime
 │   ├── seafile
@@ -287,7 +287,7 @@ ulimit -n 30000
 
 === Starting Seafile Server and Seahub Website ===
 
-Under seafile-server-1.4.0 directory, run the following commands
+Under seafile-server-1.8.2 directory, run the following commands
 
 * Start seafile:
 
@@ -305,7 +305,7 @@ After starting the services, you may open a web browser and types
 ```
 http://192.168.1.111:8000/
 ```
-you will be redirected to the Login page. Enter the username and password you were provided during the Seafile setup. You will then be returned to the `Myhome` page where you can create libraries.
+you will be redirected to the Login page. Enter the username and password you were provided during the Seafile setup. You will then be returned to the <code>My Home</code> page where you can create libraries.
 
 '''Congratulations!''' Now you have successfully setup your private Seafile server.
 
@@ -372,5 +372,4 @@ That's it! Now you may want read more about seafile.
 * [[Seafile-server-management|How to manage the server]].
 * [[Deploy Seafile Web With Nginx/Apache|Deploy Seafile Web(Seahub) with Nginx/Apache]].
 * [[Deploy-Seafile-with-MySQL|Deploy Seafile with MySQL]].
-
 
