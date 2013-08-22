@@ -1,26 +1,40 @@
 #Seafile
 ##Server Basics
 * [[Seafile Server Components Overview]]
-* [[Download and Setup Seafile Server ]]
-* [[Seafile Server Management]]
-* [[Upgrading Seafile Server]]
-* [[Garbage Collecting Unused Blocks on Seafile Server]]
-* [[Seafile Logs]]
 
-##Server Advanced
-* [[Seafile Server Configuration Options ]]
-* [[Firewall Settings for Seafile Server ]]
+Deploy Seafile in Home/Personal Environment 
+
+* [[Download and Setup Seafile Server]] (Using SQLite)
+
+Deplay Seafile in Production/Enterprise Environment
+
 * [[Deploy Seafile with MySQL]] / [[Deploy Seafile with PostgreSQL]]
 * [[Deploy Seafile with Nginx]] / [[Deploy Seafile with Apache]]
-* [[Enable Https on Seafile Web with Nginx]] / [[Enable Https on Seafile Web with Apache]] 
-* [[Seafile server data backup]]
+* [[Enable Https on Seafile Web with Nginx]] / [[Enable Https on Seafile Web with Apache]]
 * [[Configure Seafile to use LDAP]]
+
+Other Deploy Issues
+
+* [[Seafile Server Configuration Options]]
+* [[Firewall Settings for Seafile Server]]
 * [[Start Seafile at System Bootup|Start Seafile Server at System Bootup]]
 * [[Deploy Seafile behind NAT|Deploy Seafile Server behind NAT]]
 
-## Deploy Seafile in Enterprise Environment (Draft)
+Manager/Maintain Seafile Server
+
+* [[Seafile Server Management]]
+* [[Upgrading Seafile Server]]
+* [[Garbage Collecting Unused Blocks on Seafile Server]]
+* [[Seafile server data backup]]
+* [[Seafile Logs]]
 
 
+## FAQ & Others
+
+* [[Seafile Server FAQ|Seafile FAQ]]
+* [Seafile Client FAQ](https://seacloud.cc/group/3/wiki/)
+* [FAQ for Security Features](https://seacloud.cc/group/3/wiki/faq-for-security-features/)
+* [[Press Reviews & Announcements]]
 
 ## Clients
 * [[Seafile CLI client]]
@@ -35,11 +49,7 @@
 * [[Build and Use Seafile client from source]]
 * [[Build seafile client on Mac]]
 
-## FAQ & Others
-* [[Seafile Server FAQ|Seafile FAQ]]
-* [Seafile Client FAQ](https://seacloud.cc/group/3/wiki/)
-* [FAQ for Security Features](https://seacloud.cc/group/3/wiki/faq-for-security-features/)
-* [[Press Reviews & Announcements]]
+
 
 ## For Chinese Users
 * [[Seafile 服务器手册中文版]]
