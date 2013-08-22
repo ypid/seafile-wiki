@@ -1,5 +1,6 @@
 #Seafile
-##Server Basics
+## Deploy Seafile Server
+
 * [[Seafile Server Components Overview]]
 
 Deploy Seafile in Home/Personal Environment 
@@ -20,7 +21,7 @@ Other Deploy Issues
 * [[Start Seafile at System Bootup|Start Seafile Server at System Bootup]]
 * [[Deploy Seafile behind NAT|Deploy Seafile Server behind NAT]]
 
-Manager/Maintain Seafile Server
+## Manager/Maintain Seafile Server
 
 * [[Seafile Server Management]]
 * [[Upgrading Seafile Server]]
