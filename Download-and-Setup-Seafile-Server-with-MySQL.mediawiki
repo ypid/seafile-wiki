@@ -1,8 +1,8 @@
-''This page is still in draft.''
+''Note: This page is still in draft.''
 
-This manual explains how to setup and run Seafile server from a pre-built package with MySQL.
+This manual explains how to setup and run seafile server from a pre-built package with MySQL.
 
-Starting from Seafile Server 1.8.2, a script, <code>setup-seafile-mysql.sh</code>, is shipped with the seafile server package to automate the work of use Seafile with MySQL. Before that, you need to do a lot of work by hand.
+Before seafile server 1.8.2, you need to do a lot of work by handle to config seafile server with MySQL. Starting from Seafile Server 1.8.2, a script, '''setup-seafile-mysql.sh''', is shipped with the seafile server package to automate the tedious work for you.
 
 == Download ==
 
@@ -20,7 +20,7 @@ wget http://seafile.googlecode.com/files/seafile-server_{version}_x86-64.tar.gz
 
 == Deploying and Directory Layout ==
 
-Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.4.0_* into your home directory.
+Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.8.2_* into your home directory.
 We suggest you to layout your deployment as follows :
 
 ```bash
@@ -55,7 +55,7 @@ haiwen
 * We can place all the config files for Seafile server inside "haiwen" directory, making it easier to manage.
 * When you upgrade to a new version of Seafile, you can simply untar the latest package into "haiwen" directory. ''In this way you can reuse the existing config files in "haiwen" directory and don't need to configure again''.
 
-== About MySQL Databases ==
+== Prepare MySQL Databases ==
 
 Three components of Seafile Server need their own databases:
 
@@ -163,6 +163,11 @@ Please choose a way to initialize seafile databases:
 
 ```
 
+Which one to choose depends on if you have the root password. 
+
+* If you choose "1", you need to provide the root password. The script would create the databases and a new user to access the databases
+* If you choose "2", the ccnet/seafile/seahub databases must have already been created, either by you, or someone else.
+
 If you choose "[1] Create new ccnet/seafile/seahub databases", you would be asked these questions:
 
 [[images/mysql-create-new.png|You'll see these output:]]
@@ -183,11 +188,11 @@ If you choose "[1] Create new ccnet/seafile/seahub databases", you would be aske
 |-
 | root password
 | the password of mysql root account 
-| The root password is required to create new databases and a new user
+| the root password is required to create new databases and a new user
 |-
 | mysql user for seafile
-| the new user to use for mysql
-| all Seafile programs will access MySQL server using this user. If the user does not exist, it would be created
+| the username for seafile programs to use to access MySQL server
+| if the user does not exist, it would be created
 |-
 | password for seafile mysql user
 | the password for the user above
@@ -223,14 +228,14 @@ If you choose "[2] Use existing ccnet/seafile/seahub databases", you would be as
 |-
 | mysql server port
 | the port of the mysql server
-| the default is 3306. Almost every mysql server uses this port.
+| the default is 3306. Almost every mysql server uses this port
 |-
 | mysql user for seafile
-| the user to use for mysql.
-| all Seafile programs will access MySQL server using this user. The user must already exists.
+| the user for seafile programs to use to access MySQL server
+| the user must already exists
 |-
 | password for seafile mysql user
-| the password for the user above. The password must be correct.
+| the password for the user above
 | 
 |-
 | ccnet dabase name
@@ -375,4 +380,3 @@ That's it! Now you may want read more about seafile.
 
 * [[Seafile-server-management|How to manage the server]].
 * [[Deploy Seafile Web With Nginx/Apache|Deploy Seafile Web(Seahub) with Nginx/Apache]].
-* [[Deploy-Seafile-with-MySQL|Deploy Seafile with MySQL]].
