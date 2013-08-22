@@ -18,6 +18,10 @@
 * [[Start Seafile at System Bootup|Start Seafile Server at System Bootup]]
 * [[Deploy Seafile behind NAT|Deploy Seafile Server behind NAT]]
 
+## Deploy Seafile in Enterprise Environment (Draft)
+
+
+
 ## Clients
 * [[Seafile CLI client]]
 
