@@ -105,27 +105,11 @@ Here is sample config after merging above lines:
 
 == Start Seafile and Seahub ==
 
-=== Start Seafile/Seahub (when using the pre-compiled server package) ===
-
-Assume you have followed the steps in [[Download and Setup Seafile Server]], please run commands as follows:
+=== Start Seafile/Seahub ===
 
 <pre>
 ./seafile.sh start
 ./seahub.sh start-fastcgi
-</pre>
-
-=== Start Seafile/Seahub (when building seafile server from source) ===
-
-Assume you have followed the steps of [[Build and Deploy Seafile Server from source]]. To start seafile, and start seahub in fastcgi mode, you should:
-
-<pre>
-seafile-admin start --fastcgi
-</pre>
-
-The default port is <code>8000</code>, to use another port, just append a <code>--port</code> argument:
-
-<pre>
-seafile-admin start --fastcgi --port [PORT]
 </pre>
 
 == Notes when Upgrading Seafile Server ==
