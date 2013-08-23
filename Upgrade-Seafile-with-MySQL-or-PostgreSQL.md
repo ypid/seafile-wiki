@@ -1,8 +1,8 @@
-## Major Continuous Upgrade (like from 1.2 to 1.3)
+## Major Continuous Upgrade (like from 1.5 to 1.6)
 
-Major continuous upgrade including upgrading from 1.2.0 to 1.3.0 or upgrading from 1.2.0 to 1.3.1.
+Major continuous upgrade including upgrading from 1.5.0 to 1.6.0 or upgrading from 1.5.0 to 1.6.1.
 
-Minor upgrade, like upgrade from 1.3.0 to 1.3.1, is documented in a separate section below.
+Minor upgrade, like upgrade from 1.6.0 to 1.6.1, is documented in a separate section below.
 
 #### Update avatars symbolic link
 
