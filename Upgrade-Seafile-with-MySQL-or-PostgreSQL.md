@@ -97,14 +97,14 @@ For Nginx:
 
 ```
   location /media {
-      root /data/haiwen/seafile-server-1.6.0/seahub;
+      root /data/haiwen/seafile-server-1.5.1/seahub;
   }
 ```
 
 For Apache:
 
 ```
-Alias /media  /data/haiwen/seafile-server-1.6.0/seahub/media
+Alias /media  /data/haiwen/seafile-server-1.5.1/seahub/media
 ```
 
 #### Restart Seafile/Seahub/Nginx/Apache
