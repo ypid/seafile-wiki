@@ -1,4 +1,3 @@
-**Note:** Do not forget to [update your Nginx/Apache config file](https://github.com/haiwen/seafile/wiki/Deploy-Seafile-Web-with-nginx-apache#notes-when-upgrading-seafile-server) if you deploy seafile with them.
 
 ## Major Continuous Upgrade (like from 1.2 to 1.3)
 
