@@ -64,35 +64,30 @@ Just run the upgrade scripts in sequence. (You don't need to download server pac
 ## Minor upgrade (like from 1.5.0 to 1.5.1)
 Minor upgrade is like an upgrade from 1.5.0 to 1.5.1. 
 
-1. Here is our dir strutcutre
-```sh
-cd haiwen
-tree -L 1
-.
-├── app
-├── ccnet
-├── seafile-data
-├── seafile-server-1.5.0
-├── seafile-server-1.5.1
-├── seahub-data
-├── seahub.db
-├── seahub_settings.py
-└── seahub_settings.pyc
-```
+Here is our dir strutcutre
+
+<pre>
+haiwen
+   -- seafile-server-1.5.0
+   -- seafile-server-1.5.1
+   -- ccnet
+   -- seafile-data
+</pre>
+
 1. Stop the current server first as for any upgrade 
 ```sh
 seafile-server-1.5.0/seahub.sh stop
 seafile-server-1.5.0/seafile.sh stop
 ```
-1. For this type of upgrade, you only need to update the avatar link.
+1. For this type of upgrade, you only need to update the avatar link. We provide a script for you, just run it:
 ```sh
-rm -rf seafile-server-1.5.1/seahub/media/avatars
-#the new server avatars' folder will be linked to the updated avatars folder
-ln -s -t seafile-server-1.5.1/seahub/media/  ../../../seahub-data/avatars/  
+cd seafile-server-1.5.1
+upgrade/minor-upgrade.sh
 ```
 
 1. Start the new server version as for any upgrade 
 ```sh
+cd ..
 seafile-server-1.5.1/seafile.sh start
 seafile-server-1.5.1/seahub.sh start
 ```
