@@ -1,18 +1,20 @@
 #Seafile
-## Deploy Seafile Server
+## Deploy/Upgrade Seafile Server
 
 * [[Seafile Server Components Overview]]
 
-Deploy Seafile in Home/Personal Environment 
+Deploy/Upgrade Seafile in Home/Personal Environment 
 
 * [[Download and Setup Seafile Server]] (Using SQLite)
+* [[Upgrade Seafile Server|Upgrading Seafile Server]]
 
-Deplay Seafile in Production/Enterprise Environment
+Deploy/Upgrade Seafile in Production/Enterprise Environment
 
 * [[Deploy Seafile with MySQL]] / [[Deploy Seafile with PostgreSQL]]
 * [[Deploy Seafile with Nginx]] / [[Deploy Seafile with Apache]]
 * [[Enable Https on Seafile Web with Nginx]] / [[Enable Https on Seafile Web with Apache]]
 * [[Configure Seafile to use LDAP]]
+* [[Upgrade Seafile Server|Upgrade Seafile Server with MySQL]] (with MySQL/PostgreSQL)
 
 Other Deploy Issues
 
