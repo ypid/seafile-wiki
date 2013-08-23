@@ -6,34 +6,14 @@ This page is for users who use the pre-compiled seafile server package.
 
 - If you have deployed seafile server with mysql, you need to manually update your database tables. See [[Deploy Seafile with MySQL]] for details.
 
-## Continuous Upgrade (like from 1.2 to 1.3)
+## Major Continuous Upgrade (like from 1.2 to 1.3)
 
 Continuous upgrade means to upgrade from one version of Seafile server to the next version.
-For example, upgrading from 1.2.0 to 1.3.0 is a continuous upgrade.
+For example, upgrading from 1.2.0 to 1.3.0 (or upgrading from 1.2.0 to 1.3.1) is a continuous upgrade.
 
 **Note:** Minor upgrade, like upgrade from 1.3.0 to 1.3.1, is documented in a separate section below.
 
-Let's use an example to go through the process. Supposed you installed Seafile server 1.2.0
-following the steps in [[Download and Setup Seafile Server]], you should have a directory
-layout similar to this:
-
-<pre>
-haiwen
-   -- seafile-server-1.2.0
-   -- ccnet
-   -- seafile-data
-</pre>
-
-Now you want to upgrade to version 1.3.0.
-
-First, you should shutdown Seafile server if it's running
-
-    $ cd haiwen/seafile-server-1.2.0
-    $ ./seahub.sh stop
-    $ ./seafile.sh stop
-
-Then download seafile-server_1.3.0_x86-64.tar.gz and extract it to `haiwen` directory.
-Now you have the following directory layout:
+First, download seafile-server_1.3.0_x86-64.tar.gz and extract it to the directory where you put all Seafile related staff. You should have a directory layout similar to this:
 
 <pre>
 haiwen
@@ -43,13 +23,29 @@ haiwen
    -- seafile-data
 </pre>
 
-Finally run the upgrade script in seafile-server-1.3.0 directory.
+Now upgrade to version 1.3.0.
 
-    $ cd haiwen/seafile-server-1.3.0/upgrade
-    $ ./upgrade_1.2_1.3_server.sh
+1. Shutdown Seafile server if it's running
 
-The naming rule for upgrade scripts is `upgrade_a.b_x.y.sh`,
-where `a.b` is the old version, and `x.y` is the new version.
+```sh
+cd haiwen/seafile-server-1.2.0
+./seahub.sh stop
+./seafile.sh stop
+```
+
+2. Run the upgrade script in seafile-server-1.3.0 directory.
+
+```sh
+cd haiwen/seafile-server-1.3.0
+upgrade/upgrade_1.2_1.3_server.sh
+```
+
+3. Start the new server version as for any upgrade 
+```sh
+cd haiwen/seafile-server-1.3.0/
+./seafile.sh start
+./seahub.sh start
+```
 
 ## Noncontinuous Upgrade (like from 1.1 to 1.3)
 
