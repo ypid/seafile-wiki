@@ -1,4 +1,3 @@
-
 ## Major Continuous Upgrade (like from 1.2 to 1.3)
 
 Continuous upgrade means to upgrade from one version of Seafile server to the next version.
@@ -84,26 +83,16 @@ haiwen
    -- seafile-data
 </pre>
 
-1. Stop the current server first as for any upgrade 
-```sh
-seafile-server-1.5.0/seahub.sh stop
-seafile-server-1.5.0/seafile.sh stop
-```
+### Update the avatar link
 
-1. For this type of upgrade, you only need to update the avatar link. We provide a script for you, just run it:
+We provide a script for you, just run it:
+
 ```sh
 cd seafile-server-1.5.1
 upgrade/minor-upgrade.sh
 ```
 
-1. Start the new server version as for any upgrade 
-```sh
-cd ..
-seafile-server-1.5.1/seafile.sh start
-seafile-server-1.5.1/seahub.sh start
-```
-
-1. Update Nginx/Apache Config
+### Update Nginx/Apache Config
 
 For Nginx:
 
@@ -118,3 +107,7 @@ For Apache:
 ```
 Alias /media  /data/haiwen/seafile-server-1.6.0/seahub/media
 ```
+
+### Restart Seafile/Seahub/Nginx/Apache
+
+After done above updating, now restart Seafile/Seahub/Nginx/Apache to see the new version at work!
