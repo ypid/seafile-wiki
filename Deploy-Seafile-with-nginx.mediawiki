@@ -37,6 +37,17 @@ server {
 }
 </pre>
 
+=== Modify ccnet.conf ===
+
+You need to modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
+to let Seafile know the domain you choose.
+
+<pre>
+SERVICE_URL = http://www.myseafile.com
+</pre>
+
+'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+
 == Deploy Httpserver with Nginx ==
 
 In seafile, Httpserver is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for http request. You may want to deploy httpserver behind nginx/apache because:
@@ -72,43 +83,11 @@ You need to add a line in <code>seahub_settings.py</code> to set the value of `H
 HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
 
-'''Note''': If later for some reason you don't deploy httpserver behind nginx/apache anymore, remember to remove the line you have added above!
-
 == Start Seafile and Seahub ==
-
-Before you start seafile and seahub, you first need to modify the file <code>ccnet.conf</code>.
-
-=== Modify ccnet.conf ===
-
-Modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
-
-<pre>
-SERVICE_URL = http://www.myseafile.com
-</pre>
-
-'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
-
-=== Start Seafile/Seahub (when using the pre-compiled server package) ===
-
-Assume you have followed the steps in [[Download and Setup Seafile Server]], please run commands as follows:
 
 <pre>
 ./seafile.sh start
 ./seahub.sh start-fastcgi
-</pre>
-
-=== Start Seafile/Seahub (when building seafile server from source) ===
-
-Assume you have followed the steps of [[Build and Deploy Seafile Server from source]]. To start seafile, and start seahub in fastcgi mode, you should:
-
-<pre>
-seafile-admin start --fastcgi
-</pre>
-
-The default port is <code>8000</code>, to use another port, just append a <code>--port</code> argument:
-
-<pre>
-seafile-admin start --fastcgi --port [PORT]
 </pre>
 
 == Notes when Upgrading Seafile Server ==
@@ -120,4 +99,3 @@ When [[upgrading seafile server]], besides the normal steps you should take, the
         root /home/user/haiwen/seafile-server-1.4.0/seahub;
     }
 ```
-
