@@ -75,8 +75,19 @@ We recommend the first way. The script would ask you for the root password of th
 * database for ccnet/seafile/seahub.
 * a new user to access these databases
 
-However, sometimes you have to use the second way. If you don't have the root password, you need someone who has the privileges, e.g., the database admin, to create the databases for you. To create the databases by hand, refer to [[TODO]].
+However, sometimes you have to use the second way. If you don't have the root password, you need someone who has the privileges, e.g., the database admin, to create the three databases, as well as a mysql user who can access the three databases for you. For example, to create three databases: <code>ccnet-db</code> / <code>seafile-db</code> / <code>seahub-db</code> for ccnet/seafile/seahub respectively, and a mysql user "seafile" to access these databases:
 
+```sql
+create database `ccnet-db` character set = 'utf8';
+create database `seafile-db` character set = 'utf8';
+create database `seahub-db` character set = 'utf8';
+
+create user 'seafile'@'localhost' identified by 'seafile';
+
+GRANT ALL PRIVILEGES ON `ccnet-db`.* to `seafile`;
+GRANT ALL PRIVILEGES ON `seafile-db`.* to `seafile`;
+GRANT ALL PRIVILEGES ON `seahub-db`.* to `seafile`;
+```
 
 == Setting Up Seafile Server ==
 
