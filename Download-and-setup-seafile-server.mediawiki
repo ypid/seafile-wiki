@@ -255,4 +255,3 @@ That's it! Now you may want read more about seafile.
 
 * [[Seafile-server-management|How to manage the server]].
 * [[Deploy Seafile Web With Nginx/Apache|Deploy Seafile Web(Seahub) with Nginx/Apache]].
-* [[Deploy-Seafile-with-MySQL|Deploy Seafile with MySQL]].
