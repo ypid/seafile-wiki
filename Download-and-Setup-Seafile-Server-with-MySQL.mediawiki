@@ -1,4 +1,3 @@
-''Note: This page is still in draft.''
 
 This manual explains how to setup and run seafile server from a pre-built package with MySQL.
 
