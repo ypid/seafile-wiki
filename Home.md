@@ -6,7 +6,7 @@
 Deploy/Upgrade Seafile in Home/Personal Environment 
 
 * [[Download and Setup Seafile Server]] (Using SQLite)
-* [[Upgrade Seafile Server|Upgrading Seafile Server]]
+* [[Upgrade Seafile Server|Upgrading Seafile Server]] (Using SQLite)
 
 Deploy/Upgrade Seafile in Production/Enterprise Environment
 
