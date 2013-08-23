@@ -27,25 +27,24 @@ Now upgrade to version 1.3.0.
 
 1. Shutdown Seafile server if it's running
 
-```sh
-cd haiwen/seafile-server-1.2.0
-./seahub.sh stop
-./seafile.sh stop
-```
-
+   ```sh
+   cd haiwen/seafile-server-1.2.0
+   ./seahub.sh stop
+   ./seafile.sh stop
+   ```
 2. Run the upgrade script in seafile-server-1.3.0 directory.
 
-```sh
-cd haiwen/seafile-server-1.3.0
-upgrade/upgrade_1.2_1.3_server.sh
-```
-
+   ```sh
+   cd haiwen/seafile-server-1.3.0
+   upgrade/upgrade_1.2_1.3_server.sh
+   ```
 3. Start the new server version as for any upgrade 
-```sh
-cd haiwen/seafile-server-1.3.0/
-./seafile.sh start
-./seahub.sh start
-```
+
+   ```sh
+   cd haiwen/seafile-server-1.3.0/
+   ./seafile.sh start
+   ./seahub.sh start
+   ```
 
 ## Noncontinuous Upgrade (like from 1.1 to 1.3)
 
