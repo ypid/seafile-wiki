@@ -42,6 +42,26 @@ seafile-server-1.6.0
                 ├── ccnet.mysql
 ```
 
+### Update Nginx/Apache Config
+
+For Nginx:
+
+```
+  location /media {
+      root /data/haiwen/seafile-server-1.6.0/seahub;
+  }
+```
+
+For Apache:
+
+```
+Alias /media  /data/haiwen/seafile-server-1.6.0/seahub/media
+```
+
+### Restart Seafile/Seahub/Nginx/Apache
+
+After done above updating, now restart Seafile/Seahub/Nginx/Apache to see the new version at work!
+
 ## Noncontinuous Upgrade (like from 1.1 to 1.3)
 
 You may also upgrade a few versions at once, e.g. from 1.1.0 to 1.3.0.
@@ -50,9 +70,9 @@ The procedure is:
 1. upgrade from 1.1.0 to 1.2.0;
 2. upgrade from 1.2.0 to 1.3.0.
 
-Just run the upgrade scripts in sequence. (You don't need to download server package 1.2.0)
 
 ## Minor upgrade (like from 1.5.0 to 1.5.1)
+
 Minor upgrade is like an upgrade from 1.5.0 to 1.5.1. 
 
 Here is our dir strutcutre
@@ -70,6 +90,7 @@ haiwen
 seafile-server-1.5.0/seahub.sh stop
 seafile-server-1.5.0/seafile.sh stop
 ```
+
 1. For this type of upgrade, you only need to update the avatar link. We provide a script for you, just run it:
 ```sh
 cd seafile-server-1.5.1
@@ -83,7 +104,18 @@ seafile-server-1.5.1/seafile.sh start
 seafile-server-1.5.1/seahub.sh start
 ```
 
-1. If the new version works file, the old version can be removed
-```sh
-rm -rf seafile-server-1.5.0
+1. Update Nginx/Apache Config
+
+For Nginx:
+
+```
+  location /media {
+      root /data/haiwen/seafile-server-1.6.0/seahub;
+  }
+```
+
+For Apache:
+
+```
+Alias /media  /data/haiwen/seafile-server-1.6.0/seahub/media
 ```
