@@ -10,8 +10,8 @@ Deploy/Upgrade Seafile in Home/Personal Environment
 
 Deploy/Upgrade Seafile in Production/Enterprise Environment
 
-* [[Download and Setup Seafile Server with MySQL]]
-* [[Deploy Seafile with MySQL]] / [[Deploy Seafile with PostgreSQL]]
+* [[Download and Setup Seafile Server with MySQL]] (For server version >= 1.8.2)
+* [[Deploy Seafile with MySQL]] (For server version < 1.8.2) / [[Deploy Seafile with PostgreSQL]]
 * [[Deploy Seafile with Nginx]] / [[Deploy Seafile with Apache]]
 * [[Enable Https on Seafile Web with Nginx]] / [[Enable Https on Seafile Web with Apache]]
 * [[Configure Seafile to use LDAP]]
