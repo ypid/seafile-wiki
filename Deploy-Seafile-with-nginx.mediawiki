@@ -121,10 +121,3 @@ When [[upgrading seafile server]], besides the normal steps you should take, the
     }
 ```
 
-=== Enable Https on Seafile ===
-
-see [[Enable Https on Seafile web with Nginx]]
-
-== Deploy Seafile at Non-root domain ==
-
-See [[Deploy Seafile Web at Non root domain]]
