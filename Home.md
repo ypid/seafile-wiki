@@ -14,7 +14,7 @@ Deploy/Upgrade Seafile in Production/Enterprise Environment
 * [[Deploy Seafile with Nginx]] / [[Deploy Seafile with Apache]]
 * [[Enable Https on Seafile Web with Nginx]] / [[Enable Https on Seafile Web with Apache]]
 * [[Configure Seafile to use LDAP]]
-* [[Upgrade Seafile Server|Upgrade Seafile with MySQL or PostgreSQLL]] (with MySQL/PostgreSQL)
+* [[Upgrade Seafile Server|Upgrade Seafile with MySQL or PostgreSQL]] (with MySQL/PostgreSQL)
 
 Other Deploy Issues
 
