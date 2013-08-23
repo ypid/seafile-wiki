@@ -20,23 +20,9 @@ The GC program cleans up two types of unused blocks:
 This is because new blocks written into Seafile while GC is running may be
 mistakenly deleted by the GC program.
 
-Supposed you've setup Seafile server as in [[Download and setup seafile server]],
-and all your seafile related data is under "~/haiwen" directory, you should have
-a directory layout similar to the following:
-
-<pre>
-   haiwen
-     --seafile-server-{version} # untar from seafile package
-     --seafile-data   # seafile configuration and data (if you choose the default)
-     --seahub-data    # seahub data
-     --ccnet          # ccnet configuration and data 
-     --seahub.db      # sqlite3 database used by seahub
-     --seahub_settings.py # optional config file for seahub
-</pre>
-
 To run GC program
 
-    cd ~/haiwen/seafile-server-{version}/seafile
+    cd seafile-server-{version}/seafile
     export LD_LIBRARY_PATH=./lib:${LD_LIBRARY_PATH}
     ./bin/seafserv-gc -c ../../ccnet -d ../../seafile-data
 
