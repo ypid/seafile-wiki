@@ -26,7 +26,6 @@ Other Deploy Issues
 ## Manager/Maintain Seafile Server
 
 * [[Seafile Server Management]]
-* [[Upgrading Seafile Server]]
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
 * [[Seafile server data backup]]
 * [[Seafile Logs]]
