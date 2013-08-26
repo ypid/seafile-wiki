@@ -112,6 +112,13 @@ cd seafile-server-*
 ./setup-seafile-mysql.sh  #run the setup script & answer prompted questions
 ```
 
+Note, we have a bug in version 1.8.2 with this script. You can run the setup script with a normal user (not root) to bypass the problem. Or you can comment out line 411 of setup-seafile-mysql.py to solve the problem:
+
+```
+  # self.check_mysql_server(host,port)    
+```
+
+
 If some of the prerequisites are not installed, the seafile initialization script will ask you to install them.
 
 [[images/server-setup.mysql.png|You'll see these outputs when you run the setup script]]
