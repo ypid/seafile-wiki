@@ -1,24 +1,25 @@
-Before continuing, ensure that:
-
-* you have installed the <code>python-flup</code> library
-* you have '''NOT''' started seahub or seafile
 
 ## Prepare
 
 1. Install <code>python-flup</code> library. On Ubuntu:
-
+ 
+    ```
     sudo apt-get install python-flup
+    ```
 
 2. Install and enable mod_fastcgi and also enable mod_rewrite. On Ubuntu:
 
+    ```
     sudo apt-get install libapache2-mod-fastcgi
     cd /etc/apache2/mod-enabled
     sudo ln -s ../mods-available/rewrite.load rewrite.load
+    ```
 
 3. Enable apache proxy
 
+    ```
     a2enmod proxy_http
-
+    ```
 
 ## Deploy Seahub/HttpServer With Apache
 
@@ -28,13 +29,15 @@ Here we deploy Seahub using fastcgi, and deploy HttpServer with reverse proxy. W
 
 First edit `httpd.conf` file, add this line:
 
-  FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
+```
+FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
+```
 
 Note, "/var/www/seahub.fcgi" is just a placeholder, you don't need to actually have this file in your system.
 
 This is a sample Apache config file (`site-enabled/000-default`):
 
-<pre>
+```
 <VirtualHost *:80>
   ServerName www.myseafile.com
   DocumentRoot /var/www
@@ -56,7 +59,7 @@ This is a sample Apache config file (`site-enabled/000-default`):
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </VirtualHost>
-</pre>
+```
 
 ## Modify ccnet.conf and seahub_setting.py
 
