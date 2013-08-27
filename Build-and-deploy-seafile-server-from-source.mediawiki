@@ -115,7 +115,7 @@ make install
 
 ```bash
 cd seafile-${VERSION}/
-./configure --disable-client --enable-server --enable-httpserver
+./configure --disable-client --enable-server
 make
 make install
 ```
