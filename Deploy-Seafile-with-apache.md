@@ -1,4 +1,3 @@
-
 ## Prepare
 
 1. Install <code>python-flup</code> library. On Ubuntu:
@@ -72,7 +71,7 @@ to let Seafile know the domain you choose.
 SERVICE_URL = http://www.myseafile.com
 </pre>
 
-'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+Note: If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
 
 ### Modify seahub_settings.py
 
