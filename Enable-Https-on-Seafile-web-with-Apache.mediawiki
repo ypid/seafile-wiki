@@ -15,26 +15,7 @@ Assume you have configured Apache as [[Deploy Seafile with Apache]]. To use http
 [sudo] a2enmod ssl
 </pre>
 
-Then modify your Apache configuration file.
-<pre>
-<VirtualHost *:443>
-  ServerName www.myseafile.com
-  DocumentRoot /var/www
-  Alias /media  /home/user/haiwen/seafile-server-1.8.0/seahub/media
-  SSLEngine On 
-  SSLCertificateFile "/path/to/cacert.pem" 
-  SSLCertificateKeyFile "/path/to/privkey.pem"
-
-  RewriteEngine On
-  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-</VirtualHost>
-</pre>
-
-=== Sample config ===
-
-Here is a sample configuration:
+Then modify your Apache configuration file. Here is a sample:
 
 <pre>
 <VirtualHost *:443>
