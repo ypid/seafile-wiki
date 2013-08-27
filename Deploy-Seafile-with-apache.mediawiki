@@ -42,12 +42,7 @@ SERVICE_URL = http://www.myseafile.com
 
 == Deploy HttpServer behind Apache ==
 
-In Seafile, HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request. You may want to deploy HttpServer behind Apache because:
-
-* Your server is befind a firewall, and you don't want open too many ports in the firewall
-* You want to enable HTTPS on HttpServer.
-
-If you want to deploy httpserver behind nginx/apache, follow the steps below.
+In Seafile, HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request. Here we use Apache reverse proxy to deploy HttpServer behind Apache.
 
 We assume your domain name is '''http://www.myseafile.com''', and here we deploy HttpServer to the '''/seafhttp''' path.
 
