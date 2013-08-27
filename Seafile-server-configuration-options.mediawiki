@@ -127,7 +127,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 </pre>
 
-'''Note''': If your Email service still can not work, you may checkout the log file <code>/tmp/seahub.log</code> to see what may cause the problem.
+'''Note''': If your Email service still can not work, you may checkout the log file <code>/tmp/seahub.log</code> to see what may cause the problem. For complete email notification list, please refer to [[Email notification list]].
 
 === Customize Seahub Logo ===
 
