@@ -100,8 +100,6 @@ Here is final sample config:
 
 == Start Seafile and Seahub ==
 
-=== Start Seafile/Seahub ===
-
 <pre>
 ./seafile.sh start
 ./seahub.sh start-fastcgi
