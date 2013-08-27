@@ -34,7 +34,7 @@ FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
 
 Note, "/var/www/seahub.fcgi" is just a placeholder, you don't need to actually have this file in your system.
 
-This is a sample Apache config file (`site-enabled/000-default`):
+Second, modify Apache config file (`site-enabled/000-default`):
 
 ```
 <VirtualHost *:80>
