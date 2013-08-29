@@ -151,6 +151,13 @@ You may change seahub website's settings by adding variables in `seahub_settings
 
 <pre>
 
+# Choices can be found here:
+# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+# although not all choices may be available on all operating systems.
+# If running in a Windows environment this must be set to the same as your
+# system time zone.
+TIME_ZONE = 'UTC'
+
 # Set this to seahub website's URL. This URL is contained in email notifications.
 SITE_BASE = 'http://www.example.com/'
 
