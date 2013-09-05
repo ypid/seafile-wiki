@@ -186,6 +186,11 @@ USE_PDFJS = True
 # NOTE: since version 1.4.
 ENABLE_SIGNUP = False
 
+# Activate or deactivate user when registration complete. Default is `True`.
+# If set to `False`, new users need to be activated by admin in admin panel.
+# NOTE: since version 1.8
+ACTIVATE_AFTER_REGISTRATION = False
+
 # Whether to send email when a system admin adding a new member. Default is `True`.
 # NOTE: since version 1.4.
 SEND_EMAIL_ON_ADDING_SYSTEM_MEMBER = True
