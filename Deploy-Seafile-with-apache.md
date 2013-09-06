@@ -26,7 +26,7 @@ Seahub is the web interface of Seafile server. HttpServer is used to handle raw 
 
 Here we deploy Seahub using fastcgi, and deploy HttpServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
 
-First edit `httpd.conf` file, add this line:
+First edit `apache2.conf` file, add this line to the end of the file:
 
 ```
 FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
