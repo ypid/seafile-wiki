@@ -133,6 +133,7 @@ In seafile, Httpserver is used to handle raw file uploading/downloading through 
 
 * Your server is befind a firewall, and you don't want open too many ports in the firewall
 * You want to enable HTTPS on httpserver.
+* Your server is behind a reverse proxy dedicated to https (https frontend).
 
 If you want to deploy httpserver behind nginx/apache, follow the steps below.
 
@@ -145,7 +146,7 @@ We assume your domain name is '''http://www.myseafile.com''', and here we deploy
 ```nginx
     location /seafhttp {
         rewrite ^/seafhttp(.*)$ $1 break;
-        proxy_pass https://127.0.0.1:8082; # or http://127.0.0.1:8082 if you don't use https
+        proxy_pass http://127.0.0.1:8082; # or https://127.0.0.1:8082 if you are using https
         client_max_body_size 0;
     }
 ```
