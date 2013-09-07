@@ -6,7 +6,7 @@ Install <code>python-flup</code> library. On Ubuntu:
 sudo apt-get install python-flup
 ```
 
-== Deploy Seahub/HttpServer with Nginx ==
+## Deploy Seahub/HttpServer with Nginx
 
 Seahub is the web interface of Seafile server. HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request. 
 
