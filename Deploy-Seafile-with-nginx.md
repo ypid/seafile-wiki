@@ -73,15 +73,14 @@ You need to add a line in <code>seahub_settings.py</code> to set the value of `H
 HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
 
-
-== Start Seafile and Seahub ==
+## Start Seafile and Seahub
 
 <pre>
 ./seafile.sh start
 ./seahub.sh start-fastcgi
 </pre>
 
-== Notes when Upgrading Seafile Server ==
+## Notes when Upgrading Seafile Server
 
 When [[upgrading seafile server]], besides the normal steps you should take, there is one extra step to do: '''Update the path of the static files in your nginx/apache configuration'''. For example, assume your are upgrading seafile server 1.3.0 to 1.4.0, then:
 
