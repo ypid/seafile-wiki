@@ -1,13 +1,18 @@
-Before continuing, ensure that:
+## Prepare
 
-* you have installed the <code>python-flup</code> library
-* you have '''NOT''' started seahub or seafile
+Install <code>python-flup</code> library. On Ubuntu:
+ 
+```
+sudo apt-get install python-flup
+```
 
-== Deploy Seahub with Nginx ==
+== Deploy Seahub/HttpServer with Nginx ==
 
-Assume you are running seahub as the root domain, for example '''www.myseafile.com'''
+Seahub is the web interface of Seafile server. HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request. 
 
-This is a sample nginx config file.
+Here we deploy Seahub using fastcgi, and deploy HttpServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
+
+This is a sample Nginx config file.
 
 <pre>
 server {
@@ -29,7 +34,13 @@ server {
 
         access_log      /var/log/nginx/seahub.access.log;
     	error_log       /var/log/nginx/seahub.error.log;
-    }       
+    }
+
+    location /seafhttp {
+        rewrite ^/seafhttp(.*)$ $1 break;
+        proxy_pass http://127.0.0.1:8082;
+        client_max_body_size 0;
+    }
 
     location /media {
         root /home/user/haiwen/seafile-server-1.6.1/seahub;
@@ -37,7 +48,13 @@ server {
 }
 </pre>
 
-=== Modify ccnet.conf ===
+Nginx settings "client_max_body_size" is by default 1m. Uploading a file bigger than this limit will give you an error message HTTP error code 413 ("Request Entity Too Large").
+
+You should use 0 to disable this feature or write the same value than for the parameter max_upload_size in section [httpserver] of /seafile/seafile-data/seafile.conf
+
+## Modify ccnet.conf and seahub_setting.py
+
+### Modify ccnet.conf
 
 You need to modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
 to let Seafile know the domain you choose.
@@ -46,42 +63,16 @@ to let Seafile know the domain you choose.
 SERVICE_URL = http://www.myseafile.com
 </pre>
 
-'''Note: '''If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+Note: If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
 
-== Deploy Httpserver with Nginx ==
-
-In seafile, Httpserver is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for http request. You may want to deploy httpserver behind nginx/apache because:
-
-* Your server is befind a firewall, and you don't want open too many ports in the firewall
-* You want to enable HTTPS on httpserver.
-
-If you want to deploy httpserver behind nginx/apache, follow the steps below.
-
-We assume your domain name is '''http://www.myseafile.com''', and here we deploy httpserver to the '''/seafhttp''' path.
-
-=== modify nginx configuration ===
-
-
-```nginx
-    location /seafhttp {
-        rewrite ^/seafhttp(.*)$ $1 break;
-        proxy_pass http://127.0.0.1:8082;
-        client_max_body_size 0;
-    }
-```
-
-nginx settings "client_max_body_size" is by default 1m.
-Uploading a file bigger than this limit will give you an error message HTTP error code 413 ("Request Entity Too Large").
-
-You should use 0 to disable this feature or write the same value than for the parameter max_upload_size in section [httpserver] of /seafile/seafile-data/seafile.conf
-
-=== modify seahub_settings.py ===
+### Modify seahub_settings.py
 
 You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
 
 ```python
 HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
+
 
 == Start Seafile and Seahub ==
 
