@@ -24,12 +24,27 @@ The content of this script is:
 user=haiwen
 
 # Change the value of "script_path" to your path of seafile installation
-script_path=/data/haiwen/seafile-server-1.7.0
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-1.7.0
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
 
-sudo -u ${user} ${script_path}/seafile.sh start > /tmp/seafile.init.log 2>&1
-sudo -u ${user} ${script_path}/seahub.sh start > /tmp/seahub.init.log 2>&1
+case "$1" in
+        start)
+                sudo -u ${user} ${script_path}/seafile.sh start > ${seafile_init_log}
+                sudo -u ${user} ${script_path}/seahub.sh start > ${seahub_init_log}
+        ;;
+        stop|restart)
+                sudo -u ${user} ${script_path}/seafile.sh $1 > ${seafile_init_log}
+                sudo -u ${user} ${script_path}/seahub.sh $1 > ${seahub_init_log}
+        ;;
+        *)
+                echo "Usage: /etc/init.d/seafile {start|stop|restart}"
+                exit 1
+        ;;
+esac
 ```
-'''Note''': If you want to start seahub in fastcgi, just change the '''"seahub.sh start"''' in the last line above to '''"seahub.sh start-fastcgi"'''
+'''Note''': If you want to start seahub in fastcgi, just change the '''"seahub.sh start"''' in the first case to '''"seahub.sh start-fastcgi"'''
 
 * Then update the system config
 ```
