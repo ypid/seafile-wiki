@@ -29,12 +29,29 @@ script_path=${seafile_dir}/seafile-server-1.7.0
 seafile_init_log=${seafile_dir}/logs/seafile.init.log
 seahub_init_log=${seafile_dir}/logs/seahub.init.log
 
+# Change the value of fastcgi to true if fastcgi is to be used
+fastcgi=false
+
 case "$1" in
         start)
                 sudo -u ${user} ${script_path}/seafile.sh start > ${seafile_init_log}
-                sudo -u ${user} ${script_path}/seahub.sh start > ${seahub_init_log}
+                if [  $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh start-fastcgi > ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh start > ${seahub_init_log}
+                fi
         ;;
-        stop|restart)
+        restart)
+                sudo -u ${user} ${script_path}/seafile.sh restart > ${seafile_init_log}
+                if [  $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh restart-fastcgi > ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh restart > ${seahub_init_log}
+                fi
+        ;;
+        stop)
                 sudo -u ${user} ${script_path}/seafile.sh $1 > ${seafile_init_log}
                 sudo -u ${user} ${script_path}/seahub.sh $1 > ${seahub_init_log}
         ;;
@@ -44,7 +61,7 @@ case "$1" in
         ;;
 esac
 ```
-'''Note''': If you want to start seahub in fastcgi, just change the '''"seahub.sh start"''' in the first case to '''"seahub.sh start-fastcgi"'''
+'''Note''': If you want to start seahub in fastcgi, just change the '''fastcgi''' variable to '''true'''
 
 * Then update the system config
 ```
