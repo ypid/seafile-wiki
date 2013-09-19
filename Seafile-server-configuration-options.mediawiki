@@ -207,6 +207,8 @@ CLOUD_MODE = True
 # Online preview maximum file size, defaults to 30M.
 FILE_PREVIEW_MAX_SIZE = 30 * 1024 * 1024
 
+# Age of cookie, in seconds (default: 2 weeks).
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 2
 </pre>
 
 '''Note''': You need to restart seahub so that your changes take effect.
