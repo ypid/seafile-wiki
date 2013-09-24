@@ -10,7 +10,7 @@
 
     ```
     sudo apt-get install libapache2-mod-fastcgi
-    cd /etc/apache2/mod-enabled
+    cd /etc/apache2/mods-enabled
     sudo ln -s ../mods-available/rewrite.load rewrite.load
     ```
 
