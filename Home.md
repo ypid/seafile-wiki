@@ -31,7 +31,7 @@ Other Deploy Issues
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
 * [[Seafile server data backup]]
 * [[Seafile Logs]]
-
+* [[Seafile Fuse]]
 
 ## FAQ & Others
 
