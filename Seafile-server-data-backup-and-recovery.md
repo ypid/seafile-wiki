@@ -1,4 +1,9 @@
-## Backing up Seafile data ##
+There are generally two parts of data to backup
+
+* Seafile library data and configuration files;
+* Databases
+
+## Backing up Seafile library data and configuration ##
 
 If you setup seafile server according to our manual, you should have a directory layout like:
 
@@ -10,7 +15,7 @@ If you setup seafile server according to our manual, you should have a directory
       --seahub.db      # sqlite3 database used by seahub
       --seahub_settings.py # optional config file for seahub
 
-Seafile data are all stored in the `haiwen` directory, so just back up the whole directory.
+The data and configuration files are all stored in the `haiwen` directory, so just back up the whole directory.
 
 We use rsync on our backup machine to pull the directory on machine A. Command looks like:
 
