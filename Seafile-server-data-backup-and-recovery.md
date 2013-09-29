@@ -15,33 +15,35 @@ Seafile data are all stored in the `haiwen` directory, so just back up the whole
 We use rsync on our backup machine to pull the directory on machine A. Command looks like:
 
     mkdir /backup
-    rsync -azv --delete user@A:/path/to/haiwen /backup/
+    rsync -azv user@A:/path/to/haiwen /backup/
 
 Also you might want to set up a script framework that calls such a command via `cron`. Rule looks like:
 
-     0 3 * * * rsync -azv --delete user@A:/path/to/haiwen /backup/
+     0 3 * * * rsync -azv user@A:/path/to/haiwen /backup/
 
 This will perform backup operation on 3:00 am everyday.     
 
 ### Backing up Database ###
 
+Small amount (but important) metadata of the libraries is stored in database. It's critical that the metadata in database is consistent with the data in the seafile-data folder. So it's recommended to keep the backups for a past period (e.g. a week). In case the latest copy of backup is inconsistent with the data, you can still use an older one.
+
 **MySQL**
 
-    mysqldump -u[username] -p[password] --opt ccnet-db > ccnet-db.sql
+    mysqldump -u[username] -p[password] --opt ccnet-db > ccnet-db.sql.2013-10-01
 
-    mysqldump -u[username] -p[password] --opt seafile-db > seafile-db.sql
+    mysqldump -u[username] -p[password] --opt seafile-db > seafile-db.sql.2013-10-01
 
-    mysqldump -u[username] -p[password] --opt seahub-db > seahub-db.sql
+    mysqldump -u[username] -p[password] --opt seahub-db > seahub-db.sql.2013-10-01
 
 **SQLite**
 
-    sqlite3 ccnet/GroupMgr/groupmgr.db .dump > groupmgr.db.bak
+    sqlite3 ccnet/GroupMgr/groupmgr.db .dump > groupmgr.db.bak.2013-10-01
 
-    sqlite3 ccnet/PeerMgr/usermgr.db .dump > usermgr.db.bak
+    sqlite3 ccnet/PeerMgr/usermgr.db .dump > usermgr.db.bak.2013-10-01
 
-    sqlite3 seafile-data/seafile.db .dump > seafile.db.bak
+    sqlite3 seafile-data/seafile.db .dump > seafile.db.bak.2013-10-01
     
-    sqlite3 seahub.db .dump > seahub.db.bak
+    sqlite3 seahub.db .dump > seahub.db.bak.2013-10-01
 
 ## Recovering from backup ##
 
