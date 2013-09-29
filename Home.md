@@ -29,7 +29,7 @@ Other Deploy Issues
 
 * [[Seafile Server Management]]
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
-* [[Seafile server data backup]]
+* [[Seafile server data backup and recovery]]
 * [[Seafile Logs]]
 * [[Seafile Fuse]]
 
