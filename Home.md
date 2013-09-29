@@ -17,9 +17,12 @@ Deploy/Upgrade Seafile in Production/Enterprise Environment
 * [[Configure Seafile to use LDAP]]
 * [[Upgrade Seafile Server|Upgrade Seafile with MySQL or PostgreSQL]] (with MySQL/PostgreSQL)
 
-Other Deploy Issues
+Options & Customization
 
 * [[Seafile Server Configuration Options]]
+
+Other Deploy Issues
+
 * [[Firewall Settings for Seafile Server]]
 * [[Start Seafile at System Bootup|Start Seafile Server at System Bootup]]
 * [[Deploy Seafile behind NAT|Deploy Seafile Server behind NAT]]
@@ -27,11 +30,20 @@ Other Deploy Issues
 
 ## Manager/Maintain Seafile Server
 
+Backup & Recovery
+
+* [[Seafile server data backup and recovery]]
+
+For Admin
+
 * [[Seafile Server Management]]
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
-* [[Seafile server data backup and recovery]]
+* [[Seafile Fuse]] (Draft)
+
+Logs
+
 * [[Seafile Logs]]
-* [[Seafile Fuse]]
+
 
 ## FAQ & Others
 
