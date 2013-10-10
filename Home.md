@@ -27,6 +27,7 @@ Other Deploy Issues
 * [[Start Seafile at System Bootup|Start Seafile Server at System Bootup]]
 * [[Deploy Seafile behind NAT|Deploy Seafile Server behind NAT]]
 * [[Deploy Seafile Web at Non root domain]]
+* [[Migrate data from SQLite to MySQL]]
 
 ## Manager/Maintain Seafile Server
 
