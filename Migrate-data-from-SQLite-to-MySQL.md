@@ -4,6 +4,7 @@ Steps to migrate Seafile from SQLite to MySQL:
 
 2. Run sqlite2mysql.sh
 ```
+  chmod +x sqlite2mysql.sh
   ./sqlite2mysql.sh
 ```
   This script will produce three files(ccnet-db.sql, seafile-db.sql, seahub-db.sql).
