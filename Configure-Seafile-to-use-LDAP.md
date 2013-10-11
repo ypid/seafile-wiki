@@ -1,11 +1,12 @@
-```
+<pre>
 Note: If you use LDAP, do not use SQLite as database. 
 
 The user name returned from LDAP is case sensitive like ElsaAmy@test.com. If another use add elsaamy@test.com (lower case) to a group. Seafile will use "ElsaAmy@test.com" to search against the GroupMember table and will think ElsaAmy is not a member of the group.
 
 If you use mysql backend, it is case insensitive by default, so ElsaAmy will find him in the group.
-```
 
+This problem will be fixed in version 2.0
+</pre>
 
 The current code of seahub assumes that user name to be email address, so it's not possible to log in with UNIX user names or Windows Domain user names now. The support may be added later.
 
