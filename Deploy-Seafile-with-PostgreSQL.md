@@ -1,3 +1,7 @@
+```
+Note: Postgres support is still in Beta status and may have some minor bugs. Please use MySQL in production environment.
+```
+
 # Deploy Seafile with PostgreSQL #
 
 If you need to deploy Seafile with PostgreSQL, you need to download **seafile-server-1.7.0 or above**.
