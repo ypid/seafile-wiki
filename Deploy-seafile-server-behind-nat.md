@@ -70,7 +70,7 @@ After you have set the port forwarding rules on your router, you can check wheth
 - Get your WAN IP. A convenient way to get your WAN ip is to visit `http://who.is`, which would show you your WAN IP.
 - Try to connect your seahub server
 ````
-telent <Your WAN IP> 8000
+telnet <Your WAN IP> 8000
 ```
 
 If your port forwarding is working, the command above should succeed. Otherwise, you may get a message saying something like *connection refused* or *connection timeout*.
