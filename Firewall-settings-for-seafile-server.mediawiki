@@ -16,8 +16,10 @@ These ports can be either configured in setup-seafile.sh script, or set as param
 
 * Default port: 8000
 * Can be set a parameter for seahub.sh script. e.g. "./seahub.sh start 8002"
+* Not need to open if you config seafile with Nginx/Apache
 
 == httpserver ==
 
 * Default port: 8082
 * Configured by setup-seafile.sh
+* Not need to open if you config seafile with Nginx/Apache
