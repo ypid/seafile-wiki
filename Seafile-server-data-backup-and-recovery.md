@@ -44,24 +44,9 @@ If your primary server gets broken (disk damaged) when the second step is runnin
 1. Backup the databases to different files each time. Do not overwrite/remove old backup dbs for at least a week. For example, you can backup the db to a file suffixed with the current date time.
 2. If you have enough backup space (using tapes or de-duplication backup appliance), it's best to backup a separate copy of the data directory each time. If you use rsync for backup, don't remove or overwrite existing data on the backup server (detailed commands will be given later).
 
-## Backing up Seafile library data and configuration ##
-
-The data and configuration files are all stored in the `haiwen` directory, so just back up the whole directory.
-
-We use rsync on our backup machine to pull the directory on machine A. Command looks like:
-
-    mkdir /backup
-    rsync -azv user@A:/path/to/haiwen /backup/
-
-Also you might want to set up a script framework that calls such a command via `cron`. Rule looks like:
-
-     0 3 * * * rsync -azv user@A:/path/to/haiwen /backup/
-
-This will perform backup operation on 3:00 am everyday.     
+With these two rules, you can always use the older backup if the latest one is not complete.
 
 ### Backing up Database ###
-
-Small amount (but important) metadata of the libraries is stored in database. It's critical that the metadata in database is consistent with the data in the seafile-data folder. So it's recommended to keep the backups for a past period (e.g. a week). In case the latest copy of backup is inconsistent with the data, you can still use an older one.
 
 **MySQL**
 
@@ -80,6 +65,25 @@ Small amount (but important) metadata of the libraries is stored in database. It
     sqlite3 seafile-data/seafile.db .dump > seafile.db.bak.2013-10-01
     
     sqlite3 seahub.db .dump > seahub.db.bak.2013-10-01
+
+## Backing up Seafile library data and configuration ##
+
+The data files are all stored in the `haiwen` directory, so just back up the whole directory.
+
+It's best to keep a separate copy of the data directory for each backup. This ensures old backup images won't be overwritten by new backup. But you can also use rsync to save backup space (with caution).
+
+We use rsync on our backup machine to pull the directory on machine A. Supposed your data directory is `/data/haiwen` Command looks like:
+
+    mkdir /backup
+    rsync -azv --ignore-existing user@A:/data/haiwen /backup/
+
+The `--ignore-existing` option tells rsync not to overwrite existing files on the backup destination.
+
+Also you might want to set up a script framework that calls such a command via `cron`. Rule looks like:
+
+     0 3 * * * rsync -azv --ignore-existing user@A:/data/haiwen /backup/
+
+This will perform backup operation on 3:00 am everyday.     
 
 ## Recovering from backup ##
 
