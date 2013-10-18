@@ -1,19 +1,50 @@
+## Overview
+
 There are generally two parts of data to backup
 
-* Seafile library data and configuration files;
+* Seafile library data;
 * Databases
-
-## Backing up Seafile library data and configuration ##
 
 If you setup seafile server according to our manual, you should have a directory layout like:
 
     haiwen       # Replace the name with your organization name
-      --seafile-server-1.2.0 # untar from seafile package
+      --seafile-server-2.x.x # untar from seafile package
       --seafile-data   # seafile configuration and data (if you choose the default)
       --seahub-data    # seahub data
       --ccnet          # ccnet configuration and data 
       --seahub.db      # sqlite3 database used by seahub
       --seahub_settings.py # optional config file for seahub
+
+All your library data is stored under the 'haiwen' directory.
+
+Seafile also stores some important metadata data in a few databases. The names and locations of these databases depends on which database software you use.
+
+For SQLite, the database files are also under the 'haiwen' directory. The locations are:
+
+* ccnet/PeerMgr/usermgr.db: contains user information
+* ccnet/GroupMgr/groupmgr.db: contains group information
+* seafile-data/seafile.db: contains library metadata
+* seahub.db: contains tables used by the web front end (seahub)
+
+For MySQL, the databases are created by the administrator, so the names can be different from one deployment to another. There are 3 databases:
+
+* ccnet-db: contains user and group information
+* seafile-db: contains library metadata
+* seahub.db: contains tables used by the web front end (seahub)
+
+The metadata in seafile db contains some pointers to the data in the 'haiwen' directory. So it's important in the backup/restore procedure to make sure the db and the data are consistent with each other.
+
+We recommend the following backup order:
+
+1. Dump and backup the databases;
+2. Copy/rsync the data directory.
+
+If your primary server gets broken (disk damaged) when the second step is running, you may end up with an incomplete backup on the backup server. Some pointers in the database backup point to invalid data. So we recommend you to follow two rules:
+
+1. Backup the databases to different files each time. Do not overwrite/remove old backup dbs for at least a week. For example, you can backup the db to a file suffixed with the current date time.
+2. If you have enough backup space (using tapes or de-duplication backup appliance), it's best to backup a separate copy of the data directory each time. If you use rsync for backup, don't remove or overwrite existing data on the backup server (detailed commands will be given later).
+
+## Backing up Seafile library data and configuration ##
 
 The data and configuration files are all stored in the `haiwen` directory, so just back up the whole directory.
 
