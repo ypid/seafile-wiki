@@ -209,6 +209,13 @@ FILE_PREVIEW_MAX_SIZE = 30 * 1024 * 1024
 
 # Age of cookie, in seconds (default: 2 weeks).
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 2
+
+# Whether to save the session data on every request.
+SESSION_SAVE_EVERY_REQUEST = False   
+
+# Whether a user's session cookie expires when the Web browser is closed.                    
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False                 
+
 </pre>
 
 '''Note''': You need to restart seahub so that your changes take effect.
