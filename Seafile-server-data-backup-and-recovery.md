@@ -46,27 +46,48 @@ If your primary server gets broken (disk damaged) when the second step is runnin
 
 With these two rules, you can always use the older backup if the latest one is not complete.
 
-### Backing up Database ###
+## Backup steps ##
+
+The backup is a three step procedure:
+
+1. Backup the databases;
+2. Backup the seafile data directory;
+3. Mark the backup as complete.
+
+We assume your seafile data directory is in /data/haiwen on machine A. And you want to backup to /backup on machine B. We'll run the backup commands from machine B to pull the data from machine A. It's recommended to create a directory layout under /backup on machine B
+
+    /backup
+    ---- databases/  contains database backup files
+    ---- data/  contains backups of the data directory
+    ---- markers/ contains the finish marker file for each backup
+
+### Backing up Databases ###
 
 **MySQL**
 
-    mysqldump -u[username] -p[password] --opt ccnet-db > ccnet-db.sql.2013-10-01
+Assume your database names are `ccnet-db`, `seafile-db` and `seahub-db`.
 
-    mysqldump -u[username] -p[password] --opt seafile-db > seafile-db.sql.2013-10-01
+    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt ccnet-db > /backup/databases/ccnet-db.sql.`date +"%Y-%m-%d-%H-%k-%M"`
 
-    mysqldump -u[username] -p[password] --opt seahub-db > seahub-db.sql.2013-10-01
+    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt seafile-db > /backup/databases/seafile-db.sql.`date +"%Y-%m-%d-%H-%k-%M"`
+
+    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt seahub-db > /backup/databases/seahub-db.sql.`date +"%Y-%m-%d-%H-%k-%M"`
 
 **SQLite**
 
-    sqlite3 ccnet/GroupMgr/groupmgr.db .dump > groupmgr.db.bak.2013-10-01
+    B> ssh admin@A "sqlite3 /data/haiwen/ccnet/GroupMgr/groupmgr.db .dump > /tmp/groupmgr.db.bak"
+    B> scp admin@A:/tmp/groupmgr.db.bak /backup/databases/groupmgr.db.bak.`date +"%Y-%m-%d-%H-%k-%M"`
 
-    sqlite3 ccnet/PeerMgr/usermgr.db .dump > usermgr.db.bak.2013-10-01
+    B> ssh admin@A "sqlite3 /data/haiwen/ccnet/PeerMgr/usermgr.db .dump > usermgr.db.bak"
+    B> scp admin@A:/tmp/usermgr.db.bak /backup/databases/usermgr.db.bak.`date +"%Y-%m-%d-%H-%k-%M"`
 
-    sqlite3 seafile-data/seafile.db .dump > seafile.db.bak.2013-10-01
-    
-    sqlite3 seahub.db .dump > seahub.db.bak.2013-10-01
+    B> ssh admin@A "sqlite3 /data/haiwen/seafile-data/seafile.db .dump > /tmp/seafile.db.bak"
+    B> scp admin@A:/tmp/seafile.db.bak /backup/databases/seafile.db.bak.`date +"%Y-%m-%d-%H-%k-%M"`
 
-## Backing up Seafile library data and configuration ##
+    B> ssh admin@A "sqlite3 /data/haiwen/seahub.db .dump > /tmp/seahub.db.bak"
+    B> scp admin@A:/tmp/seahub.db.bak /backup/databases/seahub.db.bak.`date +"%Y-%m-%d-%H-%k-%M"`
+
+### Backing up Seafile library data ###
 
 The data files are all stored in the `haiwen` directory, so just back up the whole directory.
 
@@ -85,7 +106,7 @@ Also you might want to set up a script framework that calls such a command via `
 
 This will perform backup operation on 3:00 am everyday.     
 
-## Recovering from backup ##
+## Restore from backup ##
 
 Recovery is what really matters. To restore your Seafile instance:
 
