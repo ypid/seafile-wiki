@@ -42,7 +42,7 @@ We recommend the following backup order:
 If your primary server gets broken (disk damaged) when the second step is running, you may end up with an incomplete backup on the backup server. Some pointers in the database backup point to invalid data. So we recommend you to follow two rules:
 
 1. Backup the databases to different files each time. Do not overwrite/remove old backup dbs for at least a week. For example, you can backup the db to a file suffixed with the current date time.
-2. If you have enough backup space (using tapes or de-duplication backup appliance), it's best to backup a separate copy of the data directory each time. If you use rsync for backup, don't remove or overwrite existing data on the backup server (detailed commands will be given later).
+2. If you use rsync for backup the data directory, don't remove or overwrite existing data on the backup server (detailed commands will be given later).
 
 With these two rules, you can always use the older backup if the latest one is not complete.
 
@@ -54,7 +54,7 @@ The backup is a three step procedure:
 2. Backup the seafile data directory;
 3. Mark the backup as complete.
 
-We assume your seafile data directory is in /data/haiwen on machine A. And you want to backup to /backup on machine B. We'll run the backup commands from machine B to pull the data from machine A. It's recommended to create a directory layout under /backup on machine B
+We assume your seafile data directory is in `/data/haiwen` on machine A. And you want to backup to `/backup` on machine B. We'll run the backup commands from machine B to pull the data from machine A. It's recommended to create a directory layout under /backup on machine B
 
     /backup
     ---- databases/  contains database backup files
@@ -89,23 +89,22 @@ Assume your database names are `ccnet-db`, `seafile-db` and `seahub-db`.
 
 ### Backing up Seafile library data ###
 
-The data files are all stored in the `haiwen` directory, so just back up the whole directory.
+The data files are all stored in the `/data/haiwen` directory, so just back up the whole directory.
 
-It's best to keep a separate copy of the data directory for each backup. This ensures old backup images won't be overwritten by new backup. But you can also use rsync to save backup space (with caution).
+We use rsync on machine B to pull the directory on machine A. Supposed your data directory is `/data/haiwen` Command looks like:
 
-We use rsync on our backup machine to pull the directory on machine A. Supposed your data directory is `/data/haiwen` Command looks like:
+    B> rsync -azv --ignore-existing user@A:/data/haiwen /backup/data
 
-    mkdir /backup
-    rsync -azv --ignore-existing user@A:/data/haiwen /backup/
+This command backup the data directory to `/backup/data/haiwen`. The `--ignore-existing` option tells rsync not to overwrite existing files on the backup destination. This is necessary for maintaining data integrity on the backup side.
 
-The `--ignore-existing` option tells rsync not to overwrite existing files on the backup destination.
+### Marking the backup as complete
 
-Also you might want to set up a script framework that calls such a command via `cron`. Rule looks like:
+As mentioned before, it's important to use a complete backup for restoration. So after the above two steps finish successfully, we'll write a marker file to indicate the last backup is complete.
 
-     0 3 * * * rsync -azv --ignore-existing user@A:/data/haiwen /backup/
+    B> touch /backup/marker-files/`date +"%Y-%m-%d-%H-%k-%M"`
 
-This will perform backup operation on 3:00 am everyday.     
-
+The complete time of the backup is recorded in the marker file name. So you can easily tell which is the last successful backup.
+ 
 ## Restore from backup ##
 
 Recovery is what really matters. To restore your Seafile instance:
