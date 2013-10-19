@@ -67,29 +67,29 @@ We assume your seafile data directory is in `/data/haiwen` on machine A. And you
 
 Assume your database names are `ccnet-db`, `seafile-db` and `seahub-db`.
 
-    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt ccnet-db > /backup/databases/ccnet-db.sql.`date +"%Y-%m-%d-%H-%k-%M"`
+    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt ccnet-db > /backup/databases/ccnet-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
 
-    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt seafile-db > /backup/databases/seafile-db.sql.`date +"%Y-%m-%d-%H-%k-%M"`
+    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt seafile-db > /backup/databases/seafile-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
 
-    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt seahub-db > /backup/databases/seahub-db.sql.`date +"%Y-%m-%d-%H-%k-%M"`
+    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt seahub-db > /backup/databases/seahub-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
 
 **SQLite**
 
     B> ssh admin@A "sqlite3 /data/haiwen/ccnet/GroupMgr/groupmgr.db .dump > /tmp/groupmgr.db.bak"
-    B> scp admin@A:/tmp/groupmgr.db.bak /backup/databases/groupmgr.db.bak.`date +"%Y-%m-%d-%H-%k-%M"`
+    B> scp admin@A:/tmp/groupmgr.db.bak /backup/databases/groupmgr.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
 
     B> ssh admin@A "sqlite3 /data/haiwen/ccnet/PeerMgr/usermgr.db .dump > usermgr.db.bak"
-    B> scp admin@A:/tmp/usermgr.db.bak /backup/databases/usermgr.db.bak.`date +"%Y-%m-%d-%H-%k-%M"`
+    B> scp admin@A:/tmp/usermgr.db.bak /backup/databases/usermgr.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
 
     B> ssh admin@A "sqlite3 /data/haiwen/seafile-data/seafile.db .dump > /tmp/seafile.db.bak"
-    B> scp admin@A:/tmp/seafile.db.bak /backup/databases/seafile.db.bak.`date +"%Y-%m-%d-%H-%k-%M"`
+    B> scp admin@A:/tmp/seafile.db.bak /backup/databases/seafile.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
 
     B> ssh admin@A "sqlite3 /data/haiwen/seahub.db .dump > /tmp/seahub.db.bak"
-    B> scp admin@A:/tmp/seahub.db.bak /backup/databases/seahub.db.bak.`date +"%Y-%m-%d-%H-%k-%M"`
+    B> scp admin@A:/tmp/seahub.db.bak /backup/databases/seahub.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
 
 ### Backing up Seafile library data ###
 
-The data files are all stored in the `/data/haiwen` directory, so just back up the whole directory.
+The data files are all stored in the `/data/haiwen` directory, so just back up the whole directory. You can directory copy the whole directory to the backup destination, or you can use rsync to do incremental backup. 
 
 We use rsync on machine B to pull the directory on machine A. Supposed your data directory is `/data/haiwen` Command looks like:
 
@@ -101,7 +101,7 @@ This command backup the data directory to `/backup/data/haiwen`. The `--ignore-e
 
 As mentioned before, it's important to use a complete backup for restoration. So after the above two steps finish successfully, we'll write a marker file to indicate the last backup is complete.
 
-    B> touch /backup/marker-files/`date +"%Y-%m-%d-%H-%k-%M"`
+    B> touch /backup/marker-files/`date +"%Y-%m-%d-%H-%M-%S"`
 
 The complete time of the backup is recorded in the marker file name. So you can easily tell which is the last successful backup.
  
