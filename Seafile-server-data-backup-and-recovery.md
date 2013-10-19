@@ -95,7 +95,7 @@ The data files are all stored in the `/data/haiwen` directory, so just back up t
 
 We use rsync on machine B to pull the directory on machine A. Supposed your data directory is `/data/haiwen` Command looks like:
 
-    B> rsync -azv --ignore-existing user@A:/data/haiwen /backup/data
+    B> rsync -az --ignore-existing user@A:/data/haiwen /backup/data
 
 This command backup the data directory to `/backup/data/haiwen`. The `--ignore-existing` option tells rsync not to overwrite existing files on the backup destination. This is necessary for maintaining data integrity on the backup side.
 
@@ -103,14 +103,45 @@ This command backup the data directory to `/backup/data/haiwen`. The `--ignore-e
 
 As mentioned before, it's important to use a complete backup for restoration. So after the above two steps finish successfully, we'll write a marker file to indicate the last backup is complete.
 
-    B> touch /backup/marker-files/`date +"%Y-%m-%d-%H-%M-%S"`
+    B> touch /backup/markers/`date +"%Y-%m-%d-%H-%M-%S"`
 
 The complete time of the backup is recorded in the marker file name. So you can easily tell which is the last successful backup.
  
 ## Restore from backup ##
 
-Recovery is what really matters. To restore your Seafile instance:
+Now supposed your primary seafile server is broken, you're switching to a new machine C. Using the backup data on machine B, to restore your Seafile instance:
 
-1. Copy over your `haiwen` folder with your backed up `haiwen` folder
+1. Determine the latest complete backup;
+2. Copy `/backup/data/haiwen` from machine B to machine C. Let's assume the seafile deployment location on machine C is also `/data/haiwen`.
+3. Restore the database.
 
-2. Import your databases
+### Determine the latest complete backup
+
+A complete backup means the database backup is consistent with the data backup.
+
+The file names in `/backup/markers` folder records the finish time of the backup tasks. You should choose the database backup file for restoration as following:
+
+1. Find the latest marker file in `/backup/markers`, say it's name is `2013-10-19-16-55-18`.
+2. In the `/backup/databases` directory, find the database backup files with the largest time stamp before `2013-10-19-16-55-18`. Let's say they're `ccnet-db.sql.2013-10-19-16-00-05`, `seafile-db.sql.2013-10-19-16-00-20` and `seahub-db.sql.2013-10-19-16-01-05`.
+
+### Restore the databases
+
+Now with the latest valid database backup files at hand, you can restore them.
+
+**MySQL**
+
+    C> mysql -u[username] -p[password] ccnet-db < ccnet-db.sql.2013-10-19-16-00-05
+    C> mysql -u[username] -p[password] seafile-db < seafile-db.sql.2013-10-19-16-00-20
+    C> mysql -u[username] -p[password] seahub-db.sql.2013-10-19-16-01-05
+
+**SQLite**
+
+    C> cd /data/haiwen
+    C> mv ccnet/PeerMgr/usermgr.db ccnet/PeerMgr/usermgr.db.old
+    C> mv ccnet/GroupMgr/groupmgr.db ccnet/GroupMgr/groupmgr.db.old
+    C> mv seafile-data/seafile.db seafile-data/seafile.db.old
+    C> mv seahub.db seahub.db.old
+    C> sqlite3 ccnet/PeerMgr/usermgr.db < usermgr.db.bak.xxxx
+    C> sqlite3 ccnet/GroupMgr/groupmgr.db < groupmgr.db.bak.xxxx
+    C> sqlite3 seafile-data/seafile.db < seafile.db.bak.xxxx
+    C> sqlite3 seahub.db < seahub.db.bak.xxxx
