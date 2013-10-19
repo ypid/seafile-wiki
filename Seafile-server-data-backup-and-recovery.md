@@ -89,7 +89,7 @@ Assume your database names are `ccnet-db`, `seafile-db` and `seahub-db`.
 
 ### Backing up Seafile library data ###
 
-The data files are all stored in the `/data/haiwen` directory, so just back up the whole directory. You can directory copy the whole directory to the backup destination, or you can use rsync to do incremental backup. 
+The data files are all stored in the `/data/haiwen` directory, so just back up the whole directory. You can directly copy the whole directory to the backup destination, or you can use rsync to do incremental backup. 
 
 We use rsync on machine B to pull the directory on machine A. Supposed your data directory is `/data/haiwen` Command looks like:
 
