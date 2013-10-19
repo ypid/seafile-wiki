@@ -2,7 +2,7 @@
 
 There are generally two parts of data to backup
 
-* Seafile library data;
+* Seafile library data
 * Databases
 
 If you setup seafile server according to our manual, you should have a directory layout like:
