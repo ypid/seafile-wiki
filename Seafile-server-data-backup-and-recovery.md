@@ -61,6 +61,8 @@ We assume your seafile data directory is in `/data/haiwen` on machine A. And you
     ---- data/  contains backups of the data directory
     ---- markers/ contains the finish marker file for each backup
 
+The following steps assumes you pull the backup data from machine A on machine B. You can also copy the data on machine A to machine B by mounting the backup destination via NFS or Windwos share.
+
 ### Backing up Databases ###
 
 **MySQL**
