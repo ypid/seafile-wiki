@@ -33,7 +33,9 @@ First edit your apache config file. Depending on your distro, you will need to a
 FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
 ```
 
-`httpd.conf`, for centos/fedora
+***
+
+`httpd.conf`, for centos/fedora:
 ```
 FastCGIExternalServer /var/www/html/seahub.fcgi -host 127.0.0.1:8000
 ```
@@ -41,7 +43,9 @@ FastCGIExternalServer /var/www/html/seahub.fcgi -host 127.0.0.1:8000
 
 Note, `seahub.fcgi` is just a placeholder, you don't need to actually have this file in your system.
 
-Second, modify Apache config file (`site-enabled/000-default`):
+Second, modify Apache config file:
+(`site-enabled/000-default`) for ubuntu/debian
+(`vhost.conf`) for centos/fedora
 
 ```
 <VirtualHost *:80>
