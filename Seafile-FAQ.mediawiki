@@ -24,7 +24,7 @@ A solution is here http://wowi.fr/seafile-freebsd-en.html#.UY-leaBji1E (Not conf
 
 * You can check the back trace in seahub log files('''installation folder/logs/seahub_django_request.log''')
 
-* You can also turn on debug by adding <code>DEBUG = True</code> to seahub_settings.py and restart seahub by <code>./seahub.sh restart</code>, then refresh that page, all the debug infomations will be displayed.
+* You can also turn on debug by adding <code>DEBUG = True</code> to seahub_settings.py and restart seahub by <code>./seahub.sh restart</code>, then refresh that page, all the debug infomations will be displayed. Make sure ./seahub.sh was started as: ./seahub.sh start-fastcgi
 
 == Avatar pictures vanished after upgrading server, what can I do? ==
 
