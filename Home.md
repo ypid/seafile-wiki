@@ -29,7 +29,7 @@ Other Deploy Issues
 * [[Deploy Seafile Web at Non root domain]]
 * [[Migrate data from SQLite to MySQL]]
 
-## Manager/Maintain Seafile Server
+## Manage/Maintain Seafile Server
 
 Backup & Recovery
 
@@ -40,6 +40,7 @@ For Admin
 * [[Seafile Server Management]]
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
 * [[Seafile Fuse]] (Draft)
+* [[Recover Corrupt Files after Server Hard Shutdown or System Crash]]
 
 Logs
 
