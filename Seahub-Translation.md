@@ -1,4 +1,3 @@
-
 ## Translate ##
 
 1. Locate the translation file in your language. For example, if you want to translate Russian, the file is seahub/locale/ru/LC_MESSAGES/django.po
@@ -9,7 +8,7 @@
 
 4. Run command under seahub/locale/<lang-code>/LC_MESSAGES
 
-  msgfmt -o django.mo django.po
+  `msgfmt -o django.mo django.po`
 
 5. Restart seahub
 
