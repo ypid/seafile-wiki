@@ -249,6 +249,14 @@ After getting the upload link, POST to this link for uploading files.
     443 Out of quota
     500 Internal server error
 
+**Sample request**
+
+    curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F parent_dir=/ http://cloud.seafile.com:8082/upload-api/ef881b22
+
+**Sample response**
+
+    "adc83b19e793491b1c6ea0fd8b46cd9f32e592fc"
+
 **Note**
 
 For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
