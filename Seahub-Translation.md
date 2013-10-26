@@ -1,4 +1,3 @@
-# Seahub Translation #
 
 ## Translate ##
 
@@ -10,7 +9,7 @@
 
 4. Run command under seahub/locale/<lang-code>/LC_MESSAGES
 
-    msgfmt -o django.mo django.po
+  msgfmt -o django.mo django.po
 
 5. Restart seahub
 
