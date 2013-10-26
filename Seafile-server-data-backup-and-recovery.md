@@ -95,9 +95,9 @@ The data files are all stored in the `/data/haiwen` directory, so just back up t
 
 We use rsync on machine B to pull the directory on machine A. Supposed your data directory is `/data/haiwen` Command looks like:
 
-    B> rsync -az --ignore-existing user@A:/data/haiwen /backup/data
+    B> rsync -az user@A:/data/haiwen /backup/data
 
-This command backup the data directory to `/backup/data/haiwen`. The `--ignore-existing` option tells rsync not to overwrite existing files on the backup destination. This is necessary for maintaining data integrity on the backup side.
+This command backup the data directory to `/backup/data/haiwen`.
 
 ### Marking the backup as complete
 
