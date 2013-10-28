@@ -1,6 +1,8 @@
 ## Translate ##
 
-1. Locate the translation file in your language. For example, if you want to translate Russian, the file is seahub/locale/ru/LC_MESSAGES/django.po
+1. Locate the translation file(``seahub/locale/<lang-code>/LC_MESSAGES/django.po``).
+
+  For example, if you want to translate Russian, the file is seahub/locale/ru/LC_MESSAGES/django.po. If the path does not exist, please copy from an exist path, and change ``lang-code`` to fit your language.
 
 2. Open the file using utf-8 text editor.
 
@@ -10,9 +12,11 @@
 
   `msgfmt -o django.mo django.po`
 
-5. Restart seahub
+5. Change ``LANGUAGE`` settings (optional).
 
-**Note:** If the file in your language does not exists, please contact us, we will create that file for you.
+  Open ``seahub/seahub/settings.py``, add a new entry to ``LANGUAGE`` setting if your language is not pre-defined.
+
+6. Restart seahub
 
 ## Submit Translation ##
 
