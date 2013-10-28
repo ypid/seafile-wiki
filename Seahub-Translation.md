@@ -12,7 +12,7 @@
 
   `msgfmt -o django.mo django.po`
 
-5. Change ``LANGUAGE`` settings (optional).
+5. Change ``LANGUAGE`` setting (optional).
 
   Open ``seahub/seahub/settings.py``, add a new entry to ``LANGUAGE`` setting if your language is not pre-defined.
 
