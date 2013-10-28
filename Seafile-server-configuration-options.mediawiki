@@ -136,7 +136,7 @@ SERVER_EMAIL = EMAIL_HOST_USER
 2. Overwrite <code>LOGO_PATH</code> in <code>seahub_settings.py</code>
 
 <pre>
-LOGO_PATH = img/<your-logo-file-name>
+LOGO_PATH = 'img/<your-logo-file-name>'
 </pre>
 
 3. Overwrite <code>LOGO_URL</code> in <code>seahub_settings.py</code>
