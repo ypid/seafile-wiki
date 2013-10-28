@@ -2,7 +2,7 @@
 
 1. Locate the translation file(``seahub/locale/<lang-code>/LC_MESSAGES/django.po``).
 
-  For example, if you want to translate Russian, the file is seahub/locale/ru/LC_MESSAGES/django.po. If the path does not exist, please copy from an exist path, and change ``lang-code`` to fit your language.
+  For example, if you want to translate Russian, the file is ``seahub/locale/ru/LC_MESSAGES/django.po``. If the path does not exist, please copy from an exist path, and change ``lang-code`` to fit your language.
 
 2. Open the file using utf-8 text editor.
 
