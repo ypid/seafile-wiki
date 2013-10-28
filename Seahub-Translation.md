@@ -8,9 +8,9 @@
 
 3. Edit django.po, and save your modification.
 
-4. Run command under seahub/locale/<lang-code>/LC_MESSAGES
+4. Run command under ``seahub/locale/<lang-code>/LC_MESSAGES``
 
-  `msgfmt -o django.mo django.po`
+        msgfmt -o django.mo django.po
 
 5. Change ``LANGUAGE`` setting (optional).
 
