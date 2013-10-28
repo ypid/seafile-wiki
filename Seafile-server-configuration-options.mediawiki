@@ -17,7 +17,7 @@ ID=eb812fd276432eff33bcdde7506f896eb4769da0
 NAME=example
 
 # This is outside URL for Seahub(Seafile Web). It'll be displayed on Seafile client program.
-# The domain part (i.e., www.example.com) will also be used by the client to connect the server.
+# The domain part (i.e., www.example.com) will also be used by the client sync files with server.
 # Note: Outside URL means "if you use Nginx, it should be the Nginx's address"
 SERVICE_URL=http://www.example.com:8000
 
@@ -201,7 +201,6 @@ SEND_EMAIL_ON_RESETTING_USER_PASSWD = True
 
 # Hide `Organization` tab.
 # If you want your private seafile behave exactly like https://cloud.seafile.com/, you can set this flag.
-# NOTE: since version 1.7.
 CLOUD_MODE = True
 
 # Online preview maximum file size, defaults to 30M.
