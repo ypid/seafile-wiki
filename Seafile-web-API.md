@@ -2,7 +2,10 @@ Contents
 
 * [Quick Start](#quick-start)
 * [Authentication](#authentication)
+* [List Accounts](#list-accounts)
 * [Account Info](#account-info)
+* [Create or Update Account](#create-update-account)
+* [Delete Account](#delete-account)
 * [List Libraries](#list-libraries)
 * [View library info](#library-info)
 * [Decrypt library](#decrypt-library)
@@ -62,6 +65,33 @@ Contents
 
 * 400 Invalid username or password
 
+## <a id="list-accounts"></a>List Accounts ##
+
+**GET** https://cloud.seafile.com/api2/accounts/
+
+**Request parameters**
+
+* token
+
+**Sample request**
+
+    curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/
+
+**Sample response**
+
+    [
+    {
+        "email": "foo@foo.com"
+    },
+    {
+        "email": "bar@bar.com"
+    }
+    ]
+
+**Errors**
+
+* 403 Permission error, only administrator can perform this action
+
 ## <a id="account-info"></a>Account Info ##
 
 **GET** https://cloud.seafile.com/api2/account/info/
@@ -85,6 +115,61 @@ Contents
 **Errors**
 
 * 403 Invalid token
+
+## <a id="create-update-account"></a>Create or Update Account ##
+
+**PUT** https://cloud.seafile.com/api2/accounts/{email}/
+
+**Request parameters**
+
+* token
+
+* password
+
+* is_staff - defaults to False
+
+* is_active - defaults to True
+
+**Sample request**
+
+    curl -v -X PUT -d "password=123456" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
+
+**Sample response**
+
+    ...
+    < HTTP/1.0 201 CREATED
+    < Location: https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
+    ...
+
+    "success"
+
+**Success**
+
+    Response code 201(Created) is returned and the Location header provides shared link.
+
+**Errors**
+
+* 403 Permission error, only administrator can perform this action
+
+## <a id="delete-account"></a>Delete Account ##
+
+**DELETE** https://cloud.seafile.com/api2/accounts/{email}/
+
+**Request parameters**
+
+* token
+
+**Sample request**
+
+    curl -v -X DELETE -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
+
+**Sample response**
+
+    "success"
+
+**Errors**
+
+* 403 Permission error, only administrator can perform this action
 
 ## <a id="list-libraries"></a>List Libraries ##
 
