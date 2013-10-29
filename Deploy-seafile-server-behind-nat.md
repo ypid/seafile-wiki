@@ -60,7 +60,8 @@ Seafile server is composed of several components. You need to configure port for
 </tr>
 </table>
 
-If you're not using the default ports, you should adjust the table accroding to your own customiztion.
+* You don't need to open port 8000 and 8082 if you deploy Seafile behind Apache/Nginx.
+* If you're not using the default ports, you should adjust the table accroding to your own customiztion.
 
 ### How to test if your port forwarding is working
 
