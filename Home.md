@@ -21,6 +21,8 @@ Options & Customization
 
 * [[Seafile Server Configuration Options]]
 
+* [[Customize Email Notifications]]
+
 Other Deploy Issues
 
 * [[Firewall Settings for Seafile Server]]
