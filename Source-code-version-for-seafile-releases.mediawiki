@@ -1,7 +1,6 @@
-
 == Client ==
 
-When we release a new version for example 2.0.1, we will add tags v2.0.1 to libsearpc, ccnet, seafile and seafile-client.
+When we release a new version for example 2.0.1, we will add tags v2.0.1-server to libsearpc, ccnet, seafile and seafile-client.
 
 {|
 |+ Source code versions for Client releases
