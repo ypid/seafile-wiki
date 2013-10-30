@@ -15,6 +15,11 @@ Assume you have configured Apache as [[Deploy Seafile with Apache]]. To use http
 [sudo] a2enmod ssl
 </pre>
 
+On Windows, you have to add ssl module to httpd.conf
+<pre>
+LoadModule ssl_module modules/mod_ssl.so
+</pre>
+
 Then modify your Apache configuration file. Here is a sample:
 
 <pre>
