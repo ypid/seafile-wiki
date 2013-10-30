@@ -59,3 +59,10 @@ SERVICE_URL = https://www.myseafile.com
 ```python
 HTTP_SERVER_ROOT = 'https://www.myseafile.com/seafhttp'
 ```
+
+== Start Seafile and Seahub ==
+
+<pre>
+./seafile.sh start
+./seahub.sh start-fastcgi
+</pre>
