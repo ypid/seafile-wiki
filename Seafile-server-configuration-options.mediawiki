@@ -174,10 +174,6 @@ SITE_ROOT = '/'
 # Site admin can reset user's password, initial password is 123456.
 INIT_PASSWD = '123456'
 
-# Whether to use Django to server static file. Set to `False` if deployed behide a web server, default is `True`.
-# NOTE: since version 1.3.
-SERVE_STATIC = True
-
 # Whether to use pdf.js to view pdf files online. Default is `True`,  you can turn it off.
 # NOTE: since version 1.4.
 USE_PDFJS = True
