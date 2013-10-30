@@ -20,6 +20,8 @@
     a2enmod proxy_http
     ```
 
+On Windows, you have to download  [mod_fastcgi-*.dll] (http://fastcgi.com/dist/) first, and put it into the modules directory.
+
 ## Deploy Seahub/HttpServer With Apache
 
 Seahub is the web interface of Seafile server. HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request. 
@@ -38,6 +40,14 @@ FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
 `httpd.conf`, for centos/fedora:
 ```
 FastCGIExternalServer /var/www/html/seahub.fcgi -host 127.0.0.1:8000
+```
+
+`httpd.conf`, for Windows:
+```
+LoadModule fastcgi_module modules/mod_fastcgi-2.4.6-AP22.dll
+LoadModule rewrite_module modules/mod_rewrite.so
+FastCGIExternalServer e:/seafile-server-1.7.1/seahub/seahub.fcgi -host 127.0.0.1:8000
+
 ```
 
 
