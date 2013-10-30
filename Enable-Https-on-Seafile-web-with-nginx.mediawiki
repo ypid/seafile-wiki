@@ -37,6 +37,8 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
     }
 </pre>
 
+For Windows server, the path for ssl_certificate and ssl_certificate_key should be set to the paths in Windows. 
+
 === Sample configuration file ===
 
 Here is the sample configuration file:
