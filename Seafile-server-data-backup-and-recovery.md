@@ -1,5 +1,9 @@
 ## Overview
 
+A very simple way to backup is to stop the server and copy the whole Seafile directory to another place. If you do not stop the server, there may be some inconsistency. Following we provide a reliable way to backup your server without the need to shut it down.
+
+*** 
+
 There are generally two parts of data to backup
 
 * Seafile library data
