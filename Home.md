@@ -62,6 +62,7 @@ Logs
 * [[Seafile Data Model]]
 * [[Seafile synchronization algorithm]]
 * [[Seafile web API]]
+* [[Source code version for Seafile releases]]
 
 ## Sources
 * [[Build and Deploy Seafile Server from source]]
