@@ -29,6 +29,7 @@ Changelog: http://seacloud.cc/group/3/wiki/client-changelog/
 |-
 |}
 
+The seafile lastest source package is v2.0.5.
 
 == Server ==
 
@@ -51,3 +52,5 @@ Changelog: http://seacloud.cc/group/3/wiki/server-changelog/
 | ---
 |-
 |}
+
+The seafile lastest server source package is v2.0.2.
