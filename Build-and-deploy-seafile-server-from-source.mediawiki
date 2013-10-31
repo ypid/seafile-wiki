@@ -64,7 +64,7 @@ haiwen/
 First you should get the latest source of seafile:
 
 ```bash
-wget http://seafile.googlecode.com/files/seafile-latest.tar.gz
+wget http://seafile.googlecode.com/files/seafile-server-latest.tar.gz
 tar xzf seafile-latest.tar.gz
 ```
 
