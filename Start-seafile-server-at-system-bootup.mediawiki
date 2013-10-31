@@ -31,13 +31,15 @@ seahub_init_log=${seafile_dir}/logs/seahub.init.log
 
 # Change the value of fastcgi to true if fastcgi is to be used
 fastcgi=false
+# Set the port of fastcgi, default is 8000. Change it if you need different.
+fastcgi_port=8000
 
 case "$1" in
         start)
                 sudo -u ${user} ${script_path}/seafile.sh start > ${seafile_init_log}
                 if [  $fastcgi = true ];
                 then
-                        sudo -u ${user} ${script_path}/seahub.sh start-fastcgi > ${seahub_init_log}
+                        sudo -u ${user} ${script_path}/seahub.sh start-fastcgi ${fastcgi_port} > ${seahub_init_log}
                 else
                         sudo -u ${user} ${script_path}/seahub.sh start > ${seahub_init_log}
                 fi
@@ -46,7 +48,7 @@ case "$1" in
                 sudo -u ${user} ${script_path}/seafile.sh restart > ${seafile_init_log}
                 if [  $fastcgi = true ];
                 then
-                        sudo -u ${user} ${script_path}/seahub.sh restart-fastcgi > ${seahub_init_log}
+                        sudo -u ${user} ${script_path}/seahub.sh restart-fastcgi ${fastcgi_port} > ${seahub_init_log}
                 else
                         sudo -u ${user} ${script_path}/seahub.sh restart > ${seahub_init_log}
                 fi
