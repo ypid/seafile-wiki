@@ -9,12 +9,21 @@ When we release a new version for example 2.0.1, we will add tags v2.0.1 to libs
 ! ccnet
 ! seafile
 ! seafile-client
+! Note
 |-
 | 2.0.5
 | 1.1.0
 | 1.3.5
 | 2.0.2
 | 2.0.5
+|
+|-
+| 2.0.6
+| 1.1.0
+| 1.3.5
+| 2.0.3
+| 2.0.6
+| This version is released only for windows and cli to fix some bugs
 |-
 |}
 
