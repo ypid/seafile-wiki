@@ -2,6 +2,8 @@
 
 When we release a new version for example 2.0.1, we will add tags v2.0.1 to libsearpc, ccnet, seafile and seafile-client.
 
+Changelog: http://seacloud.cc/group/3/wiki/client-changelog/
+
 {|
 |+ Source code versions for Client releases
 ! client version
@@ -31,6 +33,8 @@ When we release a new version for example 2.0.1, we will add tags v2.0.1 to libs
 == Server ==
 
 When we release a new version for example 2.0.1, we will add tags v2.0.1-server to libsearpc, ccnet, seafile and seahub.
+
+Changelog: http://seacloud.cc/group/3/wiki/server-changelog/
 
 {|
 |+ Source code versions for Server releases
