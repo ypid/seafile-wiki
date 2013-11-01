@@ -18,17 +18,15 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * uuid-dev
 * intltool ( 0.40 or later) 
 * libsqlite3-dev (3.7 or later)
-* python-mako 
-* python-webpy
-* python-simplejson
-* libnotify-dev
-* libappindicator-dev (needed for Ubuntu Unity Desktop, not requied otherwise)
 * valac  (only needed if you build from git repo)
+* libjansson-dev
+* libqt4-dev
+* cmake
 
 For a fresh Fedora 19 installation, the following will install all dependencies via YUM:
 
 ```bash
-$ sudo yum install wget gcc libevent-devel openssl-devel gtk2-devel libuuid-devel sqlite-devel libnotify-devel intltool python-simplejson python-webpy
+$ sudo yum install wget gcc libevent-devel openssl-devel gtk2-devel libuuid-devel sqlite-devel jansson-devel intltool cmake qt-devel
 ```
 
 #### Building ####
@@ -40,16 +38,17 @@ $ wget http://seafile.googlecode.com/files/seafile-latest.tar.gz
 $ tar xzf seafile-latest.tar.gz
 ```
 
-After running the above commands, you should have a folder `seafile-{VERSION}` (VERSION is the latest version number, for example 1.4.5) in your current directory. The source of libsearpc/ccnet is also included in that folder.
+After running the above commands, you should have a folder `seafile-{VERSION}` (VERSION is the latest version number, for example 1.4.5) in your current directory. The source of libsearpc/ccnet/seafile-client is also included in that folder.
 
 ```bash
 seafile-{VERSION}
 ├── libsearpc
 ├── ccnet
+├── seafile-client
 ├── ... (other files)
 ```
 
-To build Seafile client, you need first build **libsearpc** and **ccnet**. 
+To build Seafile client, you need first build **libsearpc** and **ccnet**, **seafile**.
 
 ##### libsearpc #####
 
@@ -73,19 +72,21 @@ $ sudo make install
 
 ##### seafile #####
 
-NOTE: If using Ubuntu, add `--enable-appindicator` at the end of the `configure` command below.
-
 ```bash
 $ cd seafile-${VERSION}/
-$ ./configure --prefix=/usr
+$ ./configure --prefix=/usr --disable-gui
 $ make
 $ sudo make install
 ```
 
-Note:
+#### seafile-client ####
 
-* Appindicator is needed for Unity desktop environment.
-* If only CLI wanted: `./configure --prefix=/usr --disable-gui`
+```bash
+$ cd seafile-${VERSION}/seafile-client
+$ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr .
+$ make
+$ sudo make install
+```
 
 ## Use Seafile Client ##
 
