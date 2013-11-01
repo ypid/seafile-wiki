@@ -18,6 +18,8 @@ wget http://seafile.googlecode.com/files/seafile-server_{version}_x86-64.tar.gz
 
 == Deploying and Directory Layout ==
 
+NOTE: If you place the Seafile data directory in external storage, such as NFS, CIFS mount, you should not use SQLite as the database, but use MySQL instead. Please follow [https://github.com/haiwen/seafile/wiki/Download-and-Setup-Seafile-Server-with-MySQL this manual] to setup Seafile server.
+
 Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.4.0_* into your home directory.
 We suggest you to layout your deployment as follows : 
 
