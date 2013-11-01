@@ -4,7 +4,7 @@ Log files of seafile server (for version 1.8 and later):
 * Seafile server： logs/seafile.log
 * HttpServer: logs/http.log
 * Controller: logs/controller.log
-* Seahub：logs/seahub_django_request.log, logs/seahub.log
+* Seahub：/tmp/seahub_django_request.log, /tmp/seahub.log
 
 Log files of seafile server (for version 1.7 or before):
 
