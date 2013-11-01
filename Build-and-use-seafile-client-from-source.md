@@ -1,8 +1,12 @@
 ## Build Seafile Client ##
 
-### The components of seafile client ###
+### The components of Seafile client ###
 
-[[images/client-arch.png]]
+Seafile client v2.0 consists of three components:
+
+* ccnet-daemon: for networking
+* seafile-daemon: for file syncing
+* seafile-applet: GUI
 
 ### Linux ###
 
