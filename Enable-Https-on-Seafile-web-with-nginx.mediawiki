@@ -34,6 +34,7 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
         ......
         ......
         fastcgi_param   HTTPS   on;
+        fastcgi_param HTTP_SCHEME https;
     }
 </pre>
 
