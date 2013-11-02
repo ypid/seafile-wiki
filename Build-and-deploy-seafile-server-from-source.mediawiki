@@ -30,6 +30,7 @@ libevhtp can be build by <code>cmake .; make; sudo make install</code>.  libevht
 * sqlite3
 * simplejson (python-simplejson)
 * PIL (aka. python imaging library, python-image)
+* chardet
 * gunicorn
 
 The module '''argparser''' is required by the <code>seafile-admin</code> script which you'll see later. If you use Python 2.7, '''argparser''' is distributed with python's standard library, so you don't need to install it. But if you use Python 2.6, you should install it manually.
