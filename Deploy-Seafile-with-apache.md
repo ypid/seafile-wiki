@@ -10,8 +10,8 @@
 
     ```
     sudo apt-get install libapache2-mod-fastcgi
-    cd /etc/apache2/mods-enabled
-    sudo ln -s ../mods-available/rewrite.load rewrite.load
+    sudo a2enmod rewrite
+    sudo a2enmod fastcgi
     ```
 
 3. Enable apache proxy
