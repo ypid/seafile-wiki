@@ -205,7 +205,10 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 </pre>
 
-'''Note''': You need to restart seahub so that your changes take effect.
+'''Note''': 
+
+* You need to restart seahub so that your changes take effect.
+* If your changes don't take effect, You may need to delete 'seahub_setting.pyc'. (A cache file)
 
 <pre>
 ./seahub.sh restart
