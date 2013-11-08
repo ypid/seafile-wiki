@@ -374,7 +374,11 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 
 After getting the upload link, POST to this link for uploading files.
 
-**POST** http://cloud.seafile.com:8082/upload-api/ef881b22
+**POST** http://cloud.seafile.com:8082/update-api/ef881b22
+
+**Request parameters**
+
+* target_file
 
 **Returns**
 
@@ -392,7 +396,9 @@ The id of the updated file
     443 Out of quota
     500 Internal server error
 
+**Sample request**
 
+    curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F target_file=/test.txt http://cloud.seafile.com:8082/upload-api/ef881b22
 
 
 ### <a id="list-directory"></a>List directory entries ###
