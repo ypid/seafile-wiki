@@ -1,6 +1,6 @@
 This documentation will talk about how to deploy Seafile Web using Apache/Nginx at Non-root directory of the website(e.g., www.example.com/seafile/). 
 
-'''Note:''' We assume you have read [[Enable Https on Seafile Web with Nginx]] or [[Enable Https on Seafile Web with Apache]].
+'''Note:''' We assume you have read [[Deploy Seafile with nginx]] or [[Deploy Seafile with apache]].
 
 == Deploy with Nginx ==
 
@@ -41,6 +41,12 @@ server {
         access_log      /var/log/nginx/seahub.access.log;
     	error_log       /var/log/nginx/seahub.error.log;
     }       
+
+    location /seafhttp {
+        rewrite ^/seafhttp(.*)$ $1 break;
+        proxy_pass http://127.0.0.1:8082;
+        client_max_body_size 0;
+    }
 
     location /seafmedia {
         rewrite ^/seafmedia(.*)$ /media$1 break;
