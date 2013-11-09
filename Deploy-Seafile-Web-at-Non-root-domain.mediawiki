@@ -1,6 +1,6 @@
 This documentation will talk about how to deploy Seafile Web using Apache/Nginx at Non-root directory of the website(e.g., www.example.com/seafile/). 
 
-'''Note:''' We assume you have read [[Deploy Seafile Web with nginx apache]].
+'''Note:''' We assume you have read [[Enable Https on Seafile Web with Nginx]] or [[Enable Https on Seafile Web with Apache]].
 
 == Deploy with Nginx ==
 
@@ -65,10 +65,23 @@ After that, you need to configure your Apache, here is the sample configuration:
 <VirtualHost *:80>
   ServerName www.example.com
   DocumentRoot /var/www
-  Alias /seafmedia  /home/user/haiwen/seafile-server-1.6.1/seahub/media
+  Alias /seafmedia  /home/user/haiwen/seafile-server-2.0.2/seahub/media
+
   RewriteEngine On
+
+  #
+  # seafile httpserver
+  #
+  ProxyPass /seafhttp http://127.0.0.1:8082
+  ProxyPassReverse /seafhttp http://127.0.0.1:8082
+  RewriteRule ^/seafhttp - [QSA,L]
+
+  #
+  # seahub
+  #
+  RewriteRule ^/(seafmedia.*)$ /$1 [QSA,L,PT]
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^/(seafile.*)$ /seahub.fcgi/$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]  
+  RewriteRule ^/(seafile.*)$ /seahub.fcgi/$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </VirtualHost>
 </pre>
 
