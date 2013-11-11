@@ -82,6 +82,10 @@ If your port forwarding is not working, the reasons may be:
 - Your router may need a restart
 - You network may be down
 
+### Set SERVICE_URL 
+
+There is a configuration option "SERVICE_URL" in ccnet.conf. It is used to generate the download/upload link for files when you browse files online. Set it to your external IP address. Most routers support NAT loopback. When your access Seafile web from intranet, file download/upload still works even when external IP is used.
+
 ## Use a Dynamic DNS Serivce
 
 ### Why use a Dynamic DNS(DDNS)  Service?
