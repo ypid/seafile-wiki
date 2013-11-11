@@ -84,7 +84,13 @@ If your port forwarding is not working, the reasons may be:
 
 ### Set SERVICE_URL 
 
-"SERVICE_URL" in `ccnet.conf` is used to generate the download/upload link for files when you browse files online. Set it to your external IP address. Most routers support NAT loopback. When your access Seafile web from intranet, file download/upload still works even when external IP is used.
+"SERVICE_URL" in `ccnet.conf` is used to generate the download/upload link for files when you browse files online. Set it using your WAN IP. 
+
+```
+SERVICE_URL = http://<Your WAN IP>:8000
+```
+
+Most routers support NAT loopback. When your access Seafile web from intranet, file download/upload still works even when external IP is used.
 
 ## Use a Dynamic DNS Serivce
 
@@ -107,7 +113,7 @@ The detailed process is beyond the scope of this wiki. But basically, you should
 After you have setup your DDNS service, you need to modify the `ccnet.conf`:
 
 ```
-SERVICE_URL = <Your dynamic DNS domain>:8000
+SERVICE_URL = http://<Your dynamic DNS domain>:8000
 ```
 
 Restart your seafile server after this.
