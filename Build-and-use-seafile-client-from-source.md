@@ -46,7 +46,21 @@ Download the source tarball of the latest tag from
 - https://github.com/haiwen/seafile/tags
 - https://github.com/haiwen/seafile-client/tags
 
-For example, if the latest released seafile client is 2.0.8, then just use the **v2.0.8** tags of the four projects. Get the tarballs, and uncompress them.
+For example, if the latest released seafile client is 2.0.8, then just use the **v2.0.8** tags of the four projects. You should get four tarballs:
+
+- libsearpc-2.0.8.tar.gz
+- ccnet-2.0.8.tar.gz
+- seafile-2.0.8.tar.gz
+- seafile-client-2.0.8.tar.gz
+
+Now uncompress them:
+
+```sh
+tar xf libsearpc-2.0.8.tar.gz
+tar xf ccnet-2.0.8.tar.gz
+tar xf seafile-2.0.8.tar.gz
+tar xf seafile-client-2.0.8.tar.gz
+```
 
 To build Seafile client, you need first build **libsearpc** and **ccnet**, **seafile**.
 
