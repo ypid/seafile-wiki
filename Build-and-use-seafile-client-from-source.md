@@ -16,6 +16,7 @@ The following list is what you need to install on your development machine. __Yo
 
 Package names are according to Ubuntu 12.04. For other Linux distros, please find their corresponding names yourself.
 
+* autoconf/automake/libtool
 * libevent-dev ( 2.0 or later )
 * libcurl4-openssl-dev  (1.0.0 or later)
 * libgtk2.0-dev ( 2.24 or later)
@@ -25,6 +26,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * valac  (only needed if you build from git repo)
 * libjansson-dev
 * libqt4-dev
+* valac
 * cmake
 
 For a fresh Fedora 19 installation, the following will install all dependencies via YUM:
@@ -35,29 +37,24 @@ $ sudo yum install wget gcc libevent-devel openssl-devel gtk2-devel libuuid-deve
 
 #### Building ####
 
-First you should get the latest source of seafile:
+First you should get the latest source of libsearpc/ccnet/seafile/seafile-client:
 
-```bash
-$ wget http://seafile.googlecode.com/files/seafile-latest.tar.gz
-$ tar xzf seafile-latest.tar.gz
-```
+Download the source tarball of the latest tag from 
 
-After running the above commands, you should have a folder `seafile-{VERSION}` (VERSION is the latest version number, for example 1.4.5) in your current directory. The source of libsearpc/ccnet/seafile-client is also included in that folder.
+- https://github.com/haiwen/libsearpc/tags
+- https://github.com/haiwen/ccnet/tags
+- https://github.com/haiwen/seafile/tags
+- https://github.com/haiwen/seafile-client/tags
 
-```bash
-seafile-{VERSION}
-├── libsearpc
-├── ccnet
-├── seafile-client
-├── ... (other files)
-```
+For example, if the latest released seafile client is 2.0.8, then just use the **v2.0.8** tags of the four projects. Get the tarballs, and uncompress them.
 
 To build Seafile client, you need first build **libsearpc** and **ccnet**, **seafile**.
 
 ##### libsearpc #####
 
 ```bash
-$ cd seafile-{VERSION}/libsearpc
+$ cd libsearpc-${version}
+$ ./autogen.sh
 $ ./configure --prefix=/usr
 $ make
 $ sudo make install
@@ -68,7 +65,8 @@ $ sudo make install
 NOTE: If libsearpc is not found while executing `configure` below, run: `export PKG_CONFIG_PATH=/usr/lib/pkgconfig`.
 
 ```bash
-$ cd seafile-{VERSION}/ccnet
+$ cd ccnet-{version}
+$ ./autogen.sh
 $ ./configure --prefix=/usr
 $ make
 $ sudo make install
@@ -78,6 +76,7 @@ $ sudo make install
 
 ```bash
 $ cd seafile-${VERSION}/
+$ ./autogen.sh
 $ ./configure --prefix=/usr --disable-gui
 $ make
 $ sudo make install
@@ -86,7 +85,7 @@ $ sudo make install
 #### seafile-client ####
 
 ```bash
-$ cd seafile-${VERSION}/seafile-client
+$ cd seafile-client-${version}
 $ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr .
 $ make
 $ sudo make install
