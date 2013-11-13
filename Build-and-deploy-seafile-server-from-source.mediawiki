@@ -62,31 +62,51 @@ haiwen/
 
 === Get the source ===
 
-First you should get the latest source of seafile:
+First you should get the latest source of libsearpc/ccnet/seafile/seahub
+
+Download the source tarball of the latest tag from 
+
+* https://github.com/haiwen/libsearpc/tags
+* https://github.com/haiwen/ccnet/tags
+* https://github.com/haiwen/seafile/tags
+* https://github.com/haiwen/seahub/tags
+
+For example, if the latest released seafile client is 2.0.3, then just use the '''v2.0.3-server''' tags of the four projects. You should get four tarballs:
+
+* libsearpc-2.0.3-server.tar.gz
+* ccnet-2.0.3-server.tar.gz
+* seafile-2.0.3-server.tar.gz
+* seahub-2.0.3-server.tar.gz
+
+Create a folder <code>haiwen/src</code>, and uncompress libsearpc/ccnet/seafile source to it.
 
 ```bash
-wget http://seafile.googlecode.com/files/seafile-server-latest.tar.gz
-tar xzf seafile-latest.tar.gz
+cd haiwen/seafile-server
+mkdir src
+cd src
+tar xf /path/to/libsearpc-2.0.3-server.tar.gz
+tar xf /path/to/ccnet-2.0.3-server.tar.gz
+tar xf /path/to/seafile-2.0.3-server.tar.gz
 ```
 
-After running the above commands, you should have a folder <code>seafile-{VERSION}</code> (VERSION is the latest version number of seafile, for example 1.4.5) in your current directory. The source of libsearpc/ccnet is also included in that folder.
-
-Also download the latest source of seahub, for later use.
+And uncompress seahub tarball to <code>haiwen/seafile-server</code>:
 
 ```bash
-wget http://seafile.googlecode.com/files/seahub-latest.tar.gz
-tar xzf seahub-latest.tar.gz
-mv seahub-{VERSION} seahub # VERSION is the version number of the latest seahub
+cd haiwen/seafile-server
+tar xf /path/to/seahub-2.0.3-server.tar.gz
+mv seahub-2.0.3-server seahub
 ```
+
 So far, The current directory layout is:
 
 ```bash
 haiwen/
 └── seafile-server
     └── seahub
-    └── seafile-{VERSION} # VERSION is a number like 1.4.5
-        ├── libsearpc
-        ├── ccnet
+    └── src
+        ├── libsearpc-2.0.3-server
+        ├── ccnet-2.0.3-server
+        ├── seafile-2.0.3-server
         ├── ... (other files)
 ```
 
@@ -97,7 +117,7 @@ To build seafile server, you need first build '''libsearpc''' and '''ccnet'''.
 ===== libsearpc =====
 
 ```bash
-cd seafile-{VERSION}/libsearpc
+cd libsearpc-${version}
 ./configure
 make
 make install
@@ -106,7 +126,7 @@ make install
 ===== ccnet =====
 
 ```bash
-cd seafile-{VERSION}/ccnet
+cd ccnet-${version}
 ./configure --disable-client --enable-server   # `export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig` if libsearpc is not found
 make
 make install
@@ -115,7 +135,7 @@ make install
 ===== seafile =====
 
 ```bash
-cd seafile-${VERSION}/
+cd seafile-${version}
 ./configure --disable-client --enable-server
 make
 make install
@@ -136,9 +156,6 @@ The seafile server consists of the following components:
   </tr>
   <tr>
     <td>seaf-server</td><td>data management</td>
-  </tr>
-  <tr>
-    <td>seaf-monitor</td><td>monitoring seafile statistics</td>
   </tr>
   <tr>
     <td>Seahub</td><td>website front-end of seafile server</td>
@@ -165,7 +182,7 @@ These are the essential steps to create the configuration:
 
 To create the configurations, you can either:
 
-* use the seafile-admin script
+* use the seafile-admin script(see below)
 * [[create server configuration by hand]]
 
 
@@ -298,40 +315,22 @@ cd /data/haiwen
 seafile-admin stop
 ```
 
-* Get and latest source code and build libsearpc/ccnet/seafile, just as what you do in a fresh setup
+* Get and latest source code and build libsearpc/ccnet/seafile, just as what you do in a fresh setup.
 * Run the upgrade script. The upgrade script mainly updates database used by seafile for you. For example, create a new database table that is used in the latest seafile server but not in the previous version.
 
-'''Note:''' If your built seafile server from source before 1.4.5 (i.e. 1.4.1 and below), you need to [[modify server directory layout before 1.4.5|manually modify the directory layout]] before reading on, because the directory layout created by the old <code>seafile-admin</code> script was not correct.
-
-=== Get and build the latest source ===
-
-* remove the old source code of seafile and seahub
-
-```bash
-cd /data/haiwen
-rm -rf seafile-server/seafile-${OLD-VERSION} # remove the old seafile source code, if exists
-mv seafile-server/seahub seafile-server/seahub-old
-```
-
-* download the latest source code
-
-```bash
-cd /data/haiwen/seafile-server
-wget http://seafile.googlecode.com/files/seafile-latest.tar.gz
-wget http://seafile.googlecode.com/files/seahub-latest.tar.gz
-```
-
-* uncompress the source code
-
-```bash
-tar xzf seafile-latest.tar.gz
-tar xzf seahub-latest.tar.gz
-mv seahub-{version} seahub
-```
-
-* build the new source code
+=== Get and compile the latest libsearpc/ccnet/seafile ===
 
 See the '''Building''' section above.
+
+=== Get the new seahub tarball and uncompress it ====
+
+```bash
+cd haiwen/seafile-server
+mv seahub/ seahub-old # move away the old seahub folder
+tar xf /path/to/new/seahub-x.x.x-server.tar.gz
+mv seahub-x.x.x-server seahub
+```
+
 
 === Do the upgrade ===
 
