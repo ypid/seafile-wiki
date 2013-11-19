@@ -37,6 +37,3 @@ A solution is here http://www.wowi.fr/2013/10/seafile-on-freebsd.html (Not confi
 * Make sure you firewall for seafile httpserver is opened.
 * Using chrome/firefox debug mode to find which link is given when click download button and what's wrong with this link
 
-== Failed to open txt/md file online, other files are OK ==
-
-Make sure your server can connect itself via the domain name.
