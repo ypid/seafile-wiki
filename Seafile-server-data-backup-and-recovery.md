@@ -2,6 +2,8 @@
 
 A very simple way to backup is to stop the server and copy the whole Seafile directory to another place. If you do not stop the server, there may be some inconsistency. We provide a reliable way in the following to backup your server without the need to shut it down.
 
+Important: The ID in `ccnet/ccnet.conf` must be consistent with the SHA1 value of `ccnet/mykey.peer`. So do not forget to copy `ccnet/mykey.peer`.
+
 *** 
 
 There are generally two parts of data to backup
