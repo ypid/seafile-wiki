@@ -2,6 +2,8 @@ The current code of seahub assumes that user name to be email address, so it's n
 
 Note that the seafile admin user account is always stored in sqlite/mysql database, not in LDAP.
 
+If you have used Seafile without configuring LDAP before, the users are stored in database (MySQL or SQLite). Starting from 2.0.4, after enabling LDAP, the users in database are still valid. Seafile will find the user both from database and LDAP. Seafile server before 2.0.4 can only find users from either database or LDAP, not both.
+
 To use LDAP to authenticate user, please add the following lines to ccnet.conf
 
     [LDAP]
