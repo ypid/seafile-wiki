@@ -10,22 +10,13 @@ The content of this script is:
 (You need to modify the value of '''user''' and '''script_path''' accordingly)
 ```
 #!/bin/sh
-### BEGIN INIT INFO
-# Provides:		seafile-server
-# Required-Start:	$all
-# Required-Stop:	$all
-# Should-Start:		$local_fs
-# Should-Stop:		$local_fs
-# Default-Start:	2 3 4 5
-# Default-Stop:		0 1 6
-### END INIT INFO
 
 # Change the value of "user" to your linux user name
 user=haiwen
 
 # Change the value of "script_path" to your path of seafile installation
 seafile_dir=/data/haiwen
-script_path=${seafile_dir}/seafile-server-1.7.0
+script_path=${seafile_dir}/seafile-server-2.0.4
 seafile_init_log=${seafile_dir}/logs/seafile.init.log
 seahub_init_log=${seafile_dir}/logs/seahub.init.log
 
@@ -65,12 +56,27 @@ esac
 ```
 '''Note''': If you want to start seahub in fastcgi, just change the '''fastcgi''' variable to '''true'''
 
-* Then update the system config
+* Create a file '''/etc/init/seafile-server.conf'''
+
+```sh
+start on (started mysql
+and runlevel [2345])
+stop on (stopping mysql
+and runlevel [016])
+
+pre-start script
+/etc/init.d/seafile-server start
+end script
+
+post-stop script
+/etc/init.d/seafile-server stop
+end script
 ```
-# make the script executable
+
+* Make the seafile-sever script executable
+
+```
 sudo chmod +x /etc/init.d/seafile-server
-# update system rc.d config to enable seafile-server
-sudo update-rc.d seafile-server defaults
 ```
 
 * Done. Don't forget to update the value of '''script_path''' later if you update your seafile server.
