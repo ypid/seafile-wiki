@@ -1,14 +1,15 @@
 == For Ubuntu/Debian ==
 
 On Ubuntu/Debain, we make use of the [https://help.ubuntu.com/community/UbuntuBootupHowto /etc/init.d/] scripts to start seafile/seahub at system boot.
-* Create a script '''/etc/init.d/seafile-server'''
-```
+
+=== Create a script '''/etc/init.d/seafile-server''' ===
+
+```sh
 sudo vim /etc/init.d/seafile-server
 ```
 The content of this script is:
-
 (You need to modify the value of '''user''' and '''script_path''' accordingly)
-```
+```sh
 #!/bin/sh
 
 # Change the value of "user" to your linux user name
@@ -56,7 +57,7 @@ esac
 ```
 '''Note''': If you want to start seahub in fastcgi, just change the '''fastcgi''' variable to '''true'''
 
-* Create a file '''/etc/init/seafile-server.conf'''
+=== Create a file '''/etc/init/seafile-server.conf''' ===
 
 ```sh
 start on (started mysql
@@ -72,14 +73,14 @@ post-stop script
 /etc/init.d/seafile-server stop
 end script
 ```
-
-* Make the seafile-sever script executable
+=== Make the seafile-sever script executable ===
 
 ```
 sudo chmod +x /etc/init.d/seafile-server
 ```
+=== Done ===
 
-* Done. Don't forget to update the value of '''script_path''' later if you update your seafile server.
+Don't forget to update the value of '''script_path''' later if you update your seafile server.
 
 == For RHEL/CentOS ==
 
