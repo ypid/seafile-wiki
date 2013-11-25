@@ -1,6 +1,6 @@
 This documentation will talk about how to deploy Seafile Web using Apache/Nginx at Non-root directory of the website(e.g., www.example.com/seafile/). 
 
-'''Note:''' We assume you have read [[Deploy Seafile with nginx]] or [[Deploy Seafile with apache]].
+**Note:** We assume you have read [[Deploy Seafile with nginx]] or [[Deploy Seafile with apache]].
 
 ## Deploy with Nginx
 
@@ -55,7 +55,7 @@ server {
 }
 </pre>
 
-Now you need to reload Nginx, and open your browser to check if everything works fine.
+You need also to modify `SERVICE_URL` and `HTTP_SERVER_ROOT` (see below). 
 
 ## Deploy with Apache
 
@@ -92,8 +92,6 @@ After that, you need to configure your Apache, here is the sample configuration:
 </pre>
 
 We use Alias to let Apache serve static files, please change the second argument to your path.
-
-Now restart Apache, and test if everything works fine.
 
 ## Modify ccnet.conf and seahub_setting.py
 
