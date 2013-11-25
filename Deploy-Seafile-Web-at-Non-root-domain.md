@@ -2,7 +2,7 @@ This documentation will talk about how to deploy Seafile Web using Apache/Nginx 
 
 '''Note:''' We assume you have read [[Deploy Seafile with nginx]] or [[Deploy Seafile with apache]].
 
-== Deploy with Nginx ==
+## Deploy with Nginx
 
 First, we need to overwrite some variables in seahub_settings.py:
 
@@ -57,7 +57,7 @@ server {
 
 Now you need to reload Nginx, and open your browser to check if everything works fine.
 
-== Deploy with Apache ==
+## Deploy with Apache
 
 First, you need to modify seahub_settings.py as above.
 
@@ -103,7 +103,7 @@ You need to modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/c
 to let Seafile know the domain you choose.
 
 <pre>
-SERVICE_URL = http://www.myseafile.com
+SERVICE_URL = http://www.myseafile.com/seafile
 </pre>
 
 Note: If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
