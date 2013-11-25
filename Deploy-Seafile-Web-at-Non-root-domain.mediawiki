@@ -94,3 +94,31 @@ After that, you need to configure your Apache, here is the sample configuration:
 We use Alias to let Apache serve static files, please change the second argument to your path.
 
 Now restart Apache, and test if everything works fine.
+
+## Modify ccnet.conf and seahub_setting.py
+
+### Modify ccnet.conf
+
+You need to modify the value of <code>SERVICE_URL</code> in <code>/data/haiwen/ccnet/ccnet.conf</code>
+to let Seafile know the domain you choose.
+
+<pre>
+SERVICE_URL = http://www.myseafile.com
+</pre>
+
+Note: If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+
+### Modify seahub_settings.py
+
+You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
+
+```python
+HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
+```
+
+## Start Seafile and Seahub
+
+<pre>
+./seafile.sh start
+./seahub.sh start-fastcgi
+</pre>
