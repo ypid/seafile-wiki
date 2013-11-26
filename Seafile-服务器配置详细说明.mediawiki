@@ -154,10 +154,6 @@ SITE_ROOT = '/'
 # 网站管理员可以重置用户的密码，重置后的初始密码为 123456，可选参数
 INIT_PASSWD = '123456'
 
-# 是否使用 Django 来处理静态文件，默认为 `True`。 如果你把Seahub部署在Web服务器后，请设置为`False`。
-# NOTE: since version 1.3.
-SERVE_STATIC = True
-
 # 在线浏览pdf文件时是否使用 pdf.js。 默认为 ｀True`。
 # NOTE: since version 1.4.
 USE_PDFJS = True
