@@ -1,0 +1,66 @@
+Seafile WebDAV Server(SeafDAV) is added in seafile server 2.1.0.
+
+In the wiki below, we assume your seafile installation folder is <code>/data/haiwen</code>.
+
+== SeafDAV Configuration ==
+
+The configuration file is <code>/data/haiwen/seafile-data/seafdav.conf</code>
+
+```conf
+[WEBDAV]
+
+# Default is false. Change it to true to enable SeafDAV server.
+enabled = true
+
+port = 8080
+
+# Change the value of fastcgi to true if fastcgi is to be used
+fastcgi = false
+
+# If you deploy seafdav behind nginx/apache, you need to modify "share_name".
+share_name = /
+```
+
+Every time the configuration is modified, you need to restart seafile server to make it take effect.
+
+```sh
+./seafile.sh restart
+```
+
+
+=== Sample Configuration 1: No nginx/apache ===
+
+Your WebDAV client would visit the Seafile WebDAV server at <code>http://example.com:8080</code>
+
+```conf
+[WEBDAV]
+enabled = true
+port = 8080
+fastcgi = false
+share_name = /
+```
+
+=== Sample Configuration 2: With nginx/apache ===
+
+Your WebDAV client would visit the Seafile WebDAV server at <code>http://example.com/seafdav</code>
+
+```conf
+[WEBDAV]
+enabled = true
+port = 8080
+fastcgi = true
+share_name = /seafdav
+```
+
+== Frequently Asked Questions ==
+
+=== Clients can't connect to seafdav sersver ===
+
+By default, seafdav is disabled. Check whether you have <code>enabled = true</code> in <code>seafdav.conf</code>.
+If not, modify it and restart seafile server.
+
+
+=== The client gets "Error: 404 Not Found" ===
+
+If you deploy SeafDAV behind Nginx/Apache, make sure to change the value of <code>share_name</code> as the sample configuration above. Restart your seafile server and try again.
+
