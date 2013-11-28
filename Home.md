@@ -30,9 +30,10 @@ Other Deploy Issues
 * [[Deploy Seafile Web at Non root domain]]
 * [[Migrate data from SQLite to MySQL]]
 
-Common Problems in Setup Seafile Server
+**Read here** if you have troubles in setup Seafile server
 
 * [[Common Problem in Setup Seafile Server]]
+* Use our google group forum or IRC to get help.
 
 ## Manage/Maintain Seafile Server
 
