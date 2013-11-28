@@ -32,8 +32,9 @@ Other Deploy Issues
 
 **Read here** if you have troubles in setup Seafile server
 
-* [[Common Problem in Setup Seafile Server]]
-* Use our google group forum or IRC to get help.
+1. Read [[Seafile Server Components Overview]] to understand how seafile server works. This will save you a lot of time.
+2. [[Common Problem in Setup Seafile Server]]
+3. Use our google group forum or IRC to get help.
 
 ## Manage/Maintain Seafile Server
 
