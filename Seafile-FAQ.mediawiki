@@ -9,8 +9,12 @@ Possible reasons:
 
 Trouble shooting:
 
-* Click the  download button of a library, this will redirect you to a local address like http://localhost:13420/repo/download/?relay_id=...&relay_addr=cloud.seafile.com&relay_port=10001. Check the relay_addr and relay_port part. These two parameters are used by the client to connect the server.
-* Manually telnet to see if you can connect: <code>telnet cloud.seafile.com 10001</code> 
+* Manually telnet to see if you can connect: <code>telnet your-server-IP-or-domain 10001</code> 
+
+== Failed to upload/download file online ==
+
+* Make sure you firewall for seafile httpserver is opened.
+* Using chrome/firefox debug mode to find which link is given when click download button and what's wrong with this link
 
 == Does Seafile server support Python 3? ==
 
@@ -32,8 +36,4 @@ A solution is here http://www.wowi.fr/2013/10/seafile-on-freebsd.html (Not confi
 
 * If your avatars link is correctly linked, and avatars are still broken, you may refresh seahub cache by <code>rm -rf /tmp/seahub_cache/*</code>
 
-== Failed to upload/download file online ==
-
-* Make sure you firewall for seafile httpserver is opened.
-* Using chrome/firefox debug mode to find which link is given when click download button and what's wrong with this link
 
