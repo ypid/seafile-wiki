@@ -8,9 +8,16 @@ Seafile server comprises of the following services
 * HttpServer: handles raw file upload/download for Seahub. Because gunicorn is poor in handling large files, so we write this "HttpServer" in C programming language to serve raw file upload/download.
 * Controller: monitors ccnet and seafile daemons, restart them if necessary
 
+The picture below shows how Seafile desktop client syncs files with Seafile server:
+
 [[images/seafile-sync-arch.png]]
+
+
+The picture below shows how Seafile mobile client interacts with Seafile server:
 
 [[images/mobile-arch.png]]
 
-[[images/mobile-nginx-arch.png]]
 
+The picture below shows how Seafile mobile client interacts with Seafile server if the server is configured behind Nginx/Apache:
+
+[[images/mobile-nginx-arch.png]]
