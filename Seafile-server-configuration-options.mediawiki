@@ -164,9 +164,6 @@ SITE_TITLE = 'Seafile'
 # e.g. setting it to '/seahub/' would run seahub on http://example.com/seahub/.
 SITE_ROOT = '/'
 
-# Site admin can reset user's password, initial password is 123456.
-INIT_PASSWD = '123456'
-
 # Whether to use pdf.js to view pdf files online. Default is `True`,  you can turn it off.
 # NOTE: since version 1.4.
 USE_PDFJS = True
