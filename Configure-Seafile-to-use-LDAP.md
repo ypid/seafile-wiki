@@ -40,12 +40,7 @@ Example config for Active Directory:
     PASSWORD = secret
     LOGIN_ATTR = mail
 
-## New in 1.8
-
-Starting from version 1.8, seafile adds some new LDAP features
-
-* Multiple base DN
-* Additional search filter
+## Multiple base DN/Additional search filter
 
 Multiple base DN is useful when your company has more than one OUs to use Seafile. You can specify a list of base DN in the "BASE" config. The DNs are separated by ";", e.g. `cn=developers,dc=example,dc=com;cn=marketing,dc=example,dc=com`
 
