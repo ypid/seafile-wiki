@@ -1,5 +1,6 @@
 ## Failed to upload/download file online
 
+* Check your SERVICE_URL setting in ccnet.conf and HTTP_SERVER_ROOT setting in seahub_settings.py
 * Make sure you firewall for seafile httpserver is opened.
 * Using chrome/firefox debug mode to find which link is given when click download button and what's wrong with this link
 
