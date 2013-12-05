@@ -140,12 +140,14 @@ LOGO_URL = 'http://your-seafile.com'
 
 === Enable Memcached ===
 
+<pre>
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
 	'LOCATION': '127.0.0.1:11211',
     }
 }
+</pre>
 
 === Seahub Settings ===
 
