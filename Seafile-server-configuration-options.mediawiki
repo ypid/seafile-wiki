@@ -138,6 +138,15 @@ LOGO_PATH = 'img/<your-logo-file-name>'
 LOGO_URL = 'http://your-seafile.com'
 </pre>
 
+=== Enable Memcached ===
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+	'LOCATION': '127.0.0.1:11211',
+    }
+}
+
 === Seahub Settings ===
 
 You may change seahub website's settings by adding variables in `seahub_settings.py`.
