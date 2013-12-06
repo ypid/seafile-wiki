@@ -59,16 +59,12 @@ Logs
 * [[Seafile Server FAQ|Seafile FAQ]]
 * [Seafile Client FAQ](https://seacloud.cc/group/3/wiki/)
 * [FAQ for Security Features](https://seacloud.cc/group/3/wiki/faq-for-security-features/)
-* [[Press Reviews & Announcements]]
-
-## Clients
-* [[Seafile CLI client]]
 
 ## For developers
+
 * [[Seafile Data Model]]
 * [[Seafile synchronization algorithm]]
 * [[Seafile web API]]
-
 
 ## Sources
 
@@ -79,13 +75,13 @@ You can build Seafile from our source code package or from Github repo directly.
 * [[Build and Use Seafile client from source]]
 * [[Build seafile client on Mac]]
 
+## Clients
 
+* [[Seafile CLI client]]
 
 ## For Chinese Users
-* [[Seafile 服务器手册中文版]]
 
-## Related Projects
-* See https://github.com/haiwen for other open source projects related to Seafile.
+* [[Seafile 服务器手册中文版]]
 
 ## Contact information
 * Twitter: @seafile https://twitter.com/seafile
