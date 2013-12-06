@@ -16,3 +16,8 @@ Possible reasons:
 Trouble shooting:
 
 * Manually telnet to see if you can connect: <code>telnet your-server-IP-or-domain 10001</code> 
+
+
+## Error on Apache log: "File does not exist: /var/www/seahub.fcgi"
+
+Make sure you use "FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000" in httpd.conf or apache2.conf, especially the "/var/www/seahub.fcgi" part.
