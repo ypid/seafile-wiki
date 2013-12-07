@@ -122,9 +122,22 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 '''Note''': If your Email service still can not work, you may checkout the log file <code>/tmp/seahub.log</code> to see what may cause the problem. For complete email notification list, please refer to [[Email notification list]].
 
+=== Enable Memcached ===
+
+Seahub caches items on file system by default(/tmp/seahub_cache/). You can replace with Memcached.
+
+<pre>
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+	'LOCATION': '127.0.0.1:11211',
+    }
+}
+</pre>
+
 === Customize Seahub Logo ===
 
-1. Added your logo file to <code>seahub/media/img/</code>
+1. Add your logo file to <code>seahub/media/img/</code>
 
 2. Overwrite <code>LOGO_PATH</code> in <code>seahub_settings.py</code>
 
@@ -138,15 +151,14 @@ LOGO_PATH = 'img/<your-logo-file-name>'
 LOGO_URL = 'http://your-seafile.com'
 </pre>
 
-=== Enable Memcached ===
+=== Custmize Seahub CSS ===
+
+1. Add your css file to <code>seahub/media/css/</code>
+
+2. Overwrite <code>BRANDING_CSS</code> in <code>seahub_settings.py</code>
 
 <pre>
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-	'LOCATION': '127.0.0.1:11211',
-    }
-}
+BRANDING_CSS = 'css/<your-css-file-name>'
 </pre>
 
 === Seahub Settings ===
