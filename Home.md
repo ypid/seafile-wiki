@@ -20,6 +20,7 @@ Deploy/Upgrade Seafile in Production/Enterprise Environment
 Options & Customization
 
 * [[Seafile Server Configuration Options]]
+* [[Seahub Customization]]
 * [[Customize Email Notifications]]
 
 Other Deploy Issues
