@@ -9,7 +9,7 @@ Assume that you are using version 2.0.3. Create a folder `custom` under `seafile
 2. Overwrite `LOGO_PATH` in `seahub_settings.py`
 
 <pre>
-LOGO_PATH = '<your-logo-file-name>'
+LOGO_PATH = 'custom/mylogo.png'
 </pre>
 
 3. Overwrite `LOGO_URL` in `seahub_settings.py`
