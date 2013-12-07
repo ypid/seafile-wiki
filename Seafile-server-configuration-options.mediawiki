@@ -135,32 +135,6 @@ CACHES = {
 }
 </pre>
 
-=== Customize Seahub Logo ===
-
-1. Add your logo file to <code>seahub/media/img/</code>
-
-2. Overwrite <code>LOGO_PATH</code> in <code>seahub_settings.py</code>
-
-<pre>
-LOGO_PATH = 'img/<your-logo-file-name>'
-</pre>
-
-3. Overwrite <code>LOGO_URL</code> in <code>seahub_settings.py</code>
-
-<pre>
-LOGO_URL = 'http://your-seafile.com'
-</pre>
-
-=== Custmize Seahub CSS ===
-
-1. Add your css file to <code>seahub/media/css/</code>
-
-2. Overwrite <code>BRANDING_CSS</code> in <code>seahub_settings.py</code>
-
-<pre>
-BRANDING_CSS = 'css/<your-css-file-name>'
-</pre>
-
 === Seahub Settings ===
 
 You may change seahub website's settings by adding variables in `seahub_settings.py`.
