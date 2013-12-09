@@ -36,4 +36,6 @@ A solution is here http://www.wowi.fr/2013/10/seafile-on-freebsd.html (Not confi
 
 * If your avatars link is correctly linked, and avatars are still broken, you may refresh seahub cache by <code>rm -rf /tmp/seahub_cache/*</code>
 
+== How to change seafile-data location after setup? ==
 
+Modify file seafile.ini under ccnet. This file contains the location of seafile-data. Move seafile-data to another place, like `/opt/new/seafile-data`. Then modify the file accordingly.
