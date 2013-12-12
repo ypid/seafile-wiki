@@ -48,6 +48,8 @@ We assume your seafile data directory is in `/data/haiwen`. And you want to back
 
 ### Backing up Databases ###
 
+It's recommended to backup the database to a separate file each time. Don't overwrite older database backups for at least a week.
+
 **MySQL**
 
 Assume your database names are `ccnet-db`, `seafile-db` and `seahub-db`. mysqldump automatically locks the tables so you don't need to stop Seafile server when backing up MySQL databases. Since the database tables are usually very small, it won't take long to dump.
@@ -86,7 +88,7 @@ If you have a lot of data, copying the whole data directory would take long. You
 
 This command backup the data directory to `/backup/data/haiwen`.
 
-**It's very important to make sure the copy or rsync process finishes successfully. Otherwise you'll be left with an incomplete backup data set.**
+**It's very important to make sure the copy or rsync process finishes successfully. Otherwise some of your latest data may not be backed up.**
 
 Important: The ID in `ccnet/ccnet.conf` must be consistent with the SHA1 value of `ccnet/mykey.peer`. So do not forget to copy `ccnet/mykey.peer`.
 
