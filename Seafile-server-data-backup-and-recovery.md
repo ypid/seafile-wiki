@@ -1,11 +1,5 @@
 ## Overview
 
-We provide a reliable way in the following to backup your server without the need to shut it down.
-
-Important: The ID in `ccnet/ccnet.conf` must be consistent with the SHA1 value of `ccnet/mykey.peer`. So do not forget to copy `ccnet/mykey.peer`. `mykey.peer` contains the private key for encryption.
-
-*** 
-
 There are generally two parts of data to backup
 
 * Seafile library data
@@ -38,97 +32,70 @@ For MySQL, the databases are created by the administrator, so the names can be d
 * seafile-db: contains library metadata
 * seahub.db: contains tables used by the web front end (seahub)
 
-The metadata in seafile db contains some pointers to the data in the 'haiwen' directory. So it's important in the backup/restore procedure to make sure the db and the data are consistent with each other.
-
-We recommend the following backup order:
-
-1. Dump and backup the databases;
-2. Copy/rsync the data directory.
-
-If your primary server gets broken (disk damaged) when the second step is running, you may end up with an incomplete backup on the backup server. Some pointers in the database backup point to invalid data. So we recommend you to follow two rules:
-
-1. Backup the databases to different files each time. Do not overwrite/remove old backup dbs for at least a week. For example, you can backup the db to a file suffixed with the current date time.
-2. If you use rsync for backup the data directory, don't remove or overwrite existing data on the backup server (detailed commands will be given later).
-
-With these two rules, you can always use the older backup if the latest one is not complete.
-
 ## Backup steps ##
 
 The backup is a three step procedure:
 
-1. Backup the databases;
-2. Backup the seafile data directory;
-3. Mark the backup as complete.
+1. Optional: Stop Seafile server first if you're using SQLite as database.
+2. Backup the databases;
+3. Backup the seafile data directory;
 
-We assume your seafile data directory is in `/data/haiwen` on machine A. And you want to backup to `/backup` on machine B. We'll run the backup commands from machine B to pull the data from machine A. It's recommended to create a directory layout under /backup on machine B
+We assume your seafile data directory is in `/data/haiwen`. And you want to backup to `/backup` directory. The `/backup` can be an NFS or Windows share mount exported by another machine, or just an external disk. You can create a layout similar to the following in `/backup` directory:
 
     /backup
     ---- databases/  contains database backup files
     ---- data/  contains backups of the data directory
-    ---- markers/ contains the finish marker file for each backup
-
-The following steps assumes you pull the backup data from machine A on machine B. You can also copy the data on machine A to machine B by mounting the backup destination via NFS or Windwos share.
 
 ### Backing up Databases ###
 
 **MySQL**
 
-Assume your database names are `ccnet-db`, `seafile-db` and `seahub-db`.
+Assume your database names are `ccnet-db`, `seafile-db` and `seahub-db`. mysqldump automatically locks the tables so you don't need to stop Seafile server when backing up MySQL databases. Since the database tables are usually very small, it won't take long to dump.
 
-    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt ccnet-db > /backup/databases/ccnet-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
+    mysqldump -h [mysqlhost] -u[username] -p[password] --opt ccnet-db > /backup/databases/ccnet-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
 
-    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt seafile-db > /backup/databases/seafile-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
+    mysqldump -h [mysqlhost] -u[username] -p[password] --opt seafile-db > /backup/databases/seafile-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
 
-    B> mysqldump -h [mysqlhost] -u[username] -p[password] --opt seahub-db > /backup/databases/seahub-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
+    mysqldump -h [mysqlhost] -u[username] -p[password] --opt seahub-db > /backup/databases/seahub-db.sql.`date +"%Y-%m-%d-%H-%M-%S"`
 
 **SQLite**
 
-    B> ssh admin@A "sqlite3 /data/haiwen/ccnet/GroupMgr/groupmgr.db .dump > /tmp/groupmgr.db.bak"
-    B> scp admin@A:/tmp/groupmgr.db.bak /backup/databases/groupmgr.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
+You need to stop Seafile server first before backing up SQLite database.
 
-    B> ssh admin@A "sqlite3 /data/haiwen/ccnet/PeerMgr/usermgr.db .dump > usermgr.db.bak"
-    B> scp admin@A:/tmp/usermgr.db.bak /backup/databases/usermgr.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
+    sqlite3 /data/haiwen/ccnet/GroupMgr/groupmgr.db .dump > /backup/databases/groupmgr.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
 
-    B> ssh admin@A "sqlite3 /data/haiwen/seafile-data/seafile.db .dump > /tmp/seafile.db.bak"
-    B> scp admin@A:/tmp/seafile.db.bak /backup/databases/seafile.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
+    sqlite3 /data/haiwen/ccnet/PeerMgr/usermgr.db .dump > /backup/databases/usermgr.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
 
-    B> ssh admin@A "sqlite3 /data/haiwen/seahub.db .dump > /tmp/seahub.db.bak"
-    B> scp admin@A:/tmp/seahub.db.bak /backup/databases/seahub.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
+    sqlite3 /data/haiwen/seafile-data/seafile.db .dump > /backup/databases/seafile.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
+
+    sqlite3 /data/haiwen/seahub.db .dump > /backup/databases/seahub.db.bak.`date +"%Y-%m-%d-%H-%M-%S"`
 
 ### Backing up Seafile library data ###
 
 The data files are all stored in the `/data/haiwen` directory, so just back up the whole directory. You can directly copy the whole directory to the backup destination, or you can use rsync to do incremental backup. 
 
-We use rsync on machine B to pull the directory on machine A. Supposed your data directory is `/data/haiwen` Command looks like:
+To directly copy the whole data directory,
 
-    B> rsync -az user@A:/data/haiwen /backup/data
+    cp -R /data/haiwen /backup/data/haiwen-`date +"%Y-%m-%d-%H-%M-%S"`
+
+This produces a separate copy of the data directory each time. You can delete older backup copies after a new one is completed.
+
+If you have a lot of data, copying the whole data directory would take long. You can use rsync to do incremental backup.
+
+    rsync -az /data/haiwen /backup/data
 
 This command backup the data directory to `/backup/data/haiwen`.
 
-### Marking the backup as complete
+**It's very important to make sure the copy or rsync process finishes successfully. Otherwise you'll be left with an incomplete backup data set.**
 
-As mentioned before, it's important to use a complete backup for restoration. So after the above two steps finish successfully, we'll write a marker file to indicate the last backup is complete.
+Important: The ID in `ccnet/ccnet.conf` must be consistent with the SHA1 value of `ccnet/mykey.peer`. So do not forget to copy `ccnet/mykey.peer`.
 
-    B> touch /backup/markers/`date +"%Y-%m-%d-%H-%M-%S"`
-
-The complete time of the backup is recorded in the marker file name. So you can easily tell which is the last successful backup.
- 
 ## Restore from backup ##
 
-Now supposed your primary seafile server is broken, you're switching to a new machine C. Using the backup data on machine B, to restore your Seafile instance:
+Now supposed your primary seafile server is broken, you're switching to a new machine. Using the backup data to restore your Seafile instance:
 
-1. Determine the latest complete backup;
-2. Copy `/backup/data/haiwen` from machine B to machine C. Let's assume the seafile deployment location on machine C is also `/data/haiwen`.
-3. Restore the database.
-
-### Determine the latest complete backup
-
-A complete backup means the database backup is consistent with the data backup.
-
-The file names in `/backup/markers` folder records the finish time of the backup tasks. You should choose the database backup file for restoration as following:
-
-1. Find the latest marker file in `/backup/markers`, say it's name is `2013-10-19-16-55-18`.
-2. In the `/backup/databases` directory, find the database backup files with the largest time stamp before `2013-10-19-16-55-18`. Let's say they're `ccnet-db.sql.2013-10-19-16-00-05`, `seafile-db.sql.2013-10-19-16-00-20` and `seahub-db.sql.2013-10-19-16-01-05`.
+1. Copy `/backup/data/haiwen` to the new machine. Let's assume the seafile deployment location new machine is also `/data/haiwen`.
+2. Restore the database.
 
 ### Restore the databases
 
@@ -136,18 +103,18 @@ Now with the latest valid database backup files at hand, you can restore them.
 
 **MySQL**
 
-    C> mysql -u[username] -p[password] ccnet-db < ccnet-db.sql.2013-10-19-16-00-05
-    C> mysql -u[username] -p[password] seafile-db < seafile-db.sql.2013-10-19-16-00-20
-    C> mysql -u[username] -p[password] seahub-db.sql.2013-10-19-16-01-05
+    mysql -u[username] -p[password] ccnet-db < ccnet-db.sql.2013-10-19-16-00-05
+    mysql -u[username] -p[password] seafile-db < seafile-db.sql.2013-10-19-16-00-20
+    mysql -u[username] -p[password] seahub-db.sql.2013-10-19-16-01-05
 
 **SQLite**
 
-    C> cd /data/haiwen
-    C> mv ccnet/PeerMgr/usermgr.db ccnet/PeerMgr/usermgr.db.old
-    C> mv ccnet/GroupMgr/groupmgr.db ccnet/GroupMgr/groupmgr.db.old
-    C> mv seafile-data/seafile.db seafile-data/seafile.db.old
-    C> mv seahub.db seahub.db.old
-    C> sqlite3 ccnet/PeerMgr/usermgr.db < usermgr.db.bak.xxxx
-    C> sqlite3 ccnet/GroupMgr/groupmgr.db < groupmgr.db.bak.xxxx
-    C> sqlite3 seafile-data/seafile.db < seafile.db.bak.xxxx
-    C> sqlite3 seahub.db < seahub.db.bak.xxxx
+    cd /data/haiwen
+    mv ccnet/PeerMgr/usermgr.db ccnet/PeerMgr/usermgr.db.old
+    mv ccnet/GroupMgr/groupmgr.db ccnet/GroupMgr/groupmgr.db.old
+    mv seafile-data/seafile.db seafile-data/seafile.db.old
+    mv seahub.db seahub.db.old
+    sqlite3 ccnet/PeerMgr/usermgr.db < usermgr.db.bak.xxxx
+    sqlite3 ccnet/GroupMgr/groupmgr.db < groupmgr.db.bak.xxxx
+    sqlite3 seafile-data/seafile.db < seafile.db.bak.xxxx
+    sqlite3 seahub.db < seahub.db.bak.xxxx
