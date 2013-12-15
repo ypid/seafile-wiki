@@ -30,25 +30,3 @@ If you run Seafile behind Nginx/Apache with HTTPS, you should open ports
 | Seafile Daemon
 | 12001
 |}
-
-== ccnet ==
-
-* Default port: 10001
-* Configured by setup-seafile.sh
-
-== seaf-server ==
-
-* Default port: 12001
-* Configured by setup-seafile.sh
-
-== seahub ==
-
-* Default port: 8000
-* Can be set a parameter for seahub.sh script. e.g. "./seahub.sh start 8002"
-* Not need to open if you config seafile with Nginx/Apache
-
-== httpserver ==
-
-* Default port: 8082
-* Configured by setup-seafile.sh
-* Not need to open if you config seafile with Nginx/Apache
