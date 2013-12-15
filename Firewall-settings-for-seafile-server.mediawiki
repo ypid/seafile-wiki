@@ -2,6 +2,35 @@ Components of Seafile server run on specific TCP ports. If you have firewall in 
 
 These ports can be either configured in setup-seafile.sh script, or set as parameter for seafile.sh and seahub.sh scripts.
 
+By default, you should open 4 ports.
+
+{|
+| Seahub
+| 8000
+|-
+| HttpServer
+| 8082
+|-
+| Ccnet Daemon
+| 10001
+|-
+| Seafile Daemon
+| 12001
+|}
+
+If you run Seafile behind Nginx/Apache with HTTPS, you should open ports
+
+{|
+| HTTPS
+| 443
+|-
+| Ccnet Daemon
+| 10001
+|-
+| Seafile Daemon
+| 12001
+|}
+
 == ccnet ==
 
 * Default port: 10001
