@@ -1,7 +1,3 @@
-Components of Seafile server run on specific TCP ports. If you have firewall in your server environment, you have to keep these ports open.
-
-These ports can be either configured in setup-seafile.sh script, or set as parameter for seafile.sh and seahub.sh scripts.
-
 By default, you should open 4 ports.
 
 {|
