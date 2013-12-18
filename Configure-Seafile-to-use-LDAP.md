@@ -13,13 +13,12 @@ To use LDAP to authenticate user, please add the following lines to ccnet.conf
     HOST = ldap://ldap.example.com
     # base DN from where all the users can be reached.
     BASE = ou=users,dc=example,dc=com
-    # user DN to bind to. If not set, will use anonymous login.
+    # LDAP admin user DN to bind to. If not set, will use anonymous login.
     USER_DN = cn=seafileadmin,dc=example,dc=com
-    # Password for the user DN
+    # Password for the admin user DN
     PASSWORD = secret
     # The attribute to be used as user login id.
     # By default it's the 'mail' attribute.
-    # Note that only email can be used as user name for now.
     LOGIN_ATTR = mail
 
 Example config for LDAP:
@@ -40,6 +39,17 @@ Example config for Active Directory:
     PASSWORD = secret
     LOGIN_ATTR = mail
 
+If you're using Active Directory but don't have email address for the users, you can use the following config:
+
+    [LDAP]
+    HOST = ldap://192.168.1.123/
+    BASE = cn=users,dc=example,dc=com
+    USER_DN = cn=admin,cn=users,dc=example,dc=com # or use admin@example.local etc
+    PASSWORD = secret
+    LOGIN_ATTR = userPrincipalName
+
+The `userPrincipalName` is an user attribute provided by AD. It's usually of the form `username@domain-name`, where `username` is Windows user login name. The the user can log in to seahub with `username@domain-name`, such as `poweruser@example.com`. Note that such login name is not actually an email address. So sending emails from seahub won't work with this setting.
+
 ## Multiple base DN/Additional search filter
 
 Multiple base DN is useful when your company has more than one OUs to use Seafile. You can specify a list of base DN in the "BASE" config. The DNs are separated by ";", e.g. `cn=developers,dc=example,dc=com;cn=marketing,dc=example,dc=com`
@@ -50,7 +60,7 @@ Search filter is very useful when you have a large organization but only a porti
 FILTER = memberOf=CN=group,CN=developers,DC=example,DC=com
 ```
 
-Note that the cases in the above example is significant.
+Note that the cases in the above example is significant. The `memberOf` attribute is only available in Active Directory.
 
 ## Known Issues
 
