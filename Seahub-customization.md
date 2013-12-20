@@ -18,7 +18,7 @@ LOGO_PATH = 'custom/mylogo.png'
 LOGO_URL = 'http://your-seafile.com'
 </pre>
 
-## Custmize Seahub CSS
+## Customize Seahub CSS
 
 1. Add your css file to `seahub/media/custom/`, for example, `custom.css`
 
@@ -27,3 +27,13 @@ LOGO_URL = 'http://your-seafile.com'
 <pre>
 BRANDING_CSS = 'custom/custom.css'
 </pre>
+
+## Customize Seahub Pages
+
+**Note:** Since version 2.1.
+
+1. Create a foler ``templates`` under ``<seafile-install-path>/seahub-data/custom``
+
+2. Copy HTML page from ``seahub/seahub/templates``. For instance, if you want to customize Seahub footer, copy ``footer.html`` to ``<seafile-install-path>/seahub-data/custom/templates``.
+
+3. Modify the custom page.
