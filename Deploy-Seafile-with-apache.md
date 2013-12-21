@@ -21,7 +21,7 @@
     ```
 
 On Windows, you have to download  [mod_fastcgi-*.dll] (http://fastcgi.com/dist/) first, and put it into the modules directory.
-
+On debian/raspbian install fcgi like [this](http://raspberryserver.blogspot.co.at/2013/02/installing-lamp-with-fastcgi-php-fpm.html) 
 ## Deploy Seahub/HttpServer With Apache
 
 Seahub is the web interface of Seafile server. HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request. 
