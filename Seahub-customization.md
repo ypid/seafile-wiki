@@ -5,35 +5,34 @@ Assume that you are using version 2.0.3. Create a folder `custom` under `seafile
 ### Customize Logo
 
 1. Add your logo file to `seahub/media/custom/`
-
 2. Overwrite `LOGO_PATH` in `seahub_settings.py`
 
-<pre>
-LOGO_PATH = 'custom/mylogo.png'
-</pre>
+   <pre>
+   LOGO_PATH = 'custom/mylogo.png'
+   </pre>
 
 3. Overwrite `LOGO_URL` in `seahub_settings.py`
 
-<pre>
-LOGO_URL = 'http://your-seafile.com'
-</pre>
+   <pre>
+   LOGO_URL = 'http://your-seafile.com'
+   </pre>
 
 ### Customize Seahub CSS
 
 1. Add your css file to `seahub/media/custom/`, for example, `custom.css`
-
 2. Overwrite `BRANDING_CSS` in `seahub_settings.py`
 
-<pre>
-BRANDING_CSS = 'custom/custom.css'
-</pre>
+   <pre>
+   BRANDING_CSS = 'custom/custom.css'
+   </pre>
 
 ## Customize footer and other Seahub Pages
 
 **Note:** Since version 2.1.
 
-1. Create a foler ``templates`` under ``<seafile-install-path>/seahub-data/custom``
+Create a foler ``templates`` under ``<seafile-install-path>/seahub-data/custom``
 
-2. Copy HTML page from ``seahub/seahub/templates``. For instance, if you want to customize Seahub footer, copy ``footer.html`` to ``<seafile-install-path>/seahub-data/custom/templates``.
+### Customize footer
 
-3. Modify the custom page.
+1. Copy ``seahub/seahub/templates/footer.html`` to ``seahub-data/custom/templates``.
+2. Modify `footer.html`.
