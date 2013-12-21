@@ -1,8 +1,8 @@
-## Create custom folder
+## Customize Seahub Logo and Css
 
 Assume that you are using version 2.0.3. Create a folder `custom` under `seafile-server-2.0.3/seahub/media`. Put all the customization files here. The upgrade script will copy the folder to `seafile-server-2.0.4/seahub/media` when you upgrade to version 2.0.4.
 
-## Customize Seahub Logo
+### Customize Logo
 
 1. Add your logo file to `seahub/media/custom/`
 
@@ -18,7 +18,7 @@ LOGO_PATH = 'custom/mylogo.png'
 LOGO_URL = 'http://your-seafile.com'
 </pre>
 
-## Customize Seahub CSS
+### Customize Seahub CSS
 
 1. Add your css file to `seahub/media/custom/`, for example, `custom.css`
 
@@ -28,7 +28,7 @@ LOGO_URL = 'http://your-seafile.com'
 BRANDING_CSS = 'custom/custom.css'
 </pre>
 
-## Customize Seahub Pages
+## Customize footer and other Seahub Pages
 
 **Note:** Since version 2.1.
 
