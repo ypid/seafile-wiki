@@ -36,3 +36,7 @@ Create a foler ``templates`` under ``<seafile-install-path>/seahub-data/custom``
 
 1. Copy ``seahub/seahub/templates/footer.html`` to ``seahub-data/custom/templates``.
 2. Modify `footer.html`.
+
+### Customize Download page
+
+### Customize Help page
