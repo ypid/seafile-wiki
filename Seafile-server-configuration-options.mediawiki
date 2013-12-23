@@ -124,7 +124,7 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 === Enable Memcached ===
 
-Seahub caches items on file system by default(/tmp/seahub_cache/). You can replace with Memcached.
+Seahub caches items on file system by default(/tmp/seahub_cache/). You can replace with Memcached (you have to install python-memcache first).
 
 <pre>
 CACHES = {
