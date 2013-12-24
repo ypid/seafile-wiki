@@ -47,7 +47,8 @@ For Admin
 
 * [[Seafile Server Management]]
 * [[Garbage Collecting Unused Blocks on Seafile Server]]
-* [[Seafile Fuse]] (Draft)
+* [[Seafile WebDAV Server]]
+* [[Seafile Virtual Filesystem via FUSE]]
 * [[Recover Corrupt Files after Server Hard Shutdown or System Crash]]
 
 Logs
