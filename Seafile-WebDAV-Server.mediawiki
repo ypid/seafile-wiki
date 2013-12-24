@@ -119,7 +119,7 @@ Second, modify Apache config file (site-enabled/000-default):
 
 ===== Apache without HTTPS =====
 
-Based on your apache configuration when you [[Deploy Seafile with apache|Deployed seafile with Apache]], add the config for seafdav:
+Based on your apache configuration when you [[Deploy Seafile with apache|deployed seafile with Apache]], add seafdav related config:
 
 ```
 <VirtualHost *:80>
@@ -156,7 +156,7 @@ ServerName www.myseafile.com
 
 ===== Apache with HTTPS =====
 
-Based on your apache configuration when you [[Enable Https on Seafile web with Apache|enabled Https on Seafile]], add the config for seafdav:
+Based on your apache configuration when you [[Enable Https on Seafile web with Apache|enabled Https on Seafile]], add seafdav related config:
 
 ```
 <VirtualHost *:443>
