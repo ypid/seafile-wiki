@@ -119,28 +119,78 @@ Second, modify Apache config file (site-enabled/000-default):
 
 ===== Apache without HTTPS =====
 
-Based on your apache configuration when you [[Deploy Seafile with apache|Deployed seafile with Apache]], add the following lines:
+Based on your apache configuration when you [[Deploy Seafile with apache|Deployed seafile with Apache]], add the config for seafdav:
 
 ```
 <VirtualHost *:80>
 
+ServerName www.myseafile.com
+  DocumentRoot /var/www
+  Alias /media  /home/user/haiwen/seafile-server/seahub/media
+
+  RewriteEngine On
+
+  #
+  # seafile httpserver
+  #
+  ProxyPass /seafhttp http://127.0.0.1:8082
+  ProxyPassReverse /seafhttp http://127.0.0.1:8082
+  RewriteRule ^/seafhttp - [QSA,L]
+
+  #
+  # seafile webdav
+  #
   RewriteCond %{HTTP:Authorization} (.+)
   RewriteRule ^(/seafdav.*)$ /seafdav.fcgi$1 [QSA,L,e=HTTP_AUTHORIZATION:%1]
   RewriteRule ^(/seafdav.*)$ /seafdav.fcgi$1 [QSA,L]
+
+  #
+  # seahub
+  #
+  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
 </virtualhost>
 ```
 
 ===== Apache with HTTPS =====
 
-Based on your apache configuration when you [[Enable Https on Seafile web with Apache|enabled Https on Seafile]], add the following lines:
+Based on your apache configuration when you [[Enable Https on Seafile web with Apache|enabled Https on Seafile]], add the config for seafdav:
 
 ```
 <VirtualHost *:443>
 
+ServerName www.myseafile.com
+  DocumentRoot /var/www
+  Alias /media  /home/user/haiwen/seafile-server/seahub/media
+
+  SSLEngine On
+  SSLCertificateFile /etc/ssl/cacert.pem
+  SSLCertificateKeyFile /etc/ssl/privkey.pem
+
+  RewriteEngine On
+
+  #
+  # seafile httpserver
+  #
+  ProxyPass /seafhttp http://127.0.0.1:8082
+  ProxyPassReverse /seafhttp http://127.0.0.1:8082
+  RewriteRule ^/seafhttp - [QSA,L]
+
+  #
+  # seafile webdav
+  #
   RewriteCond %{HTTP:Authorization} (.+)
   RewriteRule ^(/seafdav.*)$ /seafdav.fcgi$1 [QSA,L,e=HTTP_AUTHORIZATION:%1]
   RewriteRule ^(/seafdav.*)$ /seafdav.fcgi$1 [QSA,L]
+
+  #
+  # seahub
+  #
+  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
 </virtualhost>
 ```
