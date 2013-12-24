@@ -1,1 +1,0 @@
-Seafile fuse (seaf-fuse) is a user-space file system.
