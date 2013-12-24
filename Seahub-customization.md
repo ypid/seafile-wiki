@@ -44,5 +44,5 @@ Create a foler ``templates`` under ``<seafile-install-path>/seahub-data/custom``
 
 ### Customize Help page
 
-1. Copy ``seahub/seahub/help/templates/help/help_base.html`` to ``seahub-data/custom/templates/help``.
-2. Modify `help_base.html`.
+1. Copy ``seahub/seahub/help/templates/help`` to ``seahub-data/custom/templates/help``.
+2. Modify pages under `help`.
