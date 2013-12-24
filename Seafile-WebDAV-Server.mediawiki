@@ -4,7 +4,7 @@ In the wiki below, we assume your seafile installation folder is <code>/data/hai
 
 == SeafDAV Configuration ==
 
-The configuration file is <code>/data/haiwen/seafile-data/seafdav.conf</code>
+The configuration file is <code>/data/haiwen/conf/seafdav.conf</code>
 
 ```conf
 [WEBDAV]
@@ -50,6 +50,99 @@ enabled = true
 port = 8080
 fastcgi = true
 share_name = /seafdav
+```
+
+In the above config, the value of '''share_name''' is changed to '''/seafdav''', which is the address suffix you assign to seafdav server.
+
+
+==== Nginx without HTTPS ====
+
+The corresponding Nginx configuration is (without https):
+
+```conf
+     location /seafdav {
+        fastcgi_pass    127.0.0.1:8080;
+        fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
+        fastcgi_param   PATH_INFO           $fastcgi_script_name;
+
+        fastcgi_param   SERVER_PROTOCOL     $server_protocol;
+        fastcgi_param   QUERY_STRING        $query_string;
+        fastcgi_param   REQUEST_METHOD      $request_method;
+        fastcgi_param   CONTENT_TYPE        $content_type;
+        fastcgi_param   CONTENT_LENGTH      $content_length;
+        fastcgi_param   SERVER_ADDR         $server_addr;
+        fastcgi_param   SERVER_PORT         $server_port;
+        fastcgi_param   SERVER_NAME         $server_name;
+
+        access_log      /var/log/nginx/seafdav.access.log;
+        error_log       /var/log/nginx/seafdav.error.log;
+    }   
+```
+
+==== Nginx with HTTPS ====
+
+Nginx conf with https:
+
+```conf
+     location /seafdav {
+        fastcgi_pass    127.0.0.1:8080;
+        fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
+        fastcgi_param   PATH_INFO           $fastcgi_script_name;
+
+        fastcgi_param   SERVER_PROTOCOL     $server_protocol;
+        fastcgi_param   QUERY_STRING        $query_string;
+        fastcgi_param   REQUEST_METHOD      $request_method;
+        fastcgi_param   CONTENT_TYPE        $content_type;
+        fastcgi_param   CONTENT_LENGTH      $content_length;
+        fastcgi_param   SERVER_ADDR         $server_addr;
+        fastcgi_param   SERVER_PORT         $server_port;
+        fastcgi_param   SERVER_NAME         $server_name;
+
+        fastcgi_param   HTTPS               $https;
+
+        access_log      /var/log/nginx/seafdav.access.log;
+        error_log       /var/log/nginx/seafdav.error.log;
+    }   
+```
+
+==== Apache ====
+
+First edit <code>apache2.conf</code> file, add this line to the end of the file (or add it to <code>httpd.conf</code> depending on your Linux distro):
+
+```
+FastCGIExternalServer /var/www/seafdav.fcgi -host 127.0.0.1:8080
+```
+
+Note, <code>/var/www/seafdav.fcgi</code> is just a placeholder, you don't need to actually have this file in your system.
+
+Second, modify Apache config file (site-enabled/000-default):
+
+===== Apache without HTTPS =====
+
+Based on your apache configuration when you [[Deploy Seafile with apache|Deployed seafile with Apache]], add the following lines:
+
+```
+<VirtualHost *:80>
+
+  RewriteCond %{HTTP:Authorization} (.+)
+  RewriteRule ^(/seafdav.*)$ /seafdav.fcgi$1 [QSA,L,e=HTTP_AUTHORIZATION:%1]
+  RewriteRule ^(/seafdav.*)$ /seafdav.fcgi$1 [QSA,L]
+
+</virtualhost>
+```
+
+===== Apache with HTTPS =====
+
+Based on your apache configuration when you [[Enable Https on Seafile web with Apache|enabled Https on Seafile]], add the following lines:
+
+```
+<VirtualHost *:443>
+
+  RewriteCond %{HTTP:Authorization} (.+)
+  RewriteRule ^(/seafdav.*)$ /seafdav.fcgi$1 [QSA,L,e=HTTP_AUTHORIZATION:%1]
+  RewriteRule ^(/seafdav.*)$ /seafdav.fcgi$1 [QSA,L]
+
+</virtualhost>
 ```
 
 == Frequently Asked Questions ==
