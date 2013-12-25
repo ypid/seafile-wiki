@@ -43,8 +43,6 @@ Changelog: http://seacloud.cc/group/3/wiki/client-changelog/
 |-
 |}
 
-The seafile lastest source code package is v2.0.5.
-
 == Server ==
 
 When we release a new version for example 2.0.1, we will add tags v2.0.1-server to libsearpc, ccnet, seafile and seahub.
@@ -78,5 +76,3 @@ Changelog: http://seacloud.cc/group/3/wiki/server-changelog/
 | ---
 |-
 |}
-
-The seafile lastest server code source package is v2.0.2.
