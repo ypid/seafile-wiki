@@ -31,5 +31,6 @@ Make sure you use "FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:80
 The media folder (Alias location identified in /etc/apache2/sites-enabled/000-default (Ubuntu) has inappropriate permissions
 
 Solutions:
+
 1. Run installation script as non-root user
 2. Copy /media folder to var/www/ and edit the Alias location in /etc/apache2/sites-enabled/000-default
