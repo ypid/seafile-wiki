@@ -17,7 +17,7 @@
 3. Enable apache proxy
 
     ```
-    a2enmod proxy_http
+    sudo a2enmod proxy_http
     ```
 
 On Windows, you have to download  [mod_fastcgi-*.dll] (http://fastcgi.com/dist/) first, and put it into the modules directory.
