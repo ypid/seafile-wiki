@@ -25,3 +25,10 @@ Trouble shooting:
 #### Error on Apache log: "File does not exist: /var/www/seahub.fcgi"
 
 Make sure you use "FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000" in httpd.conf or apache2.conf, especially the "/var/www/seahub.fcgi" part.
+
+#### Seafile with Apache / HTTPS has text only (no CSS formatting / images)
+
+* The media folder (Alias location identified in /etc/apache2/sites-enabled/000-default (Ubuntu) has inappropriate permissions
+* Solutions:
+1. Run installation script as non-root user
+2. Copy /media folder to var/www/ and edit the Alias location in /etc/apache2/sites-enabled/000-default
