@@ -29,6 +29,9 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * valac
 * cmake
 
+```bash
+sudo apt-get install autoconf automake libtool libevent-dev libcurl4-openssl-dev libgtk2.0-dev uuid-dev intltool libsqlite3-dev valac libjansson-dev libqt4-dev cmake
+```
 For a fresh Fedora 19 installation, the following will install all dependencies via YUM:
 
 ```bash
@@ -52,6 +55,14 @@ For example, if the latest released seafile client is 2.0.8, then just use the *
 - ccnet-2.0.8.tar.gz
 - seafile-2.0.8.tar.gz
 - seafile-client-2.0.8.tar.gz
+
+```sh
+export version=2.0.8
+wget https://github.com/haiwen/libsearpc/archive/v${version}.tar.gz
+wget https://github.com/haiwen/ccnet/archive/v${version}.tar.gz
+wget https://github.com/haiwen/seafile/archive/v${version}.tar.gz
+wget https://github.com/haiwen/seafile-client/archive/v${version}.tar.gz
+```
 
 Now uncompress them:
 
