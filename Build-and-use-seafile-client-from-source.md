@@ -71,7 +71,7 @@ Now uncompress them:
 tar xf libsearpc-${version}.tar.gz
 tar xf ccnet-${version}.tar.gz
 tar xf seafile-${version}.tar.gz
-tar xf seafile-client-2.0.8.tar.gz
+tar xf seafile-client-${version}.tar.gz
 ```
 
 To build Seafile client, you need first build **libsearpc** and **ccnet**, **seafile**.
@@ -79,11 +79,11 @@ To build Seafile client, you need first build **libsearpc** and **ccnet**, **sea
 ##### libsearpc #####
 
 ```bash
-$ cd libsearpc-${version}
-$ ./autogen.sh
-$ ./configure --prefix=/usr
-$ make
-$ sudo make install
+cd libsearpc-${version}
+./autogen.sh
+./configure --prefix=/usr
+make
+sudo make install
 ```
 
 ##### ccnet #####
@@ -91,11 +91,11 @@ $ sudo make install
 NOTE: If libsearpc is not found while executing `configure` below, run: `export PKG_CONFIG_PATH=/usr/lib/pkgconfig`.
 
 ```bash
-$ cd ccnet-{version}
-$ ./autogen.sh
-$ ./configure --prefix=/usr
-$ make
-$ sudo make install
+cd ccnet-${version}
+./autogen.sh
+./configure --prefix=/usr
+make
+sudo make install
 ```
 
 ##### seafile #####
