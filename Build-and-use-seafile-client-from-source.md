@@ -101,20 +101,20 @@ sudo make install
 ##### seafile #####
 
 ```bash
-$ cd seafile-${VERSION}/
-$ ./autogen.sh
-$ ./configure --prefix=/usr --disable-gui
-$ make
-$ sudo make install
+cd seafile-${VERSION}/
+./autogen.sh
+./configure --prefix=/usr --disable-gui
+make
+sudo make install
 ```
 
 #### seafile-client ####
 
 ```bash
-$ cd seafile-client-${version}
-$ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr .
-$ make
-$ sudo make install
+cd seafile-client-${version}
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr .
+make
+sudo make install
 ```
 
 ## Use Seafile Client ##
