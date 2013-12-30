@@ -58,6 +58,7 @@ For example, if the latest released seafile client is 2.0.8, then just use the *
 
 ```sh
 export version=2.0.8
+alias wget='wget --content-disposition -nc'
 wget https://github.com/haiwen/libsearpc/archive/v${version}.tar.gz
 wget https://github.com/haiwen/ccnet/archive/v${version}.tar.gz
 wget https://github.com/haiwen/seafile/archive/v${version}.tar.gz
@@ -67,9 +68,9 @@ wget https://github.com/haiwen/seafile-client/archive/v${version}.tar.gz
 Now uncompress them:
 
 ```sh
-tar xf libsearpc-2.0.8.tar.gz
-tar xf ccnet-2.0.8.tar.gz
-tar xf seafile-2.0.8.tar.gz
+tar xf libsearpc-${version}.tar.gz
+tar xf ccnet-${version}.tar.gz
+tar xf seafile-${version}.tar.gz
 tar xf seafile-client-2.0.8.tar.gz
 ```
 
