@@ -101,7 +101,7 @@ sudo make install
 ##### seafile #####
 
 ```bash
-cd seafile-${VERSION}/
+cd seafile-${version}/
 ./autogen.sh
 ./configure --prefix=/usr --disable-gui
 make
