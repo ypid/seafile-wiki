@@ -1,3 +1,13 @@
+First, download the new version, for example seafile-server_1.6.0_x86-64.tar.gz, and extract it to the directory where you put all Seafile related staff. You should have a directory layout similar to this:
+
+<pre>
+haiwen
+   -- seafile-server-1.5.0
+   -- seafile-server-1.6.0
+   -- ccnet
+   -- seafile-data
+</pre>
+
 ## Major Continuous Upgrade (like from 1.5 to 1.6)
 
 Major continuous upgrade including upgrading from 1.5.0 to 1.6.0 or upgrading from 1.5.0 to 1.6.1. It involves four steps:
