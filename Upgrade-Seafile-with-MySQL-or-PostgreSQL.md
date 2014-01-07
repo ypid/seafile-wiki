@@ -1,10 +1,24 @@
 ## Major Continuous Upgrade (like from 1.5 to 1.6)
 
-Major continuous upgrade including upgrading from 1.5.0 to 1.6.0 or upgrading from 1.5.0 to 1.6.1.
+Major continuous upgrade including upgrading from 1.5.0 to 1.6.0 or upgrading from 1.5.0 to 1.6.1. It involves four steps:
 
-Minor upgrade, like upgrade from 1.6.0 to 1.6.1, is documented in a separate section below.
+1. Stop Seafile/Seahub
+2. Update avatars folder and database tables
+3. Update Nginx/Apache configs
+4. Restart Seafile/Seahub
 
-### Before Seafile Server 2.1.1
+### 2. Update avatars folder and database tables （After Seafile Server 2.1.1）
+
+Since seafile server 2.1.1, You can upgrade the the avatars folder and the databases using the upgrade scripts. The script's name is like `upgrade_X.X_Y.Y.sh`. For example, assume you are upgrading from seafile server 2.0.0 to seafile server 2.1.1, the you should run the `upgrade_2.0_2.1.sh` script.
+
+```sh
+cd seafile-server-2.1.1/
+./upgrade/upgrade_2.0_2.1.sh
+```
+
+The script would update the avatars folder and the database tables for you.
+
+### 2. Update avatars folder and database tables (Before Seafile Server 2.1.1)
 
 Before Seafile Server 2.1.1, you have to manually:
 
@@ -46,19 +60,8 @@ seafile-server-1.6.0
                 ├── ccnet.mysql
 ```
 
-### After Seafile Server 2.1.1
 
-Since seafile server 2.1.1, You can upgrade the the avatars folder and the databases using the upgrade scripts. The script's name is like `upgrade_X.X_Y.Y.sh`. For example, assume you are upgrading from seafile server 2.0.0 to seafile server 2.1.1, the you should run the `upgrade_2.0_2.1.sh` script.
-
-```sh
-cd seafile-server-2.1.1/
-./upgrade/upgrade_2.0_2.1.sh
-```
-
-The script would update the avatars folder and the database tables for you.
-
-
-### Update Nginx/Apache Config
+### 3. Update Nginx/Apache Config
 
 For Nginx:
 
@@ -74,7 +77,7 @@ For Apache:
 Alias /media  /data/haiwen/seafile-server-1.6.0/seahub/media
 ```
 
-### Restart Seafile/Seahub/Nginx/Apache
+### 4. Restart Seafile/Seahub/Nginx/Apache
 
 After done above updating, now restart Seafile/Seahub/Nginx/Apache to see the new version at work!
 
