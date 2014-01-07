@@ -4,6 +4,13 @@ Major continuous upgrade including upgrading from 1.5.0 to 1.6.0 or upgrading fr
 
 Minor upgrade, like upgrade from 1.6.0 to 1.6.1, is documented in a separate section below.
 
+### Before Seafile Server 2.1.1
+
+Before Seafile Server 2.1.1, you have to manually:
+
+- update the avatars folder symbolic link
+- update and the database tables
+
 #### Update avatars symbolic link
 
 Assume your top level directory is `/data/haiwen/`, and you are upgrading to seafile server version 1.6.0:
@@ -39,7 +46,19 @@ seafile-server-1.6.0
                 ├── ccnet.mysql
 ```
 
-#### Update Nginx/Apache Config
+### After Seafile Server 2.1.1
+
+Since seafile server 2.1.1, You can upgrade the the avatars folder and the databases using the upgrade scripts. The script's name is like `upgrade_X.X_Y.Y.sh`. For example, assume you are upgrading from seafile server 2.0.0 to seafile server 2.1.1, the you should run the `upgrade_2.0_2.1.sh` script.
+
+```sh
+cd seafile-server-2.1.1/
+./upgrade_2.0_2.1.sh
+```
+
+The script would update the avatars folder and the database tables for you.
+
+
+### Update Nginx/Apache Config
 
 For Nginx:
 
@@ -55,7 +74,7 @@ For Apache:
 Alias /media  /data/haiwen/seafile-server-1.6.0/seahub/media
 ```
 
-#### Restart Seafile/Seahub/Nginx/Apache
+### Restart Seafile/Seahub/Nginx/Apache
 
 After done above updating, now restart Seafile/Seahub/Nginx/Apache to see the new version at work!
 
@@ -82,7 +101,7 @@ haiwen
    -- seafile-data
 </pre>
 
-#### Update the avatar link
+### Update the avatar link
 
 We provide a script for you, just run it:
 
@@ -91,7 +110,7 @@ cd seafile-server-1.5.1
 upgrade/minor-upgrade.sh
 ```
 
-#### Update Nginx/Apache Config
+### Update Nginx/Apache Config
 
 For Nginx:
 
@@ -107,6 +126,6 @@ For Apache:
 Alias /media  /data/haiwen/seafile-server-1.5.1/seahub/media
 ```
 
-#### Restart Seafile/Seahub/Nginx/Apache
+### Restart Seafile/Seahub/Nginx/Apache
 
 After done above updating, now restart Seafile/Seahub/Nginx/Apache to see the new version at work!
