@@ -52,7 +52,7 @@ Since seafile server 2.1.1, You can upgrade the the avatars folder and the datab
 
 ```sh
 cd seafile-server-2.1.1/
-./upgrade_2.0_2.1.sh
+./upgrade/upgrade_2.0_2.1.sh
 ```
 
 The script would update the avatars folder and the database tables for you.
