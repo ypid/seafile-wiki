@@ -64,6 +64,12 @@ Changelog: http://seacloud.cc/group/3/wiki/server-changelog/
 ! seafile
 ! seahub
 |-
+| 2.1.1
+| 1.2.1
+| 1.4.0
+| 2.0.8
+| ---
+|-
 | 2.1.0
 | 1.2.1
 | 1.4.0
