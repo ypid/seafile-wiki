@@ -195,6 +195,41 @@ ServerName www.myseafile.com
 </virtualhost>
 ```
 
+== Notes on Clients ==
+
+=== Windows ===
+
+On Windows it is recommended to use a webdav client software such as Cyberduck or BitKinex.
+The implementation of webdav support in Windows explorer is not very usable since:
+
+# Windows explorer requires to use HTTP digest authentication. But Seafile can't support this because it doesn't store plain text passwords on the server.
+# HTTP basic authentication is only supported for HTTPS (which is reasonable). But explorer doesn't accept self-signed certificates.
+
+The conclusion is if you have a valid ssl certificate, you should be able to access seafdav from Windows explorer. Otherwise you should use a client software. It's also reported that Windows XP doesn't support HTTPS webdav.
+
+=== Linux ===
+
+On Linux you have more choices. You can use file manager such as Nautilus to connect to webdav server. Or you can use davfs2 from the command line.
+
+To use davfs2
+
+```
+sudo apt-get install davfs2
+sudo mount -t davfs -o uid=<username> https://example.com/seafdav /media/seafdav/
+```
+
+The -o option sets the owner of the mounted directory to <username> so that it's writable for non-root users.
+
+It's recommended to disable LOCK operation for davfs2. You have to edit /etc/davfs2/davfs2.conf
+
+```
+ use_locks       0
+```
+
+=== Mac OS X ===
+
+Finder's support for WebDAV is also not very stable and slow. So it is recommended to use a webdav client software such as Cyberduck.
+
 == Frequently Asked Questions ==
 
 === Clients can't connect to seafdav sersver ===
@@ -206,4 +241,3 @@ If not, modify it and restart seafile server.
 === The client gets "Error: 404 Not Found" ===
 
 If you deploy SeafDAV behind Nginx/Apache, make sure to change the value of <code>share_name</code> as the sample configuration above. Restart your seafile server and try again.
-
