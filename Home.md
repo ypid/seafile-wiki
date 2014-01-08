@@ -25,6 +25,7 @@ Options & Customization
 
 Other Deploy Issues
 
+* Add **Memcached** when Seahub becomes slow when you have a lot of users.
 * [[Firewall Settings for Seafile Server]]
 * [[Start Seafile at System Bootup|Start Seafile Server at System Bootup]]
 * [[Deploy Seafile behind NAT|Deploy Seafile Server behind NAT]]
