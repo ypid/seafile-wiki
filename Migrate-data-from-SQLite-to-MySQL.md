@@ -38,6 +38,7 @@ Steps to migrate Seafile from SQLite to MySQL:
         USER=root
         PASSWD=root
         DB=ccnet-db
+        CONNECTION_CHARSET=utf8
 
     Note: Use `127.0.0.1`, don't use `localhost`.    
 
@@ -49,6 +50,7 @@ Steps to migrate Seafile from SQLite to MySQL:
         user=root
         password=root
         db_name=seafile-db
+        CONNECTION_CHARSET=utf8
 
     Append following lines to `seahub_settings.py`:
 
