@@ -62,6 +62,12 @@ FILTER = memberOf=CN=group,CN=developers,DC=example,DC=com
 
 Note that the cases in the above example is significant. The `memberOf` attribute is only available in Active Directory.
 
+Here is another example:
+
+```
+FILTER = &(!(UserAccountControl:1.2.840.113556.1.4.803:=2))
+```
+
 ## Known Issues
 
 ### ldaps (LDAP over SSL) doesn't work on Ubuntu/Debian
