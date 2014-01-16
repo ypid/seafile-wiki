@@ -1,3 +1,5 @@
+First make sure the python module for MySQL is installed. On Ubuntu, use `apt-get install python-mysqldb` to install it.
+
 Steps to migrate Seafile from SQLite to MySQL:
 
 0. Stop seafile and seahub
