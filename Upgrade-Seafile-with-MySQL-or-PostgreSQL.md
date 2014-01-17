@@ -28,6 +28,19 @@ cd seafile-server-2.1.1/
 
 The script would update the avatars folder and the database tables for you.
 
+#### Upgrade PostgreSQL Database
+Only if you are using PostgreSQL 
+```sh
+INSTALLPATH="/opt/seafile"
+VERSION="2.1.3"
+cd ${INSTALLPATH}/seafile-server-${VERSION}/
+export CCNET_CONF_DIR=${INSTALLPATH}/ccnet
+export SEAFILE_CONF_DIR=${INSTALLPATH}/seafile-data
+export PYTHONPATH=${INSTALLPATH}/seafile-server-${VERSION}/seafile/lib/python2.6/site-packages:${INSTALLPATH}/seafile-server-${VERSION}/seafile/lib64/python2.6/site-packages:${INSTALLPATH}/seafile-server-${VERSION}/seahub/thirdpart:$PYTHONPATH
+cd seahub
+python manage.py syncdb
+```
+
 ### 2. Update avatars folder and database tables (Before Seafile Server 2.1.1)
 
 Before Seafile Server 2.1.1, you have to manually:
