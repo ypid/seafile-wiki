@@ -17,7 +17,7 @@ Major continuous upgrade including upgrading from 1.5.0 to 1.6.0 or upgrading fr
 3. Update Nginx/Apache configs
 4. Restart Seafile/Seahub
 
-### 2. Update avatars folder and database tables （After Seafile Server 2.1.1）
+### 2. Update avatars folder and database tables （After Seafile Server 2.1.1 for MySQL）
 
 Since seafile server 2.1.1, You can upgrade the the avatars folder and the databases using the upgrade scripts. The script's name is like `upgrade_X.X_Y.Y.sh`. For example, assume you are upgrading from seafile server 2.0.0 to seafile server 2.1.1, the you should run the `upgrade_2.0_2.1.sh` script.
 
@@ -28,22 +28,9 @@ cd seafile-server-2.1.1/
 
 The script would update the avatars folder and the database tables for you.
 
-#### Upgrade PostgreSQL Database
-Only if you are using PostgreSQL 
-```sh
-INSTALLPATH="/opt/seafile"
-VERSION="2.1.3"
-cd ${INSTALLPATH}/seafile-server-${VERSION}/
-export CCNET_CONF_DIR=${INSTALLPATH}/ccnet
-export SEAFILE_CONF_DIR=${INSTALLPATH}/seafile-data
-export PYTHONPATH=${INSTALLPATH}/seafile-server-${VERSION}/seafile/lib/python2.6/site-packages:${INSTALLPATH}/seafile-server-${VERSION}/seafile/lib64/python2.6/site-packages:${INSTALLPATH}/seafile-server-${VERSION}/seahub/thirdpart:$PYTHONPATH
-cd seahub
-python manage.py syncdb
-```
+### 2. Update avatars folder and database tables (For PostgreSQL and before Seafile Server 2.1.1)
 
-### 2. Update avatars folder and database tables (Before Seafile Server 2.1.1)
-
-Before Seafile Server 2.1.1, you have to manually:
+Before Seafile Server 2.1.1 or if you are using PostgreSQL, you have to manually:
 
 - update the avatars folder symbolic link
 - update and the database tables
