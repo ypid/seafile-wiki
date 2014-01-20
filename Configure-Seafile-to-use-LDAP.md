@@ -4,6 +4,8 @@ Note that the seafile admin user account is always stored in sqlite/mysql databa
 
 If you have used Seafile without configuring LDAP before, the users are stored in database (MySQL or SQLite). Starting from 2.0.4, after enabling LDAP, the users in database are still valid. Seafile will find the user both from database and LDAP. Seafile server before 2.0.4 can only find users from either database or LDAP, not both.
 
+## Connect to LDAP/AD from Linux
+
 To use LDAP to authenticate user, please add the following lines to ccnet.conf
 
     [LDAP]
@@ -43,6 +45,56 @@ If you're using Active Directory but don't have email address for the users, you
 
     [LDAP]
     HOST = ldap://192.168.1.123/
+    BASE = cn=users,dc=example,dc=com
+    USER_DN = cn=admin,cn=users,dc=example,dc=com # or use admin@example.local etc
+    PASSWORD = secret
+    LOGIN_ATTR = userPrincipalName
+
+The `userPrincipalName` is an user attribute provided by AD. It's usually of the form `username@domain-name`, where `username` is Windows user login name. The the user can log in to seahub with `username@domain-name`, such as `poweruser@example.com`. Note that such login name is not actually an email address. So sending emails from seahub won't work with this setting.
+
+## Connect to LDAP/AD from Windows server
+
+The config syntax on Windows is slightly different from Linux. **You should not add ldap:// prefix to the HOST field.**
+
+To use LDAP to authenticate user, please add the following lines to ccnet.conf
+
+    [LDAP]
+    # You can optionally specify the port of LDAP/AD server in the HOST field
+    HOST = ldap.example.com[:port]
+    # Default 'false'. Set to true if you want Seafile to communicate with the LDAP server via SSL connection.
+    USE_SSL = true | false
+    # base DN from where all the users can be reached.
+    BASE = ou=users,dc=example,dc=com
+    # LDAP admin user DN to bind to. If not set, will use anonymous login.
+    USER_DN = cn=seafileadmin,dc=example,dc=com
+    # Password for the admin user DN
+    PASSWORD = secret
+    # The attribute to be used as user login id.
+    # By default it's the 'mail' attribute.
+    LOGIN_ATTR = mail
+
+Example config for LDAP:
+
+    [LDAP]
+    HOST = 192.168.1.123
+    BASE = ou=users,dc=example,dc=com
+    USER_DN = cn=admin,dc=example,dc=com
+    PASSWORD = secret
+    LOGIN_ATTR = mail
+
+Example config for Active Directory:
+
+    [LDAP]
+    HOST = 192.168.1.123
+    BASE = cn=users,dc=example,dc=com
+    USER_DN = cn=admin,cn=users,dc=example,dc=com # or use admin@example.local etc
+    PASSWORD = secret
+    LOGIN_ATTR = mail
+
+If you're using Active Directory but don't have email address for the users, you can use the following config:
+
+    [LDAP]
+    HOST = 192.168.1.123
     BASE = cn=users,dc=example,dc=com
     USER_DN = cn=admin,cn=users,dc=example,dc=com # or use admin@example.local etc
     PASSWORD = secret
