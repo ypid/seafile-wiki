@@ -120,7 +120,7 @@ When [[upgrading seafile server]], besides the normal steps you should take, the
 
 The picture at the end of this document may help you understand seafile server better: https://github.com/haiwen/seafile/wiki/Seafile-server-components-overview
 
-When a user visit https://domain.com/home/my/, Apache receives this request and send it to Seahub via fastcgi. This is controlled by the following config items:
+When a user visit https://domain.com/home/my/, Apache receives this request and sends it to Seahub via fastcgi. This is controlled by the following config items:
 
     #
     # seahub
@@ -136,7 +136,7 @@ and
 
 When a user click a file download link in Seahub, Seahub reads the value of HTTP_SERVER_ROOT and redirects the user to address `https://domain.com/seafhttp/xxxxx/`. `https://domain.com/seafhttp` is the value of HTTP_SERVER_ROOT. Here, the `HTTP_SERVER` means the HttpServer component of Seafile, which only serves for raw file downloading/uploading. 
 
-When Apache receives the request at 'https://domain.com/seafhttp/xxxxx/', it proxies the visit to HttpServer, which is listening at 127.0.0.1:8082. This is controlled by the following config items:
+When Apache receives the request at 'https://domain.com/seafhttp/xxxxx/', it proxies the request to HttpServer, which is listening at 127.0.0.1:8082. This is controlled by the following config items:
 
     ProxyPass /seafhttp http://127.0.0.1:8082
     ProxyPassReverse /seafhttp http://127.0.0.1:8082
