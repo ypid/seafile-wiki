@@ -115,3 +115,29 @@ When [[upgrading seafile server]], besides the normal steps you should take, the
 ```
   Alias /media  /home/user/haiwen/seafile-server-1.4.0/seahub/media
 ```
+
+## Detailed explanation
+
+The picture at the end of this document may help you understand seafile server better: https://github.com/haiwen/seafile/wiki/Seafile-server-components-overview
+
+When a user visit https://domain.com/home/my/, Apache receives this request and send it to Seahub via fastcgi. This is controlled by the following config items:
+
+    #
+    # seahub
+    #
+    RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^/(seahub.*)$ /seahub.fcgi/$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+and
+   
+    FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
+
+
+When a user click a file download link in Seahub, Seahub reads the value of HTTP_SERVER_ROOT and redirects the user to address `https://domain.com/seafhttp/xxxxx/`. `https://domain.com/seafhttp` is the value of HTTP_SERVER_ROOT. Here, the `HTTP_SERVER` means the HttpServer component of Seafile, which only serves for raw file downloading/uploading. 
+
+When Apache receives the request at 'https://domain.com/seafhttp/xxxxx/', it proxies the visit to HttpServer, which is listening at 127.0.0.1:8082. This is controlled by the following config items:
+
+    ProxyPass /seafhttp http://127.0.0.1:8082
+    ProxyPassReverse /seafhttp http://127.0.0.1:8082
+    RewriteRule ^/seafhttp - [QSA,L]
