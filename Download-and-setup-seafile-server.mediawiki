@@ -152,12 +152,16 @@ haiwen
 │   ├── seahub.sh
 │   ├── setup-seafile.sh
 │   └── upgrade
+├── seafile-server-latest  # symbolic link to seafile-server-1.4.0
 ├── seahub-data
 │   └── avatars
 ├── seahub.db
 ├── seahub_settings.py   # optional config file
 └── seahub_settings.pyc
 </pre>
+
+The folder <code>seafile-server-latest</code> is a symbolic link to the current seafile server folder. When later you upgrade to a new version, the upgrade scripts would update this link to keep it always point to the latest seafile server folder.
+
 
 == Running Seafile Server ==
 
