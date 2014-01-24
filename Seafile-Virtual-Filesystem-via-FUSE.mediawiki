@@ -16,23 +16,23 @@ Assume we want to mount to <code>/data/seafile-fuse</code>.
 
 ==== Create the folder as the mount point ====
 
-```
+<pre>
 mkdir -p /data/seafile-fuse
-```
+</pre>
 
 ==== Start seaf-fuse with the script ====
 
 '''Note:''' Before start seaf-fuse, you should have started seafile server with <code>./seafile.sh start</code>.
 
-```
+<pre>
 ./seaf-fuse.sh start /data/seafile-fuse
-```
+</pre>
 
 ==== Stop seaf-fuse ====
 
-```
+<pre>
 ./seaf-fuse.sh stop
-```
+</pre>
 
 === Contents of the mounted folder ===
 
@@ -40,7 +40,7 @@ mkdir -p /data/seafile-fuse
 
 Now you can list the content of <code>/data/seafile-fuse</code>.
 
-```
+<pre>
 $ ls -lhp /data/seafile-fuse
 
 drwxr-xr-x 2 root root 4.0K Jan  1  1970 abc@abc.com/
@@ -48,29 +48,29 @@ drwxr-xr-x 2 root root 4.0K Jan  1  1970 foo@foo.com/
 drwxr-xr-x 2 root root 4.0K Jan  1  1970 plus@plus.com/
 drwxr-xr-x 2 root root 4.0K Jan  1  1970 sharp@sharp.com/
 drwxr-xr-x 2 root root 4.0K Jan  1  1970 test@test.com/
-```
+</pre>
 
 * The top level folder contains many subfolders, each of which corresponds to a user
 * The time stamp of files and folders is not preserved.
 
 ==== The folder for each user ====
 
-```
+<pre>
 $ ls -lhp /data/seafile-fuse/abc@abc.com
 
 drwxr-xr-x 2 root root  924 Jan  1  1970 5403ac56-5552-4e31-a4f1-1de4eb889a5f_Photos/
 drwxr-xr-x 2 root root 1.6K Jan  1  1970 a09ab9fc-7bd0-49f1-929d-6abeb8491397_My Notes/
-```
+</pre>
 
 From the above list you can see, under the folder of a user there are subfolders, each of which represents a library of that user, and has a name of this format: '''{library_id}-{library-name}'''. 
 
 ==== The folder for a library ====
 
-```
+<pre>
 $ ls -lhp /data/seafile-fuse/abc@abc.com/5403ac56-5552-4e31-a4f1-1de4eb889a5f_Photos/
 
 -rw-r--r-- 1 root root 501K Jan  1  1970 image.png
 -rw-r--r-- 1 root root 501K Jan  1  1970 sample.jpng
-```
+</pre>
 
 

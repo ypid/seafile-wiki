@@ -4,7 +4,7 @@ This manual explains how to setup and run Seafile server from a pre-built packag
 
 [http://www.seafile.com/en/download Download] the latest server package.
 
-```bash
+<pre>
 #check if your system is x86 (32bit) or x86_64 (64 bit)
 uname -m      
 
@@ -12,7 +12,7 @@ uname -m
 wget http://seafile.googlecode.com/files/seafile-server_{version}_i386.tar.gz
 #or for 64bit
 wget http://seafile.googlecode.com/files/seafile-server_{version}_x86-64.tar.gz  
-```
+</pre>
 
 == Deploying and Directory Layout ==
 
@@ -21,7 +21,7 @@ NOTE: If you place the Seafile data directory in external storage, such as NFS, 
 Supposed your organization's name is "haiwen", and you've downloaded seafile-server_1.4.0_* into your home directory.
 We suggest you to layout your deployment as follows : 
 
-```bash
+<pre>
 mkdir haiwen  
 mv seafile-server_* haiwen
 cd haiwen
@@ -29,10 +29,10 @@ cd haiwen
 tar -xzf seafile-server_*
 mkdir installed
 mv seafile-server_* installed
-```
+</pre>
 
 Now you should have the following directory layout
-```bash
+<pre>
 #tree haiwen -L 2
 haiwen
 ├── installed
@@ -46,7 +46,7 @@ haiwen
     ├── seahub.sh
     ├── setup-seafile.sh
     └── upgrade
-```
+</pre>
 
 '''The benefit of this layout is that'''
 
@@ -65,18 +65,18 @@ The Seafile server package requires the following packages have been installed i
 * python-imaging
 * sqlite3
 
-```bash
+<pre>
 #on Debian
 apt-get update
 apt-get install python2.7 python-setuptools python-simplejson python-imaging sqlite3
-```
+</pre>
 
 === Setup ===
 
-```bash
+<pre>
 cd seafile-server-*
 ./setup-seafile.sh  #run the setup script & answer prompted questions
-```
+</pre>
 
 If some of the prerequisites are not installed, the seafile initialization script will ask you to install them.
 
@@ -131,7 +131,7 @@ If the setup is successful, you'll see the following output
 [[images/server-setup-successfully.png]]
 
 Now you should have the following directory layout : 
-```bash
+<pre>
 #tree haiwen -L 2
 haiwen
 ├── ccnet               # configuration files
@@ -157,7 +157,7 @@ haiwen
 ├── seahub.db
 ├── seahub_settings.py   # optional config file
 └── seahub_settings.pyc
-```
+</pre>
 
 == Running Seafile Server ==
 
@@ -165,9 +165,9 @@ haiwen
 
 Since Seafile uses persistent connection between client and server, if you have '''a large number of clients ''', you should increase Linux file descriptors by ulimit before start seafile, like:
 
-```bash
+<pre>
 ulimit -n 30000
-```
+</pre>
 
 === Starting Seafile Server and Seahub Website ===
 
@@ -175,20 +175,20 @@ Under seafile-server-1.4.0 directory, run the following commands
 
 * Start seafile:
 
-```bash
+<pre>
 ./seafile.sh start # Start seafile service
-```
+</pre>
 
 * Start seahub
 
-```bash
+<pre>
 ./seahub.sh start <port>  # Start seahub website, port defaults to 8000
-```
+</pre>
 
 After starting the services, you may open a web browser and types 
-```
+<pre>
 http://192.168.1.111:8000/
-```
+</pre>
 you will be redirected to the Login page. Enter the username and password you were provided during the Seafile setup. You will then be returned to the `Myhome` page where you can create libraries. 
 
 '''Congratulations!''' Now you have successfully setup your private Seafile server.
@@ -198,21 +198,21 @@ you will be redirected to the Login page. Enter the username and password you we
 If you want to run seahub in a port other than the default 8000, say 8001, you must:
 
 * stop the seafile server 
-```bash
+<pre>
 ./seahub.sh stop
 ./seafile.sh stop
-```
+</pre>
 
 * modify the value of <code>SERVICE_URL</code> in the file <code>haiwen/ccnet/ccnet.conf</code>, like this: (assume your ip or domain is <code>192.168.1.100</code>)
-```bash
+<pre>
 SERVICE_URL = http://192.168.1.100:8001
-```
+</pre>
 
 * restart seafile server
-```bash
+<pre>
 ./seafile.sh start
 ./seahub.sh start 8001
-```
+</pre>
 
 see [[Seafile server configuration options]] for more details about <code>ccnet.conf</code>.
 
@@ -220,17 +220,17 @@ see [[Seafile server configuration options]] for more details about <code>ccnet.
 
 ==== Stopping ====
 
-```bash
+<pre>
 ./seahub.sh stop # stop seahub website
 ./seafile.sh stop # stop seafile processes
-```
+</pre>
 
 ==== Restarting ====
 
-```bash
+<pre>
 ./seafile.sh restart
 ./seahub.sh restart
-```
+</pre>
 
 ==== When the Scripts Fail ====
 
@@ -238,17 +238,17 @@ Most of the time, seafile.sh and seahub.sh work fine. But if they fail, you may
 
 * Use '''pgrep''' command to check if seafile/seahub processes are still running
 
-```bash
+<pre>
 pgrep -f seafile-controller # check seafile processes
 pgrep -f "manage.py run_gunicorn" # check seahub process
-```
+</pre>
 
 * Use '''pkill''' to kill the processes
 
-```bash
+<pre>
 pkill -f seafile-controller
 pkill -f "manage.py run_gunicorn"
-```
+</pre>
 
 ==That's it!==
 That's it! Now you may want read more about seafile.

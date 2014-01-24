@@ -6,7 +6,7 @@ In the wiki below, we assume your seafile installation folder is <code>/data/hai
 
 The configuration file is <code>/data/haiwen/conf/seafdav.conf</code>
 
-```conf
+<pre>
 [WEBDAV]
 
 # Default is false. Change it to true to enable SeafDAV server.
@@ -19,38 +19,38 @@ fastcgi = false
 
 # If you deploy seafdav behind nginx/apache, you need to modify "share_name".
 share_name = /
-```
+</pre>
 
 Every time the configuration is modified, you need to restart seafile server to make it take effect.
 
-```sh
+<pre>
 ./seafile.sh restart
-```
+</pre>
 
 
 === Sample Configuration 1: No nginx/apache ===
 
 Your WebDAV client would visit the Seafile WebDAV server at <code>http://example.com:8080</code>
 
-```conf
+<pre>
 [WEBDAV]
 enabled = true
 port = 8080
 fastcgi = false
 share_name = /
-```
+</pre>
 
 === Sample Configuration 2: With nginx/apache ===
 
 Your WebDAV client would visit the Seafile WebDAV server at <code>http://example.com/seafdav</code>
 
-```conf
+<pre>
 [WEBDAV]
 enabled = true
 port = 8080
 fastcgi = true
 share_name = /seafdav
-```
+</pre>
 
 In the above config, the value of '''share_name''' is changed to '''/seafdav''', which is the address suffix you assign to seafdav server.
 
@@ -59,7 +59,7 @@ In the above config, the value of '''share_name''' is changed to '''/seafdav''',
 
 The corresponding Nginx configuration is (without https):
 
-```conf
+<pre>
      location /seafdav {
         fastcgi_pass    127.0.0.1:8080;
         fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
@@ -77,13 +77,13 @@ The corresponding Nginx configuration is (without https):
         access_log      /var/log/nginx/seafdav.access.log;
         error_log       /var/log/nginx/seafdav.error.log;
     }   
-```
+</pre>
 
 ==== Nginx with HTTPS ====
 
 Nginx conf with https:
 
-```conf
+<pre>
      location /seafdav {
         fastcgi_pass    127.0.0.1:8080;
         fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
@@ -103,15 +103,15 @@ Nginx conf with https:
         access_log      /var/log/nginx/seafdav.access.log;
         error_log       /var/log/nginx/seafdav.error.log;
     }   
-```
+</pre>
 
 ==== Apache ====
 
 First edit <code>apache2.conf</code> file, add this line to the end of the file (or add it to <code>httpd.conf</code> depending on your Linux distro):
 
-```
+<pre>
 FastCGIExternalServer /var/www/seafdav.fcgi -host 127.0.0.1:8080
-```
+</pre>
 
 Note, <code>/var/www/seafdav.fcgi</code> is just a placeholder, you don't need to actually have this file in your system.
 
@@ -121,7 +121,7 @@ Second, modify Apache config file (site-enabled/000-default):
 
 Based on your apache configuration when you [[Deploy Seafile with apache|deployed seafile with Apache]], add seafdav related config:
 
-```
+<pre>
 <VirtualHost *:80>
 
 ServerName www.myseafile.com
@@ -152,13 +152,13 @@ ServerName www.myseafile.com
   RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
 </virtualhost>
-```
+</pre>
 
 ===== Apache with HTTPS =====
 
 Based on your apache configuration when you [[Enable Https on Seafile web with Apache|enabled Https on Seafile]], add seafdav related config:
 
-```
+<pre>
 <VirtualHost *:443>
 
 ServerName www.myseafile.com
@@ -193,7 +193,7 @@ ServerName www.myseafile.com
   RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
 </virtualhost>
-```
+</pre>
 
 == Notes on Clients ==
 
@@ -213,18 +213,18 @@ On Linux you have more choices. You can use file manager such as Nautilus to con
 
 To use davfs2
 
-```
+<pre>
 sudo apt-get install davfs2
 sudo mount -t davfs -o uid=<username> https://example.com/seafdav /media/seafdav/
-```
+</pre>
 
 The -o option sets the owner of the mounted directory to <username> so that it's writable for non-root users.
 
 It's recommended to disable LOCK operation for davfs2. You have to edit /etc/davfs2/davfs2.conf
 
-```
+<pre>
  use_locks       0
-```
+</pre>
 
 === Mac OS X ===
 

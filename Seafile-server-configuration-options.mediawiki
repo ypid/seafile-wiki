@@ -59,10 +59,10 @@ This setting applies to all users. If you want to set quota for a specific user,
 
 If you don't want to keep all file revision history, you may set a default history length limit for all libraries.
 
-```
+<pre>
 [history]
 keep_days = days of history to keep
-```
+</pre>
 
 == Seafile httpserver configuratoin (seafile.conf) ==
 

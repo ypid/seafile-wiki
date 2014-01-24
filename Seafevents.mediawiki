@@ -11,22 +11,22 @@ Office/PDF documents online preview is built on top of [http://www.libreoffice.o
 <code>Libreoffice</code> program and <code>python-uno</code> library is needed to enable office files online preview. If you don't install them, the office documents online preview will be disabled.
 
 On Ubuntu/Debian:
-```sh
+<pre>
 sudo apt-get install libreoffice python-uno
-```
+</pre>
 
 On Centos/RHEL:
-```sh
+<pre>
 sudo yum install libreoffice libreoffice-headless libreoffice-pyuno
-```
+</pre>
 
 Also, you need to install fonts for your language on your seafile server machine, otherwise the Office/PDF document online preview may not display correctly.
 
 For example, Chinese users may wish to install the WenQuanYi series of TrueType fonts:
-```sh
+<pre>
 # For ubuntu/debian
 sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
-```
+</pre>
 
 == Seafevents Configuration ==
 
@@ -34,7 +34,7 @@ In the wiki below, we assume your seafile installation folder is <code>/data/hai
 
 The configuration file is <code>/data/haiwen/seafile-data/seafevents.conf</code>
 
-```conf
+<pre>
 [DATABASE]
 type = sqlite3
 path = seafevents.db
@@ -71,13 +71,13 @@ enabled = true
 
 # interval of sending seahub email. Can be s(seconds), m(minutes), h(hours), d(days)
 interval = 30m
-```
+</pre>
 
 Every time the configuration is modified, you need to restart seafile server to make it take effect.
 
-```sh
+<pre>
 ./seafile.sh restart
-```
+</pre>
 
 == Frequently Asked Questions ==
 

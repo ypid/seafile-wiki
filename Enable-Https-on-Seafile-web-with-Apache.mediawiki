@@ -61,9 +61,9 @@ SERVICE_URL = https://www.myseafile.com
 
 === seahub_settings.py ===
 
-```python
+<pre>
 HTTP_SERVER_ROOT = 'https://www.myseafile.com/seafhttp'
-```
+</pre>
 
 == Start Seafile and Seahub ==
 
