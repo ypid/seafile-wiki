@@ -26,7 +26,7 @@ Then modify your Apache configuration file. Here is a sample:
 <VirtualHost *:443>
   ServerName www.myseafile.com
   DocumentRoot /var/www
-  Alias /media  /home/user/haiwen/seafile-server-1.8.0/seahub/media
+  Alias /media  /home/user/haiwen/seafile-server-latest/seahub/media
 
   SSLEngine On 
   SSLCertificateFile /path/to/cacert.pem
