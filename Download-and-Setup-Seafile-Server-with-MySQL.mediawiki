@@ -294,7 +294,7 @@ haiwen
 │   ├── seahub.sh
 │   ├── setup-seafile.sh
 │   └── upgrade
-├── seafile-server-latest  # symbolic link to the current seafile server folder
+├── seafile-server-latest  # symbolic link to seafile-server-1.8.2
 ├── seahub-data
 │   └── avatars
 ├── seahub_settings.py   # optional config file
