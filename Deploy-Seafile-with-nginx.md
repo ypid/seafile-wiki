@@ -43,7 +43,7 @@ server {
     }
 
     location /media {
-        root /home/user/haiwen/seafile-server-1.6.1/seahub;
+        root /home/user/haiwen/seafile-server-latest/seahub;
     }
 }
 </pre>
