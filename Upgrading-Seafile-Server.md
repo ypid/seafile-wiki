@@ -4,6 +4,8 @@ This page is for users who use the pre-compiled seafile server package.
 
 - If you have deployed seafile server with mysql, you need to manually update your database tables. See [[Deploy Seafile with MySQL]] for details.
 
+- After upgrading, you may need to clean [seahub cache](https://github.com/haiwen/seafile/wiki/Seafile-server-configuration-options#wiki-Cache) if it doesn't behave as expect.
+
 ## Major Continuous Upgrade (like from 1.2 to 1.3)
 
 Continuous upgrade means to upgrade from one version of Seafile server to the next version.
