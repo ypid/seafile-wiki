@@ -96,8 +96,22 @@ HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 
 When [[upgrading seafile server]], besides the normal steps you should take, there is one extra step to do: '''Update the path of the static files in your nginx/apache configuration'''. For example, assume your are upgrading seafile server 1.3.0 to 1.4.0, then:
 
-```
+<pre>
     location /media {
         root /home/user/haiwen/seafile-server-1.4.0/seahub;
     }
-```
+</pre>
+
+**Tip:** 
+You can create a symbolic link <code>seafile-server-latest</code>, and make it point to your current seafile server folder (Since seafile server 2.1.0, the <code>setup-seafile.sh</code> script will do this for your). Then, each time you run a upgrade script, it would update the <code>seafile-server-latest</code> symbolic link to keep it always point to the latest version seafile server folder.
+
+In this case, you can write:
+
+<pre>
+    location /media {
+        root /home/user/haiwen/seafile-server-latest/seahub;
+    }
+</pre>
+
+This way, you no longer need to update the nginx config file each time you upgrade your seafile server.
+
