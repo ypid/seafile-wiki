@@ -122,9 +122,9 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 '''Note''': If your Email service still can not work, you may checkout the log file <code>/tmp/seahub.log</code> to see what may cause the problem. For complete email notification list, please refer to [[Email notification list]].
 
-=== Enable Memcached ===
+=== Cache ===
 
-Seahub caches items on file system by default(/tmp/seahub_cache/). You can replace with Memcached (you have to install python-memcache first).
+Seahub caches items(avatars, profiles, etc) on file system by default(/tmp/seahub_cache/). You can replace with Memcached (you have to install python-memcache first).
 
 <pre>
 CACHES = {
