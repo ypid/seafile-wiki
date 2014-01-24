@@ -59,7 +59,7 @@ Second, modify Apache config file:
 <VirtualHost *:80>
   ServerName www.myseafile.com
   DocumentRoot /var/www
-  Alias /media  /home/user/haiwen/seafile-server-1.6.1/seahub/media         
+  Alias /media  /home/user/haiwen/seafile-server-latest/seahub/media         
 
   RewriteEngine On
 
