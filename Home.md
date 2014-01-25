@@ -17,12 +17,6 @@ Deploy/Upgrade Seafile in Production/Enterprise Environment
 * [[Configure Seafile to use LDAP]]
 * [[Upgrade Seafile Server|Upgrade Seafile with MySQL or PostgreSQL]] (with MySQL/PostgreSQL)
 
-Options & Customization
-
-* [[Seafile Server Configuration Options]]
-* [[Seahub Customization]]
-* [[Customize Email Notifications]]
-
 Other Deploy Issues
 
 * Add **Memcached** when Seahub becomes slow when you have a lot of users.
@@ -37,6 +31,12 @@ Other Deploy Issues
 1. Read [[Seafile Server Components Overview]] to understand how seafile server works. This will save you a lot of time.
 2. [[Common Problem in Setup Seafile Server]]
 3. Use our google group forum or IRC to get help.
+
+## Options & Customization
+
+* [[Seafile Server Configuration Options]]
+* [[Seahub Customization]]
+* [[Customize Email Notifications]]
 
 ## Manage/Maintain Seafile Server
 
