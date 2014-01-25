@@ -1,7 +1,5 @@
 This manual explains how to setup and run seafile server from a pre-built package with MySQL.
 
-Starting from Seafile Server 1.8.2, a script, '''setup-seafile-mysql.sh''', is shipped with the Seafile server package to automate the setup process for you.
-
 == Download ==
 
 [http://www.seafile.com/en/download Download] the latest server package.
