@@ -87,6 +87,26 @@ For Apache:
 Alias /media  /data/haiwen/seafile-server-1.6.0/seahub/media
 ```
 
+**Tip:** 
+You can create a symbolic link <code>seafile-server-latest</code>, and make it point to your current seafile server folder (Since seafile server 2.1.0, the <code>setup-seafile.sh</code> script will do this for your). Then, each time you run a upgrade script, it would update the <code>seafile-server-latest</code> symbolic link to keep it always point to the latest version seafile server folder.
+
+In this case, you can write:
+
+```
+    location /media {
+        root /data/haiwen/seafile-server-latest/seahub;
+    }
+```
+
+or For Apache:
+
+```
+Alias /media  /data/haiwen/seafile-server-latest/seahub/media
+```
+
+This way, you no longer need to update the nginx/apache config file each time you upgrade your seafile server.
+
+
 ### 4. Restart Seafile/Seahub/Nginx/Apache
 
 After done above updating, now restart Seafile/Seahub/Nginx/Apache to see the new version at work!
