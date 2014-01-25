@@ -1,8 +1,6 @@
 The current code of seahub assumes that user name to be email address, so it's not possible to log in with UNIX user names or Windows Domain user names now. The support may be added later.
 
-Note that the seafile admin user account is always stored in sqlite/mysql database, not in LDAP.
-
-If you have used Seafile without configuring LDAP before, the users are stored in database (MySQL or SQLite). Starting from 2.0.4, after enabling LDAP, the users in database are still valid. Seafile will find the user both from database and LDAP. Seafile server before 2.0.4 can only find users from either database or LDAP, not both.
+Seafile will find a user both from database and LDAP. LDAP will be tried first. Note that the Seafile admin  account created during setup is always stored in sqlite/mysql database.
 
 ## Connect to LDAP/AD from Linux
 
