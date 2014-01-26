@@ -133,6 +133,8 @@ This way, you no longer need to update the apache config file each time you upgr
 
 The picture at the end of this document may help you understand seafile server better: https://github.com/haiwen/seafile/wiki/Seafile-server-components-overview
 
+There are two components in Seafile server, Seahub and HttpServer. HttpServer only servers for raw file uploading/downloading, it listens on 8082. Seahub that serving all the other pages, is still listen on 8000. But under https, Seahub should listen as in fastcgi mode on 8000 (run as ./seahub.sh start-fastcgi). And as in fastcgi mode, when you visit  http://domain:8000 directly, it should return an error page. 
+
 When a user visit https://domain.com/home/my/, Apache receives this request and sends it to Seahub via fastcgi. This is controlled by the following config items:
 
     #
