@@ -64,7 +64,7 @@ If you don't want to keep all file revision history, you may set a default histo
 keep_days = days of history to keep
 </pre>
 
-== Seafile httpserver configuratoin (seafile.conf) ==
+== Seafile httpserver configuration (seafile.conf) ==
 
 The configuration of seafile httpserver is in the <code>[httpserver]</code> section of the file <code>seafile-data/seafile.conf</code>
 
