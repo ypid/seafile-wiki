@@ -62,9 +62,9 @@ You need also to modify `SERVICE_URL` and `HTTP_SERVER_ROOT` (see below).
 First, you need to modify seahub_settings.py as above.
 
 Then edit httpd.conf file, add this line:
-
+<pre>
   FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
-
+</pre>
 After that, you need to configure your Apache, here is the sample configuration:
 
 <pre>
