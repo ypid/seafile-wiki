@@ -58,7 +58,7 @@ esac
 '''Note''': If you want to start seahub in fastcgi, just change the '''fastcgi''' variable to '''true'''
 === Add Directory for Logfiles ===
 
-<pre> mkdir /path/to/seafile/dir/logs'''</pre>
+<pre> mkdir /path/to/seafile/dir/logs</pre>
 
 === Create a file '''/etc/init/seafile-server.conf''' ===
 
