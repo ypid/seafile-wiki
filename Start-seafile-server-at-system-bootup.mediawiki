@@ -81,11 +81,7 @@ end script
 <pre>
 sudo chmod +x /etc/init.d/seafile-server
 </pre>
-=== Tell the server to run the script at startup ===
 
-<pre>
-sudo update-rc.d seafile-server defaults
-</pre>
 === Done ===
 
 Don't forget to update the value of '''script_path''' later if you update your seafile server.
