@@ -1,6 +1,4 @@
-<pre>
-Note: Postgres support is still in Beta status and may have some minor bugs. Please use MySQL in production environment.
-</pre>
+**Note**: Postgres support is still in Beta status and may have some minor bugs. Please use MySQL in production environment.
 
 # Deploy Seafile with PostgreSQL #
 
