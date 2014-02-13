@@ -7,6 +7,8 @@ Contents
 * [Create or Update Account](#create-update-account)
 * [Delete Account](#delete-account)
 * [List Libraries](#list-libraries)
+* [Create Library](#create-library)
+* [Delete Library](#delete-library)
 * [View library info](#library-info)
 * [Decrypt library](#decrypt-library)
 * [Fetch library download info](#download-library)
@@ -211,6 +213,59 @@ Contents
         "desc": "test1"
     }
     ]
+
+## <a id="create-library"></a>Create Library ##
+
+**POST** https://cloud.seafile.com/api2/repos/
+
+**Request parameters**
+
+* token
+* name
+* desc (defaults to "new repo")
+* passwd (needed by encrypt library)
+
+**Sample request**
+
+    curl -v -d "name=foo&desc=new library" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/
+
+**Sample response**
+
+    ...
+    < Location: https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/
+    ...
+    "success"
+
+**Success**
+
+   Response code 201(Created) is returned, and Location header provides the url of created library.
+
+**Errors**
+
+* 400 Library name missing.
+* 520 Operation failed.
+
+## <a id="delete-library"></a>Delete library ##
+
+**DELETE** https://cloud.seafile.com/api2/repos/{repo-id}/
+
+**Request parameters**
+
+* token
+
+**Sample request**
+
+    curl -v -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/
+
+**Sample response**
+
+"success"
+
+**Errors**
+
+* 400 Library does not exist.
+
+* 403 Only library owner can perform this operation.
 
 ## <a id="library-info"></a>View library info ##
 
