@@ -66,10 +66,10 @@ First you should get the latest source of libsearpc/ccnet/seafile/seahub
 
 Download the source tarball of the latest tag from 
 
-* https://github.com/haiwen/libsearpc/tags
-* https://github.com/haiwen/ccnet/tags
-* https://github.com/haiwen/seafile/tags
-* https://github.com/haiwen/seahub/tags
+* [https://github.com/haiwen/libsearpc/tags]
+* [https://github.com/haiwen/ccnet/tags]
+* [https://github.com/haiwen/seafile/tags]
+* [https://github.com/haiwen/seahub/tags]
 
 For example, if the latest released seafile client is 2.0.3, then just use the '''v2.0.3-server''' tags of the four projects. You should get four tarballs:
 
