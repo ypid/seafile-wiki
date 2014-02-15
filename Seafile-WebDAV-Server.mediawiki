@@ -6,6 +6,14 @@ In the wiki below, we assume your seafile installation folder is <code>/data/hai
 
 The configuration file is <code>/data/haiwen/conf/seafdav.conf</code>
 
+```
+If you do not have your install at /data/haiwen, then you will need
+to place your seafdav.conf in a new conf folder in the same folder 
+that contains ccnet and seafile-data.
+
+In some cases that will not have been created already.
+```
+
 <pre>
 [WEBDAV]
 
