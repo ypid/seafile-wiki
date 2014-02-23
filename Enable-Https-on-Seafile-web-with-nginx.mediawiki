@@ -33,8 +33,8 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
         server_name www.yourdoamin.com;    
         ......
         ......
-        fastcgi_param   HTTPS   on;
-        fastcgi_param HTTP_SCHEME https;
+        fastcgi_param   HTTPS               on;
+        fastcgi_param   HTTP_SCHEME         https;
     }
 </pre>
 
@@ -69,8 +69,8 @@ Here is the sample configuration file:
             fastcgi_param   SERVER_ADDR         $server_addr;
             fastcgi_param   SERVER_PORT         $server_port;
             fastcgi_param   SERVER_NAME         $server_name;
-            fastcgi_param   HTTPS   on;
-            fastcgi_param HTTP_SCHEME https;
+            fastcgi_param   HTTPS               on;
+            fastcgi_param   HTTP_SCHEME         https;
      
             access_log      /var/log/nginx/seahub.access.log;
     	    error_log       /var/log/nginx/seahub.error.log;
