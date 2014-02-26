@@ -50,7 +50,7 @@ server {
 
     location /seafmedia {
         rewrite ^/seafmedia(.*)$ /media$1 break;
-        root /home/user/haiwen/seafile-server-1.6.1/seahub;
+        root /home/user/haiwen/seafile-server-latest/seahub;
     }
 }
 </pre>
