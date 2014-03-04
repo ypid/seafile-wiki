@@ -104,3 +104,181 @@ sudo -u ${user} ${script_path}/seahub.sh start > /tmp/seahub.init.log 2>&1
 '''Note''': If you want to start seahub in fastcgi, just change the '''"seahub.sh start"''' in the last line above to '''"seahub.sh start-fastcgi"'''
 
 * Done. Don't forget to update the value of '''script_path''' later if you update your seafile server.
+
+== For RHEL/CentOS run as service ==
+On RHEL/CentOS , we make use of the /etc/init.d/ scripts to start seafile/seahub at system boot as service.
+
+=== Create a file '''/etc/sysconfig/seafile''' ===
+
+<pre>
+# Change the value of "user" to your linux user name
+user=haiwen
+
+# Change the value of "script_path" to your path of seafile installation
+seafile_dir=/home/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
+
+# Change the value of fastcgi to true if fastcgi is to be used
+fastcgi=false
+
+# Set the port of fastcgi, default is 8000. Change it if you need different.
+fastcgi_port=8000
+</pre>
+
+=== Create a script '''/etc/init.d/seafile''' ===
+
+<pre>
+#!/bin/bash
+#
+# seafile
+
+#
+# chkconfig: - 59 41
+# description: seafile
+
+# Source function library.
+. /etc/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+if [ -f /etc/sysconfig/seafile ];then
+        . /etc/sysconfig/seafile
+        else
+            echo "Config file /etc/sysconfig/seafile not found! Bye."
+            exit 200
+        fi
+
+RETVAL=0
+
+start() {
+        # Start daemons.
+        echo -n $"Starting seafile: "
+        ulimit -n 30000
+        su - ${user} -c"${script_path}/seafile.sh start > ${seafile_init_log} 2>&1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && touch /var/lock/subsys/seafile
+        return $RETVAL
+}
+
+stop() {
+        echo -n $"Shutting down seafile: "
+        su - ${user} -c"${script_path}/seafile.sh stop >> ${seafile_init_log} 2>&1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/seafile
+        return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        stop
+        start
+        RETVAL=$?
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+        RETVAL=3
+esac
+
+exit $RETVAL
+</pre>
+
+=== Create a script '''/etc/init.d/seahub''' ===
+<pre>
+#!/bin/bash
+#
+# seahub
+
+#
+# chkconfig: - 60 40
+# description: seahub
+
+# Source function library.
+. /etc/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+if [ -f /etc/sysconfig/seafile ];then
+        . /etc/sysconfig/seafile
+        else
+            echo "Config file /etc/sysconfig/seafile not found! Bye."
+            exit 200
+        fi
+
+RETVAL=0
+
+start() {
+        # Start daemons.
+        echo -n $"Starting seahub: "
+        ulimit -n 30000
+        if [  $fastcgi = true ];
+                then
+                su - ${user} -c"${script_path}/seahub.sh start-fastcgi ${fastcgi_port} > ${seahub_init_log} 2>&1"
+                else
+                su - ${user} -c"${script_path}/seahub.sh start > ${seahub_init_log} 2>&1"
+                fi
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && touch /var/lock/subsys/seahub
+        return $RETVAL
+}
+
+stop() {
+        echo -n $"Shutting down seafile: "
+        su - ${user} -c"${script_path}/seahub.sh stop >> ${seahub_init_log} 2>&1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/seahub
+        return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        stop
+        start
+        RETVAL=$?
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+        RETVAL=3
+esac
+
+exit $RETVAL
+</pre>
+
+Next, enable services:
+<pre>
+chmod 550 /etc/init.d/seafile
+chmod 550 /etc/init.d/seahub
+chkconfig --add seafile
+chkconfig --add seahub
+chkconfig seahub on
+chkconfig seafile on
+</pre>
+
+and run:
+<pre>
+service seafile start
+service seahub start
+</pre>
+
+=== Done ===
