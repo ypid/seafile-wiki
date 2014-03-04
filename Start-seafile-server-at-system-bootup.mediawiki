@@ -135,7 +135,7 @@ fastcgi_port=8000
 # seafile
 
 #
-# chkconfig: - 59 41
+# chkconfig: - 68 32
 # description: seafile
 
 # Source function library.
@@ -201,7 +201,7 @@ exit $RETVAL
 # seahub
 
 #
-# chkconfig: - 60 40
+# chkconfig: - 69 31
 # description: seahub
 
 # Source function library.
