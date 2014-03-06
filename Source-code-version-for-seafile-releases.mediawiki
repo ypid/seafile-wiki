@@ -1,8 +1,17 @@
+== For Third-party Packagers ==
+
+
+If you want to package seafile yourself, (e.g. for your favorite Linux distribution), you should always use the correspondent tags:
+
+* When we release a new version of seafile client, say 2.0.1, we will add tags '''v2.0.1''' to libsearpc, ccnet, seafile and seafile-client.
+* Likewise, when we release a new version of seafile server, say 2.0.1, we will add tags '''v2.0.1-server''' to libsearpc, ccnet, seafile and seahub.
+
+'''Note''':  In the rest of this page, the version numbers of each project has nothing to do with the tag name. 
+
 == Client ==
 
-When we release a new version for example 2.0.1, we will add tags v2.0.1 to libsearpc, ccnet, seafile and seafile-client.
-
 Changelog: http://seacloud.cc/group/3/wiki/client-changelog/
+
 
 {|
 |+ Source code versions for Client releases
@@ -13,11 +22,19 @@ Changelog: http://seacloud.cc/group/3/wiki/client-changelog/
 ! seafile-client
 ! Note
 |-
+| 2.1.2
+| 1.2.2
+| 1.4.1
+| 2.1.2
+| 2.1.2
+|
+|-
 | 2.1.1
 | 1.2.1
 | 1.4.0
 | 2.0.9
 | 2.1.1
+|
 |-
 | 2.1.0
 | 1.2.1
@@ -58,8 +75,6 @@ Changelog: http://seacloud.cc/group/3/wiki/client-changelog/
 
 == Server ==
 
-When we release a new version for example 2.0.1, we will add tags v2.0.1-server to libsearpc, ccnet, seafile and seahub.
-
 Changelog: http://seacloud.cc/group/3/wiki/server-changelog/
 
 {|
@@ -69,6 +84,12 @@ Changelog: http://seacloud.cc/group/3/wiki/server-changelog/
 ! ccnet
 ! seafile
 ! seahub
+|-
+| 2.1.5
+| 1.2.2
+| 1.4.1
+| 2.1.1
+| ---
 |-
 | 2.1.4
 | 1.2.2
