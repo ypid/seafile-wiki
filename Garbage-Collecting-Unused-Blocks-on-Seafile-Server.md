@@ -29,23 +29,23 @@ To run GC program
 If you [[built seafile server from source|Build and deploy seafile server from source]],
 just run
 
-    seafserv-gc -c /data/haiwen/ccnet -d /data/haiwen/seafile-data
+    seafserv-gc -c ../../ccnet -d ../../seafile-data
 
 After the GC program terminates, you may also check whether it mistakenly removed any
 useful data blocks:
 
-    seafserv-gc -c /data/haiwen/ccnet -d /data/haiwen/seafile-data --verify
+    seafserv-gc -c ../../ccnet -d ../../seafile-data --verify
 
 It will print a warning if any useful blocks are missing.
 
 If you want to do sanity check before actually removing any data, you can use the --dry-run option
 
-    seafserv-gc -c /data/haiwen/ccnet -d /data/haiwen/seafile-data --dry-run
+    seafserv-gc -c ../../ccnet -d ../../seafile-data --dry-run
 
 It will show you the total block number vs. the number of blocks to be removed.
 
 If the metadata of some libraries are damaged on the server, the GC program would stop proceeding because it can't tell whether a block is used by some damaged libraries or not. If you don't want to keep the data of the damaged library, you can run GC with --ignore-errors or -i option
 
-    seafserv-gc -c /data/haiwen/ccnet -d /data/haiwen/seafile-data --ignore-errors
+    seafserv-gc -c ../../ccnet -d ../../seafile-data --ignore-errors
 
 This will mask the blocks of the damaged libraries as unused and delete them.
