@@ -28,26 +28,26 @@ fastcgi_port=8000
 
 case "$1" in
         start)
-                sudo -u ${user} ${script_path}/seafile.sh start > ${seafile_init_log}
+                sudo -u ${user} ${script_path}/seafile.sh start >> ${seafile_init_log}
                 if [  $fastcgi = true ];
                 then
-                        sudo -u ${user} ${script_path}/seahub.sh start-fastcgi ${fastcgi_port} > ${seahub_init_log}
+                        sudo -u ${user} ${script_path}/seahub.sh start-fastcgi ${fastcgi_port} >> ${seahub_init_log}
                 else
-                        sudo -u ${user} ${script_path}/seahub.sh start > ${seahub_init_log}
+                        sudo -u ${user} ${script_path}/seahub.sh start >> ${seahub_init_log}
                 fi
         ;;
         restart)
-                sudo -u ${user} ${script_path}/seafile.sh restart > ${seafile_init_log}
+                sudo -u ${user} ${script_path}/seafile.sh restart >> ${seafile_init_log}
                 if [  $fastcgi = true ];
                 then
-                        sudo -u ${user} ${script_path}/seahub.sh restart-fastcgi ${fastcgi_port} > ${seahub_init_log}
+                        sudo -u ${user} ${script_path}/seahub.sh restart-fastcgi ${fastcgi_port} >> ${seahub_init_log}
                 else
-                        sudo -u ${user} ${script_path}/seahub.sh restart > ${seahub_init_log}
+                        sudo -u ${user} ${script_path}/seahub.sh restart >> ${seahub_init_log}
                 fi
         ;;
         stop)
-                sudo -u ${user} ${script_path}/seafile.sh $1 > ${seafile_init_log}
-                sudo -u ${user} ${script_path}/seahub.sh $1 > ${seahub_init_log}
+                sudo -u ${user} ${script_path}/seafile.sh $1 >> ${seafile_init_log}
+                sudo -u ${user} ${script_path}/seahub.sh $1 >> ${seahub_init_log}
         ;;
         *)
                 echo "Usage: /etc/init.d/seafile {start|stop|restart}"
@@ -157,7 +157,7 @@ start() {
         # Start daemons.
         echo -n $"Starting seafile: "
         ulimit -n 30000
-        su - ${user} -c"${script_path}/seafile.sh start > ${seafile_init_log} 2>&1"
+        su - ${user} -c"${script_path}/seafile.sh start >> ${seafile_init_log} 2>&1"
         RETVAL=$?
         echo
         [ $RETVAL -eq 0 ] && touch /var/lock/subsys/seafile
@@ -225,9 +225,9 @@ start() {
         ulimit -n 30000
         if [  $fastcgi = true ];
                 then
-                su - ${user} -c"${script_path}/seahub.sh start-fastcgi ${fastcgi_port} > ${seahub_init_log} 2>&1"
+                su - ${user} -c"${script_path}/seahub.sh start-fastcgi ${fastcgi_port} >> ${seahub_init_log} 2>&1"
                 else
-                su - ${user} -c"${script_path}/seahub.sh start > ${seahub_init_log} 2>&1"
+                su - ${user} -c"${script_path}/seahub.sh start >> ${seahub_init_log} 2>&1"
                 fi
         RETVAL=$?
         echo
