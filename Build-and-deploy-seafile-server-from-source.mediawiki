@@ -14,6 +14,10 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * libsqlite3-dev (3.7 or later)
 * libmysqlclient-dev (5.5 or later)
 * libarchive-dev 
+* libtool
+* libjansson-dev
+* valac
+* libfuse-dev
 
 The following libraries need to be compiled from source.
 
@@ -118,6 +122,7 @@ To build seafile server, you need first build '''libsearpc''' and '''ccnet'''.
 
 <pre>
 cd libsearpc-${version}
+./autogen.sh
 ./configure
 make
 make install
@@ -127,6 +132,7 @@ make install
 
 <pre>
 cd ccnet-${version}
+./autogen.sh
 ./configure --disable-client --enable-server   # `export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig` if libsearpc is not found
 make
 make install
@@ -136,6 +142,7 @@ make install
 
 <pre>
 cd seafile-${version}
+./autogen.sh
 ./configure --disable-client --enable-server
 make
 make install
