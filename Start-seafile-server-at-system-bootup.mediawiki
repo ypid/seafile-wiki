@@ -104,6 +104,93 @@ sudo chmod +x /etc/init.d/seafile-server
 
 Don't forget to update the value of '''script_path''' later if you update your seafile server.
 
+== For other Debian based Linux ==
+
+=== Create a script '''/etc/init.d/seafile-server''' ===
+
+<pre>
+sudo vim /etc/init.d/seafile-server
+</pre>
+The content of this script is:
+(You need to modify the value of '''user''' and '''script_path''' accordingly)
+<pre>
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          seafile-server
+# Required-Start:    $local_fs $remote_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Starts Seafile Server
+# Description:       starts Seafile Server
+### END INIT INFO
+
+# Change the value of "user" to your linux user name
+user=haiwen
+
+# Change the value of "script_path" to your path of seafile installation
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
+
+# Change the value of fastcgi to true if fastcgi is to be used
+fastcgi=false
+# Set the port of fastcgi, default is 8000. Change it if you need different.
+fastcgi_port=8000
+
+case "$1" in
+        start)
+                sudo -u ${user} ${script_path}/seafile.sh start >> ${seafile_init_log}
+                if [  $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh start-fastcgi ${fastcgi_port} >> ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh start >> ${seahub_init_log}
+                fi
+        ;;
+        restart)
+                sudo -u ${user} ${script_path}/seafile.sh restart >> ${seafile_init_log}
+                if [  $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh restart-fastcgi ${fastcgi_port} >> ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh restart >> ${seahub_init_log}
+                fi
+        ;;
+        stop)
+                sudo -u ${user} ${script_path}/seafile.sh $1 >> ${seafile_init_log}
+                sudo -u ${user} ${script_path}/seahub.sh $1 >> ${seahub_init_log}
+        ;;
+        *)
+                echo "Usage: /etc/init.d/seafile {start|stop|restart}"
+                exit 1
+        ;;
+esac
+</pre>
+'''Note''': If you want to start seahub in fastcgi, just change the '''fastcgi''' variable to '''true'''
+=== Add Directory for Logfiles ===
+
+<pre> mkdir /path/to/seafile/dir/logs</pre>
+
+=== Make the seafile-sever script executable ===
+
+<pre>
+sudo chmod +x /etc/init.d/seafile-server
+</pre>
+
+=== Add seafile-server to rc.d ===
+
+<pre>
+sudo update-rc.d seafile-server defaults
+</pre>
+
+=== Done ===
+
+Don't forget to update the value of '''script_path''' later if you update your seafile server.
+
+
 == For RHEL/CentOS ==
 
 On RHEL/CentOS, the script [http://www.centos.org/docs/5/html/Installation_Guide-en-US/s1-boot-init-shutdown-run-boot.html /etc/rc.local] is executed by the system at bootup, so we start seafile/seahub there.
@@ -123,7 +210,8 @@ PATH=$PATH:/usr/local/bin/
 user=haiwen
 
 # Change the value of "script_path" to your path of seafile installation
-script_path=/data/haiwen/seafile-server-1.7.0
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
 
 sudo -u ${user} ${script_path}/seafile.sh start > /tmp/seafile.init.log 2>&1
 sudo -u ${user} ${script_path}/seahub.sh start > /tmp/seahub.init.log 2>&1
