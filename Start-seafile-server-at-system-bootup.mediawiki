@@ -1,6 +1,6 @@
-== For Ubuntu/Debian ==
+== For Ubuntu ==
 
-On Ubuntu/Debian, we make use of the [https://help.ubuntu.com/community/UbuntuBootupHowto /etc/init.d/] scripts to start seafile/seahub at system boot.
+On Ubuntu, we make use of the [https://help.ubuntu.com/community/UbuntuBootupHowto /etc/init.d/] scripts to start seafile/seahub at system boot.
 
 === Create a script '''/etc/init.d/seafile-server''' ===
 
