@@ -66,6 +66,14 @@ esac
 start on (started mysql
 and runlevel [2345])
 stop on (runlevel [016])
+
+pre-start script
+/etc/init.d/seafile-server start
+end script
+
+post-stop script
+/etc/init.d/seafile-server stop
+end script
 </pre>
 === Make the seafile-sever script executable ===
 
