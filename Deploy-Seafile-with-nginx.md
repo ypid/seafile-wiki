@@ -31,6 +31,7 @@ server {
         fastcgi_param	SERVER_ADDR         $server_addr;
         fastcgi_param	SERVER_PORT         $server_port;
         fastcgi_param	SERVER_NAME         $server_name;
+        fastcgi_param   REMOTE_ADDR         $remote_addr;
 
         access_log      /var/log/nginx/seahub.access.log;
     	error_log       /var/log/nginx/seahub.error.log;
