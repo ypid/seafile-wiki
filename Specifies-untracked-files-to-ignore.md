@@ -21,47 +21,30 @@ A seafile-ignore.txt file specifies untracked files that Seafile should ignore. 
 * seafile-ignore.txt only ignores untracked files. If a file is already synced, and some time later you add it to the ignore list, its existing versions won't be removed.
 
 ## Example
-```# This is an example of Seafile ignore.txt file
 
-# a regular file
-test-file
-
-# a dir
-test-dir/
-
-# wildcard *
-test-star1/*
-test-star2/*.html
-
-# wildcard ?
-test-qu1/?.html
-test-qu2/?/
-
-# Ignore some common temporary/backup/OS-specific files
-*~
-*/*~
-
-*.bak
-*/*.bak
-
-.DS_Store
-*/.DS_Store
-
-._*
-*/._*
-
-Thumbs.db
-*/Thumbs.db
-
-Desktop.ini
-*/Desktop.ini
-
-.directory
-*/.directory
-
-*.swp
-*/*.swp
-
-*.kate-swp
-*/*.kate-swp
-```
+    # This is an example of Seafile ignore.txt file
+    
+    # a regular file
+    test-file
+    
+    # a dir
+    test-dir/
+    
+    # wildcard *
+    test-star1/*
+    test-star2/*.html
+    
+    # wildcard ?
+    test-qu1/?.html
+    test-qu2/?/
+    
+    # Ignore some common temporary/backup/OS-specific files
+    *~
+    *.bak
+    .DS_Store
+    ._*
+    Thumbs.db
+    Desktop.ini
+    .directory
+    *.swp
+    *.kate-swp
