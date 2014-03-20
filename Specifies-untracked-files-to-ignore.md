@@ -7,11 +7,11 @@ A `seafile-ignore.txt` file specifies untracked files that Seafile should ignore
 
 1. A line starting with # serves as a comment.
 
-1. Seafile supports wildcards in the pattern.  For example, "foo/*" matches "foo/1" and "foo/hello".  "foo/?" matches "foo/1" but not "foo/hello". Note that the wildcard character * matches all the paths under a directory. For instance, "foo/*.html" matches "foo/a.html" and "foo/templates/b.html".
+1. Seafile supports wildcards in the pattern.  For example, `foo/*` matches `foo/1` and `foo/hello`.  `foo/?` matches `foo/1` but not `foo/hello`. Note that the wildcard character `*` matches all the paths under a directory. For instance, `foo/*.html` matches `foo/a.html` and `foo/templates/b.html`.
 
-1. If the pattern ends with a slash, it would **only** match a directory.  In other words, foo/ will match a directory foo and paths underneath it, but will not match a regular file or a symbolic link foo.
+1. If the pattern ends with a slash, it would **only** match a directory.  In other words, `foo/` will match a directory foo and paths underneath it, but will not match a regular file or a symbolic link foo.
 
-1. If a pattern doesn't end with a slash or a wildcard, it would **not** match a directory. For example, "foo" can only match regular file "foo" or a symbolic link; while "foo/" and "foo*" match a directory and paths under that directory.
+1. If a pattern doesn't end with a slash or a wildcard, it would **not** match a directory. For example, `foo` can only match regular file `foo` or a symbolic link; while `foo/` and `foo*` match a directory and paths under that directory.
 
 ## Notes
 * The `seafile-ignore.txt` file only controls which files to ignore on the client side. You can still create a file from seahub web interface that's ignored on the client. In this case:
