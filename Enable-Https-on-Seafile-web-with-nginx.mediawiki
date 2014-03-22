@@ -3,14 +3,14 @@
 Here we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the first step.
 
 === Generate SSL digital certificate with OpenSSL ===
-```nginx
+```bash
     openssl genrsa -out privkey.pem 2048
     openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
 ```
 
 === Enable SSL module of Nginx (optional) ===
 If your Nginx does not support SSL, you need to recompile it, the commands are as follows:
-```nginx
+```bash
     ./configure --with-http_stub_status_module --with-http_ssl_module
     make && make install
 ```
