@@ -63,6 +63,7 @@ If you don't want to force https for all urls (for example you have other sites)
         }
             ......
     }
+```
 
 For Windows server, the path for ssl_certificate and ssl_certificate_key should be set to the paths in Windows. 
 
