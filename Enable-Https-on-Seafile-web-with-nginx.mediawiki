@@ -3,22 +3,22 @@
 Here we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the first step.
 
 === Generate SSL digital certificate with OpenSSL ===
-<pre>
+```nginx
     openssl genrsa -out privkey.pem 2048
     openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
-</pre>
+```
 
 === Enable SSL module of Nginx (optional) ===
 If your Nginx does not support SSL, you need to recompile it, the commands are as follows:
-<pre>
+```nginx
     ./configure --with-http_stub_status_module --with-http_ssl_module
     make && make install
-</pre>
+```
 
 === Modify Nginx configuration file ===
 
 Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https, you need to modify your nginx configuration file.
-<pre>
+```nginx
     server {
         listen       80;
         server_name  www.yourdoamin.com; 
@@ -36,7 +36,7 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
         fastcgi_param   HTTPS               on;
         fastcgi_param   HTTP_SCHEME         https;
     }
-</pre>
+```
 
 For Windows server, the path for ssl_certificate and ssl_certificate_key should be set to the paths in Windows. 
 
@@ -44,7 +44,7 @@ For Windows server, the path for ssl_certificate and ssl_certificate_key should 
 
 Here is the sample configuration file:
 
-<pre>
+```nginx
     server {
         listen       80;
         server_name  www.yourdoamin.com;
@@ -84,31 +84,31 @@ Here is the sample configuration file:
             root /home/user/haiwen/seafile-server-latest/seahub;
         }
     }
-</pre>
+```
 
 === Reload Nginx ===
-<pre>
+```bash
     nginx -s reload
-</pre>
+```
 
 == Modify settings to use https ==
 
 === ccnet conf ===
 
 Since you change from http to https, you need to modify the value of "SERVICE_URL" in <code>ccnet/ccnet.conf</code>:
-<pre>
+```bash
 SERVICE_URL = https://www.yourdomain.com
-</pre>
+```
 
 === seahub_settings.py ===
 
-<pre>
+```python
 HTTP_SERVER_ROOT = 'https://www.yourdomain.com/seafhttp'
-</pre>
+```
 
 == Start Seafile and Seahub ==
 
-<pre>
+```bash
 ./seafile.sh start
 ./seahub.sh start-fastcgi
-</pre>
+```
