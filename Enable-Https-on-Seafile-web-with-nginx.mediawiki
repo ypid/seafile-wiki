@@ -38,6 +38,32 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
     }
 ```
 
+If you don't want to force https for all urls (for example you have other sites) you can eliminate first server definition and move everything to the second. If you use self-signed certificates you probably want to disable https force redirect from www.yourdoamin.com/f/... (as other people, downloading from your site will see warning about unsigned certificate). Note: if you came from https page of seafile you will remain use https. To accomplish this goal you should define one another location without https forcing. To follow DRY principle you can move all line inside <code>location</code> to the separate file seafile.conf and include it twice:
+```nginx
+    server {
+        ssl off;
+        listen 80;
+        listen 443 ssl;
+        
+        ......
+        location /f {
+            include seafile.conf;
+        }
+        location / {
+            include seafile.conf;
+            if ($scheme = "http") { rewrite ^ https://$http_host$request_uri? permanent; }
+        }
+        location /seafhttp {
+            if ($scheme = "http") { rewrite ^ https://$http_host$request_uri? permanent; }
+            ......
+        }
+        location /media {
+            if ($scheme = "http") { rewrite ^ https://$http_host$request_uri? permanent; }
+            ......
+        }
+            ......
+    }
+
 For Windows server, the path for ssl_certificate and ssl_certificate_key should be set to the paths in Windows. 
 
 === Sample configuration file ===
