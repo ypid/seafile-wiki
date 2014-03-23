@@ -46,8 +46,8 @@ mv seafile-server_* installed
 
 Now you should have the following directory layout
 <pre>
-#tree haiwen -L 2
-haiwen
+# tree . -L 2
+.
 ├── installed
 │   └── seafile-server_1.4.0_x86-64.tar.gz
 └── seafile-server-1.4.0
