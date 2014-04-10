@@ -63,6 +63,10 @@ Second, modify Apache config file:
 
   RewriteEngine On
 
+  <Location /media>
+   Require all granted
+  </Location>
+
   #
   # seafile httpserver
   #
