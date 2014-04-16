@@ -128,14 +128,6 @@ The script will guide you through the settings of various configuration options.
 | The TCP port used by Seafile httpserver
 | Default is 8082. If it's been used by other service, you can set it to another port.
 |-
-| seahub admin email
-| Admin account for seafile website
-| 
-|-
-| seahub admin password
-| Password for website admin
-| 
-|-
 |}
 
 
@@ -201,6 +193,8 @@ Under seafile-server-1.4.0 directory, run the following commands
 <pre>
 ./seahub.sh start <port>  # Start seahub website, port defaults to 8000
 </pre>
+
+'''Note:''' The first time you start seahub, the script would prompt you to create an admin account for your seafile server.
 
 After starting the services, you may open a web browser and types 
 <pre>
