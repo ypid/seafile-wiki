@@ -12,7 +12,7 @@ Deploy/Upgrade Seafile in Production/Enterprise Environment
 
 * [[Download and Setup Seafile Server with MySQL]]
 * [[Deploy Seafile with PostgreSQL]]
-* [[Deploy Seafile with Nginx]] / [[Deploy Seafile with Apache]]
+* [[Deploy Seafile with Nginx]] / [[Deploy Seafile with Apache]] (Note: Nginx is easier to config than Apache)
 * [[Enable Https on Seafile Web with Nginx]] / [[Enable Https on Seafile Web with Apache]]
 * [[Configure Seafile to use LDAP]]
 * [[Upgrade Seafile Server|Upgrade Seafile with MySQL or PostgreSQL]] (with MySQL/PostgreSQL)
