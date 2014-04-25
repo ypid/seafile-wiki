@@ -49,19 +49,7 @@ server {
 }
 </pre>
 
-For Windows server, the path for access_log, error_log and "location /media" should be set to a windows path, for example:
-<pre>
-    location / {
-        ...
-        access_log      E:/log/nginx/seahub.access.log;
-        error_log       E:/log/nginx/seahub.error.log;
-    }
-    location /media {
-        root E:/seafile-server-1.7.1/seahub;
-    }
-</pre>
-
-Nginx settings "client_max_body_size" is by default 1m. Uploading a file bigger than this limit will give you an error message HTTP error code 413 ("Request Entity Too Large").
+Nginx settings "client_max_body_size" is by default 1M. Uploading a file bigger than this limit will give you an error message HTTP error code 413 ("Request Entity Too Large").
 
 You should use 0 to disable this feature or write the same value than for the parameter max_upload_size in section [httpserver] of /seafile/seafile-data/seafile.conf
 
