@@ -396,4 +396,68 @@ service seafile start
 service seahub start
 </pre>
 
+== For systems running systemd ==
+Create systemd service files, change '''${seafile_dir}''' to your '''seafile''' installation location and '''seafile''' to user, who runs '''seafile''' (if appropriate). Then you need to reload systemd's daemons: '''systemctl daemon-reload'''.
+
+=== Create systemd service file /etc/systemd/system/seafile.service ===
+<pre>
+[Unit]
+Description=Seafile
+# add mysql.service or postgresql.service depending on your database to the line below
+After=network.target 
+
+[Service]
+Type=oneshot
+ExecStart=${seafile_dir}/seafile-server-latest/seafile.sh start
+ExecStop=${seafile_dir}/seafile-server-latest/seafile.sh stop
+RemainAfterExit=yes
+User=seafile
+Group=seafile
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+
+=== Create systemd service file /etc/systemd/system/seahub.service ===
+<pre>
+[Unit]
+Description=Seafile hub
+After=network.target seafile.service
+
+[Service]
+# change start to start-fastcgi if you want to run fastcgi
+ExecStart=${seafile_dir}/seafile-server-latest/seahub.sh start
+ExecStop=${seafile_dir}/seafile-server-latest/seahub.sh stop
+User=seafile
+Group=seafile
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+
+=== Create systemd service file /etc/systemd/system/seafile-client.service (optional) ===
+You need to create this service file only if you have '''seafile''' console client and you want to run it on system boot.
+
+<pre>
+[Unit]
+Description=Seafile client
+# Uncomment the next line you are running seafile client on the same computer as server
+# After=seafile.service
+# Or the next one in other case
+# After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/seaf-cli start
+ExecStop=/usr/bin/seaf-cli stop
+RemainAfterExit=yes
+User=seafile
+Group=seafile
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+
 === Done ===
