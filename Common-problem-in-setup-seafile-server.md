@@ -10,7 +10,6 @@ First, you can check the ccnet.log in client (~/.ccnet/logs/ccnet.log for Linux,
 
 Possible reasons:
 
-* Miss config of  <code>SERVICE_URL</code>: Check whether the value of is set correctly in server's <code>ccnet.conf</code>.
 * Firewall: Ensure the firewall is configured properly. See [[Firewall Settings for Seafile Server ]]
 
 Trouble shooting:
