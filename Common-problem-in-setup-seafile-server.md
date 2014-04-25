@@ -19,7 +19,6 @@ Trouble shooting:
 #### Failed to download blocks
 
 * Make sure port 12001 is open
-* Make sure your SERVICE_URL in ccnet.conf is correct.
 
 #### Error on Apache log: "File does not exist: /var/www/seahub.fcgi"
 
