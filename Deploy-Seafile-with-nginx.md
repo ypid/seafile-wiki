@@ -10,7 +10,7 @@ sudo apt-get install python-flup
 
 Seahub is the web interface of Seafile server. HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request. 
 
-Here we deploy Seahub using fastcgi, and deploy HttpServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
+Here we deploy Seahub using [FastCGI](http://en.wikipedia.org/wiki/FastCGI), and deploy HttpServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
 
 This is a sample Nginx config file.
 
@@ -115,4 +115,3 @@ In this case, you can write:
 </pre>
 
 This way, you no longer need to update the nginx config file each time you upgrade your seafile server.
-
