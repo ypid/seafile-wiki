@@ -77,12 +77,19 @@ tar xf seafile-client-${version}.tar.gz
 
 To build Seafile client, you need first build **libsearpc** and **ccnet**, **seafile**.
 
+##### set paths #####
+```bash
+export PREFIX=/usr
+export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PATH="$PREFIX/bin:$PATH"
+```
+
 ##### libsearpc #####
 
 ```bash
 cd libsearpc-${version}
 ./autogen.sh
-./configure --prefix=/usr
+./configure --prefix=$PREFIX
 make
 sudo make install
 ```
@@ -94,7 +101,7 @@ NOTE: If libsearpc is not found while executing `configure` below, run: `export 
 ```bash
 cd ccnet-${version}
 ./autogen.sh
-./configure --prefix=/usr
+./configure --prefix=$PREFIX
 make
 sudo make install
 ```
@@ -104,7 +111,7 @@ sudo make install
 ```bash
 cd seafile-${version}/
 ./autogen.sh
-./configure --prefix=/usr --disable-gui
+./configure --prefix=$PREFIX --disable-gui
 make
 sudo make install
 ```
@@ -113,15 +120,31 @@ sudo make install
 
 ```bash
 cd seafile-client-${version}
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr .
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PREFIX .
 make
 sudo make install
 ```
+
+#### custom prefix ####
+when installing to a custom ```$PREFIX```, i.e. ```/opt```, you may need a script to set the path variables correctly
+
+```bash
+cat >$PREFIX/bin/seafile-applet.sh
+#!/bin/bash
+DIR="$(pwd)/$(dirname $0)"
+export LD_LIBRARY_PATH="$DIR/../lib:$LD_LIBRARY_PATH"
+export PATH="$DIR:$PATH"
+echo $PATH
+echo $LD_LIBRARY_PATH
+seafile-applet
+```
+end the script with a newline and then pressing [ctrl-d].
+you can now start the client with ```$PREFIX/bin/seafile-applet.sh```. 
 
 ## Use Seafile Client ##
 
 After you build and install Seafile client on Linux, you can start it by the `seafile-applet` command
 ```sh
    $ sudo ldconfig  ### (it is need sometimes after compilation)
-   $ seafile-applet
+   $ seafile-applet ### use seafile-applet.sh when build into an custom prefix
 ```
