@@ -138,6 +138,7 @@ seafile-applet
 ```
 end the script with a newline and then pressing [ctrl-d].
 you can now start the client with ```$PREFIX/bin/seafile-applet.sh```. 
+To be able to symlink this script anywhere, you need to replace DIR with ```DIR=/YOUR/CUSTOM/PREFIX/bin```
 
 ## Use Seafile Client ##
 
