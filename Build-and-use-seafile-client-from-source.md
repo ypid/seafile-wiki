@@ -134,8 +134,6 @@ cat >$PREFIX/bin/seafile-applet.sh
 DIR="$(pwd)/$(dirname $0)"
 export LD_LIBRARY_PATH="$DIR/../lib:$LD_LIBRARY_PATH"
 export PATH="$DIR:$PATH"
-echo $PATH
-echo $LD_LIBRARY_PATH
 seafile-applet
 ```
 end the script with a newline and then pressing [ctrl-d].
