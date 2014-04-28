@@ -31,11 +31,11 @@
 </ul>
 </li>
 <li><a href="#group-message">Group Message</a><ul>
-<li><a href="#check-group-messages">Check Group Messages</a></li>
-<li><a href="#check-group-message-detail">Check Group Message Detail</a></li>
+<li><a href="#get-group-messages">Get Group Messages</a></li>
+<li><a href="#get-group-message-detail">Get Group Message Detail</a></li>
 <li><a href="#send-a-group-message">Send A Group Message</a></li>
 <li><a href="#reply-a-group-message">Reply A Group Message</a></li>
-<li><a href="#check-group-message-replies">Check Group Message Replies</a></li>
+<li><a href="#get-group-message-replies">Get Group Message Replies</a></li>
 </ul>
 </li>
 </ul>
@@ -47,52 +47,52 @@
 <li><a href="#delete-file-share-link">Delete File Share Link</a></li>
 </ul>
 </li>
-<li><a href="#shared-libs">Shared Libs</a><ul>
-<li><a href="#list-shared-libs">List Shared Libs</a></li>
-<li><a href="#list-be-shared-libs">List Be Shared Libs</a></li>
+<li><a href="#shared-libs">Shared Libraries</a><ul>
+<li><a href="#list-shared-libs">List Shared Libraries</a></li>
+<li><a href="#list-be-shared-libs">List Be Shared Libraries</a></li>
 <li><a href="#share-a-library">Share A Library</a></li>
 <li><a href="#unshare-a-library">Unshare A Library</a></li>
 </ul>
 </li>
 <li><a href="#shared-files">Shared Files</a><ul>
 <li><a href="#list-shared-files">List Shared Files</a></li>
-<li><a href="#check-shared-file">Check Shared File</a></li>
-<li><a href="#check-shared-file-detail">Check Shared File Detail</a></li>
+<li><a href="#download-shared-file">Download Shared File</a></li>
+<li><a href="#get-shared-file-detail">Get Shared File Detail</a></li>
 <li><a href="#delete-shared-file">Delete Shared File</a></li>
-<li><a href="#check-private-shared-file">Check Private Shared File</a></li>
-<li><a href="#check-private-shared-file-detail">Check Private Shared File Detail</a></li>
+<li><a href="#download-private-shared-file">Download Private Shared File</a></li>
+<li><a href="#get-private-shared-file-detail">Get Private Shared File Detail</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#library">Library</a><ul>
 <li><a href="#library-1">Library</a><ul>
-<li><a href="#check-default-lib">Check Default Lib</a></li>
-<li><a href="#create-default-lib">Create Default Lib</a></li>
+<li><a href="#get-default-lib">Get Default Library</a></li>
+<li><a href="#create-default-lib">Create Default Library</a></li>
 <li><a href="#list-libraries">List Libraries</a></li>
-<li><a href="#check-library-info">Check Library Info</a></li>
-<li><a href="#check-library-owner">Check Library Owner</a></li>
-<li><a href="#check-library-history">Check Library History</a></li>
+<li><a href="#get-library-info">Get Library Info</a></li>
+<li><a href="#get-library-owner">Get Library Owner</a></li>
+<li><a href="#get-library-history">Get Library History</a></li>
 <li><a href="#create-library">Create Library</a></li>
 <li><a href="#check/create-sub-library">Check/Create Sub Library</a></li>
 <li><a href="#delete-library">Delete Library</a></li>
 <li><a href="#decrypt-library">Decrypt Library</a></li>
-<li><a href="#set-library-public">Set Library Public</a></li>
-<li><a href="#set-library-private">Set Library Private</a></li>
+<li><a href="#create-public-lib">Create Public Library</a></li>
+<li><a href="#remove-public-lib">Remove Public Library</a></li>
 <li><a href="#fetch-library-download-info">Fetch library download info</a></li>
-<li><a href="#check-virtual-libraries">Check Virtual Libraries</a></li>
+<li><a href="#list-virtual-libraries">List Virtual Libraries</a></li>
 <li><a href="#search-libraries">Search Libraries</a></li>
 </ul>
 </li>
 <li><a href="#file">File</a><ul>
-<li><a href="#check-file">Check File</a></li>
-<li><a href="#check-file-detail">Check File Detail</a></li>
-<li><a href="#check-file-history">Check File History</a></li>
-<li><a href="#check-file-revision">Check File Revision</a></li>
+<li><a href="#download-file">Download File</a></li>
+<li><a href="#get-file-detail">Get File Detail</a></li>
+<li><a href="#get-file-history">Get File History</a></li>
+<li><a href="#download-file-revision">Download File From a Revision</a></li>
 <li><a href="#create-file">Create File</a></li>
 <li><a href="#rename-file">Rename File</a></li>
 <li><a href="#move-file">Move File</a></li>
-<li><a href="#copy-repo-file">Copy Repo File</a></li>
+<li><a href="#copy-file">Copy File</a></li>
 <li><a href="#revert-file">Revert File</a></li>
 <li><a href="#delete-file">Delete File</a></li>
 <li><a href="#upload-file">Upload File</a><ul>
@@ -125,7 +125,7 @@
 </ul>
 </li>
 <li><a href="#list-group-and-contacts">List Group And Contacts</a></li>
-<li><a href="#check-file-events">Check File Events</a></li>
+<li><a href="#get-file-events">Get File Activities</a></li>
 </ul>
 </li>
 </ul>
@@ -559,7 +559,7 @@
 **Errors**
 
 * 400 invalid group id
-* 403 only administrators can remove group members
+* 403 only administrators can add group members
 * 404 unable to find group
 
 #### <a id="delete-a-group-member"></a>Delete A Group Member ####
@@ -587,9 +587,9 @@
 
 ### <a id="group-message"></a>Group Message ###
 
-#### <a id="check-group-messages"></a>Check Group Messages ####
+#### <a id="get-group-messages"></a>Get Group Messages ####
 
-**GET** https://cloud.seafile.com/api2/group/msgs/{group_id}
+**GET** https://cloud.seafile.com/api2/group/msgs/{group_id}/
 
 **Request parameters**
 
@@ -617,7 +617,7 @@
         ]
     }
 
-#### <a id="check-group-message-detail"></a>Check Group Message Detail ####
+#### <a id="get-group-message-detail"></a>Get Group Message Detail ####
 
 **GET** https://cloud.seafile.com/api2/group/{group_id}/msg/{msg_id}/
 
@@ -664,7 +664,7 @@
 
 #### <a id="send-a-group-message"></a>Send A Group Message ####
 
-**POST** https://cloud.seafile.com/api2/group/msgs/{group_id}
+**POST** https://cloud.seafile.com/api2/group/msgs/{group_id}/
 
 **Request parameters**
 
@@ -709,7 +709,7 @@
 
 * 404 message not found 
 
-#### <a id="check-group-message-replies"></a>Check Group Message Replies ####
+#### <a id="get-group-message-replies"></a>Get Group Message Replies ####
 
 **GET** https://cloud.seafile.com/api2/new_replies/
 
@@ -818,9 +818,9 @@
     < HTTP/1.0 200 OK
     ...
 
-### <a id="shared-libs"></a>Shared Libs ###
+### <a id="shared-libs"></a>Shared Libraries ###
 
-#### <a id="list-shared-libs"></a>List Shared Libs ####
+#### <a id="list-shared-libs"></a>List Shared Libraries ####
 
 **GET** https://cloud.seafile.com/api2/shared-repos/
 
@@ -836,7 +836,7 @@
 
     [{"repo_id": "7d42522b-1f6f-465d-b9c9-879f8eed7c6c", "share_type": "personal", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1361072500, "repo_desc": "ff", "group_id": 0, "repo_name": "\u6d4b\u8bd5\u4e2d\u6587pdf"}, {"repo_id": "79bb29cd-b683-4844-abaf-433952723ca5", "share_type": "group", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1359182468, "repo_desc": "test", "group_id": 1, "repo_name": "test_enc"}]
     
-#### <a id="list-be-shared-libs"></a>List Be Shared Libs ####
+#### <a id="list-be-shared-libs"></a>List Be Shared Libraries ####
 
 **GET** https://cloud.seafile.com/api2/beshared-repos/
 
@@ -909,7 +909,7 @@
 
     {"priv_share_in": [{"s_type": "f", "repo_id": "989e3952-9d6f-4427-ab16-4bf9b53212eb", "permission": "r", "to_user": "user@example.com", "token": "94aace406a", "from_user": "user@example.com", "path": "/lib.md"}], "priv_share_out": [{"s_type": "f", "repo_id": "affc837f-7fdd-4e91-b88a-32caf99897f2", "permission": "r", "to_user": "user@example.com", "token": "b7b31bc39b", "from_user": "user@example.com", "path": "/lian123.md"}]}
     
-#### <a id="check-shared-file"></a>Check Shared File ####
+#### <a id="download-shared-file"></a>Download Shared File ####
 
 **GET** https://cloud.seafile.com/api2/f/{token}/
 
@@ -931,7 +931,7 @@
 * 404 repo/token/file not found 
 * 520 OPERATION FAILED, fail to get file id by path
 
-#### <a id="check-shared-file-detail"></a>Check Shared File Detail ####
+#### <a id="get-shared-file-detail"></a>Get Shared File Detail ####
 
 **GET** https://cloud.seafile.com/api2/f/{token}/detail/
 
@@ -972,7 +972,7 @@
     < HTTP/1.0 200 OK
     ...
 
-#### <a id="check-private-shared-file"></a>Check Private Shared File ####
+#### <a id="download-private-shared-file"></a>Download Private Shared File ####
 
 **GET** https://cloud.seafile.com/api2/s/f/{token}/
 
@@ -994,7 +994,7 @@
 * 404 repo/token/file not found 
 * 520 OPERATION FAILED, fail to get file id by path
 
-#### <a id="check-private-shared-file-detail"></a>Check Private Shared File Detail ###
+#### <a id="get-private-shared-file-detail"></a>Get Private Shared File Detail ###
 
 **GET** https://cloud.seafile.com/api2/s/f/{token}/detail/
 
@@ -1020,7 +1020,7 @@
 
 ### <a id="library-1"></a>Library
 
-#### <a id="check-default-lib"></a>Check Default Lib ###
+#### <a id="get-default-lib"></a>Get Default Library ###
 
 **GET** https://cloud.seafile.com/api2/default-repo/
 
@@ -1039,7 +1039,7 @@
         "exists": true
     }
 
-#### <a id="create-default-lib"></a>Create Default Lib ###
+#### <a id="create-default-lib"></a>Create Default Library ###
 
 **POST** https://cloud.seafile.com/api2/default-repo/
 
@@ -1099,7 +1099,7 @@
     }
     ]
 
-#### <a id="check-library-info"></a>Check Library Info ###
+#### <a id="get-library-info"></a>Get Library Info ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/
 
@@ -1127,7 +1127,7 @@
     "type": "repo"
     }
 
-#### <a id="check-library-owner"></a>Check Library Owner ###
+#### <a id="get-library-owner"></a>Get Library Owner ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/owner/
 
@@ -1146,7 +1146,7 @@
     "owner": "user@example.com"
     }
 
-#### <a id="check-library-history"></a>Check Library History ###
+#### <a id="get-library-history"></a>Get Library History ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/history/
 
@@ -1266,7 +1266,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 * 500 Internal server error
 
 
-#### <a id="set-library-public"></a>Set Library Public ###
+#### <a id="create-public-lib"></a>Create Public Library ###
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/public/
 
@@ -1295,7 +1295,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 * 403 Forbid to access this repo
 * 500 INTERNAL SERVER ERROR, Unable to make repo public
 
-#### <a id="set-library-private"></a>Set Library Private ###
+#### <a id="remove-public-lib"></a>Remove Public Library ###
 
 **DELETE** https://cloud.seafile.com/api2/repos/{repo-id}/public/
 
@@ -1322,7 +1322,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 * 404 Repo not found
 * 403 Forbid to access this repo
-* 500 INTERNAL SERVER ERROR, Unable to make repo private
+* 500 INTERNAL SERVER ERROR, Unable to remove public repo
 
 #### <a id="fetch-library-download-info"></a>Fetch library download info ###
 
@@ -1351,7 +1351,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
     "email": "user@example.com"
     }
 
-#### <a id="check-virtual-libraries"></a>Check Virtual Libraries ###
+#### <a id="list-virtual-libraries"></a>List Virtual Libraries ###
 
 **GET** https://cloud.seafile.com/api2/virtual-repos/
 
@@ -1382,7 +1382,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Sample request**
 
-    curl -G -H ‘Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96’ -H ‘Accept: application/json; indent=4’ https://cloud.seafile.com/api2/search/?q=keyword/ 
+    curl -G -H ‘Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96’ -H ‘Accept: application/json; indent=4’ https://cloud.seafile.com/api2/search/?q=keyword
 
 **Sample response**
 
@@ -1424,7 +1424,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 ### <a id="file"></a>File ##
 
-#### <a id="check-file"></a>Check File  ###
+#### <a id="download-file"></a>Download File  ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo
 
@@ -1448,7 +1448,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 * 404 File not found
 * 520 Operation failed.
 
-#### <a id="check-file-detail"></a>Check File Detail ###
+#### <a id="get-file-detail"></a>Get File Detail ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/detail/?p=/foo.c
 
@@ -1475,7 +1475,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 * 400 Path is missing
 * 520 Operation failed.
 
-#### <a id="check-file-history"></a>Check File History ###
+#### <a id="get-file-history"></a>Get File History ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/history/?p=/foo.c
 
@@ -1536,7 +1536,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 * 400 Path is missing
 * 404 File not found
 
-#### <a id="check-file-revision"></a>Check File Revision ###
+#### <a id="download-file-revision"></a>Download File From a Revision ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/revision/?p=/foo.c&commit_id=a1ec20709675f4dc8db825cdbca296be245d189b
 
@@ -1661,7 +1661,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 * 404 NOT FOUND, repo not found
 * 500 INTERNAL SERVER ERROR
 
-#### <a id="copy-repo-file"></a>Copy Repo File ###
+#### <a id="copy-file"></a>Copy File ###
 
 **POST** https://cloud.seafile.com/api2/repos/{repo_id}/fileops/copy/
 
@@ -1714,7 +1714,7 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Success**
 
-    Response code 200(OK) is returned and a disk.
+    Response code 200(OK) is returned.
 
 **Errors**
 
@@ -2147,7 +2147,7 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
         "newreplies": []
     }
 
-## <a id="check-file-events"></a>Check File Events ##
+## <a id="get-file-events"></a>Get File Activities ##
 
 **GET** https://cloud.seafile.com/api2/events/
 
