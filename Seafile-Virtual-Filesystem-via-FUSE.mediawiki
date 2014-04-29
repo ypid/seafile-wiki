@@ -9,6 +9,7 @@ Seaf-fuse is added since Seafile Server '''2.1.0'''.
 '''Note:'''
 * Encrypted folders can't be accessed by seaf-fuse.
 * Currently the implementation is '''read-only''', which means you can't modify the files through the mounted folder.
+* One debian/centos systems, you need to be in the "fuse" group to have the permission to mount a FUSE folder.
 
 === How to start seaf-fuse ===
 
@@ -73,4 +74,13 @@ $ ls -lhp /data/seafile-fuse/abc@abc.com/5403ac56-5552-4e31-a4f1-1de4eb889a5f_Ph
 -rw-r--r-- 1 root root 501K Jan  1  1970 sample.jpng
 </pre>
 
+==== If you get a "Permission denied" error ====
 
+If you get an error message saying "Permission denied" when running <code>./seaf-fuse.sh start</code>, most likely you are not in the "fuse group". You should:
+
+* Add yourself to the fuse group
+<pre>
+sudo usermod -a -G fuse <your-user-name>
+</pre>
+* Logout your shell and login again  
+* Now try <code>./seaf-fuse.sh start <path></code> again.
