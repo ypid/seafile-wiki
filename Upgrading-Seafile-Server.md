@@ -13,7 +13,7 @@ For example, upgrading from 1.2.0 to 1.3.0 (or upgrading from 1.2.0 to 1.3.1) is
 
 **Note:** Minor upgrade, like upgrade from 1.3.0 to 1.3.1, is documented in a separate section below.
 
-First, download seafile-server_1.3.0_x86-64.tar.gz and extract it to the directory where you put all Seafile related staff. You should have a directory layout similar to this:
+You should have a directory layout similar to this:
 
 <pre>
 haiwen
@@ -21,6 +21,30 @@ haiwen
    -- seafile-server-1.3.0
    -- ccnet
    -- seafile-data
+</pre>
+
+check if your system is x86 (32bit) or x86_64 (64 bit)
+
+<pre>
+uname -m
+</pre>
+
+Change to the directory where you where you put all Seafile related stuff and [http://www.seafile.com/en/download download] the latest server package.
+
+For Seafile Server 2.1.4 and later:
+
+<pre>
+#download for 32bit
+wget https://bitbucket.org/haiwen/seafile/downloads/seafile-server_{version}_i386.tar.gz
+#or for 64bit
+wget https://bitbucket.org/haiwen/seafile/downloads/seafile-server_{version}_x86-64.tar.gz
+</pre>
+
+Extract the files and move .gz-file to archive:
+
+<pre>
+tar -xzf seafile-server_*
+mv seafile-server_* installed
 </pre>
 
 Now upgrade to version 1.3.0.
