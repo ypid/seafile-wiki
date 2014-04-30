@@ -129,16 +129,16 @@ sudo make install
 when installing to a custom ```$PREFIX```, i.e. ```/opt```, you may need a script to set the path variables correctly
 
 ```bash
-cat >$PREFIX/bin/seafile-applet.sh
-#!/bin/bash
-DIR="$(pwd)/$(dirname $0)"
-export LD_LIBRARY_PATH="$DIR/../lib:$LD_LIBRARY_PATH"
-export PATH="$DIR:$PATH"
+cat >seafile-applet.sh
+#!/bin/bash                                                
+PREFIX=__PREFIX__
+export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
+export PATH="$PREFIX/bin:$PATH"
 seafile-applet
+# press [ctrl-d]
+sed -i "s/__PREFIX__/$PREFIX/" seafile-applet.sh
 ```
-end the script with a newline and then pressing [ctrl-d].
 you can now start the client with ```$PREFIX/bin/seafile-applet.sh```. 
-To be able to symlink this script anywhere, you need to replace DIR with ```DIR=/YOUR/CUSTOM/PREFIX/bin```
 
 ## Use Seafile Client ##
 
