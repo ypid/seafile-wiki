@@ -143,5 +143,5 @@ you can now start the client with ```$PREFIX/bin/seafile-applet.sh```.
 After you build and install Seafile client on Linux, you can start it by the `seafile-applet` command
 ```sh
    $ sudo ldconfig  ### (it is need sometimes after compilation)
-   $ seafile-applet ### use seafile-applet.sh when build into an custom prefix
+   $ seafile-applet ### use seafile-applet.sh if seafile was installed into a custom prefix
 ```
