@@ -55,7 +55,7 @@ Here is the sample configuration file:
         ssl_certificate_key /etc/ssl/privkey.pem;	# path to your privkey.pem
         server_name www.yourdoamin.com;    
         location / {
-            fastcgi_pass    127.0.0.1:8000;
+            proxy_pass      http://127.0.0.1:8000;
             fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
             fastcgi_param   PATH_INFO           $fastcgi_script_name;
      
