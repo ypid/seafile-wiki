@@ -17,7 +17,7 @@ Deploy/Upgrade Seafile in Production/Enterprise Environment
 * [[Configure Seafile to use LDAP]]
 * [[Upgrade Seafile Server|Upgrade Seafile with MySQL or PostgreSQL]] (with MySQL/PostgreSQL)
 
-Other Deploy Issues
+Other Deployment Issues
 
 * Add **Memcached** when Seahub becomes slow when you have a lot of users.
 * [[Firewall Settings for Seafile Server]]
@@ -26,9 +26,9 @@ Other Deploy Issues
 * [[Deploy Seafile Web at Non root domain]]
 * [[Migrate data from SQLite to MySQL]]
 
-**Read here** if you have troubles in setup Seafile server
+**Read here** if you have troubles setting up Seafile server
 
-1. Read [[Seafile Server Components Overview]] to understand how seafile server works. This will save you a lot of time.
+1. Read [[Seafile Server Components Overview]] to understand how Seafile server works. This will save you a lot of time.
 2. [[Common Problem in Setup Seafile Server]]
 3. Use our google group forum or IRC to get help.
 
@@ -71,7 +71,7 @@ Logs
 
 ## Sources
 
-You can build Seafile from our source code package or from Github repo directly.
+You can build Seafile from our source code package or from the Github repo directly.
 
 * [[Source code version for Seafile releases]]
 * [[Build and Deploy Seafile Server from source]]
