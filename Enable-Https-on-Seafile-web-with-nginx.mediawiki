@@ -40,7 +40,7 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
 
 === Sample configuration file ===
 
-Here is the sample configuration file:
+Here an example configuration file:
 
 ```nginx
     server {
