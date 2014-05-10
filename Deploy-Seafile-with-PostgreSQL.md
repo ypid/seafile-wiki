@@ -10,14 +10,14 @@ If you need to deploy Seafile with PostgreSQL, you need to download **seafile-se
 
 2. Setup PostgreSQL.
 
-	sudo apt-get install postgresql
+        sudo apt-get install postgresql
 
 3. Create seafile postgres user and required databases. (Obviously you should use a more secure password than seafile)
 
-	sudo -u postgres psql -U postgres -d postgres -c "CREATE USER seafile WITH PASSWORD 'seafile' CREATEDB;"
-	createdb ccnet_db -U seafile -W -h localhost
-	createdb seafile_db -U seafile -W -h localhost
-	createdb seahub_db -U seafile -W -h localhost
+        sudo -u postgres psql -U postgres -d postgres -c "CREATE USER seafile WITH PASSWORD 'seafile' CREATEDB;"
+        createdb ccnet_db -U seafile -W -h localhost
+        createdb seafile_db -U seafile -W -h localhost
+        createdb seahub_db -U seafile -W -h localhost
 
 3. Create 3 databases named `ccnet_db`, `seafile_db`, `seahub_db`. e.g., ``create database ccnet_db encoding 'utf8';``
 
