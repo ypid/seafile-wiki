@@ -133,8 +133,15 @@ cat >seafile-applet.sh <<END
 #!/bin/bash
 export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
 export PATH="$PREFIX/bin:$PATH"
-seafile-applet
+exec seafile-applet
 END
+cat >seaf-cli.sh <<END
+export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
+export PATH="$PREFIX/bin:$PATH"
+export PYTHONPATH=$PREFIX/lib/python2.7/site-packages
+exec seaf-cli
+END
+chmod +x seafile-applet.sh seaf-cli.sh
 ```
 you can now start the client with ```$PREFIX/bin/seafile-applet.sh```. 
 
