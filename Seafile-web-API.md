@@ -112,6 +112,7 @@
 <li><a href="#directory">Directory</a><ul>
 <li><a href="#list-directory-entries">List Directory Entries</a></li>
 <li><a href="#create-new-directory">Create New Directory</a></li>
+<li><a href="#delete-directory">Delete Directory</a></li>
 <li><a href="#download-directory">Download Directory</a></li>
 <li><a href="#share-directory">Share Directory</a></li>
 <li><a href="#batch-delete">Batch Delete</a></li>
