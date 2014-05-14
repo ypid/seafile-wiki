@@ -1073,7 +1073,7 @@
 
 **Sample response**
 
-[
+    [
     {
         "permission": "rw",
         "encrypted": false,
@@ -1100,7 +1100,7 @@
         "desc": "new library",
         "root": "0000000000000000000000000000000000000000"
     }
-] 
+    ] 
 
 #### <a id="get-library-info"></a>Get Library Info ###
 
