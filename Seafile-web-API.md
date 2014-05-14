@@ -1181,14 +1181,24 @@
 
 **Sample response**
 
-    ...
-    < Location: https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/
-    ...
-    "success"
+ {
+    "encrypted": "",
+    "enc_version": 0,
+    "repo_id": "f15811fd-5c19-412c-b143-2ac83f352290",
+    "magic": "",
+    "relay_id": "c5e41170db250ea497075e2911104faf0105b7fb",
+    "repo_version": 1,
+    "relay_addr": "cloud.seafile.com",
+    "token": "c1f3defe9ba408cd7964427ec276843e9d10c23b",
+    "relay_port": "10001",
+    "random_key": "",
+    "email": "user@mail.com",
+    "repo_name": "foo"
+}
 
 **Success**
 
-   Response code 201(Created) is returned, and Location header provides the url of created library.
+   Response code 200 and newly created library information are returned.
 
 **Errors**
 
@@ -2163,4 +2173,3 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 **Sample response**
 
      {"more_offset": 16, "events":[{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398078909, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-cli_3.0.2_i386.tar.gz\"."},{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398075540, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-server_3.0.0_x86-64.tar.gz\"."}], "more": false}
-
