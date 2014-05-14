@@ -1073,32 +1073,34 @@
 
 **Sample response**
 
-    [
+[
     {
-        "password_need": false,
+        "permission": "rw",
         "encrypted": false,
-        "name": "fdas",
-        "mtime": 1354690832,
-        "owner": "username@example.com",
-        "root": "af739e46538c06baf99ed46ee07db05ae4e30c8a",
-        "size": 31072,
+        "mtime": 1400054900,
+        "owner": "user@mail.com",
+        "id": "f158d1dd-cc19-412c-b143-2ac83f352290",
+        "size": 0,
+        "name": "foo",
         "type": "repo",
-        "id": "e817caa9-7d61-4921-ac2a-0c387cf8576a",
-        "desc": "fd"
+        "virtual": false,
+        "desc": "new library",
+        "root": "0000000000000000000000000000000000000000"
     },
     {
-        "password_need": false,
+        "permission": "rw",
         "encrypted": false,
-        "name": "test1",
-        "mtime": 1349759317,
-        "owner": "username@example.com",
-        "root": "0000000000000000000000000000000000000000",
+        "mtime": 1400054802,
+        "owner": "user@mail.com",
+        "id": "0536b11a-a5fd-4482-9314-728cb3472f54",
         "size": 0,
+        "name": "foo",
         "type": "repo",
-        "id": "1d672103-832d-4565-85c1-2a45d679b74f",
-        "desc": "test1"
+        "virtual": false,
+        "desc": "new library",
+        "root": "0000000000000000000000000000000000000000"
     }
-    ]
+] 
 
 #### <a id="get-library-info"></a>Get Library Info ###
 
