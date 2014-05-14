@@ -1183,7 +1183,7 @@
 
 **Sample response**
 
- {
+    {
     "encrypted": "",
     "enc_version": 0,
     "repo_id": "f15811fd-5c19-412c-b143-2ac83f352290",
@@ -1196,7 +1196,7 @@
     "random_key": "",
     "email": "user@mail.com",
     "repo_name": "foo"
-}
+    }
 
 **Success**
 
