@@ -1933,16 +1933,13 @@ The id of the updated file
     {
         "id": "0000000000000000000000000000000000000000",
         "type": "file",
-        "mime": "text/x-c",
         "name": "test1.c",
         "size": 0
     },
     {
         "id": "e4fe14c8cda2206bb9606907cf4fca6b30221cf9",
-        "type": "file",
-        "mime": "text/x-c",
-        "name": "test.c",
-        "size": 14
+        "type": "dir",
+        "name": "test_dir"
     }
     ]
 
