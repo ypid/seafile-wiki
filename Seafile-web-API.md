@@ -47,9 +47,9 @@
 <li><a href="#delete-file-share-link">Delete File Share Link</a></li>
 </ul>
 </li>
-<li><a href="#shared-libs">Shared Libraries</a><ul>
-<li><a href="#list-shared-libs">List Shared Libraries</a></li>
-<li><a href="#list-be-shared-libs">List Be Shared Libraries</a></li>
+<li><a href="#shared-libraries">Shared Libraries</a><ul>
+<li><a href="#list-shared-libraries">List Shared Libraries</a></li>
+<li><a href="#list-be-shared-libraries">List Be Shared Libraries</a></li>
 <li><a href="#share-a-library">Share A Library</a></li>
 <li><a href="#unshare-a-library">Unshare A Library</a></li>
 </ul>
