@@ -875,7 +875,7 @@
 
 #### <a id="unshare-a-library"></a>Unshare A Library ####
 
-**DELETE** https://cloud.seafile.com/api2/share-repos/{repo-id}/
+**DELETE** https://cloud.seafile.com/api2/shared-repos/{repo-id}/
 
 **Request parameters**
 
