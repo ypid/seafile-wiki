@@ -1149,6 +1149,10 @@
     "owner": "user@example.com"
     }
 
+**Errors**
+
+* 403 Permission error, only administrator can perform this action
+
 #### <a id="get-library-history"></a>Get Library History ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/history/
