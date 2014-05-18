@@ -8,7 +8,7 @@ On Ubuntu, we make use of the [https://help.ubuntu.com/community/UbuntuBootupHow
 sudo vim /etc/init.d/seafile-server
 </pre>
 The content of this script is:
-(You need to modify the value of '''user''' and '''script_path''' accordingly)
+(You need to modify the value of '''user''' and '''seafile_dir''' accordingly)
 <pre>
 #!/bin/bash
 
