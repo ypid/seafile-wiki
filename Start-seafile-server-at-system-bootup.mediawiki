@@ -10,7 +10,7 @@ sudo vim /etc/init.d/seafile-server
 The content of this script is:
 (You need to modify the value of '''user''' and '''script_path''' accordingly)
 <pre>
-#!/bin/sh
+#!/bin/bash
 
 # Change the value of "user" to your linux user name
 user=haiwen
