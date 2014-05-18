@@ -15,7 +15,7 @@ The content of this script is:
 # Change the value of "user" to your linux user name
 user=haiwen
 
-# Change the value of "script_path" to your path of seafile installation
+# Change the value of "seafile_dir" to your path of seafile installation
 seafile_dir=/data/haiwen
 script_path=${seafile_dir}/seafile-server-latest
 seafile_init_log=${seafile_dir}/logs/seafile.init.log
