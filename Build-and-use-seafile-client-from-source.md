@@ -33,10 +33,10 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 ```bash
 sudo apt-get install autoconf automake libtool libevent-dev libcurl4-openssl-dev libgtk2.0-dev uuid-dev intltool libsqlite3-dev valac libjansson-dev libqt4-dev cmake libfuse-dev
 ```
-For a fresh Fedora 19 installation, the following will install all dependencies via YUM:
+For a fresh Fedora 20 installation, the following will install all dependencies via YUM:
 
 ```bash
-$ sudo yum install wget gcc libevent-devel openssl-devel gtk2-devel libuuid-devel sqlite-devel jansson-devel intltool cmake qt-devel fuse-devel
+$ sudo yum install wget gcc libevent-devel openssl-devel gtk2-devel libuuid-devel sqlite-devel jansson-devel intltool cmake qt-devel fuse-devel libtool vala gcc-c++
 ```
 
 #### Building ####
