@@ -2,8 +2,6 @@
 
 # Deploy Seafile with PostgreSQL #
 
-If you need to deploy Seafile with PostgreSQL, you need to download **seafile-server-1.7.0 or above**.
-
 ## Preparation ##
 
 1. [[Download and setup seafile server]], then start seafile and seahub and make sure everything is OK.
