@@ -32,3 +32,7 @@ Solutions:
 
 1. Run installation script as non-root user
 2. Copy /media folder to var/www/ and edit the Alias location in /etc/apache2/sites-enabled/000-default
+
+#### "Error when calling the metaclass bases" during Seafile initialization
+
+Seafile uses Django 1.5, which requires Python 2.6.5+. Make sure your Python version >= 2.6.5.
