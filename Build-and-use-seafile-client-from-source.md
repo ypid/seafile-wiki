@@ -97,8 +97,6 @@ sudo make install
 
 ##### ccnet #####
 
-NOTE: If libsearpc is not found while executing `configure` below, run: `export PKG_CONFIG_PATH=/usr/lib/pkgconfig`.
-
 ```bash
 cd ccnet-${version}
 ./autogen.sh
