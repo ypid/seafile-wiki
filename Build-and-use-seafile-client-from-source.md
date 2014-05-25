@@ -29,6 +29,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * valac
 * cmake
 * libfuse-dev (for seafile >= 2.1)
+* python-simplejson (for seaf-cli)
 
 ```bash
 sudo apt-get install autoconf automake libtool libevent-dev libcurl4-openssl-dev libgtk2.0-dev uuid-dev intltool libsqlite3-dev valac libjansson-dev libqt4-dev cmake libfuse-dev
