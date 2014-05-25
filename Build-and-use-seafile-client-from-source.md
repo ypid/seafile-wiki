@@ -128,19 +128,19 @@ sudo make install
 when installing to a custom ```$PREFIX```, i.e. ```/opt```, you may need a script to set the path variables correctly
 
 ```bash
-cat >$PREFIX/seafile-applet.sh <<END
+cat >$PREFIX/bin/seafile-applet.sh <<END
 #!/bin/bash
 export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
 export PATH="$PREFIX/bin:$PATH"
 exec seafile-applet $@
 END
-cat >$PREFIX/seaf-cli.sh <<END
+cat >$PREFIX/bin/seaf-cli.sh <<END
 export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
 export PATH="$PREFIX/bin:$PATH"
 export PYTHONPATH=$PREFIX/lib/python2.7/site-packages
 exec seaf-cli $@
 END
-chmod +x $PREFIX/seafile-applet.sh $PREFIX/seaf-cli.sh
+chmod +x $PREFIX/bin/seafile-applet.sh $PREFIX/bin/seaf-cli.sh
 ```
 you can now start the client with ```$PREFIX/bin/seafile-applet.sh```. 
 
