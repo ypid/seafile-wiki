@@ -40,60 +40,48 @@ Assume you have configured nginx as [[Deploy-Seafile-with-nginx]]. To use https,
 
 === Sample configuration file ===
 
-Here an example configuration file:
+Here is the sample configuration file:
 
 ```nginx
     server {
-      listen       80;
-      server_name  seafile.example.net;
-      rewrite ^ https://$http_host$request_uri? permanent;      # force redirect http to https
-  }
-  server {
-      listen 443;
-      ssl on;
-      add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
-      server_name seafile.example.net;
-      # global SSL options with Perfect Forward Secrecy (PFS) high strength ciphers
- # first. PFS ciphers are those which start with ECDHE which means (EC)DHE
- # which stands for (Elliptic Curve) Diffie-Hellman Ephemeral.
-  ssl_ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA;
-  ssl_ecdh_curve secp521r1;
-  ssl_prefer_server_ciphers on;
-  ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
-  resolver 8.8.8.8;
-  ssl_stapling on;
-# ssl_session_cache shared:SSL:20m;
- ssl_session_timeout 10m; # SPDY timeout=1800sec, keepalive=200sec; connection close=session expires
-      location / {
-          fastcgi_pass    127.0.0.1:8000;
-          fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
-    fastcgi_param   PATH_INFO           $fastcgi_script_name;
-
-          fastcgi_param   SERVER_PROTOCOL       $server_protocol;
-          fastcgi_param   QUERY_STRING        $query_string;
-          fastcgi_param   REQUEST_METHOD      $request_method;
-          fastcgi_param   CONTENT_TYPE        $content_type;
-          fastcgi_param   CONTENT_LENGTH      $content_length;
-          fastcgi_param   SERVER_ADDR         $server_addr;
-          fastcgi_param   SERVER_PORT         $server_port;
-          fastcgi_param   SERVER_NAME         $server_name;
-          fastcgi_param   HTTPS               on;
-          fastcgi_param   HTTP_SCHEME         https;
-
-          access_log      /var/log/nginx/seahub.access.log;
-            error_log       /var/log/nginx/seahub.error.log;
-      } 
-      location /seafhttp {
-          rewrite ^/seafhttp(.*)$ $1 break;
-          proxy_pass http://127.0.0.1:8082;
-          client_max_body_size 0;
-
-      location /media {
-          root /home/user/haiwen/seafile-server-latest/seahub;
-      }
-  }
-
-
+        listen       80;
+        server_name  www.yourdoamin.com;
+        rewrite ^ https://$http_host$request_uri? permanent;	# force redirect http to https
+    }
+    server {
+        listen 443;
+        ssl on;
+        ssl_certificate /etc/ssl/cacert.pem;            # path to your cacert.pem
+        ssl_certificate_key /etc/ssl/privkey.pem;	# path to your privkey.pem
+        server_name www.yourdoamin.com;    
+        location / {
+            fastcgi_pass    127.0.0.1:8000;
+            fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
+            fastcgi_param   PATH_INFO           $fastcgi_script_name;
+     
+            fastcgi_param   SERVER_PROTOCOL	$server_protocol;
+            fastcgi_param   QUERY_STRING        $query_string;
+            fastcgi_param   REQUEST_METHOD      $request_method;
+            fastcgi_param   CONTENT_TYPE        $content_type;
+            fastcgi_param   CONTENT_LENGTH      $content_length;
+            fastcgi_param   SERVER_ADDR         $server_addr;
+            fastcgi_param   SERVER_PORT         $server_port;
+            fastcgi_param   SERVER_NAME         $server_name;
+            fastcgi_param   HTTPS               on;
+            fastcgi_param   HTTP_SCHEME         https;
+     
+            access_log      /var/log/nginx/seahub.access.log;
+    	    error_log       /var/log/nginx/seahub.error.log;
+        }       
+        location /seafhttp {
+            rewrite ^/seafhttp(.*)$ $1 break;
+            proxy_pass http://127.0.0.1:8082;
+            client_max_body_size 0;
+        }
+        location /media {
+            root /home/user/haiwen/seafile-server-latest/seahub;
+        }
+    }
 ```
 
 === Reload Nginx ===
