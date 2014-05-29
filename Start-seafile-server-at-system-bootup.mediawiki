@@ -113,6 +113,7 @@ sudo vim /etc/init.d/seafile-server
 </pre>
 The content of this script is:
 (You need to modify the value of '''user''' and '''script_path''' accordingly)
+
 <pre>
 #!/bin/sh
 
@@ -169,7 +170,16 @@ case "$1" in
         ;;
 esac
 </pre>
-'''Note''': If you want to start seahub in fastcgi, just change the '''fastcgi''' variable to '''true'''
+'''Note''':
+
+# If you want to start seahub in fastcgi, just change the '''fastcgi''' variable to '''true'''
+# If you deployed Seafile with MySQL,  append "mysql" to the Required-Start line: 
+<pre>
+# Required-Start: $local_fs $remote_fs $network mysql
+</pre>
+
+
+
 === Add Directory for Logfiles ===
 
 <pre> mkdir /path/to/seafile/dir/logs</pre>
