@@ -21,7 +21,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * libcurl4-openssl-dev  (1.0.0 or later)
 * libgtk2.0-dev ( 2.24 or later)
 * uuid-dev
-* intltool ( 0.40 or later) 
+* intltool (0.40 or later) 
 * libsqlite3-dev (3.7 or later)
 * valac  (only needed if you build from git repo)
 * libjansson-dev
@@ -46,22 +46,22 @@ First you should get the latest source of libsearpc/ccnet/seafile/seafile-client
 
 Download the source tarball of the latest tag from 
 
-- https://github.com/haiwen/libsearpc/tags
+- https://github.com/haiwen/libsearpc/tags (use v3.0-latest)
 - https://github.com/haiwen/ccnet/tags
 - https://github.com/haiwen/seafile/tags
 - https://github.com/haiwen/seafile-client/tags
 
-For example, if the latest released seafile client is 2.0.8, then just use the **v2.0.8** tags of the four projects. You should get four tarballs:
+For example, if the latest released seafile client is 3.0.2, then just use the **v3.0.2** tags of the four projects. You should get four tarballs:
 
-- libsearpc-2.0.8.tar.gz
-- ccnet-2.0.8.tar.gz
-- seafile-2.0.8.tar.gz
-- seafile-client-2.0.8.tar.gz
+- libsearpc-v3.0-latest.tar.gz
+- ccnet-3.0.2.tar.gz
+- seafile-3.0.2.tar.gz
+- seafile-client-3.0.2.tar.gz
 
 ```sh
-export version=2.0.8
+export version=3.0.2
 alias wget='wget --content-disposition -nc'
-wget https://github.com/haiwen/libsearpc/archive/v${version}.tar.gz
+wget https://github.com/haiwen/libsearpc/archive/v3.0-latest.tar.gz
 wget https://github.com/haiwen/ccnet/archive/v${version}.tar.gz
 wget https://github.com/haiwen/seafile/archive/v${version}.tar.gz
 wget https://github.com/haiwen/seafile-client/archive/v${version}.tar.gz
@@ -70,7 +70,7 @@ wget https://github.com/haiwen/seafile-client/archive/v${version}.tar.gz
 Now uncompress them:
 
 ```sh
-tar xf libsearpc-${version}.tar.gz
+tar xf libsearpc-v3.0-latest.tar.gz
 tar xf ccnet-${version}.tar.gz
 tar xf seafile-${version}.tar.gz
 tar xf seafile-client-${version}.tar.gz
