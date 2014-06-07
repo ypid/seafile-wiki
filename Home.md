@@ -68,6 +68,7 @@ Logs
 * [[Seafile Data Model]]
 * [[Seafile synchronization algorithm]]
 * [[Seafile web API]]
+* [[Seafile Python API]]
 
 ## Sources
 
