@@ -2,7 +2,7 @@
 
 ### The components of Seafile client ###
 
-Seafile client v2.0 consists of three components:
+Seafile client v3.0 consists of three components:
 
 * ccnet-daemon: for networking
 * seafile-daemon: for file syncing
