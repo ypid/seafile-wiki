@@ -100,6 +100,8 @@ SERVICE_URL = https://www.yourdomain.com
 
 === seahub_settings.py ===
 
+At the end of the file, add a line:
+
 ```python
 HTTP_SERVER_ROOT = 'https://www.yourdomain.com/seafhttp'
 ```
