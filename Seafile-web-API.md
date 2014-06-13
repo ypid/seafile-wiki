@@ -1,6 +1,7 @@
 <p><div class="toc">
 <ul>
 <li><a href="#seafile-web-api-v2">Seafile Web API V2</a><ul>
+<li><a href="#status-code">Status Code</a></li>
 <li><a href="#quick-start">Quick Start</a></li>
 <li><a href="#account">Account</a><ul>
 <li><a href="#list-accounts">List Accounts</a></li>
@@ -136,6 +137,22 @@
 </p>
 
 # <a id="seafile-web-api-v2"></a>Seafile Web API V2 #
+
+## <a id="status-code"></a>Status Code ##
+
+- 200: OK
+- 201: CREATED
+- 202: ACCEPTED
+- 301: MOVED_PERMANENTLY
+- 400: BAD_REQUEST
+- 403: FORBIDDEN
+- 404: NOT_FOUND
+- 409: CONFLICT
+- 429: TOO_MANY_REQUESTS
+- 440: REPO_PASSWD_REQUIRED
+- 441: REPO_PASSWD_MAGIC_REQUIRED 
+- 500: INTERNAL_SERVER_ERROR
+- 520: OPERATION_FAILED
 
 ## <a id="quick-start"></a>Quick Start ##
 
@@ -1801,8 +1818,6 @@ After getting the upload link, POST to this link for uploading files.
     400 Bad request
     440 Invalid filename
     441 File already exists
-    442 File size is too large
-    443 Out of quota
     500 Internal server error
 
 **Sample request**
@@ -1866,8 +1881,6 @@ The id of the updated file
 
 - 400 Bad request
 - 440 Invalid filename
-- 442 File size is too large
-- 443 Out of quota
 - 500 Internal server error
 
 #### <a id="get-upload-blks-link"></a>Get Upload Blocks Link
