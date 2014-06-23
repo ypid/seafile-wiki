@@ -43,7 +43,7 @@ Git's merge algorithm doesn't work well enough for auto synchronization.
 
 Firstly, if a merge is interrupted, git requires you to reset to the latest commit and
 merge again. It's not a problem for Git since it's a single command.
-But seafile runs as a daemon and may be kill at any time.
+But seafile runs as a daemon and may be killed at any time.
 The user may have changed some files in the worktree between the interruption
 and restart. Resetting the worktree will LOSE user's uncommitted data.
 
