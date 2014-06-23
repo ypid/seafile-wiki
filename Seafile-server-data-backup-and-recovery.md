@@ -24,22 +24,22 @@ If you setup seafile server according to our manual, you should have a directory
 
 <!-- └── seahub_settings.pyc # Bytecode version of seahub_settings.py -->
 
-All your library data is stored under the 'haiwen' directory.
+All your library data is stored under the `haiwen` directory.
 
 Seafile also stores some important metadata data in a few databases. The names and locations of these databases depends on which database software you use.
 
 For SQLite, the database files are also under the 'haiwen' directory. The locations are:
 
-* ccnet/PeerMgr/usermgr.db: contains user information
-* ccnet/GroupMgr/groupmgr.db: contains group information
-* seafile-data/seafile.db: contains library metadata
-* seahub.db: contains tables used by the web front end (seahub)
+* `ccnet/PeerMgr/usermgr.db`: contains user information
+* `ccnet/GroupMgr/groupmgr.db`: contains group information
+* `seafile-data/seafile.db`: contains library metadata
+* `seahub.db`: contains tables used by the web front end (seahub)
 
 For MySQL, the databases are created by the administrator, so the names can be different from one deployment to another. There are 3 databases:
 
-* ccnet-db: contains user and group information
-* seafile-db: contains library metadata
-* seahub.db: contains tables used by the web front end (seahub)
+* `ccnet-db`: contains user and group information
+* `seafile-db`: contains library metadata
+* `seahub.db`: contains tables used by the web front end (seahub)
 
 ## Backup steps ##
 
